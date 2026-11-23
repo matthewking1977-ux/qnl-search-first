@@ -1,0 +1,42 @@
+---
+// Six top tasks: a strong label and one line of help each. No icons.
+import { t, localPath, type Lang } from '../i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tasks = [
+  ['member', '/item/sv-membership'],
+  ['study', '/item/sv-study'],
+  ['find', '/search'],
+  ['events', '/search?type=events'],
+  ['visit', '/item/pg-visit'],
+  ['ask', '/item/sv-ask'],
+] as const;
+---
+<section id="tasks" class="tasks-band section" aria-labelledby="tasks-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="t-eyebrow">{t(lang, 'tasks.eyebrow')}</p>
+      <h2 id="tasks-h" class="t-h2">{t(lang, 'tasks.title')}</h2>
+    </div>
+    <ul class="grid" role="list">
+      {tasks.map(([k, href]) => (
+        <li data-reveal>
+          <a class="task" href={localPath(lang, href)}>
+            <span class="task__label">{t(lang, `task.${k}` as any)}</span>
+            <span class="task__go"><span class="task__help">{t(lang, `task.${k}.help` as any)}</span><span class="arrow icon-dir" aria-hidden="true">→</span></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .tasks-band { background: var(--color-paper-2); }
+  .head { display: grid; gap: var(--s-1); margin-block-end: var(--s-5); }
+  .head h2, .head p { margin: 0; }
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-2); }
+  .grid > li { display: grid; }
+  .grid :global(.task) { min-block-size: 11rem; }
+  @media (max-width: 64rem) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 36rem) { .grid { grid-template-columns: 1fr; } .grid :global(.task) { min-block-size: 8rem; } }
+</style>

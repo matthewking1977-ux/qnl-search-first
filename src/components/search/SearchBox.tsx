@@ -1,5 +1,5 @@
 /** @jsxImportSource preact */
-import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
+import { useEffect, useId, useMemo, useRef, useState } from 'preact/hooks';
 import type { JSX } from 'preact';
 import { LocalIndexAdapter } from '../../search/LocalIndexAdapter';
 import { highlight } from '../../search/highlight';
@@ -72,7 +72,7 @@ function metaLine(r: LibraryRecord, lang: Lang, s: S): string {
 }
 
 export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuery = '', initialGroup = 'all', autoFocusDesktop = false }: Props) {
-  const uid = useMemo(() => `sb${Math.random().toString(36).slice(2, 7)}`, []);
+  const uid = `sb${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const [mode, setMode] = useState<'library' | 'ask'>('library');
   const [q, setQ] = useState(initialQuery);
   const [group, setGroup] = useState<Group | 'all'>(initialGroup);

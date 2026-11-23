@@ -1,0 +1,26 @@
+---
+import SentenceBuilder from './foryou/SentenceBuilder.tsx';
+import { t, type Lang } from '../i18n';
+import data from '../content/personas.json';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const { personas, cards, sentence } = data as any;
+---
+<section id="for-you" class="foryou section" aria-labelledby="fy-h">
+  <div class="wrap">
+    <h2 id="fy-h" class="t-eyebrow">{t(lang, 'forYou.eyebrow')}</h2>
+    <SentenceBuilder
+      client:visible
+      lang={lang}
+      sentence={sentence[lang]}
+      personas={personas}
+      cards={cards}
+      s={{ live: t(lang, 'forYou.live'), cards: t(lang, 'forYou.cards'), note: t(lang, 'forYou.note') }}
+    />
+  </div>
+</section>
+<style>
+  .foryou { background: var(--color-paper); }
+  .foryou h2 { margin: 0 0 var(--s-3); }
+</style>

@@ -1,0 +1,62 @@
+/* Sentence builder + For you cards. No background changes on selection. */
+.fy { display: grid; gap: var(--s-2); }
+.fy-sentence {
+  margin: 0;
+  font: 400 var(--fs-h2)/1.25 var(--font-sans);
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.fy-sentence[lang='ar'] { font-family: var(--font-arabic); line-height: 1.5; letter-spacing: 0; }
+.fy-note { margin: 0; font-size: var(--fs-sm); color: var(--color-grey-600); }
+
+/* Select-only combobox */
+.sel { position: relative; display: inline-block; }
+.sel-box {
+  display: inline-flex; align-items: baseline; gap: 0.25em; cursor: pointer;
+  color: var(--color-accent); font-weight: 500;
+  border-block-end: 2px solid currentColor; padding-block-end: 0.02em;
+  border-radius: 0;
+  transition: color var(--dur-1) var(--ease-out-expo);
+}
+.sel-box:hover, .sel-box.is-open { color: var(--color-accent-hover); }
+.sel-box:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: var(--radius-1); }
+.sel-chev {
+  inline-size: 0.6em; block-size: 0.6em; align-self: center; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  transition: rotate var(--dur-2) var(--ease-out-expo);
+}
+.sel-box.is-open .sel-chev { rotate: 180deg; }
+.sel-list {
+  position: absolute; z-index: 25; inset-block-start: calc(100% + 0.5rem); inset-inline-start: 0;
+  min-inline-size: max(100%, 16rem); max-block-size: 20rem; overflow-y: auto;
+  margin: 0; padding: 0.4rem 0; list-style: none;
+  background: var(--color-paper); border: 1px solid var(--color-ink); border-radius: var(--radius-2);
+  font: 400 var(--fs-base)/1.35 var(--font-sans); letter-spacing: 0; color: var(--color-ink);
+}
+[lang='ar'] .sel-list { font-family: var(--font-arabic); }
+.sel-opt {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  min-block-size: 2.75rem; padding: 0.5rem 1rem; cursor: pointer; white-space: nowrap;
+  border-inline-start: 2px solid transparent;
+}
+.sel-opt.is-active { background: var(--color-paper-2); border-inline-start-color: var(--color-accent); }
+.sel-opt.is-selected { font-weight: 500; }
+.sel-opt svg { inline-size: 1rem; block-size: 1rem; fill: none; stroke: var(--color-accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .sel-list:not([hidden]) { animation: sel-in var(--dur-2) var(--ease-out-expo); }
+  @keyframes sel-in { from { opacity: 0; translate: 0 -4px; } }
+}
+
+/* Cards */
+.fy-cards {
+  list-style: none; margin: var(--s-3) 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-2);
+}
+.fy-cards > li { display: grid; }
+@media (max-width: 64rem) { .fy-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 36rem) { .fy-cards { grid-template-columns: 1fr; } .fy-cards .task { min-block-size: 7.5rem; } }
+@media (prefers-reduced-motion: no-preference) {
+  .fy-cards[data-anim] > li { animation: fy-in 280ms var(--ease-out-expo) both; animation-delay: calc(var(--i) * 40ms); }
+  @keyframes fy-in { from { opacity: 0; translate: 0 8px; } }
+}

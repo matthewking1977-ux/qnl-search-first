@@ -2,15 +2,15 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import FooterMini from '../components/FooterMini.astro';
+import ForYou from '../components/ForYou.astro';
+import TopTasks from '../components/TopTasks.astro';
 import { heroPreload } from '../lib/preload';
 ---
 <Base lang="en" preloadImage={heroPreload()}>
   <main id="main" tabindex="-1">
     <Hero lang="en" />
-    <section class="wrap" style="padding-block:4rem">
-      <p class="t-eyebrow">Phase 3 · hero and Today strip</p>
-      <p class="t-lead prose-measure">Sections below the hero (For you, top tasks, What's on, collections, heritage, research, newsletter, footer) arrive in Phases 4 and 5.</p>
-    </section>
+    <ForYou lang="en" />
+    <TopTasks lang="en" />
   </main>
   <FooterMini lang="en" />
 </Base>

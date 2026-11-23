@@ -1,0 +1,77 @@
+{
+  "_note": "Sentence builder (from Concept B): 'I'm [persona] looking for [need]'. Each persona has its own needs; each pair maps to four task cards. Card hrefs point at sample item pages or search URLs. SAMPLE.",
+  "sentence": {
+    "en": { "before": "I'm", "middle": "looking for" },
+    "ar": { "before": "أنا من", "middle": "وأبحث عن" }
+  },
+  "personas": [
+    { "id": "student", "en": "a student", "ar": "الطلاب",
+      "needs": [
+        { "id": "study", "en": "a study space", "ar": "مساحة للدراسة", "cards": ["study", "group", "wifi", "printing"] },
+        { "id": "course", "en": "books for my course", "ar": "كتب لمقرراتي", "cards": ["catalogue", "borrow", "ebooks", "renew"] },
+        { "id": "databases", "en": "articles and databases", "ar": "مقالات وقواعد بيانات", "cards": ["databases", "interlibrary", "ask", "referencing"] },
+        { "id": "referencing", "en": "help with referencing", "ar": "مساعدة في التوثيق", "cards": ["referencing", "consult", "ask", "databases"] }
+      ] },
+    { "id": "researcher", "en": "a researcher", "ar": "الباحثين",
+      "needs": [
+        { "id": "articles", "en": "journal articles", "ar": "مقالات الدوريات", "cards": ["databases", "interlibrary", "openaccess", "citation"] },
+        { "id": "support", "en": "research support", "ar": "دعم البحث", "cards": ["consult", "ask", "openaccess", "referencing"] },
+        { "id": "rare", "en": "rare collections", "ar": "المجموعات النادرة", "cards": ["heritage", "qdl", "manuscripts", "consult"] },
+        { "id": "quiet", "en": "a quiet place to work", "ar": "مكان هادئ للعمل", "cards": ["study", "wifi", "printing", "hours"] }
+      ] },
+    { "id": "parent", "en": "a parent or carer", "ar": "أولياء الأمور",
+      "needs": [
+        { "id": "kidsbooks", "en": "books for my children", "ar": "كتب لأطفالي", "cards": ["childrens", "member", "ebooks", "kidsevents"] },
+        { "id": "activities", "en": "family activities", "ar": "أنشطة عائلية", "cards": ["storytime", "kidsevents", "childrens", "tour"] },
+        { "id": "homework", "en": "homework help", "ar": "المساعدة في الواجبات", "cards": ["homework", "ask", "childrens", "school"] }
+      ] },
+    { "id": "visitor", "en": "a first-time visitor", "ar": "الزوار الجدد",
+      "needs": [
+        { "id": "plan", "en": "a way to plan my visit", "ar": "طريقة لتخطيط زيارتي", "cards": ["visit", "hours", "metro", "parking"] },
+        { "id": "see", "en": "things to see", "ar": "معالم تستحق المشاهدة", "cards": ["tour", "heritage", "whatson", "qdl"] },
+        { "id": "join", "en": "how to join", "ar": "طريقة الانضمام", "cards": ["member", "borrow", "ebooks", "access"] }
+      ] },
+    { "id": "professional", "en": "a professional", "ar": "المهنيين",
+      "needs": [
+        { "id": "business", "en": "business information", "ar": "معلومات الأعمال", "cards": ["business", "databases", "consult", "study"] },
+        { "id": "skills", "en": "new skills", "ar": "مهارات جديدة", "cards": ["training", "languages", "ebooks", "member"] },
+        { "id": "workspace", "en": "a place to work", "ar": "مكان للعمل", "cards": ["study", "group", "wifi", "printing"] }
+      ] }
+  ],
+  "cards": {
+    "study":        { "href": "/item/sv-study",          "en": ["Book a study space", "Reserve a quiet desk or a group room."], "ar": ["احجز مساحة للدراسة", "احجز مكتبًا هادئًا أو غرفة جماعية."] },
+    "group":        { "href": "/item/sv-study",          "en": ["Group study rooms", "Rooms with screens for up to [TBC] people."], "ar": ["غرف الدراسة الجماعية", "غرف مزوّدة بشاشات تتسع لعدد يصل إلى [يُحدَّد لاحقًا] أشخاص."] },
+    "wifi":         { "href": "/item/sv-wifi",           "en": ["Wi-Fi and computers", "Free Wi-Fi and public PCs on every floor."], "ar": ["الإنترنت اللاسلكي والحواسيب", "إنترنت لاسلكي مجاني وحواسيب عامة في كل طابق."] },
+    "printing":     { "href": "/item/sv-printing",       "en": ["Print, copy and scan", "Print from your own device or a library PC."], "ar": ["الطباعة والنسخ والمسح", "اطبع من جهازك أو من أحد حواسيب المكتبة."] },
+    "catalogue":    { "href": "/search?type=books",      "en": ["Search the catalogue", "Find books and check where they are shelved."], "ar": ["ابحث في الفهرس", "اعثر على الكتب وتعرّف على أماكنها على الرفوف."] },
+    "borrow":       { "href": "/item/sv-borrow",         "en": ["Borrowing and returns", "How many items, for how long, and where to return."], "ar": ["الإعارة والإرجاع", "عدد المواد ومدة الإعارة وأماكن الإرجاع."] },
+    "ebooks":       { "href": "/item/db-07",             "en": ["eBooks and audiobooks", "Borrow on your phone with your library card."], "ar": ["الكتب الإلكترونية والصوتية", "استعر على هاتفك ببطاقة المكتبة."] },
+    "renew":        { "href": "/item/sv-renew",          "en": ["Renew your loans", "Extend due dates in My Account."], "ar": ["جدّد إعاراتك", "مدّد مواعيد الإرجاع من حسابي."] },
+    "databases":    { "href": "/search?type=research",   "en": ["Databases A–Z", "Journals, ebooks and data, many available remotely."], "ar": ["قواعد البيانات من الألف إلى الياء", "دوريات وكتب إلكترونية وبيانات، أغلبها متاح عن بُعد."] },
+    "interlibrary": { "href": "/item/sv-interlibrary",   "en": ["Request an article", "Get items we don't hold from partner libraries."], "ar": ["اطلب مقالة", "احصل على مواد غير متوفرة لدينا من مكتبات شريكة."] },
+    "ask":          { "href": "/item/sv-ask",            "en": ["Ask a librarian", "Chat, email or book a one-to-one."], "ar": ["اسأل أمين المكتبة", "عبر المحادثة أو البريد الإلكتروني أو بموعد فردي."] },
+    "referencing":  { "href": "/item/ev-14",             "en": ["Reference managers in an hour", "A short workshop on citing sources."], "ar": ["برامج إدارة المراجع في ساعة", "ورشة قصيرة عن توثيق المصادر."] },
+    "consult":      { "href": "/item/sv-consult",        "en": ["Book a research consultation", "One-to-one help from a subject librarian."], "ar": ["احجز استشارة بحثية", "مساعدة فردية من أمين مكتبة متخصص."] },
+    "openaccess":   { "href": "/item/sv-openaccess",     "en": ["Open Access support", "Funding, licences and depositing your work."], "ar": ["دعم النشر بالوصول الحر", "التمويل والتراخيص وإيداع أعمالك."] },
+    "citation":     { "href": "/item/db-09",             "en": ["Citation index", "Track citations and export references."], "ar": ["فهرس الاستشهادات", "تتبّع الاستشهادات وصدّر المراجع."] },
+    "heritage":     { "href": "/item/pg-heritage",       "en": ["Heritage Library", "Rare books, manuscripts and maps."], "ar": ["مكتبة التراث", "كتب نادرة ومخطوطات وخرائط."] },
+    "qdl":          { "href": "/item/hr-09",             "en": ["Qatar Digital Library", "Digitised archives about the Gulf, free online."], "ar": ["مكتبة قطر الرقمية", "وثائق رقمية عن الخليج، مجانًا عبر الإنترنت."] },
+    "manuscripts":  { "href": "/search?q=manuscripts&type=heritage", "en": ["Browse manuscripts", "Sample records from the collection."], "ar": ["تصفّح المخطوطات", "سجلات نموذجية من المجموعة."] },
+    "hours":        { "href": "/item/sv-hours",          "en": ["Opening hours", "Today: open until [TBC]."], "ar": ["مواعيد العمل", "اليوم: مفتوحة حتى [يُحدَّد لاحقًا]."] },
+    "childrens":    { "href": "/item/pg-children",       "en": ["Children's Library", "Books and spaces for ages 0–12."], "ar": ["مكتبة الأطفال", "كتب ومساحات للأعمار من 0 إلى 12 سنة."] },
+    "member":       { "href": "/item/sv-membership",     "en": ["Become a member", "Register online in a few minutes."], "ar": ["انضم عضوًا", "سجّل عبر الإنترنت في دقائق."] },
+    "kidsevents":   { "href": "/search?q=children&type=events", "en": ["Events for children", "Storytimes, crafts and science."], "ar": ["فعاليات للأطفال", "حكايات وحِرَف وعلوم."] },
+    "storytime":    { "href": "/item/ev-01",             "en": ["Storytime", "Songs and stories for ages 3–5."], "ar": ["وقت الحكاية", "أناشيد وحكايات للأعمار من 3 إلى 5 سنوات."] },
+    "tour":         { "href": "/item/ev-11",             "en": ["Building tour", "A guided walk through the library."], "ar": ["جولة في المبنى", "جولة مرشدة داخل المكتبة."] },
+    "homework":     { "href": "/item/db-10",             "en": ["Homework help", "Articles, videos and quizzes for school projects."], "ar": ["المساعدة في الواجبات", "مقالات ومقاطع فيديو واختبارات للمشاريع المدرسية."] },
+    "school":       { "href": "/item/sv-schools",        "en": ["School visits", "Book a class visit."], "ar": ["الزيارات المدرسية", "احجز زيارة صفية."] },
+    "visit":        { "href": "/item/pg-visit",          "en": ["Plan your visit", "Hours, facilities and what to bring."], "ar": ["خطّط لزيارتك", "المواعيد والمرافق وما تحتاج إلى إحضاره."] },
+    "metro":        { "href": "/item/sv-metro",          "en": ["Getting here by Metro", "Green Line to Qatar National Library station."], "ar": ["الوصول بالمترو", "الخط الأخضر إلى محطة مكتبة قطر الوطنية."] },
+    "parking":      { "href": "/item/sv-parking",        "en": ["Parking", "Visitor and accessible spaces."], "ar": ["مواقف السيارات", "مواقف للزوار ولذوي الإعاقة."] },
+    "whatson":      { "href": "/search?type=events",     "en": ["What's on", "Talks, workshops and family events."], "ar": ["الفعاليات", "محاضرات وورش عمل وفعاليات عائلية."] },
+    "access":       { "href": "/item/sv-accessibility",  "en": ["Accessibility", "Step‑free access and assistive technology."], "ar": ["إتاحة الوصول", "مداخل دون درج وتقنيات مساندة."] },
+    "business":     { "href": "/item/db-04",             "en": ["Business and company data", "Market reports and company profiles."], "ar": ["بيانات الأعمال والشركات", "تقارير الأسواق وملفات الشركات."] },
+    "training":     { "href": "/search?q=workshop&type=events", "en": ["Workshops and training", "Digital, research and data skills."], "ar": ["ورش العمل والتدريب", "مهارات رقمية وبحثية وتحليل البيانات."] },
+    "languages":    { "href": "/item/db-08",             "en": ["Learn a language", "Self-paced courses in 40+ languages."], "ar": ["تعلّم لغة", "دورات ذاتية في أكثر من 40 لغة."] }
+  }
+}
