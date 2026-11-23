@@ -1,0 +1,577 @@
+﻿DRAFT: requires human review before submission,,,Generated from src/i18n/*.json and src/content/*.json. Western digits (0–9) by design; Gregorian calendar with Arabic month names.
+key,English,Arabic,notes
+meta.title,Qatar National Library,مكتبة قطر الوطنية,Official name. Use consistently: «مكتبة قطر الوطنية».
+meta.description,"Search Qatar National Library's books, research databases, events, services and heritage collections, in English and Arabic.",ابحث في كتب مكتبة قطر الوطنية وقواعد بياناتها البحثية وفعالياتها وخدماتها ومجموعاتها التراثية، بالعربية والإنجليزية.,
+a11y.skip,Skip to content,الانتقال إلى المحتوى الرئيسي,
+a11y.mainNav,Main,التنقّل الرئيسي,
+a11y.home,"Qatar National Library, home",مكتبة قطر الوطنية، الصفحة الرئيسية,
+a11y.langSwitch,Read this page in Arabic,اقرأ هذه الصفحة بالإنجليزية,
+nav.explore,Explore,استكشف,
+nav.forYou,For you,مقترحات لك,Expanded from the terse «لك» to «مقترحات لك» for clarity in navigation.
+nav.whatsOn,What's on,الفعاليات,
+nav.visit,Visit,الزيارة,
+nav.about,About,عن المكتبة,
+nav.signIn,Sign in,تسجيل الدخول,
+nav.join,Become a member,انضم عضوًا,
+nav.menu,Menu,القائمة,
+nav.close,Close menu,إغلاق القائمة,
+lang.other,العربية,English,Language switch label: always shown in the other language.
+hero.line,From your first page to your final paper.,من صفحتك الأولى إلى بحثك الأخير.,"Display line (Noto Naskh Arabic). Free rendering of 'final paper' as «بحثك الأخير» (your last piece of research), not a literal «ورقتك النهائية»."
+search.label,Search the library,ابحث في المكتبة,
+search.placeholder,"Search books, research, events, services…",ابحث في الكتب والأبحاث والفعاليات والخدمات…,
+search.submit,Search,بحث,
+search.mode.library,Search the library,ابحث في المكتبة,
+search.mode.ask,Ask a question,اطرح سؤالًا,
+search.phase2,Phase 2,المرحلة الثانية,"Refers to QNL's project Phase 2 (future feature), not a site section."
+filter.all,All,الكل,
+filter.books,Books,الكتب,
+filter.research,Research,البحث العلمي,
+filter.events,Events,الفعاليات,
+filter.services,Services,الخدمات,
+filter.heritage,Heritage,التراث,
+label.sample,SAMPLE,نموذج,Discreet label shown on sample content; hidden with ?clean=1.
+label.tbc,TBC,يُحدَّد لاحقًا,Placeholder for values QNL must confirm.
+footer.credit,Concept by Vistas Global,تصوّر من إعداد Vistas Global,Removable agency credit. Brand name kept in Latin script.
+sg.title,Design system,نظام التصميم,Design-system page only (internal).
+sg.intro,"Tokens, type and components for Concept G, “Search First”. Colours are traced to qnl.qa and checked against WCAG 2.2 AA.",الرموز والخطوط والمكوّنات الخاصة بالتصوّر «ز»، «البحث أولًا». الألوان مستمدّة من موقع qnl.qa ومطابقة لمعايير WCAG 2.2 بمستوى AA.,Design-system page only (internal).
+sg.colour,Colour,الألوان,Design-system page only (internal).
+sg.type,Typography,الخطوط,Design-system page only (internal).
+sg.arabicDisplay,Arabic display options,خيارات الخط العربي للعناوين,Design-system page only (internal).
+sg.components,Components,المكوّنات,Design-system page only (internal).
+sg.imagery,Imagery,الصور,Design-system page only (internal).
+sg.spacing,Spacing and shape,المسافات والأشكال,Design-system page only (internal).
+sg.motion,Motion,الحركة,Design-system page only (internal).
+sg.optionA,Option A: Noto Sans Arabic 500,الخيار أ: Noto Sans Arabic بوزن 500,Design-system page only (internal).
+sg.optionB,Option B: Noto Naskh Arabic 500,الخيار ب: Noto Naskh Arabic بوزن 500,Design-system page only (internal).
+sg.sectionLine,Something for every chapter of your life.,لكل فصل من فصول حياتك ما يناسبه.,Design-system page only (internal).
+sg.heritageLine,"The memory of the Gulf, open to read.",ذاكرة الخليج، مفتوحة للقراءة.,Design-system page only (internal).
+sg.body,"Qatar National Library brings together a national collection, a public library and a research library under one roof. Search across books, databases, events and services, in English or Arabic, from anywhere.",تجمع مكتبة قطر الوطنية بين مجموعة وطنية ومكتبة عامة ومكتبة بحثية تحت سقف واحد. ابحث في الكتب وقواعد البيانات والفعاليات والخدمات، بالعربية أو الإنجليزية، من أي مكان.,Design-system page only (internal).
+sg.buttonPrimary,Become a member,انضم عضوًا,Design-system page only (internal).
+sg.buttonSecondary,Book a study space,احجز مساحة للدراسة,Design-system page only (internal).
+sg.buttonGhost,See all events,جميع الفعاليات,Design-system page only (internal).
+sg.disabled,Unavailable,غير متاح,Design-system page only (internal).
+sg.chip,Research,البحث العلمي,Design-system page only (internal).
+sg.input,Email address,البريد الإلكتروني,Design-system page only (internal).
+sg.inputHelp,We'll only use this for the newsletter.,لن نستخدمه إلا لإرسال النشرة الإخبارية.,Design-system page only (internal).
+sg.card.title,Ask a librarian,اسأل أمين المكتبة,Design-system page only (internal).
+sg.card.help,"Chat, email or book a one-to-one with a subject specialist.",تواصل عبر المحادثة أو البريد الإلكتروني، أو احجز موعدًا فرديًا مع متخصص في مجالك.,Design-system page only (internal).
+search.clear,Clear search,مسح البحث,
+search.shortcut,Press / to search,اضغط / للبحث,
+search.modes,Search mode,نوع البحث,
+search.ask.placeholder,"Ask a question, e.g. “How do I renew a book?”",اطرح سؤالًا، مثل «كيف أجدّد إعارة كتاب؟»,
+search.ask.title,Ask a question is coming in Phase 2,خدمة «اطرح سؤالًا» قادمة في المرحلة الثانية,'Phase 2' = future project phase.
+search.ask.body,"You'll be able to ask in plain English or Arabic and get a short answer drawn only from QNL's own guides and collections, always with the sources shown. We won't show an invented answer here.",ستتمكن من طرح سؤالك بالعربية أو الإنجليزية والحصول على إجابة موجزة مستمدة حصرًا من أدلة مكتبة قطر الوطنية ومجموعاتها، مع عرض المصادر دائمًا. لن نعرض هنا إجابة مختلَقة.,
+search.ask.try,"For now, search the library or ask a librarian.",في الوقت الحالي، ابحث في المكتبة أو اسأل أمين المكتبة.,
+search.ask.switch,Search the library instead,ابحث في المكتبة بدلًا من ذلك,
+search.loading,Loading search…,جارٍ تحميل البحث…,
+search.recent,Recent searches,عمليات البحث الأخيرة,
+search.popular,Popular right now,الأكثر بحثًا الآن,
+search.seeAll,See all {n} in {group},عرض جميع {group} ({n}),"{group} is a plural noun with the article, e.g. «عرض جميع الكتب (5)»."
+search.seeAllResults,See all {n} results for “{q}”,عرض جميع النتائج ({n}) لعبارة «{q}»,«لعبارة» used instead of «لـ» before quoted query to avoid «لـ «…»».
+search.count,{n} results,{n} نتيجة,"Used for 11+ results (singular tamyiz). 3–10 uses search.countFew, 2 uses search.count2."
+search.count1,1 result,نتيجة واحدة,
+search.count0,No results,لا توجد نتائج,
+search.answer,Quick answer,إجابة سريعة,
+search.zero.title,No matches for “{q}”,لا توجد نتائج مطابقة لعبارة «{q}»,As above: «لعبارة «…»».
+search.zero.body,"Try a different spelling, fewer words, or one of these:",جرّب تهجئة أخرى أو كلمات أقل، أو أحد الخيارات التالية:,
+search.zero.related,Related topics,موضوعات ذات صلة,
+search.zero.librarian,Ask a librarian,اسأل أمين المكتبة,
+search.zero.librarianHelp,A librarian can help you find it.,يمكن لأمين المكتبة مساعدتك في العثور على ما تبحث عنه.,
+search.zero.catalogue,Search the full catalogue,ابحث في الفهرس الكامل,
+search.zero.catalogueHelp,"Books, articles and media in the Discovery System.",الكتب والمقالات والمواد السمعية والبصرية في نظام الاكتشاف.,
+search.suggestions,Suggestions,اقتراحات,
+search.perf,Type-ahead timing,توقيت الاقتراحات الفورية,
+search.filters,Filter results,تصفية النتائج,
+group.books,Books,الكتب,
+group.research,Research,البحث العلمي,
+group.events,Events,الفعاليات,
+group.services,Services,الخدمات,
+group.heritage,Heritage,التراث,
+group.pages,Pages,الصفحات,
+meta.remote,Remote access,متاح عن بُعد,
+meta.onsite,On-site access,متاح داخل المكتبة,
+meta.dropin,Drop in,دون تسجيل مسبق,
+meta.register,Register,التسجيل مطلوب,
+meta.lang.en,English,الإنجليزية,
+meta.lang.ar,Arabic,العربية,
+meta.lang.both,Arabic and English,العربية والإنجليزية,
+popular.1,opening hours,مواعيد العمل,
+popular.2,renew,تجديد,
+popular.3,study room,قاعة دراسة,
+popular.4,pearl diving,الغوص على اللؤلؤ,
+popular.5,Qatar Digital Library,مكتبة قطر الرقمية,
+results.title,Search results,نتائج البحث,
+results.for,Results for “{q}”,نتائج البحث عن «{q}»,
+results.empty,"Search books, research, events, services and heritage",ابحث في الكتب والأبحاث والفعاليات والخدمات والتراث,
+results.type,Type,النوع,
+results.audience,Audience,الفئة,
+results.language,Content language,لغة المحتوى,
+results.date,Date (events),التاريخ (الفعاليات),
+results.sort,Sort by,الترتيب حسب,
+results.sort.relevance,Relevance,الصلة,
+results.sort.date,Date,التاريخ,
+results.sort.title,Title A–Z,العنوان أبجديًا,Alphabetical sort by title.
+results.apply,Apply filters,تطبيق عوامل التصفية,
+results.reset,Clear all filters,مسح جميع عوامل التصفية,
+results.date.week,Next 7 days,الأيام السبعة القادمة,
+results.date.month,Next 30 days,الأيام الثلاثون القادمة,
+results.date.later,Later,لاحقًا,
+results.share,Copy link to these results,انسخ رابط هذه النتائج,
+results.copied,Link copied,تم نسخ الرابط,
+results.showing,Showing {n} of {total},عرض {n} من {total},
+results.prev,Previous,السابق,
+results.next,Next,التالي,
+results.page,Page {p},الصفحة {p},
+aud.adults,Adults,البالغون,
+aud.students,Students,الطلاب,
+aud.researchers,Researchers,الباحثون,
+aud.children,Children,الأطفال,
+aud.teens,Teens,اليافعون,
+item.back,Back to search,العودة إلى البحث,
+item.sampleNote,This is a sample record created for the concept. It does not describe a real item.,هذا سجل نموذجي أُعدّ لهذا التصوّر، ولا يصف مادة حقيقية.,
+item.related,Related topics,موضوعات ذات صلة,
+item.type.book,Book,كتاب,
+item.type.database,Database,قاعدة بيانات,
+item.type.event,Event,فعالية,
+item.type.service,Service,خدمة,
+item.type.heritage,Heritage item,مادة تراثية,
+item.type.page,Page,صفحة,
+search.count2,2 results,نتيجتان,Dual form.
+search.countFew,{n} results,{n} نتائج,Arabic plural for 3–10.
+hero.pause,Pause video,إيقاف الفيديو مؤقتًا,
+hero.play,Play video,تشغيل الفيديو,
+hero.videoLabel,Background video: people reading and studying across the terraces of the library's main hall,فيديو في الخلفية: أشخاص يقرؤون ويدرسون في مدرجات القاعة الرئيسية للمكتبة,
+today.label,Today at the library,اليوم في المكتبة,
+today.open,Open today until,مفتوحة اليوم حتى,
+today.openValue,[TBC],[يُحدَّد لاحقًا],Placeholder until wired to live opening hours. Contains [TBC] placeholder.
+today.study,Study spaces free,مساحات الدراسة المتاحة,
+today.studyValue,[live],[مباشر],Placeholder until wired to live space availability.
+today.next,Next event,الفعالية التالية,
+today.metro,Metro,المترو,
+today.metroValue,"Green Line, Qatar National Library station",الخط الأخضر، محطة مكتبة قطر الوطنية,Confirmed by client (23 Nov 2026).
+forYou.eyebrow,For you,مقترحات لك,
+forYou.note,We'll remember this until you close the tab. Nothing is stored on our servers.,سنتذكر اختيارك حتى تغلق هذه الصفحة، ولا يُخزَّن شيء على خوادمنا.,Privacy reassurance; keep the 'nothing stored on our servers' meaning.
+forYou.live,Showing suggestions for {persona} looking for {need},عرض اقتراحات لفئة «{persona}» للبحث عن {need},"Screen-reader announcement. {persona} is a plural group noun (e.g. الطلاب), so «لفئة «{persona}»» avoids «لـالطلاب»."
+forYou.cards,Suggestions,اقتراحات,
+tasks.title,Start with a task.,ابدأ بمهمة.,
+tasks.eyebrow,Top tasks,المهام الأكثر طلبًا,
+task.member,Become a member,انضم عضوًا,
+task.member.help,"Register online, then borrow, book and log in from anywhere.",سجّل عبر الإنترنت، ثم استعر واحجز وادخل إلى حسابك من أي مكان.,
+task.study,Book a study space,احجز مساحة للدراسة,
+task.study.help,"Quiet desks and group rooms, bookable up to [TBC] days ahead.",مكاتب هادئة وغرف جماعية يمكن حجزها قبل [يُحدَّد لاحقًا] أيام.,Contains [TBC] placeholder.
+task.find,Find a resource,اعثر على مصدر,
+task.find.help,"Books, articles, databases and archives in one search.",الكتب والمقالات وقواعد البيانات والوثائق في بحث واحد.,
+task.events,Events,الفعاليات,
+task.events.help,"Talks, workshops, storytimes and exhibitions.",محاضرات وورش عمل وأوقات للحكاية ومعارض.,
+task.visit,Visit and access,الزيارة وإتاحة الوصول,
+task.visit.help,"Opening hours, Metro, parking and step‑free routes.",مواعيد العمل والمترو والمواقف والمسارات الخالية من الدرج.,
+task.ask,Ask a librarian,اسأل أمين المكتبة,
+task.ask.help,"Chat, email or book time with a subject specialist.",عبر المحادثة أو البريد الإلكتروني أو بموعد مع متخصص.,
+whatson.eyebrow,What's on,الفعاليات,
+whatson.title,"Talks, workshops and family days.",محاضرات وورش عمل وأيام عائلية.,
+whatson.filters,Filter events,تصفية الفعاليات,
+whatson.cat.all,All,الكل,
+whatson.cat.children,Children,الأطفال,
+whatson.cat.adults,Adults,البالغون,
+whatson.cat.research,Research,البحث العلمي,
+whatson.cat.heritage,Heritage,التراث,
+whatson.seeAll,See all events,جميع الفعاليات,
+whatson.none,No upcoming events in this category. See all events.,لا توجد فعاليات قادمة في هذه الفئة. اطّلع على جميع الفعاليات.,
+whatson.showing,Showing {cat} events,عرض فعاليات فئة {cat},
+coll.eyebrow,From the collections,من المجموعات,
+coll.title,Stories on the shelves.,حكايات على الرفوف.,
+coll.related,Related topics,موضوعات ذات صلة,
+coll.browse,Browse the collections,تصفّح المجموعات,
+heritage.eyebrow,Heritage and Qatar Digital Library,التراث ومكتبة قطر الرقمية,
+heritage.line,"The memory of the Gulf, open to read.",ذاكرة الخليج، مفتوحة للقراءة.,Display line (Noto Naskh Arabic).
+heritage.body,"Manuscripts, maps, photographs and archives about the Gulf and the wider region, digitised and free to explore online.",مخطوطات وخرائط وصور ووثائق عن الخليج والمنطقة، رقمية ومتاحة للاستكشاف مجانًا عبر الإنترنت.,
+heritage.link,Explore Qatar Digital Library,استكشف مكتبة قطر الرقمية,
+heritage.link2,Visit the Heritage Library,زُر مكتبة التراث,
+research.eyebrow,Research and learning,البحث والتعلّم,
+research.title,Tools for serious work.,أدوات للعمل البحثي الجاد.,
+research.db,Databases A–Z,قواعد البيانات من الألف إلى الياء,
+research.db.help,"Journals, ebooks and data, most available from home.",دوريات وكتب إلكترونية وبيانات، أغلبها متاح من المنزل.,
+research.support,Research support,دعم البحث,
+research.support.help,"Consultations, document supply and Open Access advice.",استشارات وتوفير الوثائق وإرشادات النشر بالوصول الحر.,
+research.training,Training and workshops,التدريب وورش العمل,
+research.training.help,"Referencing, data skills and systematic reviews.",التوثيق ومهارات البيانات والمراجعات المنهجية.,
+news.title,Stay in the loop,ابقَ على اطلاع,
+news.line,"New collections, events and services, once a month in Arabic and English.",مجموعات وفعاليات وخدمات جديدة، مرة واحدة شهريًا بالعربية والإنجليزية.,
+news.label,Email address,البريد الإلكتروني,
+news.submit,Subscribe,اشترك,
+news.help,Sample form: nothing is sent or stored in this concept.,نموذج تجريبي: لا يُرسَل أي شيء ولا يُخزَّن في هذا التصوّر.,
+news.ok,"Thank you. This is a sample form, so your address was not sent or stored.",شكرًا لك. هذا نموذج تجريبي، لذلك لم يُرسَل عنوانك ولم يُخزَّن.,
+news.invalid,Enter an email address like name@example.com.,أدخل بريدًا إلكترونيًا صحيحًا، مثل name@example.com.,
+app.title,Get the app,حمّل التطبيق,
+app.line,"Your card, loans and bookings on your phone.",بطاقتك وإعاراتك وحجوزاتك على هاتفك.,
+app.ios,App Store,App Store,Store name kept in Latin script (trademark).
+app.android,Google Play,Google Play,Store name kept in Latin script (trademark).
+app.placeholder,placeholder,رابط مؤقت,
+footer.about,About,عن المكتبة,
+footer.services,Services,الخدمات,
+footer.help,Help,المساعدة,
+footer.policies,Policies,السياسات,
+footer.aboutQnl,About the library,تعرّف على المكتبة,
+footer.visit,Plan your visit,خطّط لزيارتك,
+footer.children,Children's Library,مكتبة الأطفال,
+footer.heritage,Heritage Library,مكتبة التراث,
+footer.research,Research and learning,البحث والتعلّم,
+footer.member,Membership,العضوية,
+footer.borrow,Borrowing and returns,الإعارة والإرجاع,
+footer.study,Study spaces,مساحات الدراسة,
+footer.print,Printing and scanning,الطباعة والمسح الضوئي,
+footer.ask,Ask a librarian,اسأل أمين المكتبة,
+footer.contact,Contact us,اتصل بنا,
+footer.access,Accessibility services,خدمات إتاحة الوصول,
+footer.lost,Lost property,المفقودات,
+footer.policiesAll,Library policies,سياسات المكتبة,
+footer.privacy,Privacy,الخصوصية,
+footer.terms,Terms of use,شروط الاستخدام,
+footer.a11y,Accessibility statement,بيان إتاحة الوصول,
+footer.a11yLine,We aim to meet WCAG 2.2 AA. Read our accessibility statement or tell us about a barrier.,نسعى إلى استيفاء معايير WCAG 2.2 بمستوى AA. اقرأ بيان إتاحة الوصول أو أخبرنا عن أي عائق.,
+footer.social,Follow us,تابعنا,
+footer.findUs,Find us,موقعنا,
+footer.address,"Education City, Al Rayyan, Doha, Qatar",المدينة التعليمية، الريان، الدوحة، قطر,Confirmed by client (23 Nov 2026).
+footer.metro,"Doha Metro Green Line, Qatar National Library station",مترو الدوحة، الخط الأخضر، محطة مكتبة قطر الوطنية,Confirmed by client (23 Nov 2026). Official station name in Arabic.
+footer.phone,Phone,الهاتف,
+footer.email,Email,البريد الإلكتروني,
+footer.copyright,© Qatar National Library. A member of Qatar Foundation.,© مكتبة قطر الوطنية، عضو في مؤسسة قطر.,
+a11y.title,Accessibility statement,بيان إتاحة الوصول,
+a11y.intro,"This concept website is designed to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA, in English and Arabic.",صُمّم هذا الموقع التصوّري ليستوفي إرشادات إتاحة محتوى الويب (WCAG) 2.2 بمستوى AA، باللغتين العربية والإنجليزية.,WCAG name kept as an English acronym with Arabic expansion.
+a11y.h.how,How we make this site accessible,كيف نجعل هذا الموقع متاحًا للجميع,
+a11y.how.1,"Every page works with a keyboard alone, with a visible focus indicator.",يمكن استخدام كل صفحة بلوحة المفاتيح وحدها، مع مؤشر تركيز واضح.,
+a11y.how.2,Search follows the ARIA combobox pattern and announces result counts to screen readers.,يتبع البحث نمط ARIA للقوائم المنسدلة القابلة للكتابة، ويُعلن عدد النتائج لقارئات الشاشة.,
+a11y.how.3,"Text meets AA colour contrast; motion is reduced when you ask your device to, and the background video can always be paused.",يستوفي النص متطلبات تباين الألوان بمستوى AA، وتُقلَّل الحركة عند تفعيل ذلك في جهازك، ويمكن إيقاف فيديو الخلفية في أي وقت.,
+a11y.how.4,"Pages work without JavaScript, including the full search results page.",تعمل الصفحات دون JavaScript، بما فيها صفحة نتائج البحث الكاملة.,
+a11y.how.5,"Arabic pages are right-to-left throughout, with Arabic typography and Western digits.",تُعرض الصفحات العربية من اليمين إلى اليسار بالكامل، بخطوط عربية وأرقام غربية.,
+a11y.h.known,Known limitations,قيود معروفة,
+a11y.known.1,Sample content and placeholder values ([TBC]) are used throughout this concept.,يستخدم هذا التصوّر محتوى نموذجيًا وقيمًا مؤقتة ([يُحدَّد لاحقًا]).,Contains [TBC] placeholder.
+a11y.known.2,Third-party catalogue and database platforms will need separate assessment.,تحتاج منصات الفهرس وقواعد البيانات التابعة لجهات خارجية إلى تقييم مستقل.,
+a11y.h.contact,Tell us about a barrier,أخبرنا عن أي عائق,
+a11y.contact,"If something doesn't work for you, contact the accessibility team: [TBC]. We aim to reply within [TBC] working days.",إذا واجهت صعوبة في استخدام أي جزء من الموقع، فتواصل مع فريق إتاحة الوصول: [يُحدَّد لاحقًا]. نسعى إلى الرد خلال [يُحدَّد لاحقًا] أيام عمل.,Contains [TBC] placeholder.
+a11y.h.status,Assessment,التقييم,
+a11y.status,Last tested: [TBC]. Method: automated checks (axe-core) and manual keyboard and screen reader testing.,آخر اختبار: [يُحدَّد لاحقًا]. المنهجية: فحوص آلية (axe-core) واختبار يدوي بلوحة المفاتيح وقارئات الشاشة.,Contains [TBC] placeholder.
+newsletter.pageTitle,Newsletter,النشرة الإخبارية,
+newsletter.pageBody,This is a sample sign-up form. In this concept nothing is sent or stored.,هذا نموذج اشتراك تجريبي، ولا يُرسَل أي شيء ولا يُخزَّن في هذا التصوّر.,
+footer.nav,Footer,روابط التذييل,
+content.books.bk-01.title,Introduction to Gulf Maritime History (sample),مدخل إلى التاريخ البحري للخليج (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-01.summary,"A survey of trade routes, ports and seafaring communities across the Gulf from the 18th century.",عرض شامل لطرق التجارة والموانئ والمجتمعات البحرية في الخليج منذ القرن الثامن عشر.,
+content.books.bk-02.title,Pearl Divers of the Qatari Coast (sample),غواصو اللؤلؤ على الساحل القطري (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-02.summary,"Oral histories and photographs of pearling seasons, boats and crews.",روايات شفهية وصور عن مواسم الغوص والسفن وطواقمها.,
+content.books.bk-03.title,An Anthology of Nabati Poetry (sample),مختارات من الشعر النبطي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-03.summary,"Selected poems with notes on metre, dialect and performance.",قصائد مختارة مع شروح للأوزان واللهجة وطرق الإلقاء.,
+content.books.bk-04.title,Writing Your Literature Review: A Practical Guide (sample),كتابة مراجعة الأدبيات: دليل عملي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-04.summary,"Step-by-step methods for searching, organising and citing sources for a thesis.",خطوات عملية للبحث عن المصادر وتنظيمها وتوثيقها في الأطروحات.,
+content.books.bk-05.title,The Little Dhow (sample),المحمل الصغير (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-05.summary,A bilingual picture book about a boat that learns to read the stars.,كتاب مصوّر ثنائي اللغة عن سفينة صغيرة تتعلم قراءة النجوم.,
+content.books.bk-06.title,Modern Architecture in Doha (sample),العمارة الحديثة في الدوحة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-06.summary,"Buildings, planners and materials that shaped the city's skyline.",المباني والمخططون والمواد التي شكّلت أفق المدينة.,
+content.books.bk-07.title,Arabic Grammar Made Clear (sample),النحو العربي الميسّر (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-07.summary,A modern reference to Arabic syntax with exercises and answers.,مرجع حديث في النحو العربي مع تمارين وإجابات.,
+content.books.bk-08.title,Statistics for Social Scientists (sample),الإحصاء لدارسي العلوم الاجتماعية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-08.summary,Core statistical methods with worked examples in common software.,الأساليب الإحصائية الأساسية مع أمثلة تطبيقية على البرامج الشائعة.,
+content.books.bk-09.title,Public Health in Desert Climates (sample),الصحة العامة في المناخات الصحراوية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-09.summary,"Heat, hydration and health systems in arid regions.",الحرارة والإرواء والأنظمة الصحية في المناطق الجافة.,
+content.books.bk-10.title,The House by the Souq: A Novel (sample),البيت المجاور للسوق: رواية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-10.summary,Three generations of one family and the changing city around them.,ثلاثة أجيال من عائلة واحدة والمدينة المتغيرة من حولها.,
+content.books.bk-11.title,Stars Over the Desert: Astronomy for Beginners (sample),نجوم فوق الصحراء: علم الفلك للمبتدئين (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-11.summary,"Constellations, navigation and the night sky of Arabia.",الأبراج والملاحة وسماء الجزيرة العربية ليلًا.,
+content.books.bk-12.title,Water Desalination: Principles and Practice (sample),تحلية المياه: المبادئ والتطبيق (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-12.summary,Engineering foundations of desalination plants and their energy use.,الأسس الهندسية لمحطات تحلية المياه واستهلاكها للطاقة.,
+content.books.bk-13.title,The Art of the Arabic Book (sample),فن الكتاب العربي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-13.summary,"Calligraphy, illumination and binding in manuscript traditions.",الخط والتذهيب والتجليد في تقاليد المخطوطات.,
+content.books.bk-14.title,Small Business in the Gulf Economy (sample),المشروعات الصغيرة في اقتصاد الخليج (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-14.summary,"Case studies of start-ups, family firms and financing.",دراسات حالة عن الشركات الناشئة والعائلية والتمويل.,
+content.books.bk-15.title,Why Is the Sea Salty? (sample),لماذا ماء البحر مالح؟ (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-15.summary,Big questions about oceans for curious readers aged 6 to 9.,أسئلة كبيرة عن البحار للقرّاء الفضوليين من سن 6 إلى 9 سنوات.,
+content.books.bk-16.title,Comparative Commercial Law in the GCC (sample),القانون التجاري المقارن في دول مجلس التعاون (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-16.summary,Contract and company law across Gulf jurisdictions.,قوانين العقود والشركات في دول الخليج.,
+content.books.bk-17.title,Code Your First Game (sample),برمج لعبتك الأولى (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-17.summary,A hands-on introduction to programming for young makers.,مدخل عملي إلى البرمجة للمبتكرين الصغار.,
+content.books.bk-18.title,The Gulf in Old Maps (sample),الخليج في الخرائط القديمة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.bk-18.summary,"How cartographers drew the region, with annotated reproductions.",كيف رسم رسامو الخرائط المنطقة، مع نسخ مشروحة.,
+content.databases.db-01.title,Science & Engineering Journals Collection (sample),مجموعة دوريات العلوم والهندسة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-01.summary,Full-text peer-reviewed journals in the physical sciences and engineering.,دوريات محكّمة بالنص الكامل في العلوم الطبيعية والهندسة.,
+content.databases.db-02.title,Clinical Medicine Database (sample),قاعدة بيانات الطب السريري (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-02.summary,"Evidence summaries, reviews and journals for health professionals.",ملخصات الأدلة والمراجعات والدوريات للعاملين في القطاع الصحي.,
+content.databases.db-03.title,Arabic Theses and Dissertations (sample),الرسائل والأطروحات العربية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-03.summary,Searchable Arabic-language theses from universities across the region.,أطروحات باللغة العربية قابلة للبحث من جامعات المنطقة.,
+content.databases.db-04.title,Business and Company Data (sample),بيانات الأعمال والشركات (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-04.summary,"Company profiles, market reports and financial data. On-site access.",ملفات الشركات وتقارير الأسواق والبيانات المالية. الوصول داخل المكتبة.,
+content.databases.db-05.title,Legal Research Library (sample),مكتبة البحث القانوني (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-05.summary,"Legislation, case law and commentary from multiple jurisdictions.",تشريعات وأحكام قضائية وشروح من ولايات قضائية متعددة.,
+content.databases.db-06.title,Historic Gulf Newspapers Archive (sample),أرشيف صحف الخليج التاريخية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-06.summary,"Digitised newspapers and magazines, searchable in Arabic and English.",صحف ومجلات رقمية قابلة للبحث بالعربية والإنجليزية.,
+content.databases.db-07.title,eBooks and eAudiobooks (sample),الكتب الإلكترونية والصوتية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-07.summary,Borrow ebooks and audiobooks on your phone or tablet with your library card.,استعر الكتب الإلكترونية والصوتية على هاتفك أو جهازك اللوحي ببطاقة المكتبة.,
+content.databases.db-08.title,Language Learning Online (sample),تعلّم اللغات عبر الإنترنت (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-08.summary,"Self-paced courses in more than 40 languages, including Arabic and English.",دورات ذاتية في أكثر من 40 لغة، منها العربية والإنجليزية.,
+content.databases.db-09.title,Citation and Abstract Index (sample),فهرس الاستشهادات والمستخلصات (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-09.summary,"Track citations, find key authors and export references.",تتبّع الاستشهادات واعثر على أبرز المؤلفين وصدّر المراجع.,
+content.databases.db-10.title,Homework Help for Schools (sample),مساعدة في الواجبات المدرسية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-10.summary,"Encyclopedia articles, videos and quizzes for school projects.",مقالات موسوعية ومقاطع فيديو واختبارات قصيرة للمشاريع المدرسية.,
+content.databases.db-11.title,Open Access Journals Directory (sample),دليل الدوريات ذات الوصول الحر (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-11.summary,Find freely available peer-reviewed journals and articles.,اعثر على دوريات ومقالات محكّمة متاحة مجانًا.,
+content.databases.db-12.title,Art and Image Library (sample),مكتبة الفنون والصور (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.databases.db-12.summary,High-resolution images of artworks and architecture for study.,صور عالية الدقة للأعمال الفنية والمعمارية لأغراض الدراسة.,
+content.events.ev-01.title,Storytime for ages 3–5 (sample),وقت الحكاية للأعمار من 3 إلى 5 سنوات (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-01.summary,"Songs, stories and rhymes in Arabic and English for little listeners.",أناشيد وحكايات وأهازيج بالعربية والإنجليزية للمستمعين الصغار.,
+content.events.ev-01.place,Children's Library,مكتبة الأطفال,Venue name inside the library; confirm official room names.
+content.events.ev-02.title,Systematic Review Workshop (sample),ورشة عمل المراجعة المنهجية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-02.summary,"Plan, search and document a systematic review with a subject librarian.",خطّط لمراجعة منهجية وابحث فيها ووثّقها مع أمين مكتبة متخصص.,
+content.events.ev-02.place,Training Room,قاعة التدريب,Venue name inside the library; confirm official room names.
+content.events.ev-03.title,An Evening of Nabati Poetry (sample),أمسية في الشعر النبطي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-03.summary,Readings and conversation with local poets.,قراءات وحوار مع شعراء محليين.,
+content.events.ev-03.place,Main Hall,القاعة الرئيسية,Venue name inside the library; confirm official room names.
+content.events.ev-04.title,Talk: Reading Old Maps of the Gulf (sample),محاضرة: قراءة الخرائط القديمة للخليج (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-04.summary,A curator-led look at how the region was mapped over three centuries.,عرض يقدّمه أمين المجموعة عن كيفية رسم خرائط المنطقة عبر ثلاثة قرون.,
+content.events.ev-04.place,Heritage Library,مكتبة التراث,Venue name inside the library; confirm official room names.
+content.events.ev-05.title,3D Printing for Teens (sample),الطباعة ثلاثية الأبعاد لليافعين (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-05.summary,Design and print your first object. No experience needed.,صمّم واطبع أول مجسّم لك. لا تلزم خبرة سابقة.,
+content.events.ev-05.place,Innovation Stations,محطات الابتكار,Venue name inside the library; confirm official room names.
+content.events.ev-06.title,SPSS Clinic (sample),جلسات استشارية حول SPSS (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-06.summary,Bring your dataset and questions to a one-to-one drop-in.,أحضر بياناتك وأسئلتك إلى جلسة فردية دون موعد مسبق.,
+content.events.ev-06.place,Research Desk,مكتب البحث,Venue name inside the library; confirm official room names.
+content.events.ev-07.title,Arabic Book Club (sample),نادي الكتاب العربي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-07.summary,This month: a contemporary Gulf novel. New members welcome.,هذا الشهر: رواية خليجية معاصرة. نرحب بالأعضاء الجدد.,
+content.events.ev-07.place,Seminar Room,قاعة الندوات,Venue name inside the library; confirm official room names.
+content.events.ev-08.title,Little Scientists: Water Experiments (sample),العلماء الصغار: تجارب الماء (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-08.summary,Hands-on science for ages 6–9 with a parent or carer.,علوم تطبيقية للأعمار من 6 إلى 9 سنوات بصحبة أحد الوالدين.,
+content.events.ev-08.place,Children's Library,مكتبة الأطفال,Venue name inside the library; confirm official room names.
+content.events.ev-09.title,Manuscript Handling Session (sample),جلسة التعامل مع المخطوطات (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-09.summary,Learn how conservators care for fragile manuscripts.,تعرّف على أساليب المرممين في العناية بالمخطوطات الهشة.,
+content.events.ev-09.place,Heritage Library,مكتبة التراث,Venue name inside the library; confirm official room names.
+content.events.ev-10.title,Publishing Open Access: What Researchers Need to Know (sample),النشر بالوصول الحر: ما يحتاج الباحثون إلى معرفته (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-10.summary,"Licences, funding and repositories explained in one hour.",شرح للتراخيص والتمويل والمستودعات في ساعة واحدة.,
+content.events.ev-10.place,Online,عبر الإنترنت,Venue name inside the library; confirm official room names.
+content.events.ev-11.title,Building Tour: Architecture of the Library (sample),جولة في المبنى: عمارة المكتبة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-11.summary,"A guided walk through the terraces, the Heritage Library and the reading spaces.",جولة مرشدة عبر المدرجات ومكتبة التراث ومساحات القراءة.,
+content.events.ev-11.place,Main Entrance,المدخل الرئيسي,Venue name inside the library; confirm official room names.
+content.events.ev-12.title,Arabic Calligraphy for Kids (sample),الخط العربي للأطفال (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-12.summary,Try reed pens and ink with a calligraphy teacher.,جرّب القصبة والحبر مع معلم الخط.,
+content.events.ev-12.place,Children's Library,مكتبة الأطفال,Venue name inside the library; confirm official room names.
+content.events.ev-13.title,Lecture: The Pearl Trade and the Wider World (sample),محاضرة: تجارة اللؤلؤ والعالم (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-13.summary,How Gulf pearls travelled to markets across the Indian Ocean.,كيف وصل لؤلؤ الخليج إلى أسواق المحيط الهندي.,
+content.events.ev-13.place,Auditorium,قاعة المحاضرات الكبرى,Venue name inside the library; confirm official room names.
+content.events.ev-14.title,Reference Managers in an Hour (sample),برامج إدارة المراجع في ساعة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.events.ev-14.summary,"Collect, organise and cite sources with free reference tools.",اجمع مصادرك ونظّمها ووثّقها باستخدام أدوات مجانية لإدارة المراجع.,
+content.events.ev-14.place,Training Room,قاعة التدريب,Venue name inside the library; confirm official room names.
+content.services.sv-membership.title,Become a member,انضم عضوًا,Service/page copy (sample).
+content.services.sv-membership.summary,"Register for a library card to borrow, book spaces and use online resources.",سجّل للحصول على بطاقة المكتبة لتستعير وتحجز المساحات وتستخدم المصادر الإلكترونية.,
+content.services.sv-membership.task.answer,"Register online in a few minutes, then collect your card at the Customer Services desk with your ID. Eligibility and fees: [TBC].",سجّل عبر الإنترنت في دقائق، ثم استلم بطاقتك من مكتب خدمة العملاء مع إثبات الهوية. شروط الأهلية والرسوم: [يُحدَّد لاحقًا].,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-membership.task.action,Register now,سجّل الآن,Button label (imperative).
+content.services.sv-renew.title,Renew your loans,جدّد إعاراتك,Service/page copy (sample).
+content.services.sv-renew.summary,"Extend the due date of books you've borrowed, online or in the app.",مدّد تاريخ إرجاع الكتب المستعارة عبر الإنترنت أو التطبيق.,
+content.services.sv-renew.task.answer,Sign in to My Account and choose Renew next to each item. Items can be renewed [TBC] times unless someone has reserved them.,سجّل الدخول إلى «حسابي» واختر «تجديد» بجانب كل مادة. يمكن تجديد المواد [يُحدَّد لاحقًا] مرات ما لم يحجزها شخص آخر.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-renew.task.action,Go to My Account,انتقل إلى حسابي,Button label (imperative).
+content.services.sv-hours.title,Opening hours,مواعيد العمل,Service/page copy (sample).
+content.services.sv-hours.summary,"When the library, the Children's Library and the Heritage Library are open.",مواعيد فتح المكتبة ومكتبة الأطفال ومكتبة التراث.,
+content.services.sv-hours.task.answer,Open today until [TBC]. Hours differ for the Heritage Library and during public holidays.,مفتوحة اليوم حتى [يُحدَّد لاحقًا]. تختلف المواعيد في مكتبة التراث وخلال العطلات الرسمية.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-hours.task.action,See all opening hours,جميع مواعيد العمل,Button label (imperative).
+content.services.sv-study.title,Book a study space,احجز مساحة للدراسة,Service/page copy (sample).
+content.services.sv-study.summary,Reserve a quiet desk or a group study room.,احجز مكتبًا هادئًا أو غرفة دراسة جماعية.,
+content.services.sv-study.task.answer,"Members can book group rooms up to [TBC] days ahead. Quiet desks are first come, first served. Spaces free now: [live].",يمكن للأعضاء حجز الغرف الجماعية قبل [يُحدَّد لاحقًا] أيام. المكاتب الهادئة متاحة حسب الأسبقية. المساحات المتاحة الآن: [مباشر].,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-study.task.action,Book a space,احجز مساحة,Button label (imperative).
+content.services.sv-parking.title,Parking,مواقف السيارات,Service/page copy (sample).
+content.services.sv-parking.summary,"Where to park, including accessible spaces.",أماكن الوقوف، بما فيها المواقف المخصصة لذوي الإعاقة.,
+content.services.sv-parking.task.answer,Visitor parking is next to the main entrance [TBC]. Accessible bays are closest to the doors. Current status: [TBC].,تقع مواقف الزوار بجوار المدخل الرئيسي [يُحدَّد لاحقًا]. المواقف المخصصة لذوي الإعاقة هي الأقرب إلى الأبواب. الحالة الحالية: [يُحدَّد لاحقًا].,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-parking.task.action,Getting here,كيفية الوصول,Button label (imperative).
+content.services.sv-metro.title,Getting here by Metro,الوصول بالمترو,Service/page copy (sample).
+content.services.sv-metro.summary,The nearest station and the walk to the entrance.,أقرب محطة والمسافة سيرًا إلى المدخل.,
+content.services.sv-metro.task.answer,Take the Doha Metro Green Line to Qatar National Library station. The entrance is a short walk from the exit [TBC].,استقل الخط الأخضر في مترو الدوحة إلى محطة مكتبة قطر الوطنية. المدخل على بعد مسافة قصيرة سيرًا من المخرج [يُحدَّد لاحقًا].,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-metro.task.action,Plan your visit,خطّط لزيارتك,Button label (imperative).
+content.services.sv-printing.title,"Printing, copying and scanning",الطباعة والنسخ والمسح الضوئي,Service/page copy (sample).
+content.services.sv-printing.summary,"Print from library PCs or your own device, scan to email.",اطبع من أجهزة المكتبة أو من جهازك، وأرسل المسح الضوئي إلى بريدك.,
+content.services.sv-printing.task.answer,"Send your file to the library printer, then release it at any print station with your card. Prices: [TBC].",أرسل ملفك إلى طابعة المكتبة، ثم اطبعه من أي محطة طباعة باستخدام بطاقتك. الأسعار: [يُحدَّد لاحقًا].,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-printing.task.action,How to print,طريقة الطباعة,Button label (imperative).
+content.services.sv-ask.title,Ask a librarian,اسأل أمين المكتبة,Service/page copy (sample).
+content.services.sv-ask.summary,"Chat, email or book a one-to-one with a subject specialist.",تواصل عبر المحادثة أو البريد الإلكتروني، أو احجز موعدًا فرديًا مع متخصص.,
+content.services.sv-ask.task.answer,Librarians answer by chat during opening hours and by email within [TBC] working days. Researchers can book a 30-minute consultation.,يجيب أمناء المكتبة عبر المحادثة خلال مواعيد العمل، وعبر البريد الإلكتروني خلال [يُحدَّد لاحقًا] أيام عمل. ويمكن للباحثين حجز استشارة لمدة 30 دقيقة.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-ask.task.action,Start a chat,ابدأ محادثة,Button label (imperative).
+content.services.sv-borrow.title,Borrowing and returns,الإعارة والإرجاع,Service/page copy (sample).
+content.services.sv-borrow.summary,"How many items you can borrow, for how long, and where to return them.",عدد المواد التي يمكنك استعارتها ومدتها وأماكن إرجاعها.,
+content.services.sv-borrow.task.answer,Members can borrow up to [TBC] items for [TBC] weeks. Return them at any self-service return point.,يمكن للأعضاء استعارة ما يصل إلى [يُحدَّد لاحقًا] مادة لمدة [يُحدَّد لاحقًا] أسابيع. أرجعها في أي نقطة إرجاع ذاتية.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-borrow.task.action,Borrowing rules,قواعد الإعارة,Button label (imperative).
+content.services.sv-wifi.title,Wi-Fi and computers,الإنترنت اللاسلكي والحواسيب,Service/page copy (sample).
+content.services.sv-wifi.summary,Free Wi-Fi and public computers throughout the building.,إنترنت لاسلكي وحواسيب عامة في جميع أنحاء المبنى.,
+content.services.sv-wifi.task.answer,Connect to the library network and sign in with your library card number [TBC]. Public PCs can be booked at any service point.,اتصل بشبكة المكتبة وسجّل الدخول برقم بطاقتك [يُحدَّد لاحقًا]. يمكن حجز الحواسيب العامة من أي نقطة خدمة.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-wifi.task.action,Wi-Fi help,المساعدة في الاتصال,Button label (imperative).
+content.services.sv-accessibility.title,Accessibility services,خدمات إتاحة الوصول,Service/page copy (sample).
+content.services.sv-accessibility.summary,"Step-free access, assistive technology and support on request.",مداخل دون درج وتقنيات مساندة ودعم عند الطلب.,
+content.services.sv-accessibility.task.answer,"All public floors are step-free [TBC]. Wheelchairs, magnifiers and screen readers are available on request at Customer Services.",جميع الطوابق العامة دون درج [يُحدَّد لاحقًا]. تتوفر الكراسي المتحركة والمكبّرات وقارئات الشاشة عند الطلب من مكتب خدمة العملاء.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-accessibility.task.action,Accessibility guide,دليل إتاحة الوصول,Button label (imperative).
+content.services.sv-food.title,Food and drink,الطعام والمشروبات,Service/page copy (sample).
+content.services.sv-food.summary,"Where you can eat, drink and take a break.",أماكن تناول الطعام والمشروبات وأخذ استراحة.,
+content.services.sv-food.task.answer,Covered drinks are welcome in most areas. Food is allowed in designated spaces only [TBC].,يُسمح بالمشروبات المغطاة في معظم المساحات، ويقتصر تناول الطعام على الأماكن المخصصة [يُحدَّد لاحقًا].,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-food.task.action,Visitor guide,دليل الزوار,Button label (imperative).
+content.services.sv-lost.title,Lost property,المفقودات,Service/page copy (sample).
+content.services.sv-lost.summary,Report or collect items left in the library.,أبلغ عن المواد المفقودة أو استلمها.,
+content.services.sv-lost.task.answer,Ask at Customer Services or send a description using the lost property form. Items are kept for [TBC] days.,استفسر من مكتب خدمة العملاء أو أرسل وصفًا عبر نموذج المفقودات. تُحفظ المواد لمدة [يُحدَّد لاحقًا] يومًا.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-lost.task.action,Report lost item,أبلغ عن مفقود,Button label (imperative).
+content.services.sv-interlibrary.title,Request an article or chapter,اطلب مقالة أو فصلًا,Service/page copy (sample).
+content.services.sv-interlibrary.summary,Get material we don't hold from partner libraries worldwide.,احصل على مواد غير متوفرة لدينا من مكتبات شريكة حول العالم.,
+content.services.sv-interlibrary.task.answer,Submit a request with the full reference. Most articles arrive by email within [TBC] working days.,قدّم طلبًا يتضمن بيانات المرجع كاملة. تصل معظم المقالات بالبريد الإلكتروني خلال [يُحدَّد لاحقًا] أيام عمل.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-interlibrary.task.action,Make a request,قدّم طلبًا,Button label (imperative).
+content.services.sv-consult.title,Book a research consultation,احجز استشارة بحثية,Service/page copy (sample).
+content.services.sv-consult.summary,"One-to-one help with searching, sources and referencing for your project.",مساعدة فردية في البحث والمصادر والتوثيق لمشروعك.,
+content.services.sv-openaccess.title,Open Access support,دعم النشر بالوصول الحر,Service/page copy (sample).
+content.services.sv-openaccess.summary,"Advice on funding, licences and depositing your research.",إرشادات حول التمويل والتراخيص وإيداع أبحاثك.,
+content.services.sv-schools.title,School visits,الزيارات المدرسية,Service/page copy (sample).
+content.services.sv-schools.summary,Book a class visit with library sessions matched to the curriculum.,احجز زيارة صفية مع جلسات مكتبية متوافقة مع المنهج الدراسي.,
+content.services.sv-donate.title,Donate books or archives,تبرّع بالكتب أو الوثائق,Service/page copy (sample).
+content.services.sv-donate.summary,"How to offer books, manuscripts or family papers to the collection.",كيفية إهداء الكتب أو المخطوطات أو الأوراق العائلية إلى المجموعة.,
+content.heritage.hr-01.title,"Treatise on Astronomy, illuminated manuscript (sample)",رسالة في علم الفلك، مخطوط مذهّب (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-01.summary,A sample record for an Arabic scientific manuscript with diagrams of the heavens.,سجل نموذجي لمخطوط علمي عربي يتضمن رسومًا للأجرام السماوية.,
+content.heritage.hr-02.title,"Chart of the Gulf coast, 18th century (sample)",خريطة ساحل الخليج، القرن الثامن عشر (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-02.summary,"An engraved sea chart showing soundings, anchorages and settlements.",خريطة بحرية محفورة تُظهر الأعماق والمراسي والمستوطنات.,
+content.heritage.hr-03.title,"Photographs of Doha harbour, mid-20th century (sample)",صور ميناء الدوحة، منتصف القرن العشرين (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-03.summary,"A sample photographic series of boats, traders and the old waterfront.",سلسلة صور نموذجية للسفن والتجار والواجهة البحرية القديمة.,
+content.heritage.hr-04.title,Collected poems in a 19th-century hand (sample),ديوان شعر مخطوط من القرن التاسع عشر (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-04.summary,A handwritten anthology with marginal notes by later readers.,مختارات مكتوبة بخط اليد مع حواشٍ لقرّاء لاحقين.,
+content.heritage.hr-05.title,Pearl merchant's ledger (sample),دفتر حسابات تاجر لؤلؤ (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-05.summary,"Accounts of purchases, weights and prices across a pearling season.",حسابات المشتريات والأوزان والأسعار خلال موسم غوص.,
+content.heritage.hr-06.title,Illuminated Qur'an leaf (sample),ورقة مذهّبة من مصحف (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-06.summary,A sample record for a decorated leaf showing gold illumination and coloured inks.,سجل نموذجي لورقة مزخرفة بالتذهيب والأحبار الملونة.,
+content.heritage.hr-07.title,Travellers' accounts of Arabia (sample),روايات الرحالة عن الجزيرة العربية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-07.summary,"Early printed travel narratives describing ports, people and routes.",روايات رحلات مطبوعة قديمة تصف الموانئ والناس والطرق.,
+content.heritage.hr-08.title,Early Arabic printed books (sample),الكتب العربية المطبوعة المبكرة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-08.summary,Examples of early Arabic typography and the presses that produced them.,نماذج من الطباعة العربية المبكرة والمطابع التي أنتجتها.,
+content.heritage.hr-09.title,Qatar Digital Library,مكتبة قطر الرقمية,Service/page copy (sample).
+content.heritage.hr-09.summary,"Explore digitised archives, maps and manuscripts about the Gulf, free online.",استكشف الوثائق والخرائط والمخطوطات الرقمية عن الخليج، مجانًا عبر الإنترنت.,
+content.heritage.hr-10.title,Medical treatise with herbal illustrations (sample),رسالة طبية برسوم للأعشاب (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.heritage.hr-10.summary,"A sample record for a manuscript on remedies, with painted plants.",سجل نموذجي لمخطوط في العلاجات مع رسوم ملونة للنباتات.,
+content.pages.pg-about.title,About Qatar National Library,عن مكتبة قطر الوطنية,Service/page copy (sample).
+content.pages.pg-about.summary,"Our role as a national library, a public library and a research library.",دورنا مكتبةً وطنية ومكتبةً عامة ومكتبةً بحثية.,
+content.pages.pg-visit.title,Plan your visit,خطّط لزيارتك,Service/page copy (sample).
+content.pages.pg-visit.summary,"Opening hours, getting here, parking, facilities and what to bring.",مواعيد العمل وكيفية الوصول والمواقف والمرافق وما تحتاج إلى إحضاره.,
+content.pages.pg-children.title,Children's Library,مكتبة الأطفال,Service/page copy (sample).
+content.pages.pg-children.summary,"Books, activities and spaces for children and families.",كتب وأنشطة ومساحات للأطفال والأسر.,
+content.pages.pg-research.title,Research and learning,البحث والتعلّم,Service/page copy (sample).
+content.pages.pg-research.summary,"Databases, research support and training for students and professionals.",قواعد البيانات ودعم البحث والتدريب للطلاب والمهنيين.,
+content.pages.pg-heritage.title,Heritage Library,مكتبة التراث,Service/page copy (sample).
+content.pages.pg-heritage.summary,"Rare books, manuscripts and maps about the Arab and Islamic world.",كتب نادرة ومخطوطات وخرائط عن العالمين العربي والإسلامي.,
+content.pages.pg-accessibility.title,Accessibility statement,بيان إتاحة الوصول,Service/page copy (sample).
+content.pages.pg-accessibility.summary,How this website meets WCAG 2.2 AA and how to report a problem.,كيف يستوفي هذا الموقع معايير WCAG 2.2 بمستوى AA وكيفية الإبلاغ عن مشكلة.,
+content.pages.pg-contact.title,Contact us,اتصل بنا,Service/page copy (sample).
+content.pages.pg-contact.summary,"Phone, email and social channels for every team.",الهاتف والبريد الإلكتروني وقنوات التواصل الاجتماعي لكل فريق.,
+content.pages.pg-policies.title,Library policies,سياسات المكتبة,Service/page copy (sample).
+content.pages.pg-policies.summary,"Conduct, privacy, collections and borrowing policies.",سياسات السلوك والخصوصية والمجموعات والإعارة.,
+tags.maritime,Maritime history,التاريخ البحري,Related-topic tag; also a search term.
+tags.pearling,Pearling,الغوص على اللؤلؤ,Related-topic tag; also a search term.
+tags.gulf-history,Gulf history,تاريخ الخليج,Related-topic tag; also a search term.
+tags.qatar,Qatar,قطر,Related-topic tag; also a search term.
+tags.arabic-language,Arabic language,اللغة العربية,Related-topic tag; also a search term.
+tags.poetry,Poetry,الشعر,Related-topic tag; also a search term.
+tags.manuscripts,Manuscripts,المخطوطات,Related-topic tag; also a search term.
+tags.maps,Maps,الخرائط,Related-topic tag; also a search term.
+tags.photography,Photography,التصوير الفوتوغرافي,Related-topic tag; also a search term.
+tags.islamic-art,Islamic art,الفن الإسلامي,Related-topic tag; also a search term.
+tags.science,Science,العلوم,Related-topic tag; also a search term.
+tags.medicine,Medicine and health,الطب والصحة,Related-topic tag; also a search term.
+tags.engineering,Engineering,الهندسة,Related-topic tag; also a search term.
+tags.business,Business and economics,الأعمال والاقتصاد,Related-topic tag; also a search term.
+tags.law,Law,القانون,Related-topic tag; also a search term.
+tags.education,Education,التعليم,Related-topic tag; also a search term.
+tags.children,Children,الأطفال,Related-topic tag; also a search term.
+tags.teens,Teens,اليافعون,Related-topic tag; also a search term.
+tags.research-skills,Research skills,مهارات البحث,Related-topic tag; also a search term.
+tags.open-access,Open access,الوصول الحر,Related-topic tag; also a search term.
+tags.data,Data and statistics,البيانات والإحصاءات,Related-topic tag; also a search term.
+tags.digital-skills,Digital skills,المهارات الرقمية,Related-topic tag; also a search term.
+tags.reading,Reading,القراءة,Related-topic tag; also a search term.
+tags.architecture,Architecture,العمارة,Related-topic tag; also a search term.
+tags.visiting,Visiting,الزيارة,Related-topic tag; also a search term.
+tags.membership,Membership,العضوية,Related-topic tag; also a search term.
+tags.accessibility,Accessibility,إتاحة الوصول,Related-topic tag; also a search term.
+personas.sentence.before,I'm,أنا من,Sentence builder: «أنا من [فئة] وأبحث عن [حاجة]». Group-noun construction keeps the sentence gender-neutral (avoids «طالب/طالبة»).
+personas.sentence.middle,looking for,وأبحث عن,
+personas.student,a student,الطلاب,Plural group noun after «أنا من».
+personas.student.study,a study space,مساحة للدراسة,Follows «وأبحث عن».
+personas.student.course,books for my course,كتب لمقرراتي,Follows «وأبحث عن».
+personas.student.databases,articles and databases,مقالات وقواعد بيانات,Follows «وأبحث عن».
+personas.student.referencing,help with referencing,مساعدة في التوثيق,Follows «وأبحث عن».
+personas.researcher,a researcher,الباحثين,Plural group noun after «أنا من».
+personas.researcher.articles,journal articles,مقالات الدوريات,Follows «وأبحث عن».
+personas.researcher.support,research support,دعم البحث,Follows «وأبحث عن».
+personas.researcher.rare,rare collections,المجموعات النادرة,Follows «وأبحث عن».
+personas.researcher.quiet,a quiet place to work,مكان هادئ للعمل,Follows «وأبحث عن».
+personas.parent,a parent or carer,أولياء الأمور,Plural group noun after «أنا من».
+personas.parent.kidsbooks,books for my children,كتب لأطفالي,Follows «وأبحث عن».
+personas.parent.activities,family activities,أنشطة عائلية,Follows «وأبحث عن».
+personas.parent.homework,homework help,المساعدة في الواجبات,Follows «وأبحث عن».
+personas.visitor,a first-time visitor,الزوار الجدد,Plural group noun after «أنا من».
+personas.visitor.plan,a way to plan my visit,طريقة لتخطيط زيارتي,Follows «وأبحث عن».
+personas.visitor.see,things to see,معالم تستحق المشاهدة,Follows «وأبحث عن».
+personas.visitor.join,how to join,طريقة الانضمام,Follows «وأبحث عن».
+personas.professional,a professional,المهنيين,Plural group noun after «أنا من».
+personas.professional.business,business information,معلومات الأعمال,Follows «وأبحث عن».
+personas.professional.skills,new skills,مهارات جديدة,Follows «وأبحث عن».
+personas.professional.workspace,a place to work,مكان للعمل,Follows «وأبحث عن».
+cards.study.label,Book a study space,احجز مساحة للدراسة,Task card label.
+cards.study.help,Reserve a quiet desk or a group room.,احجز مكتبًا هادئًا أو غرفة جماعية.,Task card help line.
+cards.group.label,Group study rooms,غرف الدراسة الجماعية,Task card label.
+cards.group.help,Rooms with screens for up to [TBC] people.,غرف مزوّدة بشاشات تتسع لعدد يصل إلى [يُحدَّد لاحقًا] أشخاص.,Task card help line. Contains [TBC].
+cards.wifi.label,Wi-Fi and computers,الإنترنت اللاسلكي والحواسيب,Task card label.
+cards.wifi.help,Free Wi-Fi and public PCs on every floor.,إنترنت لاسلكي مجاني وحواسيب عامة في كل طابق.,Task card help line.
+cards.printing.label,"Print, copy and scan",الطباعة والنسخ والمسح,Task card label.
+cards.printing.help,Print from your own device or a library PC.,اطبع من جهازك أو من أحد حواسيب المكتبة.,Task card help line.
+cards.catalogue.label,Search the catalogue,ابحث في الفهرس,Task card label.
+cards.catalogue.help,Find books and check where they are shelved.,اعثر على الكتب وتعرّف على أماكنها على الرفوف.,Task card help line.
+cards.borrow.label,Borrowing and returns,الإعارة والإرجاع,Task card label.
+cards.borrow.help,"How many items, for how long, and where to return.",عدد المواد ومدة الإعارة وأماكن الإرجاع.,Task card help line.
+cards.ebooks.label,eBooks and audiobooks,الكتب الإلكترونية والصوتية,Task card label.
+cards.ebooks.help,Borrow on your phone with your library card.,استعر على هاتفك ببطاقة المكتبة.,Task card help line.
+cards.renew.label,Renew your loans,جدّد إعاراتك,Task card label.
+cards.renew.help,Extend due dates in My Account.,مدّد مواعيد الإرجاع من حسابي.,Task card help line.
+cards.databases.label,Databases A–Z,قواعد البيانات من الألف إلى الياء,Task card label.
+cards.databases.help,"Journals, ebooks and data, many available remotely.",دوريات وكتب إلكترونية وبيانات، أغلبها متاح عن بُعد.,Task card help line.
+cards.interlibrary.label,Request an article,اطلب مقالة,Task card label.
+cards.interlibrary.help,Get items we don't hold from partner libraries.,احصل على مواد غير متوفرة لدينا من مكتبات شريكة.,Task card help line.
+cards.ask.label,Ask a librarian,اسأل أمين المكتبة,Task card label.
+cards.ask.help,"Chat, email or book a one-to-one.",عبر المحادثة أو البريد الإلكتروني أو بموعد فردي.,Task card help line.
+cards.referencing.label,Reference managers in an hour,برامج إدارة المراجع في ساعة,Task card label.
+cards.referencing.help,A short workshop on citing sources.,ورشة قصيرة عن توثيق المصادر.,Task card help line.
+cards.consult.label,Book a research consultation,احجز استشارة بحثية,Task card label.
+cards.consult.help,One-to-one help from a subject librarian.,مساعدة فردية من أمين مكتبة متخصص.,Task card help line.
+cards.openaccess.label,Open Access support,دعم النشر بالوصول الحر,Task card label.
+cards.openaccess.help,"Funding, licences and depositing your work.",التمويل والتراخيص وإيداع أعمالك.,Task card help line.
+cards.citation.label,Citation index,فهرس الاستشهادات,Task card label.
+cards.citation.help,Track citations and export references.,تتبّع الاستشهادات وصدّر المراجع.,Task card help line.
+cards.heritage.label,Heritage Library,مكتبة التراث,Task card label.
+cards.heritage.help,"Rare books, manuscripts and maps.",كتب نادرة ومخطوطات وخرائط.,Task card help line.
+cards.qdl.label,Qatar Digital Library,مكتبة قطر الرقمية,Task card label.
+cards.qdl.help,"Digitised archives about the Gulf, free online.",وثائق رقمية عن الخليج، مجانًا عبر الإنترنت.,Task card help line.
+cards.manuscripts.label,Browse manuscripts,تصفّح المخطوطات,Task card label.
+cards.manuscripts.help,Sample records from the collection.,سجلات نموذجية من المجموعة.,Task card help line.
+cards.hours.label,Opening hours,مواعيد العمل,Task card label.
+cards.hours.help,Today: open until [TBC].,اليوم: مفتوحة حتى [يُحدَّد لاحقًا].,Task card help line. Contains [TBC].
+cards.childrens.label,Children's Library,مكتبة الأطفال,Task card label.
+cards.childrens.help,Books and spaces for ages 0–12.,كتب ومساحات للأعمار من 0 إلى 12 سنة.,Task card help line.
+cards.member.label,Become a member,انضم عضوًا,Task card label.
+cards.member.help,Register online in a few minutes.,سجّل عبر الإنترنت في دقائق.,Task card help line.
+cards.kidsevents.label,Events for children,فعاليات للأطفال,Task card label.
+cards.kidsevents.help,"Storytimes, crafts and science.",حكايات وحِرَف وعلوم.,Task card help line.
+cards.storytime.label,Storytime,وقت الحكاية,Task card label.
+cards.storytime.help,Songs and stories for ages 3–5.,أناشيد وحكايات للأعمار من 3 إلى 5 سنوات.,Task card help line.
+cards.tour.label,Building tour,جولة في المبنى,Task card label.
+cards.tour.help,A guided walk through the library.,جولة مرشدة داخل المكتبة.,Task card help line.
+cards.homework.label,Homework help,المساعدة في الواجبات,Task card label.
+cards.homework.help,"Articles, videos and quizzes for school projects.",مقالات ومقاطع فيديو واختبارات للمشاريع المدرسية.,Task card help line.
+cards.school.label,School visits,الزيارات المدرسية,Task card label.
+cards.school.help,Book a class visit.,احجز زيارة صفية.,Task card help line.
+cards.visit.label,Plan your visit,خطّط لزيارتك,Task card label.
+cards.visit.help,"Hours, facilities and what to bring.",المواعيد والمرافق وما تحتاج إلى إحضاره.,Task card help line.
+cards.metro.label,Getting here by Metro,الوصول بالمترو,Task card label.
+cards.metro.help,Green Line to Qatar National Library station.,الخط الأخضر إلى محطة مكتبة قطر الوطنية.,Task card help line.
+cards.parking.label,Parking,مواقف السيارات,Task card label.
+cards.parking.help,Visitor and accessible spaces.,مواقف للزوار ولذوي الإعاقة.,Task card help line.
+cards.whatson.label,What's on,الفعاليات,Task card label.
+cards.whatson.help,"Talks, workshops and family events.",محاضرات وورش عمل وفعاليات عائلية.,Task card help line.
+cards.access.label,Accessibility,إتاحة الوصول,Task card label.
+cards.access.help,Step‑free access and assistive technology.,مداخل دون درج وتقنيات مساندة.,Task card help line.
+cards.business.label,Business and company data,بيانات الأعمال والشركات,Task card label.
+cards.business.help,Market reports and company profiles.,تقارير الأسواق وملفات الشركات.,Task card help line.
+cards.training.label,Workshops and training,ورش العمل والتدريب,Task card label.
+cards.training.help,"Digital, research and data skills.",مهارات رقمية وبحثية وتحليل البيانات.,Task card help line.
+cards.languages.label,Learn a language,تعلّم لغة,Task card label.
+cards.languages.help,Self-paced courses in 40+ languages.,دورات ذاتية في أكثر من 40 لغة.,Task card help line.

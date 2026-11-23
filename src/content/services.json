@@ -11,7 +11,7 @@
     "summary": { "en": "Extend the due date of books you've borrowed, online or in the app.", "ar": "مدّد تاريخ إرجاع الكتب المستعارة عبر الإنترنت أو التطبيق." },
     "task": {
       "triggers": ["renew", "renewal", "renewing", "extend", "due date", "overdue", "تجديد", "تمديد", "موعد الإرجاع"],
-      "answer": { "en": "Sign in to My Account and choose Renew next to each item. Items can be renewed [TBC] times unless someone has reserved them.", "ar": "سجّل الدخول إلى حسابي واختر «تجديد» بجانب كل مادة. يمكن تجديد المواد [يُحدَّد لاحقًا] مرات ما لم يحجزها شخص آخر." },
+      "answer": { "en": "Sign in to My Account and choose Renew next to each item. Items can be renewed [TBC] times unless someone has reserved them.", "ar": "سجّل الدخول إلى «حسابي» واختر «تجديد» بجانب كل مادة. يمكن تجديد المواد [يُحدَّد لاحقًا] مرات ما لم يحجزها شخص آخر." },
       "action": { "en": "Go to My Account", "ar": "انتقل إلى حسابي" } } },
   { "id": "sv-hours", "type": "service", "sample": true, "lang": "both", "audience": ["adults", "students", "researchers", "children", "teens"], "tags": ["visiting"],
     "title": { "en": "Opening hours", "ar": "مواعيد العمل" },
@@ -39,7 +39,7 @@
     "summary": { "en": "The nearest station and the walk to the entrance.", "ar": "أقرب محطة والمسافة سيرًا إلى المدخل." },
     "task": {
       "triggers": ["metro", "train", "station", "public transport", "bus", "مترو", "قطار", "محطة", "المواصلات", "حافلة"],
-      "answer": { "en": "Take the Doha Metro Green Line to Qatar National Library station [verify]. The entrance is a short walk from the exit [TBC].", "ar": "استقل الخط الأخضر في مترو الدوحة إلى محطة مكتبة قطر الوطنية [AR – verify]. المدخل على بعد مسافة قصيرة سيرًا من المخرج [يُحدَّد لاحقًا]." },
+      "answer": { "en": "Take the Doha Metro Green Line to Qatar National Library station. The entrance is a short walk from the exit [TBC].", "ar": "استقل الخط الأخضر في مترو الدوحة إلى محطة مكتبة قطر الوطنية. المدخل على بعد مسافة قصيرة سيرًا من المخرج [يُحدَّد لاحقًا]." },
       "action": { "en": "Plan your visit", "ar": "خطّط لزيارتك" } } },
   { "id": "sv-printing", "type": "service", "sample": true, "lang": "both", "audience": ["students", "adults", "researchers"], "tags": ["digital-skills"],
     "title": { "en": "Printing, copying and scanning", "ar": "الطباعة والنسخ والمسح الضوئي" },

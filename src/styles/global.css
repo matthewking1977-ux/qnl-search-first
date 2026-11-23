@@ -257,5 +257,9 @@ html[data-clean] .sample-tag { display: none; }
   }
 }
 
+/* Mixed-direction runs (phone numbers, emails, codes inside Arabic) are isolated
+   so they never reorder their neighbours. */
+body [dir='ltr'], body [dir='rtl'], bdi { unicode-bidi: isolate; }
+
 /* Directional icons mirror in RTL */
 [dir='rtl'] .icon-dir { transform: scaleX(-1); }

@@ -37,10 +37,10 @@ const path = Astro.url.pathname;
       <div class="col">
         <h3>{t(lang, 'footer.findUs')}</h3>
         <address>
-          <p>{t(lang, 'footer.address')} <span class="sample-tag" lang="en" dir="ltr">verify</span></p>
-          <p>{t(lang, 'footer.metro')} <span class="sample-tag" lang="en" dir="ltr">verify</span></p>
-          <p>{t(lang, 'footer.phone')}: <span dir="ltr">[TBC]</span></p>
-          <p>{t(lang, 'footer.email')}: <span dir="ltr">[TBC]</span></p>
+          <p>{t(lang, 'footer.address')}</p>
+          <p>{t(lang, 'footer.metro')}</p>
+          <p>{t(lang, 'footer.phone')}: <a href="tel:+97412345678"><bdi dir="ltr">+974 1234 5678</bdi></a></p>
+          <p>{t(lang, 'footer.email')}: <a href="mailto:hello@qnl.qa"><bdi dir="ltr">hello@qnl.qa</bdi></a></p>
         </address>
       </div>
     </nav>
@@ -78,6 +78,8 @@ const path = Astro.url.pathname;
   .cols a:hover, .social a:hover, .end a:hover { color: var(--color-accent-on-dark); text-decoration: underline; text-underline-offset: 0.25em; }
   address { font-style: normal; display: grid; gap: 0.6rem; }
   address p { margin: 0; line-height: 1.5; }
+  address a { display: inline; min-block-size: 0; color: var(--color-paper); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: rgb(255 255 255 / 0.4); }
+  address a:hover { color: var(--color-accent-on-dark); }
   .social { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; padding-block: var(--s-2) var(--s-4); border-block-end: var(--hairline-dark); }
   .social h3 { margin: 0; }
   .social ul { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }

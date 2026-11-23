@@ -1,58 +1,398 @@
 [
-  { "id": "ev-01", "type": "event", "sample": true, "lang": "both", "audience": ["children"], "tags": ["children", "reading"], "category": "children",
-    "start": "2026-11-28T10:00", "place": { "en": "Children's Library", "ar": "مكتبة الأطفال" }, "booking": "drop-in",
-    "title": { "en": "Storytime for ages 3–5 (sample)", "ar": "وقت الحكاية للأعمار من 3 إلى 5 سنوات (نموذج)" },
-    "summary": { "en": "Songs, stories and rhymes in Arabic and English for little listeners.", "ar": "أناشيد وحكايات وأهازيج بالعربية والإنجليزية للمستمعين الصغار." } },
-  { "id": "ev-02", "type": "event", "sample": true, "lang": "en", "audience": ["researchers", "students"], "tags": ["research-skills"], "category": "research",
-    "start": "2026-11-30T18:00", "place": { "en": "Training Room", "ar": "قاعة التدريب" }, "booking": "register",
-    "title": { "en": "Systematic Review Workshop (sample)", "ar": "ورشة عمل المراجعة المنهجية (نموذج)" },
-    "summary": { "en": "Plan, search and document a systematic review with a subject librarian.", "ar": "خطّط لمراجعة منهجية وابحث فيها ووثّقها مع أمين مكتبة متخصص." } },
-  { "id": "ev-03", "type": "event", "sample": true, "lang": "ar", "audience": ["adults"], "tags": ["poetry", "arabic-language"], "category": "adults",
-    "start": "2026-12-02T19:00", "place": { "en": "Main Hall", "ar": "القاعة الرئيسية" }, "booking": "drop-in",
-    "title": { "en": "An Evening of Nabati Poetry (sample)", "ar": "أمسية في الشعر النبطي (نموذج)" },
-    "summary": { "en": "Readings and conversation with local poets.", "ar": "قراءات وحوار مع شعراء محليين." } },
-  { "id": "ev-04", "type": "event", "sample": true, "lang": "en", "audience": ["adults", "researchers"], "tags": ["maps", "gulf-history"], "category": "heritage",
-    "start": "2026-12-05T17:00", "place": { "en": "Heritage Library", "ar": "مكتبة التراث" }, "booking": "register",
-    "title": { "en": "Talk: Reading Old Maps of the Gulf (sample)", "ar": "محاضرة: قراءة الخرائط القديمة للخليج (نموذج)" },
-    "summary": { "en": "A curator-led look at how the region was mapped over three centuries.", "ar": "جولة بقيادة أمين المجموعة حول كيفية رسم خرائط المنطقة عبر ثلاثة قرون." } },
-  { "id": "ev-05", "type": "event", "sample": true, "lang": "both", "audience": ["teens"], "tags": ["digital-skills", "teens"], "category": "children",
-    "start": "2026-12-06T15:00", "place": { "en": "Innovation Stations", "ar": "محطات الابتكار" }, "booking": "register",
-    "title": { "en": "3D Printing for Teens (sample)", "ar": "الطباعة ثلاثية الأبعاد لليافعين (نموذج)" },
-    "summary": { "en": "Design and print your first object. No experience needed.", "ar": "صمّم واطبع أول مجسّم لك. لا تلزم خبرة سابقة." } },
-  { "id": "ev-06", "type": "event", "sample": true, "lang": "en", "audience": ["researchers", "students"], "tags": ["data"], "category": "research",
-    "start": "2026-12-08T11:00", "place": { "en": "Research Desk", "ar": "مكتب البحث" }, "booking": "drop-in",
-    "title": { "en": "SPSS Clinic (sample)", "ar": "عيادة SPSS (نموذج)" },
-    "summary": { "en": "Bring your dataset and questions to a one-to-one drop-in.", "ar": "أحضر بياناتك وأسئلتك إلى جلسة فردية دون موعد مسبق." } },
-  { "id": "ev-07", "type": "event", "sample": true, "lang": "ar", "audience": ["adults"], "tags": ["reading"], "category": "adults",
-    "start": "2026-12-10T18:30", "place": { "en": "Seminar Room", "ar": "قاعة الندوات" }, "booking": "drop-in",
-    "title": { "en": "Arabic Book Club (sample)", "ar": "نادي الكتاب العربي (نموذج)" },
-    "summary": { "en": "This month: a contemporary Gulf novel. New members welcome.", "ar": "هذا الشهر: رواية خليجية معاصرة. نرحب بالأعضاء الجدد." } },
-  { "id": "ev-08", "type": "event", "sample": true, "lang": "both", "audience": ["children"], "tags": ["children", "science"], "category": "children",
-    "start": "2026-12-12T10:30", "place": { "en": "Children's Library", "ar": "مكتبة الأطفال" }, "booking": "register",
-    "title": { "en": "Little Scientists: Water Experiments (sample)", "ar": "العلماء الصغار: تجارب الماء (نموذج)" },
-    "summary": { "en": "Hands-on science for ages 6–9 with a parent or carer.", "ar": "علوم تطبيقية للأعمار من 6 إلى 9 سنوات بصحبة أحد الوالدين." } },
-  { "id": "ev-09", "type": "event", "sample": true, "lang": "en", "audience": ["adults", "researchers"], "tags": ["manuscripts", "islamic-art"], "category": "heritage",
-    "start": "2026-12-14T16:00", "place": { "en": "Heritage Library", "ar": "مكتبة التراث" }, "booking": "register",
-    "title": { "en": "Manuscript Handling Session (sample)", "ar": "جلسة التعامل مع المخطوطات (نموذج)" },
-    "summary": { "en": "Learn how conservators care for fragile manuscripts.", "ar": "تعرّف على أساليب المرممين في العناية بالمخطوطات الهشة." } },
-  { "id": "ev-10", "type": "event", "sample": true, "lang": "en", "audience": ["researchers"], "tags": ["open-access", "research-skills"], "category": "research",
-    "start": "2026-12-16T13:00", "place": { "en": "Online", "ar": "عبر الإنترنت" }, "booking": "register",
-    "title": { "en": "Publishing Open Access: What Researchers Need to Know (sample)", "ar": "النشر بالوصول الحر: ما يحتاج الباحثون إلى معرفته (نموذج)" },
-    "summary": { "en": "Licences, funding and repositories explained in one hour.", "ar": "شرح للتراخيص والتمويل والمستودعات في ساعة واحدة." } },
-  { "id": "ev-11", "type": "event", "sample": true, "lang": "both", "audience": ["adults", "teens"], "tags": ["architecture", "visiting"], "category": "adults",
-    "start": "2026-12-19T11:00", "place": { "en": "Main Entrance", "ar": "المدخل الرئيسي" }, "booking": "drop-in",
-    "title": { "en": "Building Tour: Architecture of the Library (sample)", "ar": "جولة في المبنى: عمارة المكتبة (نموذج)" },
-    "summary": { "en": "A guided walk through the terraces, the Heritage Library and the reading spaces.", "ar": "جولة مرشدة عبر المدرجات ومكتبة التراث ومساحات القراءة." } },
-  { "id": "ev-12", "type": "event", "sample": true, "lang": "ar", "audience": ["children"], "tags": ["children", "arabic-language"], "category": "children",
-    "start": "2026-12-20T16:00", "place": { "en": "Children's Library", "ar": "مكتبة الأطفال" }, "booking": "drop-in",
-    "title": { "en": "Arabic Calligraphy for Kids (sample)", "ar": "الخط العربي للأطفال (نموذج)" },
-    "summary": { "en": "Try reed pens and ink with a calligraphy teacher.", "ar": "جرّب القصبة والحبر مع معلم الخط." } },
-  { "id": "ev-13", "type": "event", "sample": true, "lang": "en", "audience": ["researchers", "adults"], "tags": ["pearling", "gulf-history"], "category": "heritage",
-    "start": "2027-01-09T18:00", "place": { "en": "Auditorium", "ar": "المسرح" }, "booking": "register",
-    "title": { "en": "Lecture: The Pearl Trade and the Wider World (sample)", "ar": "محاضرة: تجارة اللؤلؤ والعالم (نموذج)" },
-    "summary": { "en": "How Gulf pearls travelled to markets across the Indian Ocean.", "ar": "كيف وصل لؤلؤ الخليج إلى أسواق المحيط الهندي." } },
-  { "id": "ev-14", "type": "event", "sample": true, "lang": "en", "audience": ["students", "adults"], "tags": ["digital-skills", "research-skills"], "category": "adults",
-    "start": "2027-01-14T17:30", "place": { "en": "Training Room", "ar": "قاعة التدريب" }, "booking": "register",
-    "title": { "en": "Reference Managers in an Hour (sample)", "ar": "برامج إدارة المراجع في ساعة (نموذج)" },
-    "summary": { "en": "Collect, organise and cite sources with free reference tools.", "ar": "اجمع مصادرك ونظّمها ووثّقها باستخدام أدوات مجانية لإدارة المراجع." } }
+  {
+    "id": "ev-01",
+    "type": "event",
+    "sample": true,
+    "lang": "both",
+    "audience": [
+      "children"
+    ],
+    "tags": [
+      "children",
+      "reading"
+    ],
+    "category": "children",
+    "start": "2026-11-28T10:00",
+    "place": {
+      "en": "Children's Library",
+      "ar": "مكتبة الأطفال"
+    },
+    "booking": "drop-in",
+    "title": {
+      "en": "Storytime for ages 3–5 (sample)",
+      "ar": "وقت الحكاية للأعمار من 3 إلى 5 سنوات (نموذج)"
+    },
+    "summary": {
+      "en": "Songs, stories and rhymes in Arabic and English for little listeners.",
+      "ar": "أناشيد وحكايات وأهازيج بالعربية والإنجليزية للمستمعين الصغار."
+    }
+  },
+  {
+    "id": "ev-02",
+    "type": "event",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "researchers",
+      "students"
+    ],
+    "tags": [
+      "research-skills"
+    ],
+    "category": "research",
+    "start": "2026-11-30T18:00",
+    "place": {
+      "en": "Training Room",
+      "ar": "قاعة التدريب"
+    },
+    "booking": "register",
+    "title": {
+      "en": "Systematic Review Workshop (sample)",
+      "ar": "ورشة عمل المراجعة المنهجية (نموذج)"
+    },
+    "summary": {
+      "en": "Plan, search and document a systematic review with a subject librarian.",
+      "ar": "خطّط لمراجعة منهجية وابحث فيها ووثّقها مع أمين مكتبة متخصص."
+    }
+  },
+  {
+    "id": "ev-03",
+    "type": "event",
+    "sample": true,
+    "lang": "ar",
+    "audience": [
+      "adults"
+    ],
+    "tags": [
+      "poetry",
+      "arabic-language"
+    ],
+    "category": "adults",
+    "start": "2026-12-02T19:00",
+    "place": {
+      "en": "Main Hall",
+      "ar": "القاعة الرئيسية"
+    },
+    "booking": "drop-in",
+    "title": {
+      "en": "An Evening of Nabati Poetry (sample)",
+      "ar": "أمسية في الشعر النبطي (نموذج)"
+    },
+    "summary": {
+      "en": "Readings and conversation with local poets.",
+      "ar": "قراءات وحوار مع شعراء محليين."
+    }
+  },
+  {
+    "id": "ev-04",
+    "type": "event",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "adults",
+      "researchers"
+    ],
+    "tags": [
+      "maps",
+      "gulf-history"
+    ],
+    "category": "heritage",
+    "start": "2026-12-05T17:00",
+    "place": {
+      "en": "Heritage Library",
+      "ar": "مكتبة التراث"
+    },
+    "booking": "register",
+    "title": {
+      "en": "Talk: Reading Old Maps of the Gulf (sample)",
+      "ar": "محاضرة: قراءة الخرائط القديمة للخليج (نموذج)"
+    },
+    "summary": {
+      "en": "A curator-led look at how the region was mapped over three centuries.",
+      "ar": "عرض يقدّمه أمين المجموعة عن كيفية رسم خرائط المنطقة عبر ثلاثة قرون."
+    }
+  },
+  {
+    "id": "ev-05",
+    "type": "event",
+    "sample": true,
+    "lang": "both",
+    "audience": [
+      "teens"
+    ],
+    "tags": [
+      "digital-skills",
+      "teens"
+    ],
+    "category": "children",
+    "start": "2026-12-06T15:00",
+    "place": {
+      "en": "Innovation Stations",
+      "ar": "محطات الابتكار"
+    },
+    "booking": "register",
+    "title": {
+      "en": "3D Printing for Teens (sample)",
+      "ar": "الطباعة ثلاثية الأبعاد لليافعين (نموذج)"
+    },
+    "summary": {
+      "en": "Design and print your first object. No experience needed.",
+      "ar": "صمّم واطبع أول مجسّم لك. لا تلزم خبرة سابقة."
+    }
+  },
+  {
+    "id": "ev-06",
+    "type": "event",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "researchers",
+      "students"
+    ],
+    "tags": [
+      "data"
+    ],
+    "category": "research",
+    "start": "2026-12-08T11:00",
+    "place": {
+      "en": "Research Desk",
+      "ar": "مكتب البحث"
+    },
+    "booking": "drop-in",
+    "title": {
+      "en": "SPSS Clinic (sample)",
+      "ar": "جلسات استشارية حول SPSS (نموذج)"
+    },
+    "summary": {
+      "en": "Bring your dataset and questions to a one-to-one drop-in.",
+      "ar": "أحضر بياناتك وأسئلتك إلى جلسة فردية دون موعد مسبق."
+    }
+  },
+  {
+    "id": "ev-07",
+    "type": "event",
+    "sample": true,
+    "lang": "ar",
+    "audience": [
+      "adults"
+    ],
+    "tags": [
+      "reading"
+    ],
+    "category": "adults",
+    "start": "2026-12-10T18:30",
+    "place": {
+      "en": "Seminar Room",
+      "ar": "قاعة الندوات"
+    },
+    "booking": "drop-in",
+    "title": {
+      "en": "Arabic Book Club (sample)",
+      "ar": "نادي الكتاب العربي (نموذج)"
+    },
+    "summary": {
+      "en": "This month: a contemporary Gulf novel. New members welcome.",
+      "ar": "هذا الشهر: رواية خليجية معاصرة. نرحب بالأعضاء الجدد."
+    }
+  },
+  {
+    "id": "ev-08",
+    "type": "event",
+    "sample": true,
+    "lang": "both",
+    "audience": [
+      "children"
+    ],
+    "tags": [
+      "children",
+      "science"
+    ],
+    "category": "children",
+    "start": "2026-12-12T10:30",
+    "place": {
+      "en": "Children's Library",
+      "ar": "مكتبة الأطفال"
+    },
+    "booking": "register",
+    "title": {
+      "en": "Little Scientists: Water Experiments (sample)",
+      "ar": "العلماء الصغار: تجارب الماء (نموذج)"
+    },
+    "summary": {
+      "en": "Hands-on science for ages 6–9 with a parent or carer.",
+      "ar": "علوم تطبيقية للأعمار من 6 إلى 9 سنوات بصحبة أحد الوالدين."
+    }
+  },
+  {
+    "id": "ev-09",
+    "type": "event",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "adults",
+      "researchers"
+    ],
+    "tags": [
+      "manuscripts",
+      "islamic-art"
+    ],
+    "category": "heritage",
+    "start": "2026-12-14T16:00",
+    "place": {
+      "en": "Heritage Library",
+      "ar": "مكتبة التراث"
+    },
+    "booking": "register",
+    "title": {
+      "en": "Manuscript Handling Session (sample)",
+      "ar": "جلسة التعامل مع المخطوطات (نموذج)"
+    },
+    "summary": {
+      "en": "Learn how conservators care for fragile manuscripts.",
+      "ar": "تعرّف على أساليب المرممين في العناية بالمخطوطات الهشة."
+    }
+  },
+  {
+    "id": "ev-10",
+    "type": "event",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "researchers"
+    ],
+    "tags": [
+      "open-access",
+      "research-skills"
+    ],
+    "category": "research",
+    "start": "2026-12-16T13:00",
+    "place": {
+      "en": "Online",
+      "ar": "عبر الإنترنت"
+    },
+    "booking": "register",
+    "title": {
+      "en": "Publishing Open Access: What Researchers Need to Know (sample)",
+      "ar": "النشر بالوصول الحر: ما يحتاج الباحثون إلى معرفته (نموذج)"
+    },
+    "summary": {
+      "en": "Licences, funding and repositories explained in one hour.",
+      "ar": "شرح للتراخيص والتمويل والمستودعات في ساعة واحدة."
+    }
+  },
+  {
+    "id": "ev-11",
+    "type": "event",
+    "sample": true,
+    "lang": "both",
+    "audience": [
+      "adults",
+      "teens"
+    ],
+    "tags": [
+      "architecture",
+      "visiting"
+    ],
+    "category": "adults",
+    "start": "2026-12-19T11:00",
+    "place": {
+      "en": "Main Entrance",
+      "ar": "المدخل الرئيسي"
+    },
+    "booking": "drop-in",
+    "title": {
+      "en": "Building Tour: Architecture of the Library (sample)",
+      "ar": "جولة في المبنى: عمارة المكتبة (نموذج)"
+    },
+    "summary": {
+      "en": "A guided walk through the terraces, the Heritage Library and the reading spaces.",
+      "ar": "جولة مرشدة عبر المدرجات ومكتبة التراث ومساحات القراءة."
+    }
+  },
+  {
+    "id": "ev-12",
+    "type": "event",
+    "sample": true,
+    "lang": "ar",
+    "audience": [
+      "children"
+    ],
+    "tags": [
+      "children",
+      "arabic-language"
+    ],
+    "category": "children",
+    "start": "2026-12-20T16:00",
+    "place": {
+      "en": "Children's Library",
+      "ar": "مكتبة الأطفال"
+    },
+    "booking": "drop-in",
+    "title": {
+      "en": "Arabic Calligraphy for Kids (sample)",
+      "ar": "الخط العربي للأطفال (نموذج)"
+    },
+    "summary": {
+      "en": "Try reed pens and ink with a calligraphy teacher.",
+      "ar": "جرّب القصبة والحبر مع معلم الخط."
+    }
+  },
+  {
+    "id": "ev-13",
+    "type": "event",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "researchers",
+      "adults"
+    ],
+    "tags": [
+      "pearling",
+      "gulf-history"
+    ],
+    "category": "heritage",
+    "start": "2027-01-09T18:00",
+    "place": {
+      "en": "Auditorium",
+      "ar": "قاعة المحاضرات الكبرى"
+    },
+    "booking": "register",
+    "title": {
+      "en": "Lecture: The Pearl Trade and the Wider World (sample)",
+      "ar": "محاضرة: تجارة اللؤلؤ والعالم (نموذج)"
+    },
+    "summary": {
+      "en": "How Gulf pearls travelled to markets across the Indian Ocean.",
+      "ar": "كيف وصل لؤلؤ الخليج إلى أسواق المحيط الهندي."
+    }
+  },
+  {
+    "id": "ev-14",
+    "type": "event",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "students",
+      "adults"
+    ],
+    "tags": [
+      "digital-skills",
+      "research-skills"
+    ],
+    "category": "adults",
+    "start": "2027-01-14T17:30",
+    "place": {
+      "en": "Training Room",
+      "ar": "قاعة التدريب"
+    },
+    "booking": "register",
+    "title": {
+      "en": "Reference Managers in an Hour (sample)",
+      "ar": "برامج إدارة المراجع في ساعة (نموذج)"
+    },
+    "summary": {
+      "en": "Collect, organise and cite sources with free reference tools.",
+      "ar": "اجمع مصادرك ونظّمها ووثّقها باستخدام أدوات مجانية لإدارة المراجع."
+    }
+  }
 ]

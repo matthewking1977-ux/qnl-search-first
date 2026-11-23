@@ -161,13 +161,13 @@ const exampleDate = new Date(Date.UTC(2026, 2, 14));
       </p>
       <div class="options">
         <figure class="opt" lang="ar" dir="rtl">
-          <figcaption class="t-mono" dir="ltr" lang="en">A · Noto Sans Arabic 500 · {isAr ? 'متناسق مع الواجهة' : 'matches UI, modern, calm'}</figcaption>
+          <figcaption class="t-mono" dir="ltr" lang="en">A · Noto Sans Arabic 500 · <span lang={lang} class="cap-desc">{isAr ? 'متناسق مع الواجهة' : 'matches UI, modern, calm'}</span></figcaption>
           <p class="opt-display sans">من صفحتك الأولى إلى بحثك الأخير.</p>
           <p class="opt-h2 sans">لكل فصل من فصول حياتك ما يناسبه.</p>
           <p class="opt-body">تجمع مكتبة قطر الوطنية بين مجموعة وطنية ومكتبة عامة ومكتبة بحثية تحت سقف واحد.</p>
         </figure>
         <figure class="opt" lang="ar" dir="rtl">
-          <figcaption class="t-mono" dir="ltr" lang="en">B · Noto Naskh Arabic 500 · {isAr ? 'طابع كتابي، يوازي Newsreader' : 'bookish, pairs with Newsreader'}</figcaption>
+          <figcaption class="t-mono" dir="ltr" lang="en">B · Noto Naskh Arabic 500 · <span lang={lang} class="cap-desc">{isAr ? 'طابع كتابي، يوازي Newsreader' : 'bookish, pairs with Newsreader'}</span></figcaption>
           <p class="opt-display naskh">من صفحتك الأولى إلى بحثك الأخير.</p>
           <p class="opt-h2 naskh">لكل فصل من فصول حياتك ما يناسبه.</p>
           <p class="opt-body">تجمع مكتبة قطر الوطنية بين مجموعة وطنية ومكتبة عامة ومكتبة بحثية تحت سقف واحد.</p>
@@ -374,6 +374,7 @@ const exampleDate = new Date(Date.UTC(2026, 2, 14));
   @media (max-width: 56rem) { .options { grid-template-columns: 1fr; } }
   .opt { margin: 0; background: var(--color-paper); padding: var(--s-4); border-radius: var(--radius-2); display: grid; gap: var(--s-3); }
   .opt figcaption { color: var(--color-grey-600); }
+  .cap-desc:lang(ar) { font-family: var(--font-arabic); }
   .opt-display { font-size: clamp(2.25rem, 1.6rem + 2.6vw, 4rem); line-height: 1.25; margin: 0; text-wrap: balance; }
   .opt-h2 { font-size: var(--fs-h2); line-height: 1.3; margin: 0; text-wrap: balance; }
   .opt-body { margin: 0; font-family: var(--font-arabic); line-height: 1.7; color: var(--color-grey-800); }

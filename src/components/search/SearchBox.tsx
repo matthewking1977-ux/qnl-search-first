@@ -26,6 +26,8 @@ interface Props {
   initialQuery?: string;
   initialGroup?: Group | 'all';
   autoFocusDesktop?: boolean;
+  /** Intl locale incl. numbering system, from LOCALE_SETTINGS (i18n/index.ts) */
+  locale?: string;
 }
 
 const provider = new LocalIndexAdapter();
@@ -58,8 +60,7 @@ function Hl({ text, terms }: { text: string; terms: string[] }) {
   return <>{highlight(text, terms).map((seg, i) => (seg.m ? <mark key={i}>{seg.t}</mark> : seg.t))}</>;
 }
 
-function metaLine(r: LibraryRecord, lang: Lang, s: S): string {
-  const loc = lang === 'ar' ? 'ar-QA-u-nu-latn' : 'en-GB';
+function metaLine(r: LibraryRecord, lang: Lang, s: S, loc: string): string {
   if (r.type === 'event' && r.start) {
     const d = new Date(r.start);
     const date = new Intl.DateTimeFormat(loc, { weekday: 'short', day: 'numeric', month: 'short' }).format(d);
@@ -71,7 +72,8 @@ function metaLine(r: LibraryRecord, lang: Lang, s: S): string {
   return r.summary[lang];
 }
 
-export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuery = '', initialGroup = 'all', autoFocusDesktop = false }: Props) {
+export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuery = '', initialGroup = 'all', autoFocusDesktop = false, locale }: Props) {
+  const loc = locale ?? (lang === 'ar' ? 'ar-QA-u-nu-latn' : 'en-GB');
   const uid = `sb${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const [mode, setMode] = useState<'library' | 'ask'>('library');
   const [q, setQ] = useState(initialQuery);
@@ -311,7 +313,7 @@ export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuer
         return (
           <li {...common}>
             <span class="hit-title"><Hl text={r.title[lang]} terms={o.hit.terms} /></span>
-            <span class="hit-meta">{metaLine(r, lang, s)}</span>
+            <span class="hit-meta">{metaLine(r, lang, s, loc)}</span>
           </li>
         );
       }

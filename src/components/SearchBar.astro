@@ -1,6 +1,6 @@
 ---
 import SearchBox from './search/SearchBox.tsx';
-import { strings, type Lang } from '../i18n';
+import { strings, intlLocale, type Lang } from '../i18n';
 import tagsRaw from '../content/tags.json';
 import type { Group } from '../search/types';
 
@@ -16,4 +16,4 @@ const s = strings(lang, ['search.', 'filter.', 'group.', 'meta.lang', 'meta.remo
 const { _note, ...tagDefs } = tagsRaw as Record<string, any>;
 const tags = Object.fromEntries(Object.entries(tagDefs).map(([k, v]) => [k, { en: v.en, ar: v.ar }]));
 ---
-<SearchBox client:load lang={lang} s={s} tags={tags} variant={variant} initialQuery={initialQuery} initialGroup={initialGroup} autoFocusDesktop={autoFocusDesktop} />
+<SearchBox client:load lang={lang} locale={intlLocale(lang)} s={s} tags={tags} variant={variant} initialQuery={initialQuery} initialGroup={initialGroup} autoFocusDesktop={autoFocusDesktop} />
