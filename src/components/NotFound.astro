@@ -1,0 +1,40 @@
+---
+// 404: never a dead end. A search box (works without JS: GET to /search),
+// plus the five places most visitors are heading.
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import SearchBar from './SearchBar.astro';
+import { t, localPath, type Lang } from '../i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const links = [
+  ['nf.home', '/'],
+  ['nf.explore', '/search'],
+  ['nf.visit', '/item/pg-visit'],
+  ['nf.hours', '/item/sv-hours'],
+  ['nf.ask', '/item/sv-ask'],
+] as const;
+---
+<Header lang={lang} tone="light" />
+<main id="main" class="wrap nf" tabindex="-1">
+  <p class="code t-eyebrow" aria-hidden="true">404</p>
+  <h1 class="t-h2">{t(lang, 'nf.title')}</h1>
+  <p class="t-lead prose-measure">{t(lang, 'nf.lead')}</p>
+  <div class="search"><SearchBar lang={lang} variant="page" /></div>
+  <nav aria-labelledby="nf-links">
+    <h2 id="nf-links" class="t-h3">{t(lang, 'nf.links')}</h2>
+    <ul>
+      {links.map(([k, href]) => (
+        <li><a class="link" href={localPath(lang, href)}>{t(lang, k)}</a></li>
+      ))}
+    </ul>
+  </nav>
+</main>
+<Footer lang={lang} />
+<style>
+  .nf { padding-block: var(--s-8) var(--s-12); display: grid; gap: var(--s-3); }
+  .nf h1, .nf p, .nf h2 { margin: 0; }
+  .code { color: var(--color-accent); letter-spacing: 0.08em; }
+  .search { max-inline-size: 48rem; margin-block: var(--s-2) var(--s-4); }
+  .nf ul { margin: var(--s-2) 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
+</style>

@@ -8,6 +8,7 @@
     "dev": "astro dev",
     "prebuild": "node scripts/build-index.mjs",
     "build": "astro build",
+    "postbuild": "node scripts/vercel-routes.mjs",
     "preview": "astro preview",
     "media": "node scripts/process-media.mjs",
     "fonts": "bash scripts/subset-fonts.sh"
