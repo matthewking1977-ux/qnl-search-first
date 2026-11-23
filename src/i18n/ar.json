@@ -137,5 +137,17 @@
   "item.type.heritage": "مادة تراثية",
   "item.type.page": "صفحة",
   "search.count2": "نتيجتان",
-  "search.countFew": "{n} نتائج"
+  "search.countFew": "{n} نتائج",
+  "hero.pause": "إيقاف الفيديو مؤقتًا",
+  "hero.play": "تشغيل الفيديو",
+  "hero.videoLabel": "فيديو في الخلفية: أشخاص يقرؤون ويدرسون في مدرجات القاعة الرئيسية للمكتبة",
+  "today.label": "اليوم في المكتبة",
+  "today.open": "مفتوحة اليوم حتى",
+  "today.openValue": "[يُحدَّد لاحقًا]",
+  "today.study": "مساحات الدراسة المتاحة",
+  "today.studyValue": "[مباشر]",
+  "today.next": "الفعالية التالية",
+  "today.metro": "المترو",
+  "today.metroValue": "الخط الأخضر، محطة مكتبة قطر الوطنية",
+  "today.verify": "AR – verify"
 }

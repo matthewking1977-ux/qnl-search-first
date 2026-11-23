@@ -1,0 +1,175 @@
+---
+// Hero (from Concept E): muted video loop over the poster frame.
+// LCP = the poster <img> (never the video). The video is attached only after
+// load + idle, never under reduced motion or Save-Data, and always pausable.
+import Header from './Header.astro';
+import SearchBar from './SearchBar.astro';
+import TodayStrip from './TodayStrip.astro';
+import Picture from './Picture.astro';
+import { t, type Lang } from '../i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+---
+<section class="hero on-dark" aria-labelledby="hero-title" data-hero>
+  <div class="media" aria-hidden="true">
+    <Picture
+      name="hero-poster"
+      alt=""
+      sizes="100vw"
+      priority
+      class="poster"
+      width={1280}
+      height={720}
+      focus={{ base: '38% 50%', md: '50% 50%' }}
+    />
+    <video
+      class="video"
+      muted
+      playsinline
+      loop
+      preload="none"
+      disablepictureinpicture
+      disableremoteplayback
+      tabindex="-1"
+      data-src-small="/video/hero-640.mp4"
+      data-src-webm="/video/hero-960.webm"
+      data-src-mp4="/video/hero-960.mp4"
+    ></video>
+    <div class="scrim"></div>
+  </div>
+
+  <Header lang={lang} tone="dark" />
+
+  <div class="wrap content">
+    <h1 id="hero-title" class="t-display line">{t(lang, 'hero.line')}</h1>
+    <SearchBar lang={lang} variant="hero" autoFocusDesktop />
+  </div>
+
+  <div class="foot">
+    <div class="wrap pause-row">
+      <button type="button" class="pause" data-hero-toggle hidden aria-describedby="hero-video-desc"
+        data-label-pause={t(lang, 'hero.pause')} data-label-play={t(lang, 'hero.play')}>
+        <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.5v11M13 4.5v11" /></svg>
+        <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 4.5v11l9-5.5z" /></svg>
+        <span class="pause-label">{t(lang, 'hero.pause')}</span>
+      </button>
+      <span id="hero-video-desc" class="sr-only">{t(lang, 'hero.videoLabel')}</span>
+    </div>
+    <TodayStrip lang={lang} />
+  </div>
+</section>
+
+<script>
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  const video = hero?.querySelector<HTMLVideoElement>('video');
+  const btn = hero?.querySelector<HTMLButtonElement>('[data-hero-toggle]');
+  if (hero && video && btn) {
+    const label = btn.querySelector('.pause-label')!;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const conn = (navigator as any).connection;
+    const lowData = !!conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''));
+    let userPaused = false;
+    try { userPaused = localStorage.getItem('qnl.heroPaused') === '1'; } catch {}
+    let attached = false;
+    let inView = true;
+
+    const setUI = (playing: boolean) => {
+      btn.dataset.state = playing ? 'playing' : 'paused';
+      label.textContent = playing ? btn.dataset.labelPause! : btn.dataset.labelPlay!;
+    };
+    const attach = () => {
+      if (attached) return;
+      attached = true;
+      const small = window.matchMedia('(max-width: 48rem)').matches;
+      const add = (src: string, type: string) => { const s = document.createElement('source'); s.src = src; s.type = type; video.appendChild(s); };
+      if (small) add(video.dataset.srcSmall!, 'video/mp4');
+      else { add(video.dataset.srcWebm!, 'video/webm'); add(video.dataset.srcMp4!, 'video/mp4'); }
+      video.load();
+    };
+    const play = () => {
+      attach();
+      video.play().then(() => setUI(true)).catch(() => setUI(false));
+    };
+    const pause = () => { video.pause(); setUI(false); };
+
+    video.addEventListener('playing', () => hero.classList.add('is-playing'), { once: true });
+    btn.addEventListener('click', () => {
+      if (video.paused) { userPaused = false; play(); } else { userPaused = true; pause(); }
+      try { localStorage.setItem('qnl.heroPaused', userPaused ? '1' : '0'); } catch {}
+    });
+    reduce.addEventListener?.('change', (e) => { if (e.matches) { userPaused = true; pause(); } });
+
+    // Pause off-screen to save battery; resume only if the visitor hadn't paused it.
+    new IntersectionObserver(([e]) => {
+      inView = e.isIntersecting;
+      if (!attached) return;
+      if (!inView) video.pause();
+      else if (!userPaused && !reduce.matches) video.play().catch(() => {});
+    }, { threshold: 0.15 }).observe(hero);
+
+    btn.hidden = false;
+    setUI(false);
+    const autoplay = !reduce.matches && !lowData && !userPaused;
+    if (autoplay) {
+      const start = () => {
+        const ric = (window as any).requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 600));
+        ric(() => inView && play(), { timeout: 2500 });
+      };
+      if (document.readyState === 'complete') start();
+      else window.addEventListener('load', start, { once: true });
+    }
+  }
+</script>
+
+<style>
+  .hero {
+    position: relative; isolation: isolate;
+    display: grid; grid-template-rows: auto 1fr auto;
+    min-block-size: clamp(38rem, 92svh, 58rem);
+    background: var(--color-ink); color: var(--color-paper);
+  }
+  .hero :global(.site-header) { position: relative; }
+  .media { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+  .media :global(.poster) { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; background: var(--color-ink); }
+  .video {
+    position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 900ms var(--ease-out-expo);
+  }
+  .hero:global(.is-playing) .video { opacity: 1; }
+  /* Scrim: ≥ 0.6 ink over the brightest poster pixel keeps white text ≥ 4.5:1;
+     stronger at the top (nav) and bottom (Today strip). */
+  .scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgb(9 9 9 / 0.78) 0, rgb(9 9 9 / 0.6) 22%, rgb(9 9 9 / 0.6) 70%, rgb(9 9 9 / 0.82) 100%);
+  }
+  .content {
+    display: grid; justify-items: center; align-content: center; gap: var(--s-5);
+    padding-block: var(--s-8) var(--s-6); text-align: center;
+  }
+  .line { margin: 0; max-inline-size: 15ch; text-shadow: 0 1px 24px rgb(9 9 9 / 0.35); }
+  :global([lang='ar']) .line { max-inline-size: 18ch; }
+  .foot { display: grid; }
+  .pause-row { display: flex; justify-content: flex-end; padding-block-end: var(--s-2); }
+  .pause {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    min-block-size: 2.75rem; padding-inline: 0.9rem;
+    font: 500 var(--fs-xs)/1 var(--font-sans); color: var(--color-paper);
+    background: rgb(9 9 9 / 0.55); border: 1px solid rgb(255 255 255 / 0.5); border-radius: 999px;
+    cursor: pointer; backdrop-filter: blur(6px);
+    transition: background-color var(--dur-1) var(--ease-out-expo), border-color var(--dur-1);
+  }
+  :global([lang='ar']) .pause { font-family: var(--font-arabic); font-size: var(--fs-sm); }
+  .pause:hover { background: rgb(9 9 9 / 0.8); border-color: var(--color-paper); }
+  .pause:active { transform: translateY(1px); }
+  .pause svg { inline-size: 1rem; block-size: 1rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .pause .i-play { display: none; }
+  .pause[data-state='paused'] .i-play { display: block; }
+  .pause[data-state='paused'] .i-pause { display: none; }
+
+  @media (max-width: 48rem) {
+    .hero { min-block-size: auto; }
+    .content { padding-block: var(--s-6) var(--s-4); gap: var(--s-4); }
+  }
+</style>

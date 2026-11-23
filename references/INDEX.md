@@ -88,5 +88,5 @@ Grading for all: slightly muted, lifted blacks (applied at build time with Sharp
 
 ## Decisions (client, 23 Nov 2026)
 - Arabic display face: **Option B, Noto Naskh Arabic 500** (now the site default).
-- Hero: **still photo** (`hall-columns`, QNL 0024) until a new high-resolution video is supplied. `qnl-hero.mp4` is kept but not used.
+- Hero: **video supplied** (`assets/video/qnl-hero-v2-source.mp4`, 960×540, 36 s, interior of the main hall, no audio). Trimmed to 1.2–35.0 s to remove black fades so the loop is seamless; graded to match the photography; encoded to `public/video/hero-960.webm` (2.0 MB), `hero-960.mp4` (2.7 MB), `hero-640.mp4` (1.2 MB, phones). Poster = first trimmed frame (`hero-poster`, AVIF 12–43 KB). The earlier `qnl-hero.mp4` is not used.
 - **Excluded from use:** QNL 0026 (NYT watermark), QNL 0044 (photographer credit strip), QNL 0058 (identifiable people, consent unconfirmed).

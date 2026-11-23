@@ -137,5 +137,17 @@
   "item.type.heritage": "Heritage item",
   "item.type.page": "Page",
   "search.count2": "2 results",
-  "search.countFew": "{n} results"
+  "search.countFew": "{n} results",
+  "hero.pause": "Pause video",
+  "hero.play": "Play video",
+  "hero.videoLabel": "Background video: people reading and studying across the terraces of the library's main hall",
+  "today.label": "Today at the library",
+  "today.open": "Open today until",
+  "today.openValue": "[TBC]",
+  "today.study": "Study spaces free",
+  "today.studyValue": "[live]",
+  "today.next": "Next event",
+  "today.metro": "Metro",
+  "today.metroValue": "Green Line, Qatar National Library station",
+  "today.verify": "verify"
 }

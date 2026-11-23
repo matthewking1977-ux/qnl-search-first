@@ -1,14 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
-import SearchBand from '../components/SearchBand.astro';
+import Hero from '../components/Hero.astro';
 import FooterMini from '../components/FooterMini.astro';
+import { heroPreload } from '../lib/preload';
 ---
-<Base lang="en">
+<Base lang="en" preloadImage={heroPreload()}>
   <main id="main" tabindex="-1">
-    <SearchBand lang="en" />
+    <Hero lang="en" />
     <section class="wrap" style="padding-block:4rem">
-      <p class="t-eyebrow">Phase 2 · search core</p>
-      <p class="t-lead prose-measure">Try “libary”, “opening times”, “renew”, “parking”, “اللؤلو”, or press <kbd>/</kbd> from anywhere. Full results at <a class="link" href="/search?q=pearl">/search</a>. Add <a class="link" href="/?perf=1">?perf=1</a> for timings.</p>
+      <p class="t-eyebrow">Phase 3 · hero and Today strip</p>
+      <p class="t-lead prose-measure">Sections below the hero (For you, top tasks, What's on, collections, heritage, research, newsletter, footer) arrive in Phases 4 and 5.</p>
     </section>
   </main>
   <FooterMini lang="en" />

@@ -1,14 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
-import SearchBand from '../../components/SearchBand.astro';
+import Hero from '../../components/Hero.astro';
 import FooterMini from '../../components/FooterMini.astro';
+import { heroPreload } from '../../lib/preload';
 ---
-<Base lang="ar">
+<Base lang="ar" preloadImage={heroPreload()}>
   <main id="main" tabindex="-1">
-    <SearchBand lang="ar" />
+    <Hero lang="ar" />
     <section class="wrap" style="padding-block:4rem">
-      <p class="t-eyebrow">المرحلة الثانية · محرك البحث</p>
-      <p class="t-lead prose-measure">جرّب «مواعيد العمل» أو «تجديد» أو «مواقف» أو «اللؤلو»، أو اضغط <kbd>/</kbd> من أي مكان في الصفحة.</p>
+      <p class="t-eyebrow">المرحلة الثالثة · الواجهة وشريط «اليوم»</p>
+      <p class="t-lead prose-measure">تُضاف الأقسام التالية للواجهة في المرحلتين الرابعة والخامسة.</p>
     </section>
   </main>
   <FooterMini lang="ar" />

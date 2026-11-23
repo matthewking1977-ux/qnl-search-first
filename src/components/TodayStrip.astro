@@ -1,0 +1,93 @@
+---
+// From Concept C: one compact row of live-status links directly under the search.
+// Every value is a placeholder ([TBC] / [live] / SAMPLE) until wired to QNL systems.
+import { t, formatDate, type Lang } from '../i18n';
+import { records } from '../search/data';
+import { itemHref } from '../search/links';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const now = Date.now();
+const next = records
+  .filter((r) => r.type === 'event' && r.start && new Date(r.start).getTime() > now)
+  .sort((a, b) => a.start!.localeCompare(b.start!))[0];
+const nextWhen = next
+  ? `${formatDate(lang, new Date(next.start!), { weekday: 'short' })} ${formatDate(lang, new Date(next.start!), { hour: '2-digit', minute: '2-digit', hour12: false })}`
+  : '';
+const nextTitle = next ? next.title[lang].replace(/\s*\((sample|نموذج)\)\s*$/, '') : '';
+const sample = t(lang, 'label.sample');
+---
+<nav class="today on-dark" aria-label={t(lang, 'today.label')}>
+  <div class="wrap row">
+    <span class="label t-mono" aria-hidden="true">{t(lang, 'today.label')}</span>
+    <ul role="list">
+      <li>
+        <a href={itemHref(lang, { id: 'sv-hours' })}>
+          <span class="k"><span class="dot" aria-hidden="true"></span>{t(lang, 'today.open')}</span>
+          <span class="v">{t(lang, 'today.openValue')}</span>
+        </a>
+      </li>
+      <li>
+        <a href={itemHref(lang, { id: 'sv-study' })}>
+          <span class="k">{t(lang, 'today.study')}</span>
+          <span class="v">{t(lang, 'today.studyValue')}</span>
+        </a>
+      </li>
+      {next && (
+        <li>
+          <a href={itemHref(lang, next)}>
+            <span class="k">{t(lang, 'today.next')}</span>
+            <span class="v"><bdi>{nextTitle}</bdi> · <span class="when">{nextWhen}</span><span class="sample-tag">{sample}</span></span>
+          </a>
+        </li>
+      )}
+      <li>
+        <a href={itemHref(lang, { id: 'sv-metro' })}>
+          <span class="k">{t(lang, 'today.metro')}</span>
+          <span class="v">{t(lang, 'today.metroValue')} <span class="sample-tag" lang="en" dir="ltr">{t(lang, 'today.verify')}</span></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .today {
+    position: relative; z-index: 2;
+    background: rgb(9 9 9 / 0.78);
+    border-block-start: var(--hairline-dark);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--color-paper);
+    font-size: var(--fs-sm);
+  }
+  .row { display: flex; align-items: stretch; gap: var(--s-3); }
+  .label { flex: none; align-self: center; color: var(--color-grey-300); text-transform: uppercase; letter-spacing: 0.08em; }
+  :global([lang='ar']) .label { text-transform: none; letter-spacing: 0; font-family: var(--font-arabic); }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); flex: 1; }
+  li + li { border-inline-start: var(--hairline-dark); }
+  a {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.5rem;
+    min-block-size: 3.75rem; padding: 0.85rem 1rem; text-decoration: none; block-size: 100%;
+    transition: background-color var(--dur-1) var(--ease-out-expo);
+  }
+  a:hover { background: rgb(255 255 255 / 0.08); }
+  a:hover .k { color: var(--color-accent-on-dark); }
+  a:focus-visible { outline-offset: -3px; }
+  .k { color: var(--color-grey-300); transition: color var(--dur-1); }
+  .v { color: var(--color-paper); font-weight: 500; overflow-wrap: anywhere; }
+  .when { font-variant-numeric: tabular-nums; }
+  .dot { display: inline-block; inline-size: 0.45rem; block-size: 0.45rem; border-radius: 50%; background: var(--color-accent-on-dark); margin-inline-end: 0.5rem; vertical-align: 0.1em; }
+  .sample-tag { color: var(--color-grey-300); }
+
+  @media (max-width: 80rem) { .label { display: none; } }
+  @media (max-width: 56rem) {
+    ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    li:nth-child(3) { border-inline-start: 0; }
+    li:nth-child(n + 3) { border-block-start: var(--hairline-dark); }
+    .row { padding-inline: 0; }
+  }
+  @media (max-width: 30rem) {
+    a { flex-direction: column; gap: 0.1rem; padding: 0.75rem 1rem; }
+  }
+</style>

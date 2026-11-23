@@ -11,7 +11,9 @@ const OUT = 'public/images';
 
 // key → { file, widths, crops? }  Crops are chosen per breakpoint (see Picture.astro).
 export const PHOTOS = {
-  'hall-columns':   { file: 'QNL 0024.jpg', widths: [640, 960, 1440, 1920, 2560] }, // hero poster
+  // Hero poster = first frame of the trimmed hero video, already graded in ffmpeg (grade: false)
+  'hero-poster':    { file: '../../video/hero-poster.png', widths: [480, 640, 960, 1280], grade: false },
+  'hall-columns':   { file: 'QNL 0024.jpg', widths: [640, 960, 1440, 1920, 2560] }, // still-photo fallback
   'hall-wide':      { file: 'QNL 0013.jpg', widths: [640, 960, 1440] },
   'hall-skylight':  { file: 'QNL 0023.jpg', widths: [480, 800, 1200] },             // portrait
   'terraces':       { file: 'QNL 0027.jpg', widths: [640, 960, 1440, 1920] },
@@ -45,21 +47,22 @@ async function exists(p) { try { await stat(p); return true; } catch { return fa
 
 await mkdir(OUT, { recursive: true });
 const manifest = {};
-for (const [key, { file, widths }] of Object.entries(PHOTOS)) {
+for (const [key, { file, widths, grade: doGrade = true }] of Object.entries(PHOTOS)) {
+  const g = doGrade ? grade : (img) => img;
   const src = path.join(SRC, file);
   const meta = await sharp(src).metadata();
   manifest[key] = { src: file, w: meta.width, h: meta.height, widths: [] };
   for (const w of widths) {
-    if (w > meta.width) continue;
+    if (w > meta.width && key !== 'hero-poster') continue;
     manifest[key].widths.push(w);
     for (const [fmt, opts] of [['avif', { quality: 52, effort: 5 }], ['webp', { quality: 72 }], ['jpg', { quality: 74, mozjpeg: true }]]) {
       const out = path.join(OUT, `${key}-${w}.${fmt}`);
       if (await exists(out)) continue;
-      await grade(sharp(src).rotate().resize({ width: w })).toFormat(fmt === 'jpg' ? 'jpeg' : fmt, opts).toFile(out);
+      await g(sharp(src).rotate().resize({ width: w, kernel: 'lanczos3' }).sharpen(w > meta.width ? { sigma: 0.6 } : undefined)).toFormat(fmt === 'jpg' ? 'jpeg' : fmt, opts).toFile(out);
     }
   }
   // tiny blurred placeholder (inline base64) for card backgrounds
-  const lqip = await grade(sharp(src).resize({ width: 24 })).blur(1.2).webp({ quality: 40 }).toBuffer();
+  const lqip = await g(sharp(src).resize({ width: 24 })).blur(1.2).webp({ quality: 40 }).toBuffer();
   manifest[key].lqip = `data:image/webp;base64,${lqip.toString('base64')}`;
   if (!manifest[key].widths.length) manifest[key].widths.push(meta.width);
   console.log('✓', key, manifest[key].widths.join(','));
