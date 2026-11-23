@@ -27,6 +27,7 @@
     "@fontsource/roboto": "^5.3.0",
     "@fontsource/roboto-mono": "^5.3.0",
     "@tailwindcss/vite": "^4.3.5",
+    "axe-core": "^4.14.1",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.5"
   }

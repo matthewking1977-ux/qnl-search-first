@@ -1,13 +1,15 @@
 ---
-// Phase 1 placeholder: the homepage is built from Phase 2 onwards.
 import Base from '../layouts/Base.astro';
-import Header from '../components/Header.astro';
+import SearchBand from '../components/SearchBand.astro';
+import FooterMini from '../components/FooterMini.astro';
 ---
 <Base lang="en">
-  <Header lang="en" tone="light" />
-  <main id="main" class="wrap" style="padding-block:6rem">
-    <p class="t-eyebrow">Concept G · Search First</p>
-    <h1 class="t-display">From your first page to your final paper.</h1>
-    <p class="t-lead">Phase 1: <a class="link" href="/styleguide">design system</a>.</p>
+  <main id="main" tabindex="-1">
+    <SearchBand lang="en" />
+    <section class="wrap" style="padding-block:4rem">
+      <p class="t-eyebrow">Phase 2 · search core</p>
+      <p class="t-lead prose-measure">Try “libary”, “opening times”, “renew”, “parking”, “اللؤلو”, or press <kbd>/</kbd> from anywhere. Full results at <a class="link" href="/search?q=pearl">/search</a>. Add <a class="link" href="/?perf=1">?perf=1</a> for timings.</p>
+    </section>
   </main>
+  <FooterMini lang="en" />
 </Base>

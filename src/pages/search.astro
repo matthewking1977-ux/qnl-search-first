@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import Base from '../layouts/Base.astro';
+import SearchResults from '../components/SearchResults.astro';
+const q = Astro.url.searchParams.get('q');
+---
+<Base lang="en" title={q ? `“${q}”` : 'Search'}>
+  <SearchResults lang="en" />
+</Base>

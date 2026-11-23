@@ -47,3 +47,13 @@ export function altPath(lang: Lang, path: string): string {
 export function localPath(lang: Lang, path: string): string {
   return lang === 'ar' ? `/ar${path === '/' ? '/' : path}` : path;
 }
+
+/** Subset of strings (by key prefix) to hand to a client island. */
+export function strings(lang: Lang, prefixes: string[]): Record<string, string> {
+  const d = dict[lang] as Record<string, string>;
+  return Object.fromEntries(Object.entries(d).filter(([k]) => prefixes.some((p) => k.startsWith(p))));
+}
+
+export function fmt(s: string, vars: Record<string, string | number>): string {
+  return s.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ''));
+}

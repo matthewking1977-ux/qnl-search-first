@@ -1,0 +1,25 @@
+{
+  "_note": "Query-time synonym groups. Any term in a group expands to the others (lower weight than the typed term). Multi-word entries are matched as phrases in the query. SAMPLE.",
+  "groups": [
+    ["hours", "opening hours", "opening times", "open", "opening", "times", "closing time", "when open", "مواعيد", "ساعات العمل", "أوقات العمل", "مواعيد العمل", "متى تفتح", "الدوام"],
+    ["renew", "renewal", "renewing", "extend loan", "extend", "due date", "تجديد", "تمديد", "الإعارة"],
+    ["borrow", "loan", "loans", "checkout", "lend", "استعارة", "إعارة"],
+    ["membership", "member", "join", "library card", "card", "register", "sign up", "عضوية", "انضمام", "بطاقة", "تسجيل"],
+    ["parking", "car park", "park", "car", "مواقف", "موقف السيارات", "مواقف السيارات"],
+    ["metro", "train", "public transport", "subway", "station", "مترو", "قطار", "المواصلات", "محطة"],
+    ["study room", "study space", "group room", "quiet space", "desk", "study", "book a room", "قاعة دراسة", "غرفة دراسة", "مساحة للدراسة", "دراسة"],
+    ["printing", "print", "printer", "photocopy", "copy", "scan", "scanning", "طباعة", "نسخ", "مسح ضوئي"],
+    ["wifi", "wi-fi", "internet", "wireless", "إنترنت", "واي فاي"],
+    ["librarian", "help", "ask", "enquiry", "question", "reference", "أمين المكتبة", "مساعدة", "استفسار", "سؤال"],
+    ["database", "databases", "e-resources", "eresources", "journals", "articles", "قاعدة بيانات", "قواعد البيانات", "مجلات", "مقالات"],
+    ["ebook", "ebooks", "e-book", "digital books", "كتب إلكترونية", "كتاب إلكتروني"],
+    ["events", "event", "whats on", "programme", "program", "activities", "فعاليات", "فعالية", "أنشطة", "برنامج"],
+    ["children", "kids", "family", "families", "أطفال", "الأطفال", "الأسرة"],
+    ["heritage", "rare books", "special collections", "archive", "archives", "التراث", "الكتب النادرة", "المجموعات الخاصة", "أرشيف"],
+    ["food", "cafe", "café", "eat", "drink", "coffee", "مقهى", "طعام", "مشروبات"],
+    ["lost", "lost property", "lost and found", "مفقودات", "المفقودات"],
+    ["accessibility", "accessible", "wheelchair", "disability", "إتاحة", "ذوي الإعاقة", "كرسي متحرك"],
+    ["thesis", "dissertation", "phd", "masters", "أطروحة", "رسالة ماجستير", "دكتوراه"],
+    ["library", "libraries", "مكتبة", "المكتبة"]
+  ]
+}

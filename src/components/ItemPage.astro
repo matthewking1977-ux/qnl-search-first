@@ -1,0 +1,67 @@
+---
+// One page per sample record, so every search result leads somewhere real.
+import Header from './Header.astro';
+import FooterMini from './FooterMini.astro';
+import Picture from './Picture.astro';
+import { t, formatDate, type Lang } from '../i18n';
+import { engineData } from '../search/data';
+import type { LibraryRecord } from '../search/types';
+import { searchHref } from '../search/links';
+
+interface Props { lang: Lang; record: LibraryRecord; }
+const { lang, record: r } = Astro.props;
+const tagLabel = (k: string) => engineData.tags[k]?.[lang];
+const typeLabel = t(lang, `item.type.${r.type}` as any);
+---
+<Header lang={lang} tone="light" />
+<main id="main" class="wrap item" tabindex="-1">
+  <p><a class="link" href={searchHref(lang, '')}><span class="arrow icon-dir" aria-hidden="true">←</span> {t(lang, 'item.back')}</a></p>
+  <article class="grid">
+    <div class="body">
+      <p class="t-eyebrow">{typeLabel} <span class="sample-tag">{t(lang, 'label.sample')}</span></p>
+      <h1 class="t-h2">{r.title[lang]}</h1>
+      <p class="t-lead prose-measure">{r.summary[lang]}</p>
+      {r.task && (
+        <div class="answer">
+          <p>{r.task.answer[lang]}</p>
+          <a class="btn btn--primary" href="#main">{r.task.action[lang]} <span class="arrow icon-dir" aria-hidden="true">→</span></a>
+        </div>
+      )}
+      <dl class="facts">
+        {r.start && (<><dt>{t(lang, 'results.date')}</dt><dd>{formatDate(lang, new Date(r.start), { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })}</dd></>)}
+        {r.place && (<><dt>{lang === 'ar' ? 'المكان' : 'Place'}</dt><dd>{r.place[lang]}</dd></>)}
+        {r.year && (<><dt>{lang === 'ar' ? 'سنة النشر' : 'Year'}</dt><dd>{r.year}</dd></>)}
+        <dt>{t(lang, 'results.language')}</dt><dd>{t(lang, `meta.lang.${r.lang}` as any)}</dd>
+        <dt>{t(lang, 'results.audience')}</dt><dd>{r.audience.map((a) => t(lang, `aud.${a}` as any)).join(lang === 'ar' ? '، ' : ', ')}</dd>
+      </dl>
+      <h2 class="t-ui related">{t(lang, 'item.related')}</h2>
+      <ul class="tags">
+        {r.tags.filter(tagLabel).map((k) => <li><a class="chip" href={searchHref(lang, tagLabel(k)!)}>{tagLabel(k)}</a></li>)}
+      </ul>
+      <p class="note">{t(lang, 'item.sampleNote')}</p>
+    </div>
+    {r.image && (
+      <div class="media">
+        <Picture name={r.image as any} alt="" sizes="(min-width: 64rem) 40vw, 100vw" />
+      </div>
+    )}
+  </article>
+</main>
+<FooterMini lang={lang} />
+<style>
+  .item { padding-block: var(--s-4) var(--s-12); }
+  .grid { display: grid; grid-template-columns: 1fr; gap: var(--s-6); margin-block-start: var(--s-4); }
+  @media (min-width: 64rem) { .grid:has(.media) { grid-template-columns: 1.3fr 1fr; } }
+  .body { display: grid; gap: var(--s-2); align-content: start; }
+  .body h1, .body p { margin: 0; }
+  .answer { padding: var(--s-3); background: var(--color-paper-2); border-inline-start: 3px solid var(--color-accent); display: grid; gap: var(--s-2); justify-items: start; }
+  .answer p { margin: 0; max-inline-size: 62ch; }
+  .facts { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem var(--s-3); margin: var(--s-2) 0 0; font-size: var(--fs-sm); }
+  .facts dt { color: var(--color-grey-600); }
+  .facts dd { margin: 0; }
+  .related { font-weight: 500; margin: var(--s-2) 0 0; }
+  .tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tags .chip { text-decoration: none; }
+  .note { color: var(--color-grey-600); font-size: var(--fs-sm); border-block-start: var(--hairline); padding-block-start: var(--s-2); }
+  .media :global(.pic) { aspect-ratio: 4 / 5; }
+</style>

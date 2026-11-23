@@ -1,0 +1,19 @@
+---
+import SearchBox from './search/SearchBox.tsx';
+import { strings, type Lang } from '../i18n';
+import tagsRaw from '../content/tags.json';
+import type { Group } from '../search/types';
+
+interface Props {
+  lang: Lang;
+  variant?: 'hero' | 'page';
+  initialQuery?: string;
+  initialGroup?: Group | 'all';
+  autoFocusDesktop?: boolean;
+}
+const { lang, variant = 'hero', initialQuery = '', initialGroup = 'all', autoFocusDesktop = false } = Astro.props;
+const s = strings(lang, ['search.', 'filter.', 'group.', 'meta.lang', 'meta.remote', 'meta.onsite', 'popular.']);
+const { _note, ...tagDefs } = tagsRaw as Record<string, any>;
+const tags = Object.fromEntries(Object.entries(tagDefs).map(([k, v]) => [k, { en: v.en, ar: v.ar }]));
+---
+<SearchBox client:load lang={lang} s={s} tags={tags} variant={variant} initialQuery={initialQuery} initialGroup={initialGroup} autoFocusDesktop={autoFocusDesktop} />

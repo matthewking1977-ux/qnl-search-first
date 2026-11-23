@@ -1,0 +1,10 @@
+---
+import Base from '../../../layouts/Base.astro';
+import ItemPage from '../../../components/ItemPage.astro';
+import { records } from '../../../search/data';
+export function getStaticPaths() { return records.map((record) => ({ params: { id: record.id }, props: { record } })); }
+const { record } = Astro.props;
+---
+<Base lang="ar" title={record.title.ar} description={record.summary.ar}>
+  <ItemPage lang="ar" record={record} />
+</Base>

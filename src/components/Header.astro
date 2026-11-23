@@ -105,7 +105,8 @@ const nav = [
   }
   .sheet ul { list-style: none; margin: 0; padding: 0; }
   .sheet li a { display: flex; align-items: center; min-block-size: 3rem; font-size: var(--fs-lg); text-decoration: none; border-block-end: var(--hairline-dark); }
-  .sheet-utility { display: flex; gap: var(--s-2); margin-block-start: var(--s-3); }
+  .mobile:not([open]) .sheet { display: none; }
+  .sheet-utility { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-block-start: var(--s-3); }
   .sheet-utility a { display: inline-flex; align-items: center; min-block-size: 2.75rem; padding-inline: 1rem; border: 1px solid rgb(255 255 255 / 0.6); border-radius: var(--radius-1); text-decoration: none; }
   .sheet-utility .join { background: var(--color-paper); color: var(--color-ink); }
 

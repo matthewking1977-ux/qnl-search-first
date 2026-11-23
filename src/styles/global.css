@@ -207,14 +207,15 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   line-height: 1;
   letter-spacing: 0.06em;
   padding: 0.25em 0.45em;
+  color: var(--color-grey-600);
   border: 1px dashed currentColor;
   border-radius: var(--radius-1);
-  opacity: 0.62;
   vertical-align: 0.15em;
   margin-inline-start: 0.4em;
   white-space: nowrap;
 }
 html[data-clean] .sample-tag { display: none; }
+.on-dark .sample-tag { color: var(--color-grey-300); }
 [lang='ar'] .sample-tag:not([lang='en']) { font-family: var(--font-arabic); letter-spacing: 0; font-size: 0.75rem; }
 [lang='ar'] .t-mono:not([dir='ltr']) { font-family: var(--font-arabic); font-size: var(--fs-sm); }
 
