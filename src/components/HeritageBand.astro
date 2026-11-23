@@ -1,0 +1,35 @@
+---
+import Picture from './Picture.astro';
+import { t, type Lang } from '../i18n';
+import { itemHref } from '../search/links';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+---
+<section id="heritage" class="band on-dark" aria-labelledby="hb-h">
+  <Picture name="heritage-walls" alt="" sizes="100vw" class="bg" focus={{ base: '32% 45%', md: '40% 45%', lg: '50% 50%' }} />
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap inner" data-reveal>
+    <p class="eyebrow">{t(lang, 'heritage.eyebrow')}</p>
+    <h2 id="hb-h" class="t-display line">{t(lang, 'heritage.line')}</h2>
+    <p class="body">{t(lang, 'heritage.body')}</p>
+    <div class="actions">
+      <a class="btn btn--primary" href={itemHref(lang, { id: 'hr-09' })}>{t(lang, 'heritage.link')} <span class="arrow icon-dir" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href={itemHref(lang, { id: 'pg-heritage' })}>{t(lang, 'heritage.link2')}</a>
+    </div>
+  </div>
+</section>
+<style>
+  .band { position: relative; isolation: isolate; overflow: hidden; background: var(--color-ink); color: var(--color-paper); min-block-size: clamp(32rem, 80svh, 48rem); display: grid; align-items: end; }
+  .band :global(.bg) { position: absolute; inset: 0; z-index: -2; }
+  .scrim { position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(to top, rgb(9 9 9 / 0.88) 0, rgb(9 9 9 / 0.66) 45%, rgb(9 9 9 / 0.3) 100%); }
+  :global([dir='rtl']) .scrim { background: linear-gradient(to top, rgb(9 9 9 / 0.88) 0, rgb(9 9 9 / 0.66) 45%, rgb(9 9 9 / 0.3) 100%); }
+  .inner { display: grid; gap: var(--s-3); justify-items: start; padding-block: var(--s-16) var(--section-pad); }
+  .inner p { margin: 0; }
+  .eyebrow { font-weight: 700; font-size: var(--fs-xs); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--color-accent-on-dark); }
+  :global([lang='ar']) .eyebrow { font-weight: 500; font-size: var(--fs-sm); }
+  .line { margin: 0; max-inline-size: 14ch; }
+  :global([lang='ar']) .line { max-inline-size: 18ch; }
+  .body { max-inline-size: 52ch; font-size: var(--fs-lg); color: var(--color-grey-100); }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-block-start: var(--s-1); }
+</style>

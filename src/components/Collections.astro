@@ -1,0 +1,111 @@
+---
+// From the collections: one large feature + three items. Each card reveals
+// 2–3 related-topic tags on hover or focus (from Concept A); a tag runs a search.
+// On touch screens (no hover) the tags are always shown.
+import Picture from './Picture.astro';
+import { t, type Lang } from '../i18n';
+import { records, engineData } from '../search/data';
+import { itemHref, searchHref } from '../search/links';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const pick = [
+  { id: 'hr-01', image: 'heritage-cases', focus: { base: '55% 60%' } },
+  { id: 'hr-05', image: 'terraces-rail', focus: { base: '70% 40%' } },
+  { id: 'bk-18', image: 'shelf-top', focus: { base: '40% 70%' } },
+  { id: 'db-06', image: 'reader-stairs', focus: { base: '50% 45%' } },
+] as const;
+const items = pick.map((p) => ({ ...p, r: records.find((r) => r.id === p.id)! }));
+const groupLabel = (type: string) => t(lang, `item.type.${type}` as any);
+const tagLabel = (k: string) => engineData.tags[k]?.[lang];
+const clean = (s: string) => s.replace(/\s*\((sample|نموذج)\)\s*$/, '');
+---
+<section id="collections" class="coll section" aria-labelledby="coll-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="t-eyebrow">{t(lang, 'coll.eyebrow')}</p>
+        <h2 id="coll-h" class="t-h2">{t(lang, 'coll.title')}</h2>
+      </div>
+      <a class="link see-all" href={searchHref(lang, '', 'heritage')}>{t(lang, 'coll.browse')} <span class="arrow icon-dir" aria-hidden="true">→</span></a>
+    </div>
+    <ul class="grid" role="list">
+      {items.map(({ r, image, focus }, i) => (
+        <li class:list={['card', i === 0 && 'feature']} data-reveal>
+          <article>
+            <Picture name={image as any} alt="" sizes={i === 0 ? '(min-width: 64rem) 50vw, 100vw' : '(min-width: 64rem) 25vw, (min-width: 40rem) 50vw, 100vw'} focus={focus} class="img" />
+            <div class="text">
+              <p class="kind">{groupLabel(r.type)} <span class="sample-tag">{t(lang, 'label.sample')}</span></p>
+              <h3 class="title"><a href={itemHref(lang, r)}>{clean(r.title[lang])}</a></h3>
+              {i === 0 && <p class="sum">{r.summary[lang]}</p>}
+              <div class="related">
+                <span class="sr-only">{t(lang, 'coll.related')}:</span>
+                <ul role="list">
+                  {r.tags.filter(tagLabel).slice(0, 3).map((k) => (
+                    <li><a class="rtag" href={searchHref(lang, tagLabel(k)!)}>{tagLabel(k)}</a></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .coll { background: var(--color-paper); padding-block-start: 0; }
+  .head { display: flex; justify-content: space-between; align-items: end; gap: var(--s-3); flex-wrap: wrap; margin-block-end: var(--s-4); }
+  .head h2, .head p { margin: 0; }
+  .head > div { display: grid; gap: var(--s-1); }
+  .see-all { display: inline-flex; gap: 0.4em; align-items: center; min-block-size: 2.75rem; font-weight: 500; font-size: var(--fs-sm); }
+
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: var(--s-3) var(--s-2); }
+  .feature { grid-row: span 2; }
+  .grid > li:nth-child(2) { grid-column: 2 / 4; }
+  @media (max-width: 64rem) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .feature { grid-column: 1 / -1; grid-row: auto; }
+    .grid > li:nth-child(2) { grid-column: auto; }
+  }
+  @media (max-width: 36rem) { .grid { grid-template-columns: 1fr; } }
+
+  article { position: relative; display: grid; gap: var(--s-2); block-size: 100%; align-content: start; }
+  .card :global(.img) { aspect-ratio: 4 / 3; border-radius: 0; }
+  .feature :global(.img) { aspect-ratio: 4 / 3.4; }
+  .grid > li:nth-child(2) :global(.img) { aspect-ratio: 16 / 7; }
+  .card :global(.img img) { transition: scale 600ms var(--ease-out-expo); }
+  article:hover :global(.img img) { scale: 1.025; }
+  @media (prefers-reduced-motion: reduce) { article:hover :global(.img img) { scale: 1; } }
+
+  .text { display: grid; gap: 0.4rem; }
+  .text p { margin: 0; }
+  .kind { font: 700 0.75rem/1 var(--font-sans); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--color-accent); display: flex; align-items: center; gap: 0.25rem; }
+  :global([lang='ar']) .kind { font: 500 var(--fs-sm)/1.4 var(--font-arabic); }
+  .title { margin: 0; font-size: var(--fs-xl); font-weight: 500; line-height: 1.25; }
+  .feature .title { font-size: var(--fs-2xl); }
+  .title a { text-decoration: none; }
+  .title a::after { content: ''; position: absolute; inset: 0; }
+  .title a:focus-visible { outline: none; }
+  .title a:focus-visible::after { outline: 2px solid var(--focus-ring); outline-offset: 4px; }
+  article:hover .title a { color: var(--color-accent); }
+  .sum { color: var(--color-grey-800); max-inline-size: 52ch; }
+
+  /* Related-topic tags: revealed on hover / focus within the card */
+  .related ul { list-style: none; margin: 0.25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .rtag {
+    position: relative; z-index: 1; display: inline-flex; align-items: center; min-block-size: 2rem; padding-inline: 0.7rem;
+    font-size: var(--fs-xs); font-weight: 500; text-decoration: none; color: var(--color-ink);
+    border: 1px solid var(--color-grey-300); border-radius: 999px; background: var(--color-paper);
+    transition: border-color var(--dur-1), background-color var(--dur-1), color var(--dur-1);
+  }
+  .rtag::before { content: '#'; color: var(--color-grey-600); margin-inline-end: 0.15em; }
+  .rtag:hover { border-color: var(--color-ink); background: var(--color-ink); color: var(--color-paper); }
+  .rtag:hover::before { color: var(--color-grey-300); }
+  @media (hover: hover) and (pointer: fine) {
+    .related { opacity: 0; translate: 0 6px; transition: opacity var(--dur-3) var(--ease-out-expo), translate var(--dur-3) var(--ease-out-expo); }
+    article:hover .related, article:focus-within .related { opacity: 1; translate: 0 0; }
+  }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: reduce) { .related { translate: 0 0; } }
+</style>

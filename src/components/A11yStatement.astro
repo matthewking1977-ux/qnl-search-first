@@ -1,0 +1,28 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const how = [1, 2, 3, 4, 5], known = [1, 2];
+---
+<Header lang={lang} tone="light" />
+<main id="main" class="wrap a11y" tabindex="-1">
+  <h1 class="t-h2">{t(lang, 'a11y.title')}</h1>
+  <p class="t-lead prose-measure">{t(lang, 'a11y.intro')}</p>
+  <h2 class="t-h3">{t(lang, 'a11y.h.how')}</h2>
+  <ul class="prose-measure">{how.map((i) => <li>{t(lang, `a11y.how.${i}` as any)}</li>)}</ul>
+  <h2 class="t-h3">{t(lang, 'a11y.h.known')}</h2>
+  <ul class="prose-measure">{known.map((i) => <li>{t(lang, `a11y.known.${i}` as any)}</li>)}</ul>
+  <h2 class="t-h3">{t(lang, 'a11y.h.contact')}</h2>
+  <p class="prose-measure">{t(lang, 'a11y.contact')}</p>
+  <h2 class="t-h3">{t(lang, 'a11y.h.status')}</h2>
+  <p class="prose-measure">{t(lang, 'a11y.status')}</p>
+</main>
+<Footer lang={lang} />
+<style>
+  .a11y { padding-block: var(--s-8) var(--s-12); display: grid; gap: var(--s-2); }
+  .a11y h1, .a11y p { margin: 0; }
+  .a11y h2 { margin: var(--s-4) 0 0; }
+  .a11y ul { margin: 0; padding-inline-start: 1.25em; display: grid; gap: 0.5rem; }
+</style>

@@ -1,9 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
-import FooterMini from '../../components/FooterMini.astro';
+import Footer from '../../components/Footer.astro';
 import ForYou from '../../components/ForYou.astro';
 import TopTasks from '../../components/TopTasks.astro';
+import WhatsOn from '../../components/WhatsOn.astro';
+import Collections from '../../components/Collections.astro';
+import HeritageBand from '../../components/HeritageBand.astro';
+import ResearchBand from '../../components/ResearchBand.astro';
+import Newsletter from '../../components/Newsletter.astro';
 import { heroPreload } from '../../lib/preload';
 ---
 <Base lang="ar" preloadImage={heroPreload()}>
@@ -11,6 +16,11 @@ import { heroPreload } from '../../lib/preload';
     <Hero lang="ar" />
     <ForYou lang="ar" />
     <TopTasks lang="ar" />
+    <WhatsOn lang="ar" />
+    <Collections lang="ar" />
+    <HeritageBand lang="ar" />
+    <ResearchBand lang="ar" />
+    <Newsletter lang="ar" />
   </main>
-  <FooterMini lang="ar" />
+  <Footer lang="ar" />
 </Base>

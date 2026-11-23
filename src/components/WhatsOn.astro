@@ -1,0 +1,125 @@
+---
+// Three upcoming events + category filters (Children · Adults · Research · Heritage).
+// All upcoming events are rendered; JS shows the first three for the chosen filter.
+// Without JS the first three upcoming events show and "See all events" leads on.
+import { t, formatDate, type Lang } from '../i18n';
+import { records } from '../search/data';
+import { itemHref, searchHref } from '../search/links';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const now = Date.now();
+const events = records
+  .filter((r) => r.type === 'event' && r.start && new Date(r.start).getTime() > now)
+  .sort((a, b) => a.start!.localeCompare(b.start!));
+const cats = ['all', 'children', 'adults', 'research', 'heritage'] as const;
+const clean = (s: string) => s.replace(/\s*\((sample|نموذج)\)\s*$/, '');
+---
+<section id="whats-on" class="whatson section" aria-labelledby="wo-h" data-whatson>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="t-eyebrow">{t(lang, 'whatson.eyebrow')}</p>
+        <h2 id="wo-h" class="t-h2">{t(lang, 'whatson.title')}</h2>
+      </div>
+      <a class="see-all link" href={searchHref(lang, '', 'events')}>{t(lang, 'whatson.seeAll')} <span class="arrow icon-dir" aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="filters" role="group" aria-label={t(lang, 'whatson.filters')} hidden data-filters>
+      {cats.map((c) => (
+        <button type="button" class="chip" aria-pressed={c === 'all' ? 'true' : 'false'} data-cat={c}>{t(lang, `whatson.cat.${c}` as any)}</button>
+      ))}
+    </div>
+
+    <ul class="cards" role="list" data-cards>
+      {events.map((e, i) => {
+        const d = new Date(e.start!);
+        return (
+          <li class="ev" data-cat={e.category} hidden={i >= 3}>
+            <article>
+              <p class="date" aria-hidden="true">
+                <span class="day">{formatDate(lang, d, { day: 'numeric' })}</span>
+                <span class="mon">{formatDate(lang, d, { month: 'short' })}</span>
+              </p>
+              <div class="body">
+                <p class="meta">
+                  <span class="tag">{t(lang, `whatson.cat.${e.category}` as any)}</span>
+                  <span class="sample-tag">{t(lang, 'label.sample')}</span>
+                </p>
+                <h3 class="title"><a href={itemHref(lang, e)}>{clean(e.title[lang])}</a></h3>
+                <p class="when">
+                  <time datetime={e.start}>{formatDate(lang, d, { weekday: 'long', day: 'numeric', month: 'long' })} · {formatDate(lang, d, { hour: '2-digit', minute: '2-digit', hour12: false })}</time>
+                </p>
+                <p class="where">{e.place?.[lang]} · {t(lang, e.booking === 'register' ? 'meta.register' : 'meta.dropin')}</p>
+              </div>
+            </article>
+          </li>
+        );
+      })}
+    </ul>
+    <p class="none" hidden data-none><a class="link" href={searchHref(lang, '', 'events')}>{t(lang, 'whatson.none')}</a></p>
+    <div class="sr-only" role="status" aria-live="polite" data-live data-tpl={t(lang, 'whatson.showing')}></div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-whatson]').forEach((root) => {
+    const filters = root.querySelector<HTMLElement>('[data-filters]')!;
+    const items = [...root.querySelectorAll<HTMLElement>('[data-cards] > li')];
+    const none = root.querySelector<HTMLElement>('[data-none]')!;
+    const live = root.querySelector<HTMLElement>('[data-live]')!;
+    filters.hidden = false;
+    const apply = (cat: string, announce: boolean) => {
+      let shown = 0;
+      for (const li of items) {
+        const match = cat === 'all' || li.dataset.cat === cat;
+        li.hidden = !(match && shown < 3);
+        if (match && shown < 3) shown++;
+      }
+      none.hidden = shown > 0;
+      filters.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cat === cat)));
+      if (announce) {
+        const label = filters.querySelector<HTMLElement>(`[data-cat="${cat}"]`)!.textContent!.trim();
+        live.textContent = live.dataset.tpl!.replace('{cat}', label);
+      }
+    };
+    filters.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-cat]');
+      if (b) apply(b.dataset.cat!, true);
+    });
+  });
+</script>
+
+<style>
+  .whatson { background: var(--color-paper); }
+  .head { display: flex; justify-content: space-between; align-items: end; gap: var(--s-3); flex-wrap: wrap; margin-block-end: var(--s-3); }
+  .head h2, .head p { margin: 0; }
+  .head > div { display: grid; gap: var(--s-1); }
+  .see-all { display: inline-flex; gap: 0.4em; align-items: center; min-block-size: 2.75rem; font-weight: 500; font-size: var(--fs-sm); }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-end: var(--s-4); }
+  .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-2); }
+  @media (max-width: 64rem) { .cards { grid-template-columns: 1fr; } }
+  .ev article {
+    position: relative; display: grid; grid-template-columns: 4.5rem 1fr; gap: var(--s-3);
+    block-size: 100%; padding: var(--s-3); border: 1px solid var(--color-grey-100); border-radius: var(--radius-2);
+    transition: border-color var(--dur-2) var(--ease-out-expo);
+  }
+  .ev article:hover, .ev article:focus-within { border-color: var(--color-ink); }
+  .date { margin: 0; display: grid; align-content: start; justify-items: center; padding-block: 0.6rem; border-inline-end: var(--hairline); padding-inline-end: var(--s-2); }
+  .day { font: 400 2.5rem/1 var(--font-serif); color: var(--color-ink); }
+  :global([lang='ar']) .day { font-family: var(--font-sans); font-weight: 500; font-size: 2.25rem; }
+  .mon { font: 400 var(--fs-xs)/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-grey-600); margin-block-start: 0.35rem; }
+  :global([lang='ar']) .mon { font-family: var(--font-arabic); font-size: var(--fs-sm); }
+  .body { display: grid; gap: 0.4rem; align-content: start; }
+  .body p { margin: 0; }
+  .meta { display: flex; align-items: center; gap: 0.4rem; }
+  .title { margin: 0.25rem 0 0; font-size: var(--fs-xl); font-weight: 500; line-height: 1.25; }
+  .title a { text-decoration: none; }
+  .title a::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-2); }
+  .title a:focus-visible { outline: none; }
+  .title a:focus-visible::after { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+  .ev article:hover .title a { color: var(--color-accent); }
+  .when { font-size: var(--fs-sm); color: var(--color-grey-800); }
+  .where { font-size: var(--fs-sm); color: var(--color-grey-600); }
+  .none { margin: var(--s-2) 0 0; }
+</style>

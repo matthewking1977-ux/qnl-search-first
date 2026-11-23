@@ -1,7 +1,7 @@
 ---
 // One page per sample record, so every search result leads somewhere real.
 import Header from './Header.astro';
-import FooterMini from './FooterMini.astro';
+import Footer from './Footer.astro';
 import Picture from './Picture.astro';
 import { t, formatDate, type Lang } from '../i18n';
 import { engineData } from '../search/data';
@@ -47,7 +47,7 @@ const typeLabel = t(lang, `item.type.${r.type}` as any);
     )}
   </article>
 </main>
-<FooterMini lang={lang} />
+<Footer lang={lang} />
 <style>
   .item { padding-block: var(--s-4) var(--s-12); }
   .grid { display: grid; grid-template-columns: 1fr; gap: var(--s-6); margin-block-start: var(--s-4); }

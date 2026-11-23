@@ -1,0 +1,15 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { t, localPath, type Lang } from '../i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+---
+<Header lang={lang} tone="light" />
+<main id="main" class="wrap np" tabindex="-1">
+  <h1 class="t-h2">{t(lang, 'newsletter.pageTitle')}</h1>
+  <p class="t-lead prose-measure">{t(lang, 'newsletter.pageBody')}</p>
+  <p><a class="link" href={localPath(lang, '/')}>{t(lang, 'a11y.home')}</a></p>
+</main>
+<Footer lang={lang} />
+<style>.np { padding-block: var(--s-8) var(--s-12); display: grid; gap: var(--s-2); } .np h1, .np p { margin: 0; }</style>

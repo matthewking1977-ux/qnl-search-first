@@ -1,0 +1,42 @@
+---
+import { t, localPath, type Lang } from '../i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const links = [
+  ['db', '/search?type=research'],
+  ['support', '/item/sv-consult'],
+  ['training', '/search?q=workshop&type=events'],
+] as const;
+---
+<section id="research" class="research section" aria-labelledby="rs-h">
+  <div class="wrap grid">
+    <div class="head">
+      <p class="t-eyebrow">{t(lang, 'research.eyebrow')}</p>
+      <h2 id="rs-h" class="t-h2">{t(lang, 'research.title')}</h2>
+    </div>
+    <ul class="links" role="list">
+      {links.map(([k, href]) => (
+        <li data-reveal>
+          <a href={localPath(lang, href)}>
+            <span class="label">{t(lang, `research.${k}` as any)} <span class="arrow icon-dir" aria-hidden="true">→</span></span>
+            <span class="help">{t(lang, `research.${k}.help` as any)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .research { background: var(--color-paper); }
+  .grid { display: grid; grid-template-columns: 1fr 2fr; gap: var(--s-6); align-items: start; }
+  @media (max-width: 64rem) { .grid { grid-template-columns: 1fr; gap: var(--s-4); } }
+  .head { display: grid; gap: var(--s-1); }
+  .head h2, .head p { margin: 0; }
+  .links { list-style: none; margin: 0; padding: 0; border-block-start: 1px solid var(--color-ink); }
+  .links li { border-block-end: var(--hairline); }
+  .links a { display: grid; gap: 0.3rem; padding-block: var(--s-3); text-decoration: none; }
+  .label { font-size: var(--fs-xl); font-weight: 500; display: flex; justify-content: space-between; align-items: center; gap: var(--s-2); }
+  .label .arrow { color: var(--color-accent); }
+  .help { color: var(--color-grey-600); font-size: var(--fs-base); }
+  .links a:hover .label { color: var(--color-accent); }
+</style>

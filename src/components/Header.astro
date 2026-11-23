@@ -9,8 +9,8 @@ const nav = [
   ['nav.explore', '/search'],
   ['nav.forYou', '/#for-you'],
   ['nav.whatsOn', '/#whats-on'],
-  ['nav.visit', '/#visit'],
-  ['nav.about', '/#about'],
+  ['nav.visit', '/item/pg-visit'],
+  ['nav.about', '/item/pg-about'],
 ] as const;
 ---
 <header class:list={['site-header', tone === 'dark' ? 'on-dark is-dark' : 'is-light']}>
@@ -32,8 +32,8 @@ const nav = [
         <span aria-hidden="true">{t(lang, 'lang.other')}</span>
         <span class="sr-only">{t(lang, 'a11y.langSwitch')}</span>
       </a>
-      <a class="signin" href={localPath(lang, '/#sign-in')}>{t(lang, 'nav.signIn')}</a>
-      <a class="join" href={localPath(lang, '/#join')}>{t(lang, 'nav.join')}</a>
+      <a class="signin" href={localPath(lang, '/item/sv-renew')}>{t(lang, 'nav.signIn')}</a>
+      <a class="join" href={localPath(lang, '/item/sv-membership')}>{t(lang, 'nav.join')}</a>
     </div>
 
     <!-- Mobile menu: native <details>, works without JS -->
@@ -44,8 +44,8 @@ const nav = [
           {nav.map(([k, href]) => <li><a href={localPath(lang, href)}>{t(lang, k)}</a></li>)}
         </ul>
         <div class="sheet-utility">
-          <a href={localPath(lang, '/#sign-in')}>{t(lang, 'nav.signIn')}</a>
-          <a class="join" href={localPath(lang, '/#join')}>{t(lang, 'nav.join')}</a>
+          <a href={localPath(lang, '/item/sv-renew')}>{t(lang, 'nav.signIn')}</a>
+          <a class="join" href={localPath(lang, '/item/sv-membership')}>{t(lang, 'nav.join')}</a>
         </div>
       </div>
     </details>

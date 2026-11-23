@@ -2,7 +2,7 @@
 // Server-rendered results page. Works fully without JavaScript:
 // GET form for query, facets and sort; shareable URLs; numbered pages.
 import Header from './Header.astro';
-import FooterMini from './FooterMini.astro';
+import Footer from './Footer.astro';
 import SearchBar from './SearchBar.astro';
 import { t, fmt, formatDate, type Lang } from '../i18n';
 import { createEngine } from '../search/engine';
@@ -206,7 +206,7 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
     </section>
   </div>
 </main>
-<FooterMini lang={lang} />
+<Footer lang={lang} />
 
 <script define:vars={{ q, lang, total, group }}>
   // Progressive enhancement: auto-apply filters, copy link, analytics.

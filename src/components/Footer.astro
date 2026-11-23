@@ -1,0 +1,88 @@
+---
+import Logo from './Logo.astro';
+import { t, localPath, altPath, type Lang } from '../i18n';
+import { SITE } from '../lib/site';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const L = (p: string) => localPath(lang, p);
+const groups = [
+  ['footer.about', [['footer.aboutQnl', '/item/pg-about'], ['footer.visit', '/item/pg-visit'], ['footer.children', '/item/pg-children'], ['footer.heritage', '/item/pg-heritage'], ['footer.research', '/item/pg-research']]],
+  ['footer.services', [['footer.member', '/item/sv-membership'], ['footer.borrow', '/item/sv-borrow'], ['footer.study', '/item/sv-study'], ['footer.print', '/item/sv-printing']]],
+  ['footer.help', [['footer.ask', '/item/sv-ask'], ['footer.contact', '/item/pg-contact'], ['footer.access', '/item/sv-accessibility'], ['footer.lost', '/item/sv-lost']]],
+  ['footer.policies', [['footer.policiesAll', '/item/pg-policies'], ['footer.privacy', '/item/pg-policies'], ['footer.terms', '/item/pg-policies'], ['footer.a11y', '/accessibility']]],
+] as const;
+const social = ['X', 'Instagram', 'YouTube', 'LinkedIn'];
+const path = Astro.url.pathname;
+---
+<footer class="footer on-dark" aria-labelledby="ft-h">
+  <h2 id="ft-h" class="sr-only">{t(lang, 'meta.title')}</h2>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href={L('/')} aria-label={t(lang, 'a11y.home')}><Logo tone="white" /></a>
+      <p class="a11y-line">
+        {t(lang, 'footer.a11yLine')}
+        <a class="link" href={L('/accessibility')}>{t(lang, 'footer.a11y')}</a>
+      </p>
+    </div>
+
+    <nav class="cols" aria-label={t(lang, 'footer.nav')}>
+      {groups.map(([h, links]) => (
+        <div class="col">
+          <h3>{t(lang, h as any)}</h3>
+          <ul role="list">
+            {links.map(([k, href]) => <li><a href={L(href)}>{t(lang, k as any)}</a></li>)}
+          </ul>
+        </div>
+      ))}
+      <div class="col">
+        <h3>{t(lang, 'footer.findUs')}</h3>
+        <address>
+          <p>{t(lang, 'footer.address')} <span class="sample-tag" lang="en" dir="ltr">verify</span></p>
+          <p>{t(lang, 'footer.metro')} <span class="sample-tag" lang="en" dir="ltr">verify</span></p>
+          <p>{t(lang, 'footer.phone')}: <span dir="ltr">[TBC]</span></p>
+          <p>{t(lang, 'footer.email')}: <span dir="ltr">[TBC]</span></p>
+        </address>
+      </div>
+    </nav>
+
+    <div class="social">
+      <h3>{t(lang, 'footer.social')}</h3>
+      <ul role="list">
+        {social.map((s) => <li><a href={L('/item/pg-contact')} lang="en" dir="ltr">{s}</a></li>)}
+        <li><span class="sample-tag">{t(lang, 'label.tbc')}</span></li>
+      </ul>
+    </div>
+
+    <div class="bottom">
+      <p>{t(lang, 'footer.copyright')}</p>
+      <p class="end">
+        <a href={altPath(lang, path)} hreflang={t(lang, 'lang.otherCode')} lang={t(lang, 'lang.otherCode')}>{t(lang, 'lang.other')}</a>
+        {SITE.showCredit && <span class="credit">{t(lang, 'footer.credit')}</span>}
+      </p>
+    </div>
+  </div>
+</footer>
+<style>
+  .footer { background: var(--color-ink); color: var(--color-grey-300); font-size: var(--fs-sm); padding-block: var(--s-10) var(--s-4); }
+  .top { display: flex; justify-content: space-between; align-items: start; gap: var(--s-4); flex-wrap: wrap; padding-block-end: var(--s-6); border-block-end: var(--hairline-dark); }
+  .brand { display: block; }
+  .a11y-line { margin: 0; max-inline-size: 44ch; color: var(--color-paper); }
+  .a11y-line .link { margin-inline-start: 0.25em; font-weight: 500; }
+  .cols { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--s-4); padding-block: var(--s-6); }
+  @media (max-width: 64rem) { .cols { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 40rem) { .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } .col:last-child { grid-column: 1 / -1; } }
+  h3 { margin: 0 0 var(--s-2); font-size: var(--fs-xs); font-weight: 700; letter-spacing: var(--track-label); text-transform: uppercase; color: var(--color-paper); }
+  :global([lang='ar']) h3 { font-size: var(--fs-sm); font-weight: 500; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+  .cols a, .social a, .end a { display: inline-flex; align-items: center; min-block-size: 2.25rem; color: var(--color-grey-300); text-decoration: none; }
+  .cols a:hover, .social a:hover, .end a:hover { color: var(--color-accent-on-dark); text-decoration: underline; text-underline-offset: 0.25em; }
+  address { font-style: normal; display: grid; gap: 0.6rem; }
+  address p { margin: 0; line-height: 1.5; }
+  .social { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; padding-block: var(--s-2) var(--s-4); border-block-end: var(--hairline-dark); }
+  .social h3 { margin: 0; }
+  .social ul { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
+  .bottom { display: flex; justify-content: space-between; gap: var(--s-2); flex-wrap: wrap; padding-block-start: var(--s-3); font-size: var(--fs-xs); }
+  .bottom p { margin: 0; }
+  .end { display: flex; gap: var(--s-3); align-items: center; }
+  .credit { color: var(--color-grey-300); }
+</style>

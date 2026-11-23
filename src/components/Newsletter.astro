@@ -1,0 +1,70 @@
+---
+// Sample form. The email input has no `name`, so even the no-JS fallback
+// navigation to /newsletter sends nothing.
+import { t, localPath, type Lang } from '../i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+---
+<section id="newsletter" class="news" aria-labelledby="nl-h">
+  <div class="wrap grid">
+    <div class="sub">
+      <h2 id="nl-h" class="t-h3">{t(lang, 'news.title')}</h2>
+      <p class="line">{t(lang, 'news.line')}</p>
+      <form class="form" action={localPath(lang, '/newsletter')} method="get" novalidate data-newsletter
+        data-ok={t(lang, 'news.ok')} data-invalid={t(lang, 'news.invalid')}>
+        <label for="nl-email" class="sr-only">{t(lang, 'news.label')}</label>
+        <input id="nl-email" class="input" type="email" autocomplete="email" inputmode="email" dir="ltr"
+          placeholder="name@example.com" aria-describedby="nl-help nl-msg" required />
+        <button class="btn btn--secondary" type="submit">{t(lang, 'news.submit')}</button>
+        <p id="nl-help" class="help">{t(lang, 'news.help')}</p>
+        <p id="nl-msg" class="msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="app">
+      <h2 class="t-h3">{t(lang, 'app.title')}</h2>
+      <p class="line">{t(lang, 'app.line')}</p>
+      <div class="stores">
+        <a class="store" href={localPath(lang, '/item/pg-contact')}><span class="s-name">{t(lang, 'app.ios')}</span><span class="sample-tag">{t(lang, 'app.placeholder')}</span></a>
+        <a class="store" href={localPath(lang, '/item/pg-contact')}><span class="s-name">{t(lang, 'app.android')}</span><span class="sample-tag">{t(lang, 'app.placeholder')}</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-newsletter]').forEach((f) => {
+    const input = f.querySelector('input')!;
+    const msg = f.querySelector<HTMLElement>('.msg')!;
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.value.trim());
+      input.setAttribute('aria-invalid', String(!ok));
+      msg.textContent = ok ? f.dataset.ok! : f.dataset.invalid!;
+      msg.dataset.state = ok ? 'ok' : 'error';
+      if (ok) input.value = '';
+      else input.focus();
+    });
+  });
+</script>
+<style>
+  .news { background: var(--color-paper-2); padding-block: var(--s-10); }
+  .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--s-8); }
+  @media (max-width: 56rem) { .grid { grid-template-columns: 1fr; gap: var(--s-5); } }
+  h2 { margin: 0; }
+  .line { margin: 0.4rem 0 var(--s-2); color: var(--color-grey-800); }
+  .form { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem var(--s-1); max-inline-size: 36rem; }
+  .form .input { min-inline-size: 0; }
+  .form .btn { min-block-size: 3rem; }
+  .help, .msg { grid-column: 1 / -1; margin: 0; font-size: var(--fs-xs); color: var(--color-grey-600); }
+  .msg:empty { display: none; }
+  .msg[data-state='ok'] { color: #1f6b3a; font-weight: 500; }
+  .msg[data-state='error'] { color: var(--color-accent); font-weight: 500; }
+  @media (max-width: 30rem) { .form { grid-template-columns: 1fr; } }
+  .stores { display: flex; flex-wrap: wrap; gap: var(--s-1); }
+  .store {
+    display: inline-flex; align-items: center; gap: 0.5rem; min-block-size: 3rem; padding-inline: 1rem;
+    background: var(--color-ink); color: var(--color-paper); border-radius: var(--radius-2); text-decoration: none; font-weight: 500;
+    transition: background-color var(--dur-1);
+  }
+  .store:hover { background: var(--color-grey-800); }
+  .store .sample-tag { color: var(--color-grey-300); }
+</style>
