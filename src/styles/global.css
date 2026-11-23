@@ -22,8 +22,8 @@
   --color-tag: #f9a44a;            /* qnl.qa language-switch hover; tag fill */
 
   /* Type families */
-  --font-sans: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Roboto', 'Roboto Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Newsreader', 'Newsreader Fallback', 'Times New Roman', serif;
   --font-mono: 'Roboto Mono', ui-monospace, 'SFMono-Regular', monospace;
   --font-arabic: 'Noto Sans Arabic', 'Geeza Pro', 'Segoe UI', Tahoma, sans-serif;
   --font-arabic-display: 'Noto Naskh Arabic', 'Noto Sans Arabic', serif;

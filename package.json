@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "QNL homepage Concept G – Search First (Vistas Global, QNL-RFQ-90)",
+  "description": "QNL homepage Concept G \u2013 Search First (Vistas Global, QNL-RFQ-90)",
   "scripts": {
     "dev": "astro dev",
     "prebuild": "node scripts/build-index.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "media": "node scripts/process-media.mjs",
-    "fonts": "node scripts/subset-fonts.mjs"
+    "fonts": "bash scripts/subset-fonts.sh"
   },
   "dependencies": {
     "@astrojs/preact": "^6.1.6",
@@ -30,5 +30,8 @@
     "axe-core": "^4.14.1",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.5"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

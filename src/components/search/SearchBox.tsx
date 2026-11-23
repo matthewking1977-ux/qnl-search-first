@@ -114,7 +114,7 @@ export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuer
   // Hover / idle prefetch of the index chunk
   useEffect(() => {
     const ric = (window as any).requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 2500));
-    const h = ric(() => warm(), { timeout: 4000 });
+    const h = ric(() => provider.prefetch(), { timeout: 4000 });
     setRecent(readRecent());
     if (autoFocusDesktop && window.matchMedia('(min-width: 64rem) and (pointer: fine)').matches && !location.hash) {
       inputRef.current?.focus({ preventScroll: true });

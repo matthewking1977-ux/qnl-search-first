@@ -11,6 +11,14 @@ export class LocalIndexAdapter implements SearchProvider {
   private engine: Engine | null = null;
   private loading: Promise<void> | null = null;
 
+  private fetching: Promise<unknown> | null = null;
+  /** Idle prefetch: download + parse the chunks only. The index itself is
+   *  built on first focus, hover or keystroke (keeps idle long tasks away). */
+  prefetch(): Promise<unknown> {
+    if (!this.fetching) this.fetching = Promise.all([import('./engine'), import('./data')]);
+    return this.fetching;
+  }
+
   prepare(): Promise<void> {
     if (this.engine) return Promise.resolve();
     if (!this.loading) {

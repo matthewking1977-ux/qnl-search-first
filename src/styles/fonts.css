@@ -63,7 +63,7 @@
   font-weight: 400;
   font-display: swap;
   src: url('/fonts/noto-sans-arabic-arabic-400-normal.woff2') format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+  unicode-range: U+0600-061F, U+0621-065F, U+0660-066D, U+0670-0671, U+06CC, U+06D4, U+200C-200F, U+FD3E-FD3F;
 }
 @font-face {
   font-family: 'Noto Sans Arabic';
@@ -71,7 +71,7 @@
   font-weight: 500;
   font-display: swap;
   src: url('/fonts/noto-sans-arabic-arabic-500-normal.woff2') format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+  unicode-range: U+0600-061F, U+0621-065F, U+0660-066D, U+0670-0671, U+06CC, U+06D4, U+200C-200F, U+FD3E-FD3F;
 }
 @font-face {
   font-family: 'Noto Naskh Arabic';
@@ -79,7 +79,7 @@
   font-weight: 400;
   font-display: swap;
   src: url('/fonts/noto-naskh-arabic-arabic-400-normal.woff2') format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+  unicode-range: U+0600-061F, U+0621-065F, U+0660-066D, U+0670-0671, U+06CC, U+06D4, U+200C-200F, U+FD3E-FD3F;
 }
 @font-face {
   font-family: 'Noto Naskh Arabic';
@@ -87,5 +87,28 @@
   font-weight: 500;
   font-display: swap;
   src: url('/fonts/noto-naskh-arabic-arabic-500-normal.woff2') format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+  unicode-range: U+0600-061F, U+0621-065F, U+0660-066D, U+0670-0671, U+06CC, U+06D4, U+200C-200F, U+FD3E-FD3F;
+}
+
+/* Metric-matched fallbacks: text set in the fallback occupies the same space as
+   the web font, so the font swap causes no layout shift (CLS). Values computed
+   from the font files (scripts in docs/PHASE7_REPORT.md). */
+@font-face {
+  font-family: 'Roboto Fallback';
+  src: local('Arial'), local('Liberation Sans'), local('Helvetica Neue'), local('Helvetica');
+  size-adjust: 98.92%; ascent-override: 93.79%; descent-override: 24.68%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Newsreader Fallback';
+  src: local('Times New Roman'), local('Liberation Serif'), local('Times');
+  size-adjust: 104.78%; ascent-override: 70.15%; descent-override: 25.29%; line-gap-override: 0%;
+}
+/* Tiny subset (≈2 KB) holding only the glyphs of «العربية» for the language
+   switch on English pages, so they don't download the full Arabic fonts. */
+@font-face {
+  font-family: 'QNL Arabic Label';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/qnl-ar-label-500.woff2') format('woff2');
 }

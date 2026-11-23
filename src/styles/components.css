@@ -63,7 +63,7 @@ a:hover .arrow, button:hover .arrow, .is-hover .arrow { translate: 3px 0; }
 .chip { position: relative; }
 .chip::after { content: ''; position: absolute; inset: -4px -2px; }
 
-.on-dark .chip { color: var(--color-paper); background: rgb(9 9 9 / 0.28); border-color: rgb(255 255 255 / 0.42); backdrop-filter: blur(6px); }
+.on-dark .chip { color: var(--color-paper); background: rgb(9 9 9 / 0.45); border-color: rgb(255 255 255 / 0.42); }
 .on-dark .chip:hover, .on-dark .chip.is-hover { border-color: var(--color-paper); }
 .on-dark .chip[aria-pressed='true'], .on-dark .chip.is-selected { background: var(--color-paper); color: var(--color-ink); border-color: var(--color-paper); }
 

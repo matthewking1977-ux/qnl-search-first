@@ -25,6 +25,8 @@ const { lang } = Astro.props;
     />
     <video
       class="video"
+      width="960"
+      height="540"
       muted
       playsinline
       loop
@@ -48,7 +50,7 @@ const { lang } = Astro.props;
 
   <div class="foot">
     <div class="wrap pause-row">
-      <button type="button" class="pause" data-hero-toggle hidden aria-describedby="hero-video-desc"
+      <button type="button" class="pause" data-hero-toggle data-pending tabindex="-1" aria-hidden="true" aria-describedby="hero-video-desc"
         data-label-pause={t(lang, 'hero.pause')} data-label-play={t(lang, 'hero.play')}>
         <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.5v11M13 4.5v11" /></svg>
         <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 4.5v11l9-5.5z" /></svg>
@@ -108,9 +110,13 @@ const { lang } = Astro.props;
       else if (!userPaused && !reduce.matches) video.play().catch(() => {});
     }, { threshold: 0.15 }).observe(hero);
 
-    btn.hidden = false;
+    btn.removeAttribute('data-pending');
+    btn.removeAttribute('tabindex');
+    btn.removeAttribute('aria-hidden');
     setUI(false);
-    const autoplay = !reduce.matches && !lowData && !userPaused;
+    // Phones get the poster and a Play button: no 1.2 MB autoplay on mobile data.
+    const phone = window.matchMedia('(max-width: 47.99rem)').matches;
+    const autoplay = !reduce.matches && !lowData && !userPaused && !phone;
     if (autoplay) {
       const start = () => {
         const ric = (window as any).requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 600));
@@ -156,12 +162,13 @@ const { lang } = Astro.props;
     display: inline-flex; align-items: center; gap: 0.5rem;
     min-block-size: 2.75rem; padding-inline: 0.9rem;
     font: 500 var(--fs-xs)/1 var(--font-sans); color: var(--color-paper);
-    background: rgb(9 9 9 / 0.55); border: 1px solid rgb(255 255 255 / 0.5); border-radius: 999px;
-    cursor: pointer; backdrop-filter: blur(6px);
+    background: rgb(9 9 9 / 0.7); border: 1px solid rgb(255 255 255 / 0.5); border-radius: 999px;
+    cursor: pointer;
     transition: background-color var(--dur-1) var(--ease-out-expo), border-color var(--dur-1);
   }
   :global([lang='ar']) .pause { font-family: var(--font-arabic); font-size: var(--fs-sm); }
   .pause:hover { background: rgb(9 9 9 / 0.8); border-color: var(--color-paper); }
+  .pause[data-pending] { visibility: hidden; }
   .pause:active { transform: translateY(1px); }
   .pause svg { inline-size: 1rem; block-size: 1rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .pause .i-play { display: none; }
@@ -169,7 +176,9 @@ const { lang } = Astro.props;
   .pause[data-state='paused'] .i-pause { display: none; }
 
   @media (max-width: 48rem) {
-    .hero { min-block-size: auto; }
+    /* A stable height pins the Today strip to the bottom, so font swaps in the
+       headline can't move it (CLS). Falls back to content height on short phones. */
+    .hero { min-block-size: min(100svh, 52rem); }
     .content { padding-block: var(--s-6) var(--s-4); gap: var(--s-4); }
   }
 </style>
