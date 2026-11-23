@@ -1,0 +1,429 @@
+---
+import Header from './Header.astro';
+import Picture from './Picture.astro';
+import Footer from './FooterMini.astro';
+import { t, formatDate, type Lang } from '../i18n';
+import { contrast, grade } from '../lib/contrast';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const isAr = lang === 'ar';
+
+const swatches = [
+  { token: '--color-ink', hex: '#090909', src: 'qnl.qa #navbar background', role: isAr ? 'الترويسة والتذييل والواجهة' : 'Header, footer, hero surface', dark: true },
+  { token: '--color-text', hex: '#242323', src: 'qnl.qa search form block', role: isAr ? 'النص الأساسي' : 'Body text', dark: true },
+  { token: '--color-grey-800', hex: '#333333', src: 'qnl.qa body colour', role: isAr ? 'نص ثانوي قوي' : 'Strong secondary text', dark: true },
+  { token: '--color-grey-600', hex: '#6b6a6a', src: 'adjusted from qnl.qa #7f7e7e', role: isAr ? 'نص ثانوي' : 'Secondary text', dark: true, changed: true },
+  { token: '--color-grey-300', hex: '#c4c4c4', src: 'qnl.qa search form title', role: isAr ? 'على الخلفيات الداكنة فقط' : 'On dark only' },
+  { token: '--color-grey-100', hex: '#efefef', src: 'qnl.qa nav dropdown', role: isAr ? 'الخطوط الفاصلة' : 'Hairlines' },
+  { token: '--color-paper-2', hex: '#f4f5f4', src: 'qnl.qa light-grey panels', role: isAr ? 'أشرطة الأقسام' : 'Section bands' },
+  { token: '--color-paper', hex: '#ffffff', src: 'qnl.qa body background', role: isAr ? 'الخلفية' : 'Background' },
+  { token: '--color-accent', hex: '#901235', src: 'qnl.qa maroon (h1, links, buttons)', role: isAr ? 'الروابط، التركيز، الحالة النشطة' : 'Links, focus, active, eyebrows', dark: true },
+  { token: '--color-accent-hover', hex: '#bb1437', src: 'qnl.qa promote links', role: isAr ? 'تمرير المؤشر على الروابط' : 'Link hover', dark: true },
+  { token: '--color-accent-on-dark', hex: '#fad164', src: 'qnl.qa nav hover (gold)', role: isAr ? 'التركيز على الخلفيات الداكنة' : 'Focus/active on dark' },
+  { token: '--color-tag', hex: '#f9a44a', src: 'qnl.qa language switcher hover', role: isAr ? 'وسوم الفعاليات والفئات' : 'Event/category tags only' },
+];
+
+const pairs: [string, string, string, 'text' | 'large' | 'ui'][] = [
+  ['#242323', '#ffffff', 'Body text / paper', 'text'],
+  ['#242323', '#f4f5f4', 'Body text / paper-2', 'text'],
+  ['#6b6a6a', '#ffffff', 'Secondary / paper', 'text'],
+  ['#6b6a6a', '#f4f5f4', 'Secondary / paper-2', 'text'],
+  ['#901235', '#ffffff', 'Link, eyebrow / paper', 'text'],
+  ['#901235', '#f4f5f4', 'Link / paper-2', 'text'],
+  ['#bb1437', '#ffffff', 'Link hover / paper', 'text'],
+  ['#ffffff', '#901235', 'Primary button label', 'text'],
+  ['#ffffff', '#090909', 'Text on ink', 'text'],
+  ['#c4c4c4', '#090909', 'Muted text on ink', 'text'],
+  ['#fad164', '#090909', 'Focus ring on ink', 'ui'],
+  ['#901235', '#ffffff', 'Focus ring on paper', 'ui'],
+  ['#090909', '#f9a44a', 'Tag label / tag', 'text'],
+  ['#6b6a6a', '#ffffff', 'Input border / paper', 'ui'],
+  ['#ffffff', 'rgba-overlay', 'Hero text / photo + 62% ink overlay (worst case)', 'large'],
+];
+// Worst case for hero: white photo pixel under a 62% #090909 overlay → #636363 effective.
+const resolved = (c: string) => (c === 'rgba-overlay' ? '#646464' : c);
+
+const typeRows = isAr
+  ? [
+      { cls: 't-display', label: 'Display · 40–88', sample: t(lang, 'hero.line') },
+      { cls: 't-h2', label: 'Section · 32–52', sample: t(lang, 'sg.sectionLine') },
+      { cls: 't-h3', label: 'Card title · 22–26 · 500', sample: t(lang, 'sg.card.title') },
+      { cls: 't-lead', label: 'Lead · 19–21', sample: t(lang, 'sg.card.help') },
+      { cls: '', label: 'Body · 17–18 / 1.7', sample: t(lang, 'sg.body') },
+      { cls: 't-ui', label: 'UI · 15–16', sample: t(lang, 'search.placeholder') },
+      { cls: 't-eyebrow', label: 'Eyebrow (AR: 500, no caps)', sample: t(lang, 'filter.research') },
+    ]
+  : [
+      { cls: 't-display', label: 'Display · Newsreader 400 · 40–88', sample: t(lang, 'hero.line') },
+      { cls: 't-h2', label: 'Section · Newsreader 400 · 32–52', sample: t(lang, 'sg.sectionLine') },
+      { cls: 't-h3', label: 'Card title · Roboto 500 · 22–26', sample: t(lang, 'sg.card.title') },
+      { cls: 't-lead', label: 'Lead · Roboto 400 · 19–21', sample: t(lang, 'sg.card.help') },
+      { cls: '', label: 'Body · Roboto 400 · 17–18 / 1.55', sample: t(lang, 'sg.body') },
+      { cls: 't-ui', label: 'UI · Roboto 400/500 · 15–16', sample: t(lang, 'search.placeholder') },
+      { cls: 't-eyebrow', label: 'Eyebrow · Roboto 700 small caps', sample: 'Research & learning' },
+      { cls: 't-mono', label: 'Micro-label · Roboto Mono 400', sample: 'PHASE 2 · 14:00 · 23 MIN' },
+    ];
+
+const spacing = [8, 16, 24, 32, 48, 64, 96, 128, 160];
+const sample = t(lang, 'label.sample');
+const exampleDate = new Date(Date.UTC(2026, 2, 14));
+---
+<Header lang={lang} tone="light" />
+<main id="main" class="sg" tabindex="-1">
+  <section class="wrap intro">
+    <p class="t-eyebrow"><span lang="en" dir="ltr">Concept G · Search First</span></p>
+    <h1 class="t-display">{t(lang, 'sg.title')}</h1>
+    <p class="t-lead prose-measure">{t(lang, 'sg.intro')}</p>
+    <nav class="toc" aria-label={t(lang, 'sg.title')}>
+      <a class="link" href="#colour">{t(lang, 'sg.colour')}</a>
+      <a class="link" href="#type">{t(lang, 'sg.type')}</a>
+      <a class="link" href="#arabic">{t(lang, 'sg.arabicDisplay')}</a>
+      <a class="link" href="#components">{t(lang, 'sg.components')}</a>
+      <a class="link" href="#spacing">{t(lang, 'sg.spacing')}</a>
+      <a class="link" href="#motion">{t(lang, 'sg.motion')}</a>
+      <a class="link" href="#imagery">{t(lang, 'sg.imagery')}</a>
+    </nav>
+  </section>
+
+  <!-- Colour -->
+  <section id="colour" class="wrap block" aria-labelledby="h-colour">
+    <h2 id="h-colour" class="t-h2">{t(lang, 'sg.colour')}</h2>
+    <ul class="swatches" role="list">
+      {swatches.map((s) => (
+        <li class="swatch">
+          <span class="chipcolor" style={`background:${s.hex}`} data-light={!s.dark ? '' : undefined}></span>
+          <span class="sw-meta">
+            <code dir="ltr" class="t-mono">{s.hex}</code>
+            <span class="sw-token t-mono" dir="ltr">{s.token}</span>
+            <span class="sw-role">{s.role}</span>
+            <span class="sw-src" dir="ltr">{s.src}{s.changed && <strong class="changed"> · AA fix</strong>}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+
+    <h3 class="t-h3 sub">{isAr ? 'فحص التباين (WCAG 2.2 AA)' : 'Contrast checks (WCAG 2.2 AA)'}</h3>
+    <div class="table-wrap" role="region" aria-labelledby="h-contrast" tabindex="0">
+      <table>
+        <caption id="h-contrast" class="sr-only">{isAr ? 'نسب التباين' : 'Contrast ratios'}</caption>
+        <thead><tr><th scope="col">{isAr ? 'مثال' : 'Sample'}</th><th scope="col">{isAr ? 'الزوج' : 'Pair'}</th><th scope="col">{isAr ? 'النسبة' : 'Ratio'}</th><th scope="col">{isAr ? 'الحد الأدنى' : 'Needs'}</th><th scope="col">{isAr ? 'النتيجة' : 'Result'}</th></tr></thead>
+        <tbody>
+          {pairs.map(([fg, bg, label, kind]) => {
+            const r = contrast(resolved(fg), resolved(bg));
+            const g = grade(r, kind);
+            return (
+              <tr>
+                <td><span class="pair" style={`color:${fg};background:${resolved(bg)}`} aria-hidden="true">Aa</span></td>
+                <td dir="ltr">{label}</td>
+                <td class="t-mono" dir="ltr">{r.toFixed(2)}:1</td>
+                <td class="t-mono" dir="ltr">{kind === 'text' ? '4.5:1' : '3:1'}</td>
+                <td><span class:list={['res', g === 'Fail' ? 'fail' : 'pass']}>{g}</span></td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Type -->
+  <section id="type" class="wrap block" aria-labelledby="h-type">
+    <h2 id="h-type" class="t-h2">{t(lang, 'sg.type')}</h2>
+    <p class="note prose-measure">
+      {isAr
+        ? 'العربية: Noto Sans Arabic لجميع النصوص والواجهة، بارتفاع سطر 1.7، دون تباعد بين الحروف أو أحرف كبيرة أو مائلة. الأرقام الغربية (0–9) في اللغتين.'
+        : 'Roboto carries ~80% of Latin text (nav, body, UI, cards, labels). Newsreader appears only on display lines, at most one serif moment per screen. Roboto Mono is reserved for dates, counters and “PHASE 2”.'}
+    </p>
+    <dl class="specimens">
+      {typeRows.map((r) => (
+        <div class="spec">
+          <dt class="t-mono" dir="ltr">{r.label}</dt>
+          <dd class={r.cls}>{r.sample}</dd>
+        </div>
+      ))}
+    </dl>
+    <p class="note t-ui">
+      {isAr ? 'تنسيق التاريخ (ميلادي، أسماء الأشهر بالعربية، أرقام غربية): ' : 'Date format (Gregorian, Western digits): '}
+      <strong class="t-mono">{formatDate(lang, exampleDate, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</strong>
+      <span class="sample-tag">{sample}</span>
+    </p>
+  </section>
+
+  <!-- Arabic display options -->
+  <section id="arabic" class="block band" aria-labelledby="h-ar">
+    <div class="wrap">
+      <h2 id="h-ar" class="t-h2">{t(lang, 'sg.arabicDisplay')}</h2>
+      <p class="note prose-measure">
+        {isAr
+          ? 'يُستخدم الخط العربي للعناوين فقط في المواضع التي يظهر فيها Newsreader بالإنجليزية. اختر خيارًا واحدًا.'
+          : 'Applies only where Newsreader appears in English: the hero line, section headlines and the heritage band. Please pick one.'}
+      </p>
+      <div class="options">
+        <figure class="opt" lang="ar" dir="rtl">
+          <figcaption class="t-mono" dir="ltr" lang="en">A · Noto Sans Arabic 500 · {isAr ? 'متناسق مع الواجهة' : 'matches UI, modern, calm'}</figcaption>
+          <p class="opt-display sans">من صفحتك الأولى إلى بحثك الأخير.</p>
+          <p class="opt-h2 sans">لكل فصل من فصول حياتك ما يناسبه.</p>
+          <p class="opt-body">تجمع مكتبة قطر الوطنية بين مجموعة وطنية ومكتبة عامة ومكتبة بحثية تحت سقف واحد.</p>
+        </figure>
+        <figure class="opt" lang="ar" dir="rtl">
+          <figcaption class="t-mono" dir="ltr" lang="en">B · Noto Naskh Arabic 500 · {isAr ? 'طابع كتابي، يوازي Newsreader' : 'bookish, pairs with Newsreader'}</figcaption>
+          <p class="opt-display naskh">من صفحتك الأولى إلى بحثك الأخير.</p>
+          <p class="opt-h2 naskh">لكل فصل من فصول حياتك ما يناسبه.</p>
+          <p class="opt-body">تجمع مكتبة قطر الوطنية بين مجموعة وطنية ومكتبة عامة ومكتبة بحثية تحت سقف واحد.</p>
+        </figure>
+      </div>
+      <div class="pairing" aria-label="EN / AR pairing">
+        <div class="pair-col" lang="en" dir="ltr"><p class="t-h2">The memory of the Gulf, open to read.</p></div>
+        <div class="pair-col" lang="ar" dir="rtl"><p class="opt-h2 sans">ذاكرة الخليج، مفتوحة للقراءة.</p><span class="t-mono" dir="ltr" lang="en">A</span></div>
+        <div class="pair-col" lang="ar" dir="rtl"><p class="opt-h2 naskh">ذاكرة الخليج، مفتوحة للقراءة.</p><span class="t-mono" dir="ltr" lang="en">B</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section id="components" class="wrap block" aria-labelledby="h-comp">
+    <h2 id="h-comp" class="t-h2">{t(lang, 'sg.components')}</h2>
+
+    <h3 class="t-h3 sub">{isAr ? 'الأزرار والحالات' : 'Buttons and states'}</h3>
+    <div class="state-grid" role="presentation">
+      {['', 'is-hover', 'is-focus', 'is-active', 'is-disabled'].map((st) => (
+        <span class="state-label t-mono" dir="ltr">{st ? st.replace('is-', '') : 'default'}</span>
+      ))}
+      {['btn--primary', 'btn--secondary', 'btn--ghost'].map((v, i) => (
+        <>
+          {['', 'is-hover', 'is-focus', 'is-active', 'is-disabled'].map((st) => (
+            <span><button type="button" class={`btn ${v} ${st}`} disabled={st === 'is-disabled'} tabindex="-1" aria-hidden="true">
+              {[t(lang, 'sg.buttonPrimary'), t(lang, 'sg.buttonSecondary'), t(lang, 'sg.buttonGhost')][i]}
+              {v === 'btn--ghost' && <span class="arrow icon-dir" aria-hidden="true">→</span>}
+            </button></span>
+          ))}
+        </>
+      ))}
+    </div>
+    <p class="note t-ui">{isAr ? 'جرّب الحالات الحقيقية:' : 'Live (try hover, Tab, click):'}
+      <button type="button" class="btn btn--primary">{t(lang, 'sg.buttonPrimary')}</button>
+      <button type="button" class="btn btn--ghost">{t(lang, 'sg.buttonGhost')} <span class="arrow icon-dir" aria-hidden="true">→</span></button>
+      <a class="link" href="#components">{isAr ? 'رابط نصي' : 'Text link'}</a>
+    </p>
+
+    <div class="dark-demo on-dark">
+      <button type="button" class="btn btn--primary">{t(lang, 'sg.buttonPrimary')}</button>
+      <button type="button" class="btn btn--ghost">{t(lang, 'nav.signIn')}</button>
+      <button type="button" class="btn btn--ghost is-focus" tabindex="-1" aria-hidden="true">{isAr ? 'تركيز' : 'Focus (gold ring)'}</button>
+      <div class="chips">
+        <button type="button" class="chip" aria-pressed="true">{t(lang, 'filter.all')}</button>
+        <button type="button" class="chip" aria-pressed="false">{t(lang, 'filter.books')}</button>
+        <button type="button" class="chip" aria-pressed="false">{t(lang, 'filter.events')}</button>
+      </div>
+    </div>
+
+    <h3 class="t-h3 sub">{isAr ? 'شرائح التصفية والوسوم' : 'Filter chips and tags'}</h3>
+    <div class="chips">
+      <button type="button" class="chip" aria-pressed="true">{t(lang, 'filter.all')}</button>
+      <button type="button" class="chip" aria-pressed="false">{t(lang, 'filter.books')}</button>
+      <button type="button" class="chip is-hover" aria-pressed="false" tabindex="-1">{t(lang, 'filter.research')}</button>
+      <button type="button" class="chip is-focus" aria-pressed="false" tabindex="-1">{t(lang, 'filter.events')}</button>
+      <button type="button" class="chip" aria-pressed="false" disabled>{t(lang, 'filter.heritage')}</button>
+      <span class="tag">{isAr ? 'الأطفال' : 'Children'}</span>
+      <span class="tag">{t(lang, 'filter.research')}</span>
+      <span class="tag tag--quiet">{t(lang, 'filter.heritage')}</span>
+      <span class="sample-tag">{sample}</span>
+      <span class="t-mono phase">{t(lang, 'search.phase2')}</span>
+    </div>
+
+    <h3 class="t-h3 sub">{isAr ? 'حقل النص' : 'Text field'}</h3>
+    <div class="fields">
+      <div class="field">
+        <label for="sg-email">{t(lang, 'sg.input')}</label>
+        <input id="sg-email" class="input" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="sg-email-help" dir="ltr" />
+        <span id="sg-email-help" class="help">{t(lang, 'sg.inputHelp')}</span>
+      </div>
+      <div class="field">
+        <label for="sg-email-f">{isAr ? 'حالة التركيز' : 'Focus state'}</label>
+        <input id="sg-email-f" class="input is-focus" type="text" value="libary" tabindex="-1" aria-hidden="true" dir="ltr" />
+      </div>
+      <div class="field">
+        <label for="sg-email-d">{t(lang, 'sg.disabled')}</label>
+        <input id="sg-email-d" class="input" type="text" disabled value="—" />
+      </div>
+    </div>
+
+    <h3 class="t-h3 sub">{isAr ? 'بطاقات المهام (دون أيقونات)' : 'Task cards (no icons)'}</h3>
+    <div class="tasks">
+      <a class="task" href="#components">
+        <span class="task__label">{t(lang, 'sg.card.title')}</span>
+        <span class="task__go"><span class="task__help">{t(lang, 'sg.card.help')}</span><span class="arrow icon-dir" aria-hidden="true">→</span></span>
+      </a>
+      <a class="task is-hover" href="#components" tabindex="-1" aria-hidden="true">
+        <span class="task__label">{t(lang, 'sg.buttonSecondary')}</span>
+        <span class="task__go"><span class="task__help">{isAr ? 'حالة التمرير' : 'Hover state'}</span><span class="arrow icon-dir" aria-hidden="true">→</span></span>
+      </a>
+      <a class="task is-focus" href="#components" tabindex="-1" aria-hidden="true">
+        <span class="task__label">{t(lang, 'sg.buttonPrimary')}</span>
+        <span class="task__go"><span class="task__help">{isAr ? 'حالة التركيز' : 'Focus-visible state'}</span><span class="arrow icon-dir" aria-hidden="true">→</span></span>
+      </a>
+    </div>
+
+    <h3 class="t-h3 sub">{isAr ? 'معاينة شريط البحث (يُبنى في المرحلة 2)' : 'Search bar preview (built in Phase 2)'}</h3>
+    <div class="search-preview on-dark">
+      <div class="modes" role="presentation">
+        <span class="mode is-on">{t(lang, 'search.mode.library')}</span>
+        <span class="mode">{t(lang, 'search.mode.ask')} <span class="t-mono phase">{t(lang, 'search.phase2')}</span></span>
+      </div>
+      <div class="bar-preview" aria-hidden="true">
+        <span class="ph">{t(lang, 'search.placeholder')}</span>
+        <kbd class="t-mono" dir="ltr">/</kbd>
+        <span class="btn btn--primary">{t(lang, 'search.submit')}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacing & shape -->
+  <section id="spacing" class="wrap block" aria-labelledby="h-sp">
+    <h2 id="h-sp" class="t-h2">{t(lang, 'sg.spacing')}</h2>
+    <ul class="spacing" role="list">
+      {spacing.map((s) => (
+        <li><span class="bar" style={`inline-size:${s}px`}></span><span class="t-mono" dir="ltr">{s}px</span></li>
+      ))}
+    </ul>
+    <div class="shapes">
+      <div class="shape r0"><span class="t-mono" dir="ltr">0px · images</span></div>
+      <div class="shape r2"><span class="t-mono" dir="ltr">2px · buttons, inputs</span></div>
+      <div class="shape r4"><span class="t-mono" dir="ltr">4px · cards</span></div>
+      <div class="shape elev"><span class="t-mono" dir="ltr">elevation · search panel only</span></div>
+    </div>
+    <p class="note t-ui" dir="ltr">12-column grid · max 1440px · gutter 16→40px · section padding 64→160px</p>
+  </section>
+
+  <!-- Motion -->
+  <section id="motion" class="wrap block" aria-labelledby="h-mo">
+    <h2 id="h-mo" class="t-h2">{t(lang, 'sg.motion')}</h2>
+    <ul class="motion" role="list" dir="ltr">
+      <li><span class="t-mono">ease</span> cubic-bezier(.16, 1, .3, 1)</li>
+      <li><span class="t-mono">150ms</span> colour, border</li>
+      <li><span class="t-mono">220ms</span> underline, arrow nudge</li>
+      <li><span class="t-mono">300ms</span> panel open (max)</li>
+      <li><span class="t-mono">reveal</span> 14px rise, once, off under reduced motion</li>
+      <li><span class="t-mono">autoplay</span> hero video only, paused under reduced motion, visible pause</li>
+    </ul>
+    <div class="reveal-demo">
+      {[1, 2, 3].map((n) => <div data-reveal style={`transition-delay:${n * 80}ms`}><span class="t-mono">reveal {n}</span></div>)}
+    </div>
+  </section>
+
+  <!-- Imagery -->
+  <section id="imagery" class="wrap block" aria-labelledby="h-img">
+    <h2 id="h-img" class="t-h2">{t(lang, 'sg.imagery')}</h2>
+    <p class="note prose-measure">{isAr ? 'تصوير حقيقي لمكتبة قطر الوطنية فقط، بمعالجة موحّدة: ألوان أهدأ قليلًا وظلال مرفوعة. تُختار نقطة القص لكل مقاس شاشة.' : 'Real QNL photography only, with one consistent grade: slightly muted, lifted blacks. Crops (object-position) are set per breakpoint.'}</p>
+    <div class="imgs">
+      <figure class="i-wide">
+        <Picture name="hall-columns" alt={isAr ? 'أعمدة القاعة الرئيسية ورفوف الكتب في مكتبة قطر الوطنية' : 'Columns and open stacks in the main hall of Qatar National Library'} sizes="(min-width: 64rem) 60vw, 100vw" focus={{ base: '62% 50%', md: '55% 50%', lg: '50% 50%' }} />
+        <figcaption class="t-mono" dir="ltr">hall-columns · QNL 0024 · hero poster</figcaption>
+      </figure>
+      <figure class="i-tall">
+        <Picture name="stair-light" alt={isAr ? 'درج من الحجر الجيري بدرابزين مضيء' : 'Travertine stair with a light-line handrail'} sizes="(min-width: 64rem) 25vw, 50vw" focus={{ base: '40% 60%' }} />
+        <figcaption class="t-mono" dir="ltr">stair-light · QNL 0049</figcaption>
+      </figure>
+      <figure class="i-tall">
+        <Picture name="heritage-walls" alt={isAr ? 'جدران الحجر الجيري في مكتبة التراث' : 'Travertine walls of the Heritage Library seen from above'} sizes="(min-width: 64rem) 25vw, 50vw" focus={{ base: '30% 40%' }} />
+        <figcaption class="t-mono" dir="ltr">heritage-walls · QNL 0042</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+<Footer lang={lang} />
+
+<style>
+  .sg { padding-block-end: var(--s-16); }
+  .intro { padding-block: var(--s-12) var(--s-8); display: grid; gap: var(--s-3); }
+  .toc { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-3); font-size: var(--fs-sm); margin-block-start: var(--s-2); }
+  .toc a { display: inline-flex; min-block-size: 2.75rem; align-items: center; }
+  .block { padding-block: var(--s-10); border-block-start: var(--hairline); }
+  .block > .t-h2 { margin-block-end: var(--s-4); }
+  .band { background: var(--color-paper-2); border: 0; }
+  .sub { margin-block: var(--s-6) var(--s-3); }
+  .note { color: var(--color-grey-600); margin-block: var(--s-2); }
+  .note .btn, .note .link { margin-inline-start: var(--s-2); }
+
+  .swatches { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: var(--s-3); }
+  .swatch { display: grid; grid-template-rows: 6rem auto; border: var(--hairline); border-radius: var(--radius-2); overflow: hidden; }
+  .chipcolor[data-light] { border-block-end: var(--hairline); }
+  .sw-meta { display: grid; gap: 0.15rem; padding: var(--s-2); font-size: var(--fs-sm); }
+  .sw-token { color: var(--color-grey-600); }
+  .sw-role { font-weight: 500; }
+  .sw-src { color: var(--color-grey-600); font-size: var(--fs-xs); }
+  .changed { color: var(--color-accent); font-weight: 500; }
+
+  .table-wrap { overflow-x: auto; }
+  table { inline-size: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+  th, td { text-align: start; padding: 0.6rem 0.75rem; border-block-end: var(--hairline); white-space: nowrap; }
+  th { font-weight: 500; color: var(--color-grey-600); }
+  .pair { display: inline-grid; place-items: center; inline-size: 3rem; block-size: 2rem; font-weight: 500; border: var(--hairline); border-radius: var(--radius-1); }
+  .res { font-weight: 700; font-size: var(--fs-xs); letter-spacing: 0.04em; }
+  .res.pass { color: #1f6b3a; }
+  .res.fail { color: var(--color-accent); }
+
+  .specimens { margin: 0; display: grid; gap: 0; }
+  .spec { display: grid; grid-template-columns: minmax(10rem, 16rem) 1fr; gap: var(--s-3); padding-block: var(--s-3); border-block-end: var(--hairline); align-items: baseline; }
+  .spec dt { color: var(--color-grey-600); }
+  .spec dd { margin: 0; max-inline-size: 60rem; }
+  @media (max-width: 48rem) { .spec { grid-template-columns: 1fr; gap: var(--s-1); } }
+
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+  @media (max-width: 56rem) { .options { grid-template-columns: 1fr; } }
+  .opt { margin: 0; background: var(--color-paper); padding: var(--s-4); border-radius: var(--radius-2); display: grid; gap: var(--s-3); }
+  .opt figcaption { color: var(--color-grey-600); }
+  .opt-display { font-size: clamp(2.25rem, 1.6rem + 2.6vw, 4rem); line-height: 1.25; margin: 0; text-wrap: balance; }
+  .opt-h2 { font-size: var(--fs-h2); line-height: 1.3; margin: 0; text-wrap: balance; }
+  .opt-body { margin: 0; font-family: var(--font-arabic); line-height: 1.7; color: var(--color-grey-800); }
+  .sans { font-family: var(--font-arabic); font-weight: 500; }
+  .naskh { font-family: var(--font-arabic-display); font-weight: 500; line-height: 1.4; }
+  .pairing { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-3); margin-block-start: var(--s-3); }
+  .pair-col { background: var(--color-ink); color: var(--color-paper); padding: var(--s-4); border-radius: var(--radius-2); display: grid; align-content: space-between; gap: var(--s-2); min-block-size: 12rem; }
+  .pair-col .t-mono { color: var(--color-grey-300); }
+  @media (max-width: 56rem) { .pairing { grid-template-columns: 1fr; } }
+
+  .state-grid { display: grid; grid-template-columns: repeat(5, minmax(max-content, 1fr)); gap: var(--s-2) var(--s-3); align-items: center; overflow-x: auto; padding: 4px; }
+  .state-label { color: var(--color-grey-600); }
+  .dark-demo { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; background: var(--color-ink); padding: var(--s-4); border-radius: var(--radius-2); margin-block-start: var(--s-3); }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--s-1); align-items: center; }
+  .phase { color: var(--color-grey-600); border: 1px solid var(--color-grey-300); padding: 0.2em 0.45em; border-radius: var(--radius-1); font-size: 0.6875rem; }
+  .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--s-3); }
+  .tasks { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--s-2); }
+
+  .search-preview { background: var(--color-ink); padding: var(--s-4); border-radius: var(--radius-2); display: grid; gap: var(--s-2); }
+  .modes { display: flex; gap: var(--s-1); font-size: var(--fs-sm); }
+  .mode { padding: 0.5rem 0.85rem; border-radius: var(--radius-1); color: var(--color-grey-300); display: inline-flex; gap: 0.5rem; align-items: center; }
+  .mode.is-on { background: rgb(255 255 255 / 0.12); color: var(--color-paper); }
+  .mode .phase { color: var(--color-grey-300); border-color: rgb(255 255 255 / 0.3); }
+  .bar-preview { display: flex; align-items: center; gap: var(--s-2); background: var(--color-paper); color: var(--color-grey-600); border-radius: var(--radius-2); padding: 0.5rem 0.5rem 0.5rem 1.25rem; min-block-size: 4rem; box-shadow: var(--elev-panel); }
+  :global([dir='rtl']) .bar-preview { padding: 0.5rem 1.25rem 0.5rem 0.5rem; }
+  .bar-preview .ph { flex: 1; font-size: var(--fs-lg); }
+  .bar-preview .btn--primary { --btn-bg: var(--color-accent); --btn-fg: var(--color-paper); --btn-bd: var(--color-accent); }
+  :global([dir='rtl']) .sw-meta > [dir='ltr'] { text-align: right; }
+  .bar-preview kbd { border: 1px solid var(--color-grey-300); border-radius: var(--radius-1); padding: 0.15rem 0.45rem; color: var(--color-grey-600); }
+
+  .spacing { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+  .spacing li { display: flex; align-items: center; gap: var(--s-2); }
+  .spacing .bar { display: block; block-size: 0.75rem; background: var(--color-accent); }
+  .shapes { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--s-3); margin-block-start: var(--s-4); }
+  .shape { display: grid; place-items: end start; min-block-size: 7rem; padding: var(--s-2); background: var(--color-paper-2); border: var(--hairline); }
+  .r0 { border-radius: 0; } .r2 { border-radius: 2px; } .r4 { border-radius: 4px; }
+  .elev { background: var(--color-paper); border-radius: 4px; box-shadow: var(--elev-panel); }
+
+  .motion { list-style: none; padding: 0; margin: 0 0 var(--s-4); display: grid; gap: 0.5rem; font-size: var(--fs-sm); }
+  .motion .t-mono { display: inline-block; min-inline-size: 6rem; color: var(--color-accent); }
+  .reveal-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-2); }
+  .reveal-demo > div { background: var(--color-paper-2); min-block-size: 6rem; display: grid; place-items: center; border-radius: var(--radius-2); }
+
+  .imgs { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--s-2); }
+  .imgs figure { margin: 0; display: grid; gap: 0.5rem; align-content: start; }
+  .imgs figcaption { color: var(--color-grey-600); }
+  .i-wide :global(.pic) { aspect-ratio: 16 / 10; }
+  .i-tall :global(.pic) { aspect-ratio: 3 / 4.6; }
+  @media (max-width: 48rem) {
+    .imgs { grid-template-columns: 1fr 1fr; }
+    .i-wide { grid-column: 1 / -1; }
+  }
+</style>

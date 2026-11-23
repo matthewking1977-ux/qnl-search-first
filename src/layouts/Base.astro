@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import { t, dir, altPath, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** Extra <link rel=preload> for the LCP image */
+  preloadImage?: { srcset: string; sizes: string; type: string };
+  /** Arabic display face: 'naskh' (approved default) or 'sans' */
+  arDisplay?: 'sans' | 'naskh';
+}
+const { lang, title, description, preloadImage, arDisplay = 'naskh' } = Astro.props;
+const pageTitle = title ? `${title} · ${t(lang, 'meta.title')}` : t(lang, 'meta.title');
+const desc = description ?? t(lang, 'meta.description');
+const path = Astro.url.pathname;
+const canonical = new URL(path, Astro.site).href;
+const alternate = new URL(altPath(lang, path), Astro.site).href;
+---
+<!doctype html>
+<html lang={lang} dir={dir(lang)} data-ar-display={arDisplay}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    <link rel="alternate" hreflang={lang === 'en' ? 'ar' : 'en'} href={alternate} />
+    <link rel="alternate" hreflang="x-default" href={new URL(lang === 'en' ? path : altPath(lang, path), Astro.site).href} />
+    <meta name="theme-color" content="#090909" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'ar' ? 'ar_QA' : 'en_GB'} />
+    <link rel="preload" href="/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/roboto-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+    {preloadImage && (
+      <link rel="preload" as="image" imagesrcset={preloadImage.srcset} imagesizes={preloadImage.sizes} type={preloadImage.type} fetchpriority="high" />
+    )}
+    <!-- Flags: ?clean=1 hides SAMPLE/TBC labels; ?perf=1 shows the type-ahead timing overlay.
+         Runs before paint so there is no flash. -->
+    <script is:inline>
+      (function () {
+        var d = document.documentElement, q = new URLSearchParams(location.search);
+        d.classList.add('js');
+        try {
+          if (q.has('clean')) sessionStorage.setItem('qnl.clean', q.get('clean') === '0' ? '' : '1');
+          if (q.has('perf')) sessionStorage.setItem('qnl.perf', q.get('perf') === '0' ? '' : '1');
+          if (sessionStorage.getItem('qnl.clean')) d.setAttribute('data-clean', '');
+          if (sessionStorage.getItem('qnl.perf')) d.setAttribute('data-perf', '');
+        } catch (e) {
+          if (q.get('clean') === '1') d.setAttribute('data-clean', '');
+          if (q.get('perf') === '1') d.setAttribute('data-perf', '');
+        }
+        window.dataLayer = window.dataLayer || [];
+      })();
+    </script>
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t(lang, 'a11y.skip')}</a>
+    <slot />
+    <script>
+      // Reveal-on-scroll, once. No-op under reduced motion (CSS handles it).
+      const els = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window && els.length) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        }, { rootMargin: '0px 0px -8% 0px' });
+        els.forEach((el) => io.observe(el));
+      } else els.forEach((el) => el.classList.add('is-in'));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+/* Shared component styles. Every interactive element has designed
+   hover, focus-visible, active and disabled states.
+   `.is-hover/.is-focus/.is-active` mirror the pseudo-states for the styleguide. */
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+  --btn-bg: transparent; --btn-fg: currentColor; --btn-bd: currentColor;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5em;
+  min-block-size: 2.75rem; padding-inline: 1.25rem;
+  font: 500 var(--fs-sm)/1 var(--font-sans);
+  background: var(--btn-bg); color: var(--btn-fg);
+  border: 1px solid var(--btn-bd); border-radius: var(--radius-1);
+  text-decoration: none; cursor: pointer; user-select: none;
+  transition: background-color var(--dur-1) var(--ease-out-expo), color var(--dur-1) var(--ease-out-expo),
+              border-color var(--dur-1) var(--ease-out-expo), transform var(--dur-1) var(--ease-out-expo);
+}
+[lang='ar'] .btn { font-family: var(--font-arabic); }
+.btn:active, .btn.is-active { transform: translateY(1px); }
+.btn:disabled, .btn[aria-disabled='true'] { cursor: not-allowed; transform: none; }
+
+.btn--primary { --btn-bg: var(--color-accent); --btn-fg: var(--color-paper); --btn-bd: var(--color-accent); }
+.btn--primary:hover, .btn--primary.is-hover { --btn-bg: #7a0f2d; --btn-bd: #7a0f2d; }
+.btn--primary:active, .btn--primary.is-active { --btn-bg: #640c25; --btn-bd: #640c25; }
+
+.btn--secondary { --btn-bg: var(--color-ink); --btn-fg: var(--color-paper); --btn-bd: var(--color-ink); }
+.btn--secondary:hover, .btn--secondary.is-hover { --btn-bg: var(--color-grey-800); --btn-bd: var(--color-grey-800); }
+
+.btn--ghost { --btn-fg: var(--color-ink); --btn-bd: var(--color-ink); }
+.btn--ghost:hover, .btn--ghost.is-hover { --btn-bg: var(--color-ink); --btn-fg: var(--color-paper); }
+
+.on-dark .btn--ghost { --btn-fg: var(--color-paper); --btn-bd: rgb(255 255 255 / 0.72); }
+.on-dark .btn--ghost:hover, .on-dark .btn--ghost.is-hover { --btn-bg: var(--color-paper); --btn-fg: var(--color-ink); --btn-bd: var(--color-paper); }
+.on-dark .btn--primary { --btn-bg: var(--color-paper); --btn-fg: var(--color-ink); --btn-bd: var(--color-paper); }
+.on-dark .btn--primary:hover, .on-dark .btn--primary.is-hover { --btn-bg: var(--color-accent-on-dark); --btn-bd: var(--color-accent-on-dark); }
+
+.btn:disabled, .btn[aria-disabled='true'], .btn.is-disabled {
+  --btn-bg: var(--color-grey-100); --btn-fg: var(--color-grey-600); --btn-bd: var(--color-grey-100);
+}
+.is-focus { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+.arrow { display: inline-block; transition: translate var(--dur-2) var(--ease-out-expo); }
+a:hover .arrow, button:hover .arrow, .is-hover .arrow { translate: 3px 0; }
+[dir='rtl'] a:hover .arrow, [dir='rtl'] button:hover .arrow, [dir='rtl'] .is-hover .arrow { translate: -3px 0; }
+
+/* ── Chips (filters) ─────────────────────────────────────── */
+.chip {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  min-block-size: 2.25rem; padding-inline: 0.875rem;
+  font: 500 var(--fs-xs)/1 var(--font-sans); letter-spacing: 0.01em;
+  color: var(--color-ink); background: var(--color-paper);
+  border: 1px solid var(--color-grey-300); border-radius: 999px;
+  cursor: pointer;
+  transition: background-color var(--dur-1) var(--ease-out-expo), border-color var(--dur-1), color var(--dur-1);
+}
+[lang='ar'] .chip { font-family: var(--font-arabic); font-size: var(--fs-sm); }
+.chip:hover, .chip.is-hover { border-color: var(--color-ink); }
+.chip[aria-pressed='true'], .chip[aria-checked='true'], .chip.is-selected {
+  background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink);
+}
+.chip:active, .chip.is-active { transform: translateY(1px); }
+.chip:disabled, .chip.is-disabled { color: var(--color-grey-600); background: var(--color-paper-2); border-color: var(--color-grey-100); cursor: not-allowed; }
+/* 36px visual, 44px hit area */
+.chip { position: relative; }
+.chip::after { content: ''; position: absolute; inset: -4px -2px; }
+
+.on-dark .chip { color: var(--color-paper); background: rgb(9 9 9 / 0.28); border-color: rgb(255 255 255 / 0.42); backdrop-filter: blur(6px); }
+.on-dark .chip:hover, .on-dark .chip.is-hover { border-color: var(--color-paper); }
+.on-dark .chip[aria-pressed='true'], .on-dark .chip.is-selected { background: var(--color-paper); color: var(--color-ink); border-color: var(--color-paper); }
+
+/* ── Tags (event/category) ───────────────────────────────── */
+.tag {
+  display: inline-flex; align-items: center;
+  font: 500 0.75rem/1 var(--font-sans); letter-spacing: 0.02em;
+  padding: 0.35em 0.55em; border-radius: var(--radius-1);
+  background: var(--color-tag); color: var(--color-ink);
+}
+[lang='ar'] .tag { font-family: var(--font-arabic); font-size: 0.8125rem; }
+.tag--quiet { background: var(--color-paper-2); }
+
+/* ── Text field ──────────────────────────────────────────── */
+.field { display: grid; gap: 0.4rem; }
+.field label { font-weight: 500; font-size: var(--fs-sm); }
+.field .help { font-size: var(--fs-xs); color: var(--color-grey-600); }
+.input {
+  min-block-size: 3rem; padding-inline: 0.875rem;
+  font: 400 var(--fs-base)/1.2 inherit; color: var(--color-ink);
+  background: var(--color-paper); border: 1px solid var(--color-grey-600);
+  border-radius: var(--radius-1);
+  transition: border-color var(--dur-1) var(--ease-out-expo), box-shadow var(--dur-1) var(--ease-out-expo);
+}
+.input::placeholder { color: var(--color-grey-600); }
+.input:hover, .input.is-hover { border-color: var(--color-ink); }
+.input:focus-visible, .input.is-focus { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-color: var(--color-ink); }
+.input:disabled, .input.is-disabled { background: var(--color-paper-2); border-color: var(--color-grey-100); color: var(--color-grey-600); cursor: not-allowed; }
+.input[aria-invalid='true'] { border-color: var(--color-accent); }
+
+/* ── Task card (no icons) ────────────────────────────────── */
+.task {
+  position: relative; display: grid; align-content: space-between; gap: var(--s-3);
+  min-block-size: 9.5rem; padding: var(--s-3);
+  background: var(--color-paper); color: var(--color-ink);
+  border: 1px solid var(--color-grey-100); border-radius: var(--radius-2);
+  text-decoration: none;
+  transition: border-color var(--dur-2) var(--ease-out-expo), background-color var(--dur-2) var(--ease-out-expo);
+}
+.task__label { font-weight: 500; font-size: var(--fs-xl); line-height: 1.2; letter-spacing: -0.005em; }
+.task__help { font-size: var(--fs-sm); color: var(--color-grey-600); line-height: 1.45; }
+.task__go { display: flex; justify-content: space-between; align-items: end; gap: var(--s-2); }
+.task__go .arrow { color: var(--color-accent); font-size: 1.25rem; line-height: 1; }
+.task:hover, .task.is-hover { border-color: var(--color-ink); }
+.task:hover .task__label, .task.is-hover .task__label { color: var(--color-accent); }
+.task:active, .task.is-active { background: var(--color-paper-2); }
+.task:focus-visible, .task.is-focus { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+[lang='ar'] .task__label { letter-spacing: 0; }

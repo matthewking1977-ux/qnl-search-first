@@ -1,0 +1,17 @@
+---
+interface Props { tone?: 'white' | 'black'; class?: string; }
+const { tone = 'white', class: cls = '' } = Astro.props;
+// Bilingual lock-up, 834×435 source, resized to 192×100 (2× for 48px tall).
+---
+<img
+  class={`logo ${cls}`}
+  src={`/logo/qnl-logo-${tone}.png`}
+  alt=""
+  width="92"
+  height="48"
+  decoding="async"
+/>
+<style>
+  .logo { display: block; block-size: 3rem; inline-size: auto; }
+  @media (max-width: 40rem) { .logo { block-size: 2.625rem; } }
+</style>

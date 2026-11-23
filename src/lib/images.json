@@ -1,0 +1,247 @@
+{
+  "hall-columns": {
+    "src": "QNL 0024.jpg",
+    "w": 3840,
+    "h": 2560,
+    "widths": [
+      640,
+      960,
+      1440,
+      1920,
+      2560
+    ],
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAwCdASoYABAAPu1iqk2ppaQiMAgBMB2JZwDE2BuUk5vrNG0SvhIAAPW2tYQg10C3+H5QAqfWxJAgjF6DMvKRzQt5lsFgAAA="
+  },
+  "hall-wide": {
+    "src": "QNL 0013.jpg",
+    "w": 1600,
+    "h": 900,
+    "widths": [
+      640,
+      960,
+      1440
+    ],
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoYAA0APu1orU6ppiSiMAgBMB2JZwAAPX/+0RF5/YAwAP4hsQs9Rdr9wb932Jjw9A3nRzBWyr6BUjgalLZ4blGqSAA="
+  },
+  "hall-skylight": {
+    "src": "QNL 0023.jpg",
+    "w": 2500,
+    "h": 3750,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBgCdASoYACQAPu1uqVCppqOiqrgKATAdiWkAzjgiXairLAXKPRCfJfQ1t0i3OrCIjtkaN65u4cQAAP3PBtzN0t0aPZcpBnOxdgYHXwdv8m9GIDEIn6KUreDXlFbQWh0fY+AeIC1Vxh7mrXZYfX4Frs87Ipo1WgWYZQNfAAA="
+  },
+  "terraces": {
+    "src": "QNL 0027.jpg",
+    "w": 3840,
+    "h": 2160,
+    "widths": [
+      640,
+      960,
+      1440,
+      1920
+    ],
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAwCdASoYAA4APu1orU2ppqSiMAgBMB2JaQAAQvoYJOcV3BW5AADiD8pzFey3pQdvvYBrTasiHL8dGgcxLL6C420AKcHqn71IHgAA"
+  },
+  "terraces-rail": {
+    "src": "QNL 0029.jpg",
+    "w": 3000,
+    "h": 2000,
+    "widths": [
+      640,
+      960,
+      1440
+    ],
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JaQAA+BvARdUQvyVEAAD+YVPruwvEzLrK6oixAPBGwx9PHDEp3MqbjjFV2PPqEPFmxDKDobrFN31AAAA="
+  },
+  "heritage-walls": {
+    "src": "QNL 0042.jpg",
+    "w": 3000,
+    "h": 2000,
+    "widths": [
+      640,
+      960,
+      1440,
+      1920,
+      2560
+    ],
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAwCdASoYABAAPu1kq04ppaQiMAgBMB2JaQAAQx1bR+WIbqmA2mXgAP5W12viAri+HlNc7AdkT00af82VFabE6yO2oE/pTvW77I/ngAA="
+  },
+  "heritage-cases": {
+    "src": "QNL 0045.jpg",
+    "w": 1679,
+    "h": 840,
+    "widths": [
+      640,
+      960,
+      1440
+    ],
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACQAwCdASoYAAwAPu1kqk4ppaQiMAgBMB2JZQC06B6NFj/IlvAAAP5Xe6F786OwE8oPqzVCNI7l2O9tYORXtLQ2q437FthUngAAAA=="
+  },
+  "stair-light": {
+    "src": "QNL 0049.jpg",
+    "w": 2500,
+    "h": 3750,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQBQCdASoYACQAPt1aok2opSMiNUgBEBuJZQC9WBWAeeSZ/Tq/9sMFfxpqLIvntDfDqUjT0AD9gau0XaW1qDz6mg3Uw0L8uYDUaRFWb8HkC/EXSljZAayYuK2il7uU0Pijbaob52/jvnzVQHMfXHCaTVKBMKAA"
+  },
+  "stacks-rows": {
+    "src": "QNL 0050.jpg",
+    "w": 1280,
+    "h": 719,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JaQAAW3EK/LWzPk1Ku3UAAP7fXgnPav/wbrxTBpMt7/E0GcYBBUJsHLHSjvLn3X4HgAAA"
+  },
+  "shelf-top": {
+    "src": "QNL 0053.jpg",
+    "w": 2560,
+    "h": 1920,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQBACdASoYABIAPuFcqU2opSQiMAwBEBwJZwDKAFPqtX5P6hRkSxrfJu1aal0kAAD4jwQzBlAlTzIi9yaF2LAoauxmXsqt+gjHCo6PK0nSVEk5qN7WPxMAAAA="
+  },
+  "catalogue-pcs": {
+    "src": "QNL 0054.jpg",
+    "w": 1600,
+    "h": 1090,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoYABAAPu1mqk2ppaQiMAgBMB2JaQAAW7SzOk6Gkqw680gA/uqOUoCfNRJ4qdp/VOqXMhEvURNAiSdPMMHferneTNqeGYm0XrpEnQoAAAA="
+  },
+  "reader-stairs": {
+    "src": "QNL 0055.jpg",
+    "w": 1170,
+    "h": 1560,
+    "widths": [
+      480,
+      800
+    ],
+    "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwBACdASoYACAAPuVkp02pJiOiMAwBIByJZwAAYfv3LGDsdna63OrxUfk6pYyIAP7kAx36VzY0ZJis1+Su2CwdPZCR2xP0skF0UhdKNChU5mg9ULepp1WAAAA="
+  },
+  "study-stair": {
+    "src": "QNL 0034.jpg",
+    "w": 5184,
+    "h": 3456,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JZwAAB98ceLyAAP6/4BcQH5MKgfLE3RnUpMAg5Yq9xCX6sU0r4EcXsBecTfvTO8kXEfLyPkkAAA=="
+  },
+  "study-tables": {
+    "src": "QNL 0025.jpg",
+    "w": 1080,
+    "h": 740,
+    "widths": [
+      480,
+      800
+    ],
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoYABAAPu1iqU2ppaQiMAgBMB2JaQAAV9I+/3hXfcHQAP7qvLtKUKZeV90L1KL760kN7aLTX+veQAAA"
+  },
+  "gallery-ramp": {
+    "src": "QNL 0040.jpg",
+    "w": 3840,
+    "h": 2560,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwBACdASoYABAAPu1yrU+pp6QiMAgBMB2JZwCw7BIr0DohmxtBGG0frgAA2Mbrr02ja4v7Zeudx5vXIDGoGxR4Y7p7sFREMlagJaplO28+h2b/DmsQ/F2AAAA="
+  },
+  "stair-wayfind": {
+    "src": "QNL 0037.jpg",
+    "w": 1500,
+    "h": 844,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAwCdASoYAA4APu1mqk2ppaQiMAgBMB2JZwDG9B5O33NoWYZuSGQAAPzVwNQHwfmxzoMQ4PGwswod5WeJtwdXLRydOq4I4jNaBs402AA="
+  },
+  "exterior-dusk": {
+    "src": "QNL 0001.jpg",
+    "w": 5000,
+    "h": 2168,
+    "widths": [
+      640,
+      960,
+      1440,
+      1920
+    ],
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAwCdASoYAAoAPu1orU2ppqSiMAgBMB2JZQC7ACHcZ6qLTWVbaAD+5xfs0neBuR10nhG1NnAJiuFHO9Q2EAAA"
+  },
+  "exterior-corner": {
+    "src": "QNL 0009.jpg",
+    "w": 1920,
+    "h": 1440,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoYABIAPt1WpU2opKOiN/qoARAbiWMAxNgVVRofPD69yjU0AABqT7vKXdhq+IEwphrsXa8vrnMBA0td73af7tUcR5A/0gI1ENuQctifEz3X4DHpCwYAAAAA"
+  },
+  "exterior-parking": {
+    "src": "QNL 0011.jpg",
+    "w": 1260,
+    "h": 709,
+    "widths": [
+      480,
+      800
+    ],
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoYAA4APu1kq04ppaQiMAgBMB2JYwCdACFqGCtT/GRqQgAA/t7Oe9GcdgpjuYGmo0qIbr7pC95PlWhC1qJdhKAA"
+  },
+  "family-hall": {
+    "src": "QNL 0047.jpg",
+    "w": 1200,
+    "h": 806,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JYwCdABwgCSu4pFiUWigwAAD9RFHikkPzL3JNA5OoBlRuuRSFris5M/4jldpRsL0+0j7dBRFa5GdQ0AA="
+  },
+  "children-hall": {
+    "src": "QNL 0017.jpg",
+    "w": 1680,
+    "h": 700,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAABQAwCdASoYAAoAPu1qrU8ppiQiMAgBMB2JZwAAUS/DfRjQgAD90f97ODZ217eJ3BChvMDnqgaoLWgNFldYAA=="
+  },
+  "talk-seating": {
+    "src": "QNL 0020.jpg",
+    "w": 1200,
+    "h": 797,
+    "widths": [
+      480,
+      800
+    ],
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoYABAAPu1iqk2ppaQiMAgBMB2JZwAAV/7pQeIq8ZwI3jgA/uE8oFZcq4duFONieGq00K0zVFxmzEgEeYc8IgJKzqApkiFAAAA="
+  }
+}

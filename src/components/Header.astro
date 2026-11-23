@@ -1,0 +1,118 @@
+---
+import Logo from './Logo.astro';
+import { t, altPath, localPath, type Lang } from '../i18n';
+
+interface Props { lang: Lang; tone?: 'dark' | 'light'; }
+const { lang, tone = 'dark' } = Astro.props;
+const path = Astro.url.pathname;
+const nav = [
+  ['nav.explore', '/search'],
+  ['nav.forYou', '/#for-you'],
+  ['nav.whatsOn', '/#whats-on'],
+  ['nav.visit', '/#visit'],
+  ['nav.about', '/#about'],
+] as const;
+---
+<header class:list={['site-header', tone === 'dark' ? 'on-dark is-dark' : 'is-light']}>
+  <div class="wrap bar">
+    <a class="brand" href={localPath(lang, '/')} aria-label={t(lang, 'a11y.home')}>
+      <Logo tone={tone === 'dark' ? 'white' : 'black'} />
+    </a>
+
+    <nav class="primary" aria-label={t(lang, 'a11y.mainNav')}>
+      <ul>
+        {nav.map(([k, href]) => (
+          <li><a href={localPath(lang, href)} aria-current={path === localPath(lang, href) ? 'page' : undefined}>{t(lang, k)}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="utility">
+      <a class="lang" href={altPath(lang, path)} hreflang={t(lang, 'lang.otherCode')} lang={t(lang, 'lang.otherCode')}>
+        <span aria-hidden="true">{t(lang, 'lang.other')}</span>
+        <span class="sr-only">{t(lang, 'a11y.langSwitch')}</span>
+      </a>
+      <a class="signin" href={localPath(lang, '/#sign-in')}>{t(lang, 'nav.signIn')}</a>
+      <a class="join" href={localPath(lang, '/#join')}>{t(lang, 'nav.join')}</a>
+    </div>
+
+    <!-- Mobile menu: native <details>, works without JS -->
+    <details class="mobile">
+      <summary><span>{t(lang, 'nav.menu')}</span></summary>
+      <div class="sheet">
+        <ul>
+          {nav.map(([k, href]) => <li><a href={localPath(lang, href)}>{t(lang, k)}</a></li>)}
+        </ul>
+        <div class="sheet-utility">
+          <a href={localPath(lang, '/#sign-in')}>{t(lang, 'nav.signIn')}</a>
+          <a class="join" href={localPath(lang, '/#join')}>{t(lang, 'nav.join')}</a>
+        </div>
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header { position: relative; z-index: 20; font-size: var(--fs-sm); }
+  .is-light { background: var(--color-paper); color: var(--color-ink); border-block-end: var(--hairline); }
+  .is-dark { position: absolute; inset-inline: 0; inset-block-start: 0; color: var(--color-paper); }
+  .bar {
+    display: flex; align-items: center; gap: var(--s-4);
+    min-block-size: 4.5rem;
+  }
+  .brand { flex: none; display: block; padding-block: 0.25rem; }
+  .primary { flex: 1; }
+  .primary ul { display: flex; gap: var(--s-4); list-style: none; margin: 0; padding: 0; }
+  .primary a, .utility a { text-decoration: none; font-weight: 500; }
+  .primary a {
+    display: inline-flex; align-items: center; min-block-size: 2.75rem;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px; background-repeat: no-repeat; background-position: 0 calc(100% - 0.65rem);
+    transition: background-size var(--dur-2) var(--ease-out-expo), color var(--dur-1);
+  }
+  :global([dir='rtl']) .primary a { background-position: 100% calc(100% - 0.65rem); }
+  .primary a:hover, .primary a[aria-current='page'] { background-size: 100% 1px; }
+  .is-dark .primary a:hover { color: var(--color-accent-on-dark); }
+  .is-light .primary a:hover { color: var(--color-accent); }
+
+  .utility { display: flex; align-items: center; gap: var(--s-3); }
+  .utility a { display: inline-flex; align-items: center; min-block-size: 2.75rem; }
+  .lang { font-family: var(--font-arabic); font-weight: 500; }
+  [lang='ar'] .lang { font-family: var(--font-sans); }
+  .signin:hover, .lang:hover { text-decoration: underline; text-underline-offset: 0.3em; }
+  .join {
+    padding-inline: 1rem; border-radius: var(--radius-1);
+    transition: background-color var(--dur-1) var(--ease-out-expo), color var(--dur-1), border-color var(--dur-1);
+  }
+  .is-dark .join { border: 1px solid rgb(255 255 255 / 0.7); }
+  .is-dark .join:hover { background: var(--color-paper); color: var(--color-ink); border-color: var(--color-paper); }
+  .is-light .join { background: var(--color-accent); color: var(--color-paper); border: 1px solid var(--color-accent); }
+  .is-light .join:hover { background: #7a0f2d; border-color: #7a0f2d; }
+  .join:active { transform: translateY(1px); }
+
+  .mobile { display: none; margin-inline-start: auto; }
+  .mobile summary {
+    list-style: none; cursor: pointer; min-block-size: 2.75rem; min-inline-size: 2.75rem;
+    display: inline-flex; align-items: center; font-weight: 500;
+    padding-inline: 0.75rem; border: 1px solid currentColor; border-radius: var(--radius-1);
+  }
+  .mobile summary::-webkit-details-marker { display: none; }
+  .sheet {
+    position: absolute; inset-inline: 0; inset-block-start: 100%;
+    background: var(--color-ink); color: var(--color-paper);
+    padding: var(--s-3) var(--gutter) var(--s-4);
+    border-block-start: var(--hairline-dark);
+  }
+  .sheet ul { list-style: none; margin: 0; padding: 0; }
+  .sheet li a { display: flex; align-items: center; min-block-size: 3rem; font-size: var(--fs-lg); text-decoration: none; border-block-end: var(--hairline-dark); }
+  .sheet-utility { display: flex; gap: var(--s-2); margin-block-start: var(--s-3); }
+  .sheet-utility a { display: inline-flex; align-items: center; min-block-size: 2.75rem; padding-inline: 1rem; border: 1px solid rgb(255 255 255 / 0.6); border-radius: var(--radius-1); text-decoration: none; }
+  .sheet-utility .join { background: var(--color-paper); color: var(--color-ink); }
+
+  @media (max-width: 63.99rem) {
+    .primary, .utility .signin, .utility .join { display: none; }
+    .utility { margin-inline-start: auto; }
+    .bar { gap: var(--s-2); }
+    .mobile { display: block; margin-inline-start: 0; }
+  }
+</style>

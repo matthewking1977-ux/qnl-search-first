@@ -1,0 +1,203 @@
+
+/****************** Blog ******/
+
+.page-header {
+  margin-bottom: 0px !important;
+  color: #000 !important;
+}
+
+.field--name-field-blog-author {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #901235;
+}
+
+.field--name-field-blog-date {
+  display: inline-block;
+  color: #777;
+}
+
+.field--name-field-blog-main-image img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.field--name-field-blog-content {
+  font-size: 1.3em;
+}
+
+section.comments>article {
+  margin-top: 5px;
+}
+
+section.comments>article>p.comment-author-details {
+  margin: 5px;
+}
+
+.lang-en section.comments>article>p.comment-author-details>b {
+  margin-right: 5px;
+}
+
+.lang-ar section.comments>article>p.comment-author-details>b {
+  margin-left: 5px;
+}
+
+/******************** Blog Listing ***********/
+
+#block-views-block-blogs-block-1 {
+  background-color: #efefef;
+ border: solid 1px #ccc;
+  padding: 5px;
+}
+
+#block-views-block-blogs-block-1 .block-title {
+  text-align: center;
+  color: #000 !important;
+  text-transform: uppercase;
+  font-size: 1em !important;
+  margin-bottom: 30px;
+}
+
+
+.blog-list-entry {
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.blog-list-entry-image {
+  width: 30%;
+}
+
+.blog-list-entry-date {
+  color: #777;
+}
+
+.blog-list-entry-author {
+  color: #901235;
+}
+
+.blog-list-entry-title a {
+  color: #000 !important;
+  font-weight: bold !important;
+}
+
+.lang-en .blog-list-entry-details {
+  width: 70%;
+  padding-left: 15px;
+}
+
+.lang-ar .blog-list-entry-details {
+  width: 70%;
+  padding-right: 15px;
+}
+
+/************************ Blog Main List ******/
+
+.content-holder .view-id-blogs .view-content {
+  display: flex;
+  flex-wrap: wrap;  
+}
+
+
+.content-holder .view-id-blogs .view-content .views-row-1 {
+  width: calc(50% - 6px);
+  
+  padding: 10px;
+  margin: 3px;
+  border: solid 1px #ccc
+}
+
+.content-holder .view-id-blogs .view-content .views-row-1:first-child {
+  width: 100%;
+  padding: 10px;
+  background-color: #efefef;
+  margin-bottom: 30px;
+}
+
+.view-id-blogs .blog-details {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.view-id-blogs .blog-title a {
+  font-size: 1.5em;
+  margin-top: 15px;
+  color: #000 !important;
+}
+
+.view-id-blogs .blog-details .blog-author {
+  color: #901235;
+}
+
+.view-id-blogs .blog-details .blog-date {
+  padding-right: 5px;
+  padding-left: 5px;
+  color: #777;
+}
+
+.view-id-blogs .blog-image img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+.view-id-blogs .blog-content {
+  margin-bottom: 15px;
+}
+
+.lang-ar .view-id-blogs .blog-continue {
+  text-align: right;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  
+}
+
+.lang-en .view-id-blogs .blog-continue {
+  text-align: left;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+a.continue-reading {
+  text-decoration: none !important;
+  border: solid 1px #901235;
+  color: #000 !important;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.page-node-type-blog article.js-comment p.comment-author-details b {
+  display: none;
+}
+
+.page-node-type-blog article.js-comment .layout__region--content {
+  display: flex;
+  flex-wrap: wrap;
+  ;
+}
+
+.page-node-type-blog article.js-comment .field--name-field-blog-comment-name {
+  font-weight: bold;
+}
+
+.page-node-type-blog article.js-comment .field--name-field-blog-comment-email {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.page-node-type-blog article.js-comment .field--name-field-blog-comments {
+  width: 100%;
+  padding: 10px;
+  border-bottom: solid 1px #ddd;
+}
+
+
+/******************************** Fixes *****************/
+
+.lang-ar.path-blogs .row aside section {
+  float: none !important;
+}

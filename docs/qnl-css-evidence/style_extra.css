@@ -1,0 +1,438 @@
+
+body.en-library-user-registration #block-userregistrationleftblock,
+body.ar-library-user-registration #block-userregistrationleftblock {
+    border: solid 1px #aaa;
+    padding: 10px;
+    background: #eee;
+}
+
+.form-control {
+    line-height: 2 !important;
+    font-family: 'Verdana' !important;
+}
+
+#block-alert-messages-en {
+    width: 100%
+}
+
+body.en-about-senior-management h3,
+body.en-about-senior-management .supertitle,
+body.en-about-senior-management .summary,
+body.en-about-senior-management body.page-node-type-content-type-event .field--name-field-sub-title,
+body.page-node-type-content-type-event body.en-about-senior-management .field--name-field-sub-title,
+body.en-about-senior-management body.page-node-type-content-type-event .field--name-field-special-instructions .field--label,
+body.page-node-type-content-type-event .field--name-field-special-instructions body.en-about-senior-management .field--label,
+body.en-about-senior-management body.page-node-type-books .layout--twocol .layout__region--bottom .field--name-field-review .field--label,
+body.page-node-type-books .layout--twocol .layout__region--bottom .field--name-field-review body.en-about-senior-management .field--label {
+    font-weight: bold;
+    color: #901235;
+    font-weight: 1.1em;
+    margin-bottom: 10px;
+}
+
+body.en-about-senior-management .view-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body.en-about-senior-management .view-content .item-list ul {
+    list-style: none;
+    padding-left: 0px;
+    -webkit-padding-start: 0px;
+}
+
+body.en-about-senior-management .view-content .item-list ul li .views-field-name {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+body.en-about-senior-management .view-content .item-list ul li+li {
+    margin-top: 15px;
+}
+
+body.en-about-senior-management .feedback,
+body.en-about-senior-management .sharing .title {
+    padding-bottom: 5px;
+}
+
+body.ar .more-link {
+    clear: both;
+}
+
+#block-views-block-latest-news-block-latest-news-2 .view-content .views-row {
+    width: 100%;
+}
+
+body #block-views-block-latest-news-block-latest-news-2 .more-link a {
+    float: left !important;
+}
+
+.event-dates-time time+time {
+    display: inline-block !important;
+}
+
+.event .right .event-summary {
+    height: auto !important;
+    min-height: 5em;
+}
+
+body.user-logged-in h1.page-header::before {
+    content: "" !important;
+    display: none;
+}
+
+body.page-node-type-news.lang-ar .row section {
+    float: none !important;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 320px) {
+    .region-navigation-collapsible #block-aboutqnl .dropdown-menu {
+        height: auto !important;
+    }
+}
+
+
+/*SBF Asset and Views*/
+
+.image-5>a>.img-responsive,
+body.page-node-type-sbf-asset .field--name-field-image>.field-item>a>.img-responsive {
+    width: 19% !important;
+    display: inline-block !important;
+    padding: 3px;
+}
+
+.sbf-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.full-width {
+    width: 100%;
+}
+
+body.page-node-type-sbf-asset.lang-en .field--name-field-main-image {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.sbf-asset .field--name-field-main-image {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+body.page-node-type-sbf-asset .field--name-field-main-image {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+body.page-node-type-sbf-asset.lang-ar .field--name-field-main-image {
+    float: right;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+body.page-node-type-sbf-asset .field--name-field-description {
+    padding-bottom: 20px;
+}
+
+body.page-node-type-sbf-asset .region-content #edit-submit {
+    margin-top: 0px !important;
+}
+
+body.page-node-type-sbf-asset .btn-black {
+    background-color: #000 !important;
+    float: left !important;
+    color: #fff !important;
+}
+
+body.page-node-type-sbf-asset article h3 {
+    font-weight: bold !important;
+}
+
+body.lang-ar {
+    overflow-x: hidden;
+}
+
+table.dataTable {
+    border: solid 1px #000;
+}
+
+table.dataTable.lang-ar {
+    font-family: font-ar;
+    direction: rtl;
+}
+
+table.dataTable tr td {
+    padding: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #ccc;
+    height: 200px;
+    overflow: hidden;
+}
+
+h3.dataTable {
+    font-weight: bold;
+}
+
+table.dataTable th {
+    background-color: #eee;
+    text-align: center;
+}
+
+table.dataTable .event-details {
+    display: block !important;
+}
+
+.event-details .event-language {
+    width: 28%;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: bold;
+    line-height: 12px;
+    margin-top: 4px;
+}
+
+.lang-ar .event-details .event-language:before {
+    content: "\f27a";
+    font-family: 'fontawesome';
+    font-size: 1.5em;
+    color: #901235;
+    padding-left: 5px;
+}
+
+.lang-en .event-details .event-language:before {
+    content: "\f27a";
+    font-family: 'fontawesome';
+    font-size: 1.5em;
+    color: #901235;
+    padding-right: 5px;
+}
+
+.event-details .event-special {
+    width: 5.3%;
+    font-weight: bold;
+}
+
+.lang-en .event-details .event-special::before {
+    content: "\e807";
+    font-family: 'qnl-icons';
+    font-size: 1.5em;
+    color: #901235;
+    text-align: right;
+}
+
+.lang-ar .event-details .event-special::before {
+    content: "\e807";
+    font-family: 'qnl-icons';
+    font-size: 1.5em;
+    color: #901235;
+    text-align: left;
+}
+
+/******/
+div.region-copyrights::after {
+    content: "";
+}
+
+ul.menu li a i.fa {
+    font-size: 60px;
+}
+
+/*********************** Fix for Dr. Abed for messages on the front page ******************/
+
+body.path-frontpage div.content div.region.region-content section.block:first-of-type {
+    width: 97.7%;
+}
+
+
+/*********************** Videos **********************************************************/
+
+.event-videos {
+    display: flex;
+    align-items:flex-start;
+    flex-wrap: wrap;    
+}
+
+.event-video-search {
+    font-size: 25px;
+    width: 100%;    
+    padding-top: 10px;
+    padding-bottom: 10px;          
+}
+.event-video-search input {
+    width:90%;
+    margin-top: 20px;
+    background-color: transparent;
+    color: #000;        
+    border: solid 1px #ccc;
+    border-radius: 3px;
+}
+.event-video-search .searchbutton {
+    border: solid 1px #ccc;
+    border-radius: 3px;
+    font-size: 23px;
+    min-width:fit-content;    
+}
+.event-video-search .resetbutton {
+    border: solid 1px #ccc;
+    border-radius: 3px;    
+    font-size: 23px;
+    min-width: fit-content;
+}
+
+.event-videos .main {    
+    width: 70%;    
+    display: flex;
+    flex-wrap: wrap;
+}
+.event-videos .main .video {
+    width:100%;
+}
+.event-videos .main .heading {
+    width:100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 12px;
+    padding-left: 20px;
+    
+}
+.event-videos .main .info {
+    width:100%;    
+    padding: 12px;
+    padding-left: 20px;
+}
+
+.event-videos > .right {    
+    width: 30%;    
+    padding-top: 15px;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+.event-videos > .right .video {   
+    width: 100%;
+    display: flex;
+    cursor: pointer; 
+    padding-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.event-videos > .right .video .left {
+    width: 50%;
+}
+.event-videos > .right .video .left img {
+    width:100%;
+    bordeR: solid 1px #ccc;
+}
+.lang-en .event-videos > .right .video .right {
+    width: 50%;
+    padding-left: 3px;
+}
+.lang-ar .event-videos > .right .video .right {
+    width: 50%;
+    padding-right: 3px;
+}
+
+.event-videos > .right .video .right .heading {
+    width: 100%;
+    font-weight: 900;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.event-videos > .right .video .right .info {
+    width: 100%;
+    font-size: 10px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.empty {
+    width: 0px !important;
+    transform: scale(0);
+}
+
+.right.full {
+    width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;        
+}
+
+.main.full {
+    width: 70% !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;        
+}
+
+.right.full .video {
+    flex-wrap: wrap;
+    /*width: 30% !important;*/
+    padding-bottom: 25px !important;  
+    padding: 9px;  
+    transition: linear 0.7s;    
+}
+
+.main.full .video {
+    flex-wrap: wrap;
+    width: 100% !important;    
+}
+
+.full .video .left, .full .video .right {    
+    width: 100% !important;
+}
+
+
+.event-videos .main .info a.downloadlink {
+    font-weight: bold;
+    font-size: 16px;   
+    border: solid 1px #aaa;
+    padding: 5px;
+    color: #666;
+    display: inline-block;
+    margin-top: 5px;
+    background-color: #efefef;
+}
+
+.event-video-filter {
+    width: 100%;    
+    padding-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.event-video-filter button.pill {
+    border-radius: 20px !important;
+    background-color: transparent;
+    border: solid 2px #999;
+    color: #999;
+    margin: 5px;
+}
+
+.event-video-filter button.pill.active {    
+    border: solid 2px maroon;
+    color: #fff;
+    background-color: maroon;
+}
+
+
+.en-programs-and-events-event-videos-new .main-padding .content .region-content .content, .en-programs-and-events-event-videos .main-padding .content .region-content .content {
+    width: 100%;
+}
+
+.right.full .video.scaleOut {
+    transform: scale(0);
+    width: 0px !important;   
+    padding: 0px !important;   
+    height: 0px; 
+}
+
+.right.full .video.scaleIn {
+    transform: scale(1);
+    width: 33.3% !important;
+}

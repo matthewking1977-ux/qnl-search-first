@@ -1,0 +1,52 @@
+---
+import images from '../lib/images.json';
+
+type Key = keyof typeof images;
+interface Props {
+  name: Key;
+  alt: string;
+  sizes: string;
+  class?: string;
+  /** object-position per breakpoint, e.g. { base: '30% 50%', md: '50% 40%' } */
+  focus?: { base?: string; md?: string; lg?: string };
+  priority?: boolean;
+  width?: number;
+  height?: number;
+}
+const { name, alt, sizes, class: cls = '', focus = {}, priority = false } = Astro.props;
+const img = images[name];
+const set = (ext: string) => img.widths.map((w: number) => `/images/${name}-${w}.${ext} ${w}w`).join(', ');
+const fallbackW = img.widths[Math.min(1, img.widths.length - 1)];
+const style = [
+  `--fp: ${focus.base ?? '50% 50%'}`,
+  `--fp-md: ${focus.md ?? focus.base ?? '50% 50%'}`,
+  `--fp-lg: ${focus.lg ?? focus.md ?? focus.base ?? '50% 50%'}`,
+].join(';');
+---
+<picture class={`pic ${cls}`} style={style}>
+  <source type="image/avif" srcset={set('avif')} sizes={sizes} />
+  <source type="image/webp" srcset={set('webp')} sizes={sizes} />
+  <img
+    src={`/images/${name}-${fallbackW}.jpg`}
+    srcset={set('jpg')}
+    sizes={sizes}
+    alt={alt}
+    width={Astro.props.width ?? img.w}
+    height={Astro.props.height ?? img.h}
+    loading={priority ? 'eager' : 'lazy'}
+    decoding={priority ? 'sync' : 'async'}
+    fetchpriority={priority ? 'high' : 'auto'}
+  />
+</picture>
+<style>
+  .pic { display: block; overflow: hidden; background: var(--color-paper-2); }
+  .pic img {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: var(--fp);
+  }
+  @media (min-width: 48rem) { .pic img { object-position: var(--fp-md); } }
+  @media (min-width: 64rem) { .pic img { object-position: var(--fp-lg); } }
+</style>
