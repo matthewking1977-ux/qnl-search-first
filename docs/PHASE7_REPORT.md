@@ -51,7 +51,14 @@ Type-ahead, keystroke to rendered panel:
 - Fonts are self-hosted and subset. Only Roboto 400 and 500 are preloaded.
 
 ## Not run
-- **WebPageTest:** it needs the public URL and a WebPageTest account or API key, and the site can't be reached from this environment until it's deployed. I'll run it, or send the URL, once deployed.
+- **WebPageTest:** it needs a WebPageTest account or API key. Run it against https://qnl-search-first.vercel.app (Dubai or Doha test location, Moto G4/4G profile) to confirm field-like numbers from the region.
 
 ## Deployment
-Blocked on a one-time permission: the Vercel GitHub integration isn't installed for `matthewking1977-ux/qnl-search-first`. See the summary message for the steps.
+- **Live:** https://qnl-search-first.vercel.app (Vercel, deployed from `main` on every push).
+- **Static first:** every page is pre-rendered. Only `/search` and `/ar/search` run as a server function, so results work without JavaScript.
+- **404:** branded EN and AR pages, each with search and popular links and marked `noindex`. Any unknown `/ar/…` URL gets the Arabic page. Both return status 404 from static files, with no function call.
+- **Caching:** `scripts/vercel-routes.mjs` runs as `postbuild` and adds headers to the Vercel build output:
+  - hashed `/_astro/*` assets: 1 year, immutable;
+  - fonts: 1 year, immutable;
+  - images, video and icons: 30 days, revalidated in the background.
+- **Security headers:** `nosniff`, `strict-origin-when-cross-origin`, `SAMEORIGIN` framing, and a Permissions-Policy denying camera, microphone and location. Vercel adds HSTS.
