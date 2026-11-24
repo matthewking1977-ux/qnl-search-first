@@ -128,13 +128,15 @@ Source: QNL's Encore catalogue (elibrary.qnl.qa), reviewed in a signed-out brows
    - **Results page:** the parsed query shows as removable tags, and a "Search tips" panel offers one-click examples in EN and AR. Plain queries keep the ranked path (synonyms, quick answers).
    - **Romanisation:** marks are folded (ḥ ṭ ʿ ʾ ò → plain letters), the romanised article (al/ad/az/ash/el) is ignored, and cross-script synonyms link Doha/Dawhah/الدوحة, Qatar/قطر, Zubarah/الزبارة, Wakrah/الوكرة, map/خريطة, film/فيلم, pearl/لؤلؤ and others.
    - **Type-ahead with syntax:** 29 ms worst case on desktop, 97 ms on a 4× CPU-throttled phone.
-3. **`/search/advanced` and `/ar/search/advanced`:**
-   - rows with a field dropdown and term, an AND/OR/NOT toggle between rows, "+ Add row"
-   - Format, Where, Language and Collection as checkbox groups
-   - a year range
-   - scope: Everything / Catalogue / Articles / Website
-   - a live result count
-   - it builds a normal `/search?...` URL, so it works without JavaScript
+3. **`/search/advanced` and `/ar/search/advanced`:** ✅ done (24 Nov 2026). A static page (`src/components/AdvancedSearch.astro`) with a plain GET form.
+   - **Search lines:** up to 6, each with an operator (AND/OR/NOT), a field (any, title, author, subject, place, ISBN) and words. Lines are added or removed with JS; without JS, 3 lines are shown.
+   - **Checkbox groups:** Format (11 plain-language groups), Location (QNL locations + partner libraries), Language, Collection and Availability (available now, online, at QNL).
+   - **Year range and scope.**
+   - **Live result count:** in a sticky bar, announced politely to screen readers.
+   - **Submitting:** with JS the form goes straight to the canonical URL; without JS, `/search` turns the row parameters into the same URL with a 303 redirect (`src/search/advanced.ts`).
+   - **Query building:** each line becomes query syntax. Multi-word field values use the new bracket form, `title:(old maps)` = all these words in the title.
+   - **Results page:** active catalogue filters show as removable tags. "Edit advanced search" re-opens the form pre-filled from the current search. Filters with no words browse everything that matches (`/search?fmt=maps`).
+   - **Lighthouse mobile:** 100 in all four categories, EN and AR.
 4. **Results page:**
    - the three toggles (At QNL · Available now · Online)
    - the filters from §3 with counts; Year as a range with a small chart

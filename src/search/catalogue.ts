@@ -88,5 +88,9 @@ export function attachDisplay(r: LibraryRecord) {
     format: { en: formatLabel(c.format, 'en'), ar: formatLabel(c.format, 'ar') },
     language: { en: languageLabel(c.language, 'en'), ar: languageLabel(c.language, 'ar') },
     group: formatGroup(c.format),
+    locations: [...new Set(c.holdings.map((h) => h.location))],
+    qnl: atQnl(c),
+    avail: availableNow(c),
+    online: isOnline(c),
   };
 }

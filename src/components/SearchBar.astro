@@ -18,4 +18,4 @@ const s = strings(lang, ['search.', 'filter.', 'group.', 'meta.lang', 'meta.remo
 const { _note, ...tagDefs } = tagsRaw as Record<string, any>;
 const tags = Object.fromEntries(Object.entries(tagDefs).map(([k, v]) => [k, { en: v.en, ar: v.ar }]));
 ---
-<SearchBox client:idle lang={lang} locale={intlLocale(lang)} s={s} tags={tags} variant={variant} initialQuery={initialQuery} initialGroup={initialGroup} autoFocusDesktop={autoFocusDesktop} advancedHref={advanced ? localPath(lang, '/search') : undefined} />
+<SearchBox client:idle lang={lang} locale={intlLocale(lang)} s={s} tags={tags} variant={variant} initialQuery={initialQuery} initialGroup={initialGroup} autoFocusDesktop={autoFocusDesktop} advancedHref={advanced ? localPath(lang, '/search/advanced') : undefined} />

@@ -50,7 +50,7 @@ export interface CatalogueInfo {
   holdings: Holding[];
   online?: boolean;
   /** derived labels (attached in search/data.ts) */
-  display?: { format: Bi; language: Bi; group: string };
+  display?: { format: Bi; language: Bi; group: string; locations: string[]; qnl: boolean; avail: boolean; online: boolean };
 }
 
 export interface LibraryRecord {
@@ -90,6 +90,14 @@ export interface SearchFilters {
   audience?: string[];
   language?: ('en' | 'ar')[];
   date?: 'week' | 'month' | 'later';
+  /** catalogue filters (records without catalogue data are excluded when any is set) */
+  format?: string[];
+  location?: string[];
+  clang?: string[];
+  collection?: string[];
+  avail?: boolean;
+  online?: boolean;
+  atQnl?: boolean;
 }
 
 export type SortKey = 'relevance' | 'date' | 'title';

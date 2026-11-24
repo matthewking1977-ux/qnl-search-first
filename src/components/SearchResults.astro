@@ -1,5 +1,6 @@
 ---
-import { formatLabel, languageLabel } from '../search/catalogue';
+import { formatLabel, languageLabel, formatGroupLabel, locationLabel, collectionLabel } from '../search/catalogue';
+import { readCatalogueFilters, LIST_PARAMS, FLAG_PARAMS } from '../search/advanced';
 import { serializeQuery, type Clause } from '../search/query';
 // Server-rendered results page. Works fully without JavaScript:
 // GET form for query, facets and sort; shareable URLs; numbered pages.
@@ -31,14 +32,21 @@ const sort: SortKey = sortP === 'date' || sortP === 'title' ? sortP : 'relevance
 const PER = 10;
 const page = Math.max(1, parseInt(p.get('page') ?? '1', 10) || 1);
 
-const res = q ? engine.search({ q, lang, filters: { group, audience, language, date }, sort }) : null;
+const cat = readCatalogueFilters(p);
+const browsing = !q && Object.keys(cat).length > 0;
+const res = q || browsing ? engine.search({ q, lang, filters: { group, audience, language, date, ...cat }, sort }) : null;
 const total = res?.total ?? 0;
 const pages = Math.max(1, Math.ceil(total / PER));
 const hits = res ? res.hits.slice((page - 1) * PER, page * PER) : [];
 
 const qs = (over: Record<string, string | string[] | undefined>) => {
   const u = new URLSearchParams();
-  const base: Record<string, string | string[] | undefined> = { q, type: group === 'all' ? undefined : group, aud: audience, lang: language, date, sort: sort === 'relevance' ? undefined : sort, ...over };
+  const base: Record<string, string | string[] | undefined> = {
+    q, type: group === 'all' ? undefined : group, aud: audience, lang: language, date, sort: sort === 'relevance' ? undefined : sort,
+    fmt: cat.format, loc: cat.location, cl: cat.clang, col: cat.collection,
+    avail: cat.avail ? '1' : undefined, online: cat.online ? '1' : undefined, atqnl: cat.atQnl ? '1' : undefined,
+    ...over,
+  };
   for (const [k, v] of Object.entries(base)) {
     if (v === undefined || v === '') continue;
     (Array.isArray(v) ? v : [v]).forEach((x) => u.append(k, x));
@@ -63,6 +71,23 @@ const without = (i: number) => {
   const rest = clauses.filter((_, j) => j !== i).map((c, j) => (j === 0 && c.op === 'OR' ? { ...c, op: 'AND' as const } : c));
   return rest.length ? qs({ q: serializeQuery(rest), page: undefined }) : searchHref(lang, '');
 };
+// Catalogue filters → removable tags.
+const catTags: { label: string; href: string }[] = [];
+const listLabel: Record<string, (v: string) => string> = {
+  fmt: (v) => formatGroupLabel(v, lang),
+  loc: (v) => (v === 'partner' ? collectionLabel('partner', lang) : locationLabel(v, lang)),
+  cl: (v) => languageLabel(v, lang),
+  col: (v) => collectionLabel(v, lang),
+};
+for (const [param, key] of Object.entries(LIST_PARAMS)) {
+  const vals = (cat as any)[key] as string[] | undefined;
+  for (const v of vals ?? []) catTags.push({ label: `${t(lang, `adv.f.${key}` as any)}: ${listLabel[param](v)}`, href: qs({ [param]: vals!.filter((x) => x !== v), page: undefined }) });
+}
+for (const [param, key] of Object.entries(FLAG_PARAMS)) if ((cat as any)[key]) catTags.push({ label: t(lang, `adv.flag.${param}` as any), href: qs({ [param]: undefined, page: undefined }) });
+const advHref = (() => {
+  const u = new URL(qs({}), 'http://x');
+  return `${searchHref(lang, '').split('?')[0]}/advanced${u.search}`;
+})();
 const tips = (['phrase', 'field', 'or', 'not', 'year', 'isbn'] as const).map((k) => ({ label: t(lang, `q.tip.${k}` as any), ex: t(lang, `q.tip.ex.${k}` as any) }));
 const tagLabel = (k: string) => (engineData.tags[k]?.[lang] ?? k);
 const meta = (r: (typeof engineData.records)[number]) => {
@@ -132,9 +157,11 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
           ))}
         </fieldset>
         <input type="hidden" name="sort" value={sort === 'relevance' ? '' : sort} />
+        {Object.entries(LIST_PARAMS).flatMap(([param, key]) => ((cat as any)[key] ?? []).map((v: string) => <input type="hidden" name={param} value={v} />))}
+        {Object.entries(FLAG_PARAMS).map(([param, key]) => (cat as any)[key] && <input type="hidden" name={param} value="1" />)}
         <div class="facet-actions">
           <button class="btn btn--secondary" type="submit">{t(lang, 'results.apply')}</button>
-          {(audience.length || language.length || date || group !== 'all') && <a class="link" href={qs({ type: undefined, aud: [], lang: [], date: undefined })}>{t(lang, 'results.reset')}</a>}
+          {(audience.length || language.length || date || group !== 'all' || catTags.length > 0) && <a class="link" href={qs({ type: undefined, aud: [], lang: [], date: undefined, fmt: [], loc: [], cl: [], col: [], avail: undefined, online: undefined, atqnl: undefined })}>{t(lang, 'results.reset')}</a>}
         </div>
       </form>
     </aside>
@@ -142,8 +169,8 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
     <section class="list" aria-labelledby="results-h">
       <div class="list-head">
         <div>
-          <h1 id="results-h" class="t-h2">{q ? (clauses.length ? t(lang, 'results.title') : title) : t(lang, 'results.empty')}</h1>
-          {clauses.length > 0 && (
+          <h1 id="results-h" class="t-h2">{q || browsing ? (clauses.length || catTags.length ? t(lang, 'results.title') : title) : t(lang, 'results.empty')}</h1>
+          {(clauses.length > 0 || catTags.length > 0) && (
             <ul class="qtags" aria-label={t(lang, 'q.yourQuery')}>
               {clauses.map((c, i) => (
                 <li class={`qtag${c.op === 'NOT' ? ' qtag--not' : ''}`}>
@@ -153,17 +180,27 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
                   </a>
                 </li>
               ))}
+              {catTags.map((tg) => (
+                <li class="qtag qtag--filter">
+                  <span>{tg.label}</span>
+                  <a href={tg.href} aria-label={fmt(t(lang, 'q.remove'), { c: tg.label })}>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" /></svg>
+                  </a>
+                </li>
+              ))}
             </ul>
           )}
-          {q && <p class="count" aria-live="polite"><span>{countLabel}</span>{total > PER && <span class="t-mono"> · {fmt(t(lang, 'results.showing'), { n: hits.length, total })}</span>}</p>}
+          {(q || browsing) && <p class="count" aria-live="polite"><span>{countLabel}</span>{total > PER && <span class="t-mono"> · {fmt(t(lang, 'results.showing'), { n: hits.length, total })}</span>}</p>}
         </div>
-        {q && (
+        {(q || browsing) && (
           <form method="get" class="sort" data-autosubmit>
             <input type="hidden" name="q" value={q} />
             {group !== 'all' && <input type="hidden" name="type" value={group} />}
             {audience.map((a) => <input type="hidden" name="aud" value={a} />)}
             {language.map((l) => <input type="hidden" name="lang" value={l} />)}
             {date && <input type="hidden" name="date" value={date} />}
+            {Object.entries(LIST_PARAMS).flatMap(([param, key]) => ((cat as any)[key] ?? []).map((v: string) => <input type="hidden" name={param} value={v} />))}
+            {Object.entries(FLAG_PARAMS).map(([param, key]) => (cat as any)[key] && <input type="hidden" name={param} value="1" />)}
             <label for="sort-sel">{t(lang, 'results.sort')}</label>
             <select id="sort-sel" name="sort">
               {(['relevance', 'date', 'title'] as const).map((k) => <option value={k} selected={sort === k}>{t(lang, `results.sort.${k}` as any)}</option>)}
@@ -174,6 +211,7 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
         )}
       </div>
 
+      <p class="adv-link"><a class="link" href={advHref}>{q || browsing ? t(lang, 'adv.edit') : t(lang, 'adv.title')}</a></p>
       <details class="tips">
         <summary>{t(lang, 'q.tips')}</summary>
         <dl>
@@ -191,7 +229,7 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
         </article>
       )}
 
-      {q && total > 0 && (
+      {(q || browsing) && total > 0 && (
         <ol class="hits" start={(page - 1) * PER + 1}>
           {hits.filter((h) => !(res?.task && page === 1 && h.record.id === res.task.record.id)).map((h, i) => (
             <li class="hit">
@@ -207,9 +245,9 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
         </ol>
       )}
 
-      {q && total === 0 && (
+      {(q || browsing) && total === 0 && (
         <div class="zero-page">
-          <h2 class="t-h3">{fmt(t(lang, 'search.zero.title'), { q })}</h2>
+          <h2 class="t-h3">{fmt(t(lang, 'search.zero.title'), { q: q || catTags.map((x) => x.label).join(lang === 'ar' ? '، ' : ', ') })}</h2>
           <p>{t(lang, 'search.zero.body')}</p>
           <div class="zero-grid">
             <a class="task" href={itemHref(lang, { id: 'sv-ask' })}>
@@ -228,7 +266,7 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
         </div>
       )}
 
-      {!q && (
+      {!q && !browsing && (
         <div class="zero-page">
           <ul class="hit-tags">
             {[1, 2, 3, 4, 5].map((i) => <li><a class="chip" href={searchHref(lang, t(lang, `popular.${i}` as any))}>{t(lang, `popular.${i}` as any)}</a></li>)}
@@ -298,6 +336,8 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
   .qtag a { display: grid; place-items: center; inline-size: 2rem; block-size: 2rem; border-radius: var(--radius-1); color: var(--color-grey-800); }
   .qtag a:hover { background: var(--color-grey-100); color: var(--color-ink); }
   .qtag svg { inline-size: 0.9rem; block-size: 0.9rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; }
+  .adv-link { float: inline-end; margin: var(--s-2) 0 0; font-size: var(--fs-sm); min-block-size: 2.75rem; display: flex; align-items: center; }
+  .qtag--filter { background: var(--color-paper); }
   .tips { margin-block: var(--s-2) 0; font-size: var(--fs-sm); }
   .tips summary { cursor: pointer; color: var(--color-grey-800); inline-size: fit-content; min-block-size: 2.75rem; display: flex; align-items: center; }
   .tips summary:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.25em; }

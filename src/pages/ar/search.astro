@@ -2,6 +2,9 @@
 export const prerender = false;
 import Base from '../../layouts/Base.astro';
 import SearchResults from '../../components/SearchResults.astro';
+import { isAdvancedSubmit, canonicalFromAdvanced } from '../../search/advanced';
+// A submitted advanced-search form becomes one canonical, shareable URL.
+if (isAdvancedSubmit(Astro.url.searchParams)) return Astro.redirect(canonicalFromAdvanced('/ar/search', Astro.url.searchParams), 303);
 const q = Astro.url.searchParams.get('q');
 ---
 <Base lang="ar" title={q ? `«${q}»` : 'البحث'}>

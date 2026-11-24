@@ -2,6 +2,7 @@
 // ranked keyword search; anything below makes the query "structured".
 //
 //   "exact phrase"  «عبارة»  “phrase”      phrase (words in this order)
+//   title:(old maps)  NOT (a b)             all these words, in any order
 //   AND  OR  NOT   (English, upper case)    أو = OR · بدون = NOT
 //   -word                                   NOT word
 //   title: author: subject: place: isbn: year:
@@ -53,8 +54,12 @@ function parseYear(v: string): { from?: number; to?: number } | null {
   return null;
 }
 
-/** Read one value: a quoted phrase, or a run of non-space characters. */
+/** Read one value: a quoted phrase, a (bracketed group of words), or a run of non-space characters. */
 function readValue(q: string, i: number): { text: string; phrase: boolean; end: number } {
+  if (q[i] === '(') {
+    const j = q.indexOf(')', i + 1);
+    return { text: q.slice(i + 1, j < 0 ? q.length : j).trim(), phrase: false, end: j < 0 ? q.length : j + 1 };
+  }
   const close = QUOTES[q[i]];
   if (close) {
     const j = q.indexOf(close, i + 1);
@@ -90,11 +95,11 @@ export function parseQuery(input: string): ParsedQuery {
       clauses.push(c); structured = true; pending = 'AND';
       continue;
     }
-    // quoted phrase
-    if (QUOTES[q[i]]) {
+    // quoted phrase, or a (group of words)
+    if (QUOTES[q[i]] || q[i] === '(') {
       const v = readValue(q, i);
       i = v.end;
-      if (v.text) { clauses.push({ op: pending, field: 'any', text: v.text, phrase: true }); structured = true; }
+      if (v.text) { clauses.push({ op: pending, field: 'any', text: v.text, phrase: v.phrase }); structured = true; }
       pending = 'AND';
       continue;
     }
@@ -106,8 +111,8 @@ export function parseQuery(input: string): ParsedQuery {
       if (OPS[word] !== 'AND') { pending = OPS[word]; structured = true; }
       continue;
     }
-    if (word.length > 1 && word[0] === '-' && /[\p{L}"“«]/u.test(word[1])) {
-      const inner = QUOTES[word[1]] ? readValue(q, i - word.length + 1) : { text: word.slice(1), phrase: false, end: i };
+    if (word.length > 1 && word[0] === '-' && /[\p{L}"“«(]/u.test(word[1])) {
+      const inner = QUOTES[word[1]] || word[1] === '(' ? readValue(q, i - word.length + 1) : { text: word.slice(1), phrase: false, end: i };
       i = Math.max(i, inner.end);
       if (inner.text) { clauses.push({ op: 'NOT', field: 'any', text: inner.text, phrase: inner.phrase }); structured = true; }
       continue;
@@ -126,7 +131,8 @@ export function parseQuery(input: string): ParsedQuery {
   return { clauses, structured };
 }
 
-const quote = (s: string) => (/[\s:]/.test(s) || !s ? `"${s}"` : s);
+// Several words, not a phrase: bracket them when they belong to a field or an OR/NOT.
+const group = (c: Clause) => (/\s/.test(c.text) && (c.field !== 'any' || c.op !== 'AND') ? `(${c.text})` : c.text);
 /** Back to a query string (used to remove one clause from the results page). */
 export function serializeQuery(clauses: Clause[]): string {
   return clauses
@@ -134,7 +140,7 @@ export function serializeQuery(clauses: Clause[]): string {
       const op = c.op === 'NOT' ? 'NOT ' : c.op === 'OR' && i > 0 ? 'OR ' : '';
       const val = c.field === 'year' && (c.from || c.to)
         ? (c.from && c.to && c.from === c.to ? String(c.from) : `${c.from ?? ''}-${c.to ?? ''}`)
-        : c.phrase ? `"${c.text}"` : c.field === 'any' ? c.text : quote(c.text);
+        : c.phrase ? `"${c.text}"` : group(c);
       return `${op}${c.field === 'any' ? '' : c.field + ':'}${val}`;
     })
     .join(' ')

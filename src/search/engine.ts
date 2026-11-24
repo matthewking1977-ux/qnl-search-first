@@ -262,7 +262,12 @@ export function createEngine(data: EngineData) {
       }
     };
 
-    if (structured) {
+    const f0 = req.filters ?? {};
+    const hasCatFilter = !!(f0.format?.length || f0.location?.length || f0.clang?.length || f0.collection?.length || f0.avail || f0.online || f0.atQnl);
+    if (!raw && hasCatFilter) {
+      // Browse: filters only, no words. Start from everything; the filters below narrow it.
+      for (const r of records) scores.set(r.id, { score: 0.01, terms: new Set() });
+    } else if (structured) {
       for (const [id, v] of runStructured(parsed.clauses)) scores.set(id, v);
     } else if (qTokens.length) {
       const and = ms.search(raw, { combineWith: 'AND' });
@@ -284,6 +289,23 @@ export function createEngine(data: EngineData) {
       const existing = hits.find((h) => h.record.id === task.record.id);
       if (existing) existing.score = best + 1;
       else hits.push({ record: task.record, score: best + 1, terms: [] });
+    }
+
+    // Catalogue filters (advanced search). "partner" matches any partner-library copy.
+    const cf = f0;
+    if (hasCatFilter) {
+      hits = hits.filter(({ record: r }) => {
+        const c = r.catalogue, d = c?.display;
+        if (!c || !d) return false;
+        if (cf.format?.length && !cf.format.includes(d.group)) return false;
+        if (cf.location?.length && !d.locations.some((l) => cf.location!.includes(l) || (cf.location!.includes('partner') && l.startsWith('partner-')))) return false;
+        if (cf.clang?.length && !cf.clang.includes(c.language)) return false;
+        if (cf.collection?.length && !cf.collection.includes(c.collection)) return false;
+        if (cf.avail && !d.avail) return false;
+        if (cf.online && !d.online) return false;
+        if (cf.atQnl && !d.qnl) return false;
+        return true;
+      });
     }
 
     // Facet counts are computed before the facet filters themselves are applied
