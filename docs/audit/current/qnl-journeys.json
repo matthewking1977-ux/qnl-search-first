@@ -1,0 +1,555 @@
+{
+ "captured": "2026-11-24, second pass",
+ "journeys": [
+  {
+   "j": "j1-book",
+   "dev": "desktop",
+   "lang": "en",
+   "steps": [
+    {
+     "n": 0,
+     "what": "homepage",
+     "shot": "j1-step0-home-desktop-en.png",
+     "url": "https://www.qnl.qa/en",
+     "host": "www.qnl.qa",
+     "title": "Home | Qatar National Library",
+     "lang": "en",
+     "dir": "ltr"
+    },
+    {
+     "n": 1,
+     "what": "focus search box (platform left on default \"Catalog\")"
+    },
+    {
+     "n": 2,
+     "what": "type \"Doha\""
+    },
+    {
+     "n": 3,
+     "what": "press Search → hand-off to catalogue",
+     "shot": "j1-step3-catalogue-handoff-desktop-en.png",
+     "url": "https://elibrary.qnl.qa/iii/encore/search/C__SDoha?lang=eng&suite=def&fromMain=yes",
+     "host": "elibrary.qnl.qa",
+     "title": "Just a moment...",
+     "lang": "en-us",
+     "dir": "ltr",
+     "body": "elibrary.qnl.qa Performing security verification This website uses a security service to protect against malicious bots."
+    }
+   ]
+  },
+  {
+   "j": "j2-ebook",
+   "dev": "desktop",
+   "lang": "en",
+   "steps": [
+    {
+     "n": 1,
+     "what": "tap \"Online Resources\" tile",
+     "shot": "j2-step1-online-resources-desktop-en.png",
+     "url": "https://www.qnl.qa/en/explore/online-resources",
+     "host": "www.qnl.qa",
+     "title": "Online Resources | Qatar National Library",
+     "lang": "en",
+     "dir": "ltr",
+     "links": [
+      "Ebooks, Audiobooks\n                \n                and Music -> https://libguides.qnl.qa/az.php?t=41275",
+      "Newspapers and\n                \n                Magazines -> https://libguides.qnl.qa/az.php?t=41291"
+     ],
+     "clicked": "\n        \n            \n                Ebooks, Audiobooks\n                \n                and Music\n            \n        \n    "
+    },
+    {
+     "n": 2,
+     "what": "open e-books list → hand-off to LibGuides",
+     "shot": "j2-step2-libguides-ebooks-desktop-en.png",
+     "url": "https://libguides.qnl.qa/az.php?t=41275",
+     "host": "libguides.qnl.qa",
+     "title": "A-Z Databases",
+     "lang": "en",
+     "dir": "ltr"
+    },
+    {
+     "n": 3,
+     "what": "choose \"OverDrive (Libby)\"",
+     "href": "https://libbyapp.com/library/qnl",
+     "url": "https://libbyapp.com/library/qnl",
+     "host": "libbyapp.com",
+     "title": "Libby - Library",
+     "lang": "en-US",
+     "dir": "ltr",
+     "body": "Libby has encountered a problem. Tap for details. Updating… The Libby app is updating. This screen will be reloaded shortly. Tap for details. You are at: Library. NAVIGATION Welcome to Qatar National Library newest popular random available now We could not contact our authentication service. This is",
+     "note": "NOT CHECKED: error may come from the sandbox network allow-list; screenshot not kept"
+    }
+   ]
+  },
+  {
+   "j": "j3-membership",
+   "dev": "desktop",
+   "lang": "en",
+   "steps": [
+    {
+     "n": 1,
+     "what": "tap \"Become a Member\" tile",
+     "shot": "j3-step1-become-a-member-desktop-en.png",
+     "url": "https://www.qnl.qa/en/library-services/become-a-member",
+     "host": "www.qnl.qa",
+     "title": "Become a Member | Qatar National Library",
+     "lang": "en",
+     "dir": "ltr",
+     "cta": [
+      "Membership Renewal -> https://registration.qnl.qa/forms/membership-renewal#no-back",
+      "Book Match -> http://registration.qnl.qa/forms/book-match-service#no-back",
+      " -> https://registration.qnl.qa/registration/patron#no-back",
+      "18 AND OVER -> https://registration.qnl.qa/registration/patron#no-back",
+      " -> https://registration.qnl.qa/registration/child-patron#no-back",
+      "UNDER 18 -> https://registration.qnl.qa/registration/child-patron#no-back"
+     ]
+    },
+    {
+     "n": 2,
+     "what": "tap \"18 and over\" → hand-off to registration",
+     "url": "https://registration.qnl.qa/forms/membership-renewal#no-back",
+     "host": "registration.qnl.qa",
+     "title": "Membership Renewal | Qatar National Library",
+     "lang": "en",
+     "dir": "ltr",
+     "body": "Skip to main content العربية Membership Renewal 1 Current Login 2 Upload new QID 3 Complete Barcode OR QID Password I forgot my password Next >",
+     "note": "Superseded by registrationAttempts (this run may have followed a different registration link)"
+    }
+   ]
+  },
+  {
+   "j": "j1-book",
+   "dev": "desktop",
+   "lang": "ar",
+   "steps": [
+    {
+     "n": 0,
+     "what": "homepage",
+     "shot": "j1-step0-home-desktop-ar.png",
+     "url": "https://www.qnl.qa/ar",
+     "host": "www.qnl.qa",
+     "title": "Home | مكتبة قطر الوطنية",
+     "lang": "ar",
+     "dir": "rtl"
+    },
+    {
+     "n": 1,
+     "what": "focus search box (platform left on default \"Catalog\")"
+    },
+    {
+     "n": 2,
+     "what": "type \"Doha\""
+    },
+    {
+     "n": 3,
+     "what": "press Search → hand-off to catalogue",
+     "shot": "j1-step3-catalogue-handoff-desktop-ar.png",
+     "url": "https://elibrary.qnl.qa/iii/encore/search/C__SDoha?lang=ara&suite=def&fromMain=yes",
+     "host": "elibrary.qnl.qa",
+     "title": "Just a moment...",
+     "lang": "en-us",
+     "dir": "ltr",
+     "body": "elibrary.qnl.qa Performing security verification This website uses a security service to protect against malicious bots."
+    }
+   ]
+  },
+  {
+   "j": "j2-ebook",
+   "dev": "desktop",
+   "lang": "ar",
+   "steps": [
+    {
+     "n": 1,
+     "what": "tap \"Online Resources\" tile",
+     "shot": "j2-step1-online-resources-desktop-ar.png",
+     "url": "https://www.qnl.qa/ar/explore/online-resources",
+     "host": "www.qnl.qa",
+     "title": "المصادر الإلكترونية | مكتبة قطر الوطنية",
+     "lang": "ar",
+     "dir": "rtl",
+     "links": [
+      "كتب إلكترونية وصوتية\n                \n                وموسيقى -> https://qnl.libguides.com/az.php?t=41501",
+      "صحف\n                \n                ومجلات -> https://qnl.libguides.com/az.php?t=41507"
+     ],
+     "clicked": "\n        \n            \n                كتب إلكترونية وصوتية\n                \n                وموسيقى\n            \n        \n    "
+    },
+    {
+     "n": 2,
+     "what": "open e-books list → hand-off to LibGuides",
+     "shot": "j2-step2-libguides-ebooks-desktop-ar.png",
+     "url": "https://qnl.libguides.com/az.php?t=41501",
+     "host": "qnl.libguides.com",
+     "title": "A-Z Databases",
+     "lang": "en",
+     "dir": "rtl"
+    },
+    {
+     "n": 3,
+     "what": "choose \"OverDrive (Libby)\"",
+     "href": "https://libbyapp.com/library/qnl",
+     "url": "https://libbyapp.com/library/qnl",
+     "host": "libbyapp.com",
+     "title": "Libby - Library",
+     "lang": "en-US",
+     "dir": "ltr",
+     "body": "Libby has encountered a problem. Tap for details. Updating… The Libby app is updating. This screen will be reloaded shortly. Tap for details. You are at: Library. NAVIGATION Welcome to Qatar National Library newest popular random available now We could not contact our authentication service. This is",
+     "note": "NOT CHECKED: error may come from the sandbox network allow-list; screenshot not kept"
+    }
+   ]
+  },
+  {
+   "j": "j3-membership",
+   "dev": "desktop",
+   "lang": "ar",
+   "steps": [
+    {
+     "n": 1,
+     "what": "tap \"Become a Member\" tile",
+     "shot": "j3-step1-become-a-member-desktop-ar.png",
+     "url": "https://www.qnl.qa/ar/library-services/become-a-member",
+     "host": "www.qnl.qa",
+     "title": "احصل على عضوية المكتبة | مكتبة قطر الوطنية",
+     "lang": "ar",
+     "dir": "rtl",
+     "cta": [
+      "تجديد العضوية -> https://registration.qnl.qa/ar/forms/membership-renewal#no-back",
+      "اقرأ حسب ذائقتك -> https://registration.qnl.qa/ar/forms/book-match-service#no-back",
+      " -> http://registration.qnl.qa/ar/registration/patron#no-back",
+      "18 عامًا فأكثر -> http://registration.qnl.qa/ar/registration/patron#no-back",
+      " -> http://registration.qnl.qa/ar/registration/child-patron#no-back",
+      "أقل من 18 عامًا -> http://registration.qnl.qa/ar/registration/child-patron#no-back"
+     ]
+    },
+    {
+     "n": 2,
+     "what": "tap \"18 and over\" → hand-off to registration",
+     "url": "https://registration.qnl.qa/ar/forms/membership-renewal#no-back",
+     "host": "registration.qnl.qa",
+     "title": "تجديد العضوية | Qatar National Library",
+     "lang": "ar",
+     "dir": "rtl",
+     "body": "تجاوز إلى المحتوى الرئيسي English تجديد العضوية 1 Current تسجيل الدخول 2 تحميل البطاقة الجديدة 3 اكتمال الطلب رقم العضوية أو رقم البطاقة القطرية كلمة المرور نسيت كلمة المرور؟ التالي >",
+     "note": "Superseded by registrationAttempts (this run may have followed a different registration link)"
+    }
+   ]
+  },
+  {
+   "j": "j1-book",
+   "dev": "mobile",
+   "lang": "en",
+   "steps": [
+    {
+     "n": 0,
+     "what": "homepage",
+     "shot": "j1-step0-home-mobile-en.png",
+     "url": "https://www.qnl.qa/en",
+     "host": "www.qnl.qa",
+     "title": "Home | Qatar National Library",
+     "lang": "en",
+     "dir": "ltr"
+    },
+    {
+     "n": 1,
+     "what": "tap search trigger",
+     "shot": "j1-step1-search-open-mobile-en.png"
+    },
+    {
+     "n": 2,
+     "what": "focus search box (platform left on default \"Catalog\")"
+    },
+    {
+     "n": 3,
+     "what": "type \"Doha\""
+    },
+    {
+     "n": 4,
+     "what": "press Search → hand-off to catalogue",
+     "shot": "j1-step4-catalogue-handoff-mobile-en.png",
+     "url": "https://elibrary.qnl.qa/iii/encore/search/C__SDoha?lang=eng&suite=def&fromMain=yes",
+     "host": "elibrary.qnl.qa",
+     "title": "Just a moment...",
+     "lang": "en-us",
+     "dir": "ltr",
+     "body": "elibrary.qnl.qa Performing security verification This website uses a security service to protect against malicious bots."
+    }
+   ]
+  },
+  {
+   "j": "j2-ebook",
+   "dev": "mobile",
+   "lang": "en",
+   "steps": [
+    {
+     "n": 1,
+     "what": "tap \"Online Resources\" tile",
+     "shot": "j2-step1-online-resources-mobile-en.png",
+     "url": "https://www.qnl.qa/en/explore/online-resources",
+     "host": "www.qnl.qa",
+     "title": "Online Resources | Qatar National Library",
+     "lang": "en",
+     "dir": "ltr",
+     "links": [
+      "Ebooks, Audiobooks\n                \n                and Music -> https://libguides.qnl.qa/az.php?t=41275",
+      "Newspapers and\n                \n                Magazines -> https://libguides.qnl.qa/az.php?t=41291"
+     ],
+     "clicked": "\n        \n            \n                Ebooks, Audiobooks\n                \n                and Music\n            \n        \n    "
+    },
+    {
+     "n": 2,
+     "what": "open e-books list → hand-off to LibGuides",
+     "shot": "j2-step2-libguides-ebooks-mobile-en.png",
+     "url": "https://libguides.qnl.qa/az.php?t=41275",
+     "host": "libguides.qnl.qa",
+     "title": "A-Z Databases",
+     "lang": "en",
+     "dir": "ltr"
+    },
+    {
+     "n": 3,
+     "what": "choose \"OverDrive (Libby)\"",
+     "href": "https://libbyapp.com/library/qnl",
+     "url": "https://libbyapp.com/library/qnl",
+     "host": "libbyapp.com",
+     "title": "Libby - Library",
+     "lang": "en-US",
+     "dir": "ltr",
+     "body": "Libby has encountered a problem. Tap for details. Updating… The Libby app is updating. This screen will be reloaded shortly. Tap for details. You are at: Library. NAVIGATION Welcome to Qatar National Library newest popular random available now We could not contact our authentication service. This is",
+     "note": "NOT CHECKED: error may come from the sandbox network allow-list; screenshot not kept"
+    }
+   ]
+  },
+  {
+   "j": "j3-membership",
+   "dev": "mobile",
+   "lang": "en",
+   "steps": [
+    {
+     "n": 1,
+     "what": "tap \"Become a Member\" tile",
+     "shot": "j3-step1-become-a-member-mobile-en.png",
+     "url": "https://www.qnl.qa/en/library-services/become-a-member",
+     "host": "www.qnl.qa",
+     "title": "Become a Member | Qatar National Library",
+     "lang": "en",
+     "dir": "ltr",
+     "cta": [
+      " -> https://registration.qnl.qa/registration/patron#no-back",
+      "18 AND OVER -> https://registration.qnl.qa/registration/patron#no-back",
+      " -> https://registration.qnl.qa/registration/child-patron#no-back",
+      "UNDER 18 -> https://registration.qnl.qa/registration/child-patron#no-back"
+     ]
+    },
+    {
+     "n": 2,
+     "what": "tap \"18 and over\" → hand-off to registration",
+     "url": "https://registration.qnl.qa/registration/patron#no-back",
+     "host": "registration.qnl.qa",
+     "title": "qnl.qa | 520: Web server is returning an unknown error",
+     "lang": "en-US",
+     "dir": "ltr",
+     "body": "Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-24 13:48:22 UTC You Browser Working Ashburn Cloudflare Working registration.qnl.qa Host Error What happened? There is an unknown connection issue between Cloudflare and the origin web server. A",
+     "note": "Superseded by registrationAttempts (this run may have followed a different registration link)"
+    }
+   ]
+  },
+  {
+   "j": "j1-book",
+   "dev": "mobile",
+   "lang": "ar",
+   "steps": [
+    {
+     "n": 0,
+     "what": "homepage",
+     "shot": "j1-step0-home-mobile-ar.png",
+     "url": "https://www.qnl.qa/ar",
+     "host": "www.qnl.qa",
+     "title": "Home | مكتبة قطر الوطنية",
+     "lang": "ar",
+     "dir": "rtl"
+    },
+    {
+     "n": 1,
+     "what": "tap search trigger",
+     "shot": "j1-step1-search-open-mobile-ar.png"
+    },
+    {
+     "n": 2,
+     "what": "focus search box (platform left on default \"Catalog\")"
+    },
+    {
+     "n": 3,
+     "what": "type \"Doha\""
+    },
+    {
+     "n": 4,
+     "what": "press Search → hand-off to catalogue",
+     "shot": "j1-step4-catalogue-handoff-mobile-ar.png",
+     "url": "https://elibrary.qnl.qa/iii/encore/search/C__SDoha?lang=ara&suite=def&fromMain=yes",
+     "host": "elibrary.qnl.qa",
+     "title": "Just a moment...",
+     "lang": "en-us",
+     "dir": "ltr",
+     "body": "elibrary.qnl.qa Performing security verification This website uses a security service to protect against malicious bots."
+    }
+   ]
+  },
+  {
+   "j": "j2-ebook",
+   "dev": "mobile",
+   "lang": "ar",
+   "steps": [
+    {
+     "n": 1,
+     "what": "tap \"Online Resources\" tile",
+     "shot": "j2-step1-online-resources-mobile-ar.png",
+     "url": "https://www.qnl.qa/ar/explore/online-resources",
+     "host": "www.qnl.qa",
+     "title": "المصادر الإلكترونية | مكتبة قطر الوطنية",
+     "lang": "ar",
+     "dir": "rtl",
+     "links": [
+      "كتب إلكترونية وصوتية\n                \n                وموسيقى -> https://qnl.libguides.com/az.php?t=41501",
+      "صحف\n                \n                ومجلات -> https://qnl.libguides.com/az.php?t=41507"
+     ],
+     "clicked": "\n        \n            \n                كتب إلكترونية وصوتية\n                \n                وموسيقى\n            \n        \n    "
+    },
+    {
+     "n": 2,
+     "what": "open e-books list → hand-off to LibGuides",
+     "shot": "j2-step2-libguides-ebooks-mobile-ar.png",
+     "url": "https://qnl.libguides.com/az.php?t=41501",
+     "host": "qnl.libguides.com",
+     "title": "A-Z Databases",
+     "lang": "en",
+     "dir": "rtl"
+    },
+    {
+     "n": 3,
+     "what": "choose \"OverDrive (Libby)\"",
+     "href": "https://libbyapp.com/library/qnl",
+     "url": "https://libbyapp.com/library/qnl",
+     "host": "libbyapp.com",
+     "title": "Libby - Library",
+     "lang": "en-US",
+     "dir": "ltr",
+     "body": "Libby has encountered a problem. Tap for details. Updating… The Libby app is updating. This screen will be reloaded shortly. Tap for details. You are at: Library. NAVIGATION Welcome to Qatar National Library newest popular random available now We could not contact our authentication service. This is",
+     "note": "NOT CHECKED: error may come from the sandbox network allow-list; screenshot not kept"
+    }
+   ]
+  },
+  {
+   "j": "j3-membership",
+   "dev": "mobile",
+   "lang": "ar",
+   "steps": [
+    {
+     "n": 1,
+     "what": "tap \"Become a Member\" tile",
+     "shot": "j3-step1-become-a-member-mobile-ar.png",
+     "url": "https://www.qnl.qa/ar/library-services/become-a-member",
+     "host": "www.qnl.qa",
+     "title": "احصل على عضوية المكتبة | مكتبة قطر الوطنية",
+     "lang": "ar",
+     "dir": "rtl",
+     "cta": [
+      " -> http://registration.qnl.qa/ar/registration/patron#no-back",
+      "18 عامًا فأكثر -> http://registration.qnl.qa/ar/registration/patron#no-back",
+      " -> http://registration.qnl.qa/ar/registration/child-patron#no-back",
+      "أقل من 18 عامًا -> http://registration.qnl.qa/ar/registration/child-patron#no-back"
+     ]
+    },
+    {
+     "n": 2,
+     "what": "tap \"18 and over\" → hand-off to registration",
+     "url": "chrome-error://chromewebdata/",
+     "host": "chromewebdata",
+     "title": "",
+     "lang": "",
+     "dir": "ltr",
+     "body": "",
+     "note": "Superseded by registrationAttempts (this run may have followed a different registration link)"
+    }
+   ]
+  }
+ ],
+ "registrationAttempts": [
+  {
+   "dev": "desktop",
+   "lang": "en",
+   "attempt": 1,
+   "href": "https://registration.qnl.qa/registration/patron#no-back",
+   "final": "https://registration.qnl.qa/registration/patron#no-back",
+   "title": "qnl.qa | 520: Web server is returning an unknown error",
+   "lang_attr": "en-US",
+   "dir": "",
+   "chain": "200 https://www.qnl.qa/en/library-services/become-a-member → 520 https://registration.qnl.qa/registration/patron",
+   "body": "Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-24 13:48:57 UTC You Browser Working Ashburn Cloudflare Working registration.qnl.qa Host Error What happened? There is an unknown connection issue between",
+   "fields": []
+  },
+  {
+   "dev": "desktop",
+   "lang": "en",
+   "attempt": 2,
+   "href": "https://registration.qnl.qa/registration/patron#no-back",
+   "final": "https://registration.qnl.qa/registration/patron#no-back",
+   "title": "qnl.qa | 520: Web server is returning an unknown error",
+   "lang_attr": "en-US",
+   "dir": "",
+   "chain": "200 https://www.qnl.qa/en/library-services/become-a-member → 520 https://registration.qnl.qa/registration/patron",
+   "body": "Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-24 13:49:05 UTC You Browser Working Ashburn Cloudflare Working registration.qnl.qa Host Error What happened? There is an unknown connection issue between",
+   "fields": []
+  },
+  {
+   "dev": "desktop",
+   "lang": "ar",
+   "attempt": 1,
+   "href": "http://registration.qnl.qa/ar/registration/patron#no-back",
+   "final": "chrome-error://chromewebdata/",
+   "title": "",
+   "lang_attr": "",
+   "dir": "",
+   "chain": "200 https://www.qnl.qa/ar/library-services/become-a-member → ERR page.waitForNavigation: net::ERR_NAME_NOT_RESOLVED",
+   "body": "",
+   "fields": []
+  },
+  {
+   "dev": "mobile",
+   "lang": "en",
+   "attempt": 1,
+   "href": "https://registration.qnl.qa/registration/patron#no-back",
+   "final": "https://registration.qnl.qa/registration/patron#no-back",
+   "title": "qnl.qa | 520: Web server is returning an unknown error",
+   "lang_attr": "en-US",
+   "dir": "",
+   "chain": "200 https://www.qnl.qa/en/library-services/become-a-member → 520 https://registration.qnl.qa/registration/patron",
+   "body": "Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-24 13:49:20 UTC You Browser Working Ashburn Cloudflare Working registration.qnl.qa Host Error What happened? There is an unknown connection issue between",
+   "fields": []
+  },
+  {
+   "dev": "mobile",
+   "lang": "en",
+   "attempt": 2,
+   "href": "https://registration.qnl.qa/registration/patron#no-back",
+   "final": "https://registration.qnl.qa/registration/patron#no-back",
+   "title": "qnl.qa | 520: Web server is returning an unknown error",
+   "lang_attr": "en-US",
+   "dir": "",
+   "chain": "200 https://www.qnl.qa/en/library-services/become-a-member → 520 https://registration.qnl.qa/registration/patron",
+   "body": "Web server is returning an unknown error Error code 520 Visit cloudflare.com for more information. 2026-11-24 13:49:27 UTC You Browser Working Ashburn Cloudflare Working registration.qnl.qa Host Error What happened? There is an unknown connection issue between",
+   "fields": []
+  },
+  {
+   "dev": "mobile",
+   "lang": "ar",
+   "attempt": 1,
+   "href": "http://registration.qnl.qa/ar/registration/patron#no-back",
+   "final": "chrome-error://chromewebdata/",
+   "title": "",
+   "lang_attr": "",
+   "dir": "",
+   "chain": "200 https://www.qnl.qa/ar/library-services/become-a-member → ERR page.waitForNavigation: net::ERR_NAME_NOT_RESOLVED",
+   "body": "",
+   "fields": []
+  }
+ ]
+}

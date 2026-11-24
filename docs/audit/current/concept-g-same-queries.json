@@ -1,0 +1,1250 @@
+[
+ {
+  "kind": "steps",
+  "dev": "desktop",
+  "lang": "en",
+  "searchVisibleOnLoad": true,
+  "boxTopPx": 382,
+  "actions": [
+   "focus box",
+   "type",
+   "Enter"
+  ],
+  "landed": "/search?type=&q=Doha"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "11 results · Showing 10 of 11",
+  "answer": null,
+  "top3": [
+   "Doha City Map (sample)",
+   "Urban Change in Dawḥah, 1950–2010 (sample)",
+   "Modern Architecture in Doha (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Format",
+   "Location",
+   "Language",
+   "Collection",
+   "Audience"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [
+   "At QNL9",
+   "Available now6",
+   "Online1"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "en",
+  "slug": "doha",
+  "q": "Doha"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "20 results · Showing 10 of 20",
+  "answer": null,
+  "top3": [
+   "Book a study space",
+   "Arabic Book Club (sample)",
+   "Early Arabic printed books (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Format",
+   "Location",
+   "Language",
+   "Collection",
+   "Audience",
+   "Date (events)"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z",
+   "Date"
+  ],
+  "toggles": [
+   "At QNL7",
+   "Available now4",
+   "Online1"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "en",
+  "slug": "toddlers",
+  "q": "books for toddlers"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "4 results",
+  "answer": "Become a member",
+  "top3": [
+   "Renew your loans",
+   "Library policies",
+   "Borrowing and returns"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Language",
+   "Audience"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "en",
+  "slug": "membership",
+  "q": "membership"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "2 results",
+  "answer": "Opening hours",
+  "top3": [
+   "Publishing Open Access: What Researchers Need to Know (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Language",
+   "Audience",
+   "Date (events)"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z",
+   "Date"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "en",
+  "slug": "hours",
+  "q": "opening hours"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "3 results",
+  "answer": null,
+  "top3": [
+   "The Last Pearl Season: A Documentary (sample)",
+   "Model of a Pearling Boat (sample)",
+   "Pearl merchant's ledger (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Format",
+   "Location",
+   "Language",
+   "Collection",
+   "Audience"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [
+   "At QNL3",
+   "Available now1",
+   "Online1"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "en",
+  "slug": "ar-typo",
+  "q": "موسم الهجره الي الشمل"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "No results",
+  "answer": null,
+  "top3": [],
+  "zero": "No matches for “Al-Mutanabbi”",
+  "zeroHelp": [
+   "Ask a librarian",
+   "Search the full catalogue"
+  ],
+  "filters": [
+   "Type"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "en",
+  "slug": "romanised",
+  "q": "Al-Mutanabbi"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "12 results · Showing 10 of 12",
+  "answer": null,
+  "top3": [
+   "Doha City Map (sample)",
+   "Urban Change in Dawḥah, 1950–2010 (sample)",
+   "Doha Corniche at Dusk, photograph (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Format",
+   "Location",
+   "Language",
+   "Collection",
+   "Audience"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [
+   "At QNL10",
+   "Available now7",
+   "Online2"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "en",
+  "slug": "dawhah",
+  "q": "Dawhah"
+ },
+ {
+  "kind": "steps",
+  "dev": "desktop",
+  "lang": "ar",
+  "searchVisibleOnLoad": true,
+  "boxTopPx": 388,
+  "actions": [
+   "focus box",
+   "type",
+   "Enter"
+  ],
+  "landed": "/ar/search?type=&q=Doha"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "11 نتيجة · عرض 10 من 11",
+  "answer": null,
+  "top3": [
+   "خريطة مدينة الدوحة (نموذج)",
+   "التحول العمراني في الدوحة، 1950–2010 (نموذج)",
+   "العمارة الحديثة في الدوحة (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية9",
+   "متاح الآن6",
+   "إلكتروني1"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "doha",
+  "q": "Doha"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "20 نتيجة · عرض 10 من 20",
+  "answer": null,
+  "top3": [
+   "احجز مساحة للدراسة",
+   "نادي الكتاب العربي (نموذج)",
+   "الكتب العربية المطبوعة المبكرة (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة",
+   "التاريخ (الفعاليات)"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)",
+   "التاريخ"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية7",
+   "متاح الآن4",
+   "إلكتروني1"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "toddlers",
+  "q": "books for toddlers"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "4 نتائج",
+  "answer": "انضم عضوًا",
+  "top3": [
+   "جدّد إعاراتك",
+   "سياسات المكتبة",
+   "الإعارة والإرجاع"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "اللغة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "membership",
+  "q": "membership"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "نتيجتان",
+  "answer": "مواعيد العمل",
+  "top3": [
+   "النشر بالوصول الحر: ما يحتاج الباحثون إلى معرفته (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "اللغة",
+   "الفئة",
+   "التاريخ (الفعاليات)"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)",
+   "التاريخ"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "hours",
+  "q": "opening hours"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "3 نتائج",
+  "answer": null,
+  "top3": [
+   "موسم اللؤلؤ الأخير: فيلم وثائقي (نموذج)",
+   "مجسم لسفينة غوص (نموذج)",
+   "دفتر حسابات تاجر لؤلؤ (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية3",
+   "متاح الآن1",
+   "إلكتروني1"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "ar-typo",
+  "q": "موسم الهجره الي الشمل"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "لا توجد نتائج",
+  "answer": null,
+  "top3": [],
+  "zero": "لا توجد نتائج مطابقة لعبارة «Al-Mutanabbi»",
+  "zeroHelp": [
+   "اسأل أمين المكتبة",
+   "ابحث في الفهرس الكامل"
+  ],
+  "filters": [
+   "النوع"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "romanised",
+  "q": "Al-Mutanabbi"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "12 نتيجة · عرض 10 من 12",
+  "answer": null,
+  "top3": [
+   "خريطة مدينة الدوحة (نموذج)",
+   "التحول العمراني في الدوحة، 1950–2010 (نموذج)",
+   "كورنيش الدوحة عند الغروب، صورة فوتوغرافية (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية10",
+   "متاح الآن7",
+   "إلكتروني2"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "dawhah",
+  "q": "Dawhah"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "8 نتائج",
+  "answer": null,
+  "top3": [
+   "خريطة مدينة الدوحة (نموذج)",
+   "التحول العمراني في الدوحة، 1950–2010 (نموذج)",
+   "كورنيش الدوحة عند الغروب، صورة فوتوغرافية (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية8",
+   "متاح الآن6",
+   "إلكتروني1"
+  ],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "ar-doha",
+  "q": "الدوحة"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "4 نتائج",
+  "answer": "انضم عضوًا",
+  "top3": [
+   "جدّد إعاراتك",
+   "سياسات المكتبة",
+   "الإعارة والإرجاع"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "اللغة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "ar-membership",
+  "q": "العضوية"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "نتيجتان",
+  "answer": "مواعيد العمل",
+  "top3": [
+   "خطّط لزيارتك"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "اللغة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "desktop",
+  "lang": "ar",
+  "slug": "ar-hours",
+  "q": "مواعيد العمل"
+ },
+ {
+  "kind": "steps",
+  "dev": "mobile",
+  "lang": "en",
+  "searchVisibleOnLoad": true,
+  "boxTopPx": 322,
+  "actions": [
+   "focus box",
+   "type",
+   "Enter"
+  ],
+  "landed": "/search?type=&q=Doha"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "11 results · Showing 10 of 11",
+  "answer": null,
+  "top3": [
+   "Doha City Map (sample)",
+   "Urban Change in Dawḥah, 1950–2010 (sample)",
+   "Modern Architecture in Doha (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Format",
+   "Location",
+   "Language",
+   "Collection",
+   "Audience"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [
+   "At QNL9",
+   "Available now6",
+   "Online1"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "en",
+  "slug": "doha",
+  "q": "Doha"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "20 results · Showing 10 of 20",
+  "answer": null,
+  "top3": [
+   "Book a study space",
+   "Arabic Book Club (sample)",
+   "Early Arabic printed books (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Format",
+   "Location",
+   "Language",
+   "Collection",
+   "Audience",
+   "Date (events)"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z",
+   "Date"
+  ],
+  "toggles": [
+   "At QNL7",
+   "Available now4",
+   "Online1"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "en",
+  "slug": "toddlers",
+  "q": "books for toddlers"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "4 results",
+  "answer": "Become a member",
+  "top3": [
+   "Renew your loans",
+   "Library policies",
+   "Borrowing and returns"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Language",
+   "Audience"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "en",
+  "slug": "membership",
+  "q": "membership"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "2 results",
+  "answer": "Opening hours",
+  "top3": [
+   "Publishing Open Access: What Researchers Need to Know (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Language",
+   "Audience",
+   "Date (events)"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z",
+   "Date"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "en",
+  "slug": "hours",
+  "q": "opening hours"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "3 results",
+  "answer": null,
+  "top3": [
+   "The Last Pearl Season: A Documentary (sample)",
+   "Model of a Pearling Boat (sample)",
+   "Pearl merchant's ledger (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Format",
+   "Location",
+   "Language",
+   "Collection",
+   "Audience"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [
+   "At QNL3",
+   "Available now1",
+   "Online1"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "en",
+  "slug": "ar-typo",
+  "q": "موسم الهجره الي الشمل"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "No results",
+  "answer": null,
+  "top3": [],
+  "zero": "No matches for “Al-Mutanabbi”",
+  "zeroHelp": [
+   "Ask a librarian",
+   "Search the full catalogue"
+  ],
+  "filters": [
+   "Type"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "en",
+  "slug": "romanised",
+  "q": "Al-Mutanabbi"
+ },
+ {
+  "htmlLang": "en",
+  "dir": "ltr",
+  "count": "12 results · Showing 10 of 12",
+  "answer": null,
+  "top3": [
+   "Doha City Map (sample)",
+   "Urban Change in Dawḥah, 1950–2010 (sample)",
+   "Doha Corniche at Dusk, photograph (sample)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "Type",
+   "Format",
+   "Location",
+   "Language",
+   "Collection",
+   "Audience"
+  ],
+  "sort": [
+   "Relevance",
+   "Newest first",
+   "Oldest first",
+   "Title A–Z",
+   "Author A–Z"
+  ],
+  "toggles": [
+   "At QNL10",
+   "Available now7",
+   "Online2"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "en",
+  "slug": "dawhah",
+  "q": "Dawhah"
+ },
+ {
+  "kind": "steps",
+  "dev": "mobile",
+  "lang": "ar",
+  "searchVisibleOnLoad": true,
+  "boxTopPx": 328,
+  "actions": [
+   "focus box",
+   "type",
+   "Enter"
+  ],
+  "landed": "/ar/search?type=&q=Doha"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "11 نتيجة · عرض 10 من 11",
+  "answer": null,
+  "top3": [
+   "خريطة مدينة الدوحة (نموذج)",
+   "التحول العمراني في الدوحة، 1950–2010 (نموذج)",
+   "العمارة الحديثة في الدوحة (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية9",
+   "متاح الآن6",
+   "إلكتروني1"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "doha",
+  "q": "Doha"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "20 نتيجة · عرض 10 من 20",
+  "answer": null,
+  "top3": [
+   "احجز مساحة للدراسة",
+   "نادي الكتاب العربي (نموذج)",
+   "الكتب العربية المطبوعة المبكرة (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة",
+   "التاريخ (الفعاليات)"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)",
+   "التاريخ"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية7",
+   "متاح الآن4",
+   "إلكتروني1"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "toddlers",
+  "q": "books for toddlers"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "4 نتائج",
+  "answer": "انضم عضوًا",
+  "top3": [
+   "جدّد إعاراتك",
+   "سياسات المكتبة",
+   "الإعارة والإرجاع"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "اللغة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "membership",
+  "q": "membership"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "نتيجتان",
+  "answer": "مواعيد العمل",
+  "top3": [
+   "النشر بالوصول الحر: ما يحتاج الباحثون إلى معرفته (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "اللغة",
+   "الفئة",
+   "التاريخ (الفعاليات)"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)",
+   "التاريخ"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "hours",
+  "q": "opening hours"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "3 نتائج",
+  "answer": null,
+  "top3": [
+   "موسم اللؤلؤ الأخير: فيلم وثائقي (نموذج)",
+   "مجسم لسفينة غوص (نموذج)",
+   "دفتر حسابات تاجر لؤلؤ (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية3",
+   "متاح الآن1",
+   "إلكتروني1"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "ar-typo",
+  "q": "موسم الهجره الي الشمل"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "لا توجد نتائج",
+  "answer": null,
+  "top3": [],
+  "zero": "لا توجد نتائج مطابقة لعبارة «Al-Mutanabbi»",
+  "zeroHelp": [
+   "اسأل أمين المكتبة",
+   "ابحث في الفهرس الكامل"
+  ],
+  "filters": [
+   "النوع"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "romanised",
+  "q": "Al-Mutanabbi"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "12 نتيجة · عرض 10 من 12",
+  "answer": null,
+  "top3": [
+   "خريطة مدينة الدوحة (نموذج)",
+   "التحول العمراني في الدوحة، 1950–2010 (نموذج)",
+   "كورنيش الدوحة عند الغروب، صورة فوتوغرافية (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية10",
+   "متاح الآن7",
+   "إلكتروني2"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "dawhah",
+  "q": "Dawhah"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "8 نتائج",
+  "answer": null,
+  "top3": [
+   "خريطة مدينة الدوحة (نموذج)",
+   "التحول العمراني في الدوحة، 1950–2010 (نموذج)",
+   "كورنيش الدوحة عند الغروب، صورة فوتوغرافية (نموذج)"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "الشكل",
+   "الموقع",
+   "اللغة",
+   "المجموعة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [
+   "في مكتبة قطر الوطنية8",
+   "متاح الآن6",
+   "إلكتروني1"
+  ],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "ar-doha",
+  "q": "الدوحة"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "4 نتائج",
+  "answer": "انضم عضوًا",
+  "top3": [
+   "جدّد إعاراتك",
+   "سياسات المكتبة",
+   "الإعارة والإرجاع"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "اللغة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "ar-membership",
+  "q": "العضوية"
+ },
+ {
+  "htmlLang": "ar",
+  "dir": "rtl",
+  "count": "نتيجتان",
+  "answer": "مواعيد العمل",
+  "top3": [
+   "خطّط لزيارتك"
+  ],
+  "zero": null,
+  "zeroHelp": [],
+  "filters": [
+   "النوع",
+   "اللغة",
+   "الفئة"
+  ],
+  "sort": [
+   "الصلة",
+   "الأحدث أولًا",
+   "الأقدم أولًا",
+   "العنوان أبجديًا",
+   "المؤلف (أ–ي)"
+  ],
+  "toggles": [],
+  "kind": "query",
+  "dev": "mobile",
+  "lang": "ar",
+  "slug": "ar-hours",
+  "q": "مواعيد العمل"
+ },
+ {
+  "kind": "keyboard",
+  "lang": "en",
+  "tabsToSearchBox": 12,
+  "label": "Search the library",
+  "placeholder": "Search books, research, events, services…",
+  "scopeLabel": "Search in"
+ },
+ {
+  "kind": "keyboard",
+  "lang": "ar",
+  "tabsToSearchBox": 12,
+  "label": "ابحث في المكتبة",
+  "placeholder": "ابحث في الكتب والأبحاث والفعاليات والخدمات…",
+  "scopeLabel": "البحث في"
+ },
+ {
+  "kind": "focus-pixel-diff",
+  "method": "search box screenshot unfocused vs keyboard-focused; pixels with any channel differing by more than 16",
+  "changedPixels": {
+   "en": 3318,
+   "ar": 3296
+  }
+ }
+]

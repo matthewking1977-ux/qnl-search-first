@@ -1,0 +1,257 @@
+[
+ {
+  "page": "qnl.qa homepage (EN)",
+  "run": 1,
+  "fetchTime": "2026-11-24T13:39:43.996Z",
+  "performance": 57,
+  "accessibility": 91,
+  "bestPractices": 77,
+  "seo": 83,
+  "FCP": "1.7 s",
+  "LCP": "24.4 s",
+  "TBT": "330 ms",
+  "CLS": "0",
+  "transferKB": 8234,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "qnl.qa homepage (EN)",
+  "run": 2,
+  "fetchTime": "2026-11-24T13:40:02.225Z",
+  "performance": 61,
+  "accessibility": 91,
+  "bestPractices": 77,
+  "seo": 83,
+  "FCP": "1.7 s",
+  "LCP": "22.5 s",
+  "TBT": "200 ms",
+  "CLS": "0",
+  "transferKB": 8234,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "qnl.qa homepage (EN)",
+  "run": 3,
+  "fetchTime": "2026-11-24T13:40:20.348Z",
+  "performance": 59,
+  "accessibility": 91,
+  "bestPractices": 77,
+  "seo": 83,
+  "FCP": "1.8 s",
+  "LCP": "22.0 s",
+  "TBT": "280 ms",
+  "CLS": "0",
+  "transferKB": 8234,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "qnl.qa homepage (AR)",
+  "run": 1,
+  "fetchTime": "2026-11-24T13:40:38.095Z",
+  "performance": 58,
+  "accessibility": 91,
+  "bestPractices": 77,
+  "seo": 92,
+  "FCP": "1.7 s",
+  "LCP": "25.4 s",
+  "TBT": "300 ms",
+  "CLS": "0",
+  "transferKB": 8237,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "qnl.qa homepage (AR)",
+  "run": 2,
+  "fetchTime": "2026-11-24T13:40:55.430Z",
+  "performance": 60,
+  "accessibility": 91,
+  "bestPractices": 77,
+  "seo": 92,
+  "FCP": "1.7 s",
+  "LCP": "26.1 s",
+  "TBT": "250 ms",
+  "CLS": "0",
+  "transferKB": 8236,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "qnl.qa homepage (AR)",
+  "run": 3,
+  "fetchTime": "2026-11-24T13:41:12.844Z",
+  "performance": 57,
+  "accessibility": 91,
+  "bestPractices": 77,
+  "seo": 92,
+  "FCP": "1.8 s",
+  "LCP": "21.9 s",
+  "TBT": "320 ms",
+  "CLS": "0",
+  "transferKB": 8237,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "Website search results: \"Doha\" (EN)",
+  "run": 1,
+  "fetchTime": "2026-11-24T13:41:30.813Z",
+  "performance": 72,
+  "accessibility": 84,
+  "bestPractices": 77,
+  "seo": 83,
+  "FCP": "1.7 s",
+  "LCP": "3.9 s",
+  "TBT": "550 ms",
+  "CLS": "0",
+  "transferKB": 997,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "Website search results: \"Doha\" (EN)",
+  "run": 2,
+  "fetchTime": "2026-11-24T13:41:48.187Z",
+  "performance": 76,
+  "accessibility": 84,
+  "bestPractices": 77,
+  "seo": 83,
+  "FCP": "1.8 s",
+  "LCP": "3.9 s",
+  "TBT": "440 ms",
+  "CLS": "0",
+  "transferKB": 995,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "Website search results: \"Doha\" (EN)",
+  "run": 3,
+  "fetchTime": "2026-11-24T13:42:04.412Z",
+  "performance": 75,
+  "accessibility": 84,
+  "bestPractices": 77,
+  "seo": 83,
+  "FCP": "1.8 s",
+  "LCP": "3.9 s",
+  "TBT": "490 ms",
+  "CLS": "0",
+  "transferKB": 997,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "Website search results: «الدوحة» (AR)",
+  "run": 1,
+  "fetchTime": "2026-11-24T13:42:21.285Z",
+  "performance": 86,
+  "accessibility": 84,
+  "bestPractices": 77,
+  "seo": 92,
+  "FCP": "1.9 s",
+  "LCP": "1.9 s",
+  "TBT": "430 ms",
+  "CLS": "0",
+  "transferKB": 999,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "Website search results: «الدوحة» (AR)",
+  "run": 2,
+  "fetchTime": "2026-11-24T13:42:38.393Z",
+  "performance": 89,
+  "accessibility": 84,
+  "bestPractices": 77,
+  "seo": 92,
+  "FCP": "1.9 s",
+  "LCP": "1.9 s",
+  "TBT": "370 ms",
+  "CLS": "0",
+  "transferKB": 999,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "Website search results: «الدوحة» (AR)",
+  "run": 3,
+  "fetchTime": "2026-11-24T13:42:54.602Z",
+  "performance": 85,
+  "accessibility": 84,
+  "bestPractices": 77,
+  "seo": 92,
+  "FCP": "1.9 s",
+  "LCP": "1.9 s",
+  "TBT": "530 ms",
+  "CLS": "0",
+  "transferKB": 1000,
+  "mainDocumentStatus": [
+   200
+  ]
+ },
+ {
+  "page": "elibrary.qnl.qa: **403 bot-check page, not the catalogue**",
+  "run": 1,
+  "fetchTime": "2026-11-24T13:43:10.760Z",
+  "performance": 57,
+  "accessibility": 94,
+  "bestPractices": 96,
+  "seo": 40,
+  "FCP": "1.0 s",
+  "LCP": "4.6 s",
+  "TBT": "1,580 ms",
+  "CLS": "0.003",
+  "transferKB": 392,
+  "mainDocumentStatus": [
+   403
+  ]
+ },
+ {
+  "page": "elibrary.qnl.qa: **403 bot-check page, not the catalogue**",
+  "run": 2,
+  "fetchTime": "2026-11-24T13:43:24.162Z",
+  "performance": 59,
+  "accessibility": 94,
+  "bestPractices": 96,
+  "seo": 40,
+  "FCP": "1.0 s",
+  "LCP": "4.4 s",
+  "TBT": "1,490 ms",
+  "CLS": "0.055",
+  "transferKB": 385,
+  "mainDocumentStatus": [
+   403
+  ]
+ },
+ {
+  "page": "elibrary.qnl.qa: **403 bot-check page, not the catalogue**",
+  "run": 3,
+  "fetchTime": "2026-11-24T13:43:37.531Z",
+  "performance": 60,
+  "accessibility": 94,
+  "bestPractices": 96,
+  "seo": 40,
+  "FCP": "1.0 s",
+  "LCP": "4.4 s",
+  "TBT": "1,390 ms",
+  "CLS": "0",
+  "transferKB": 394,
+  "mainDocumentStatus": [
+   403
+  ]
+ }
+]

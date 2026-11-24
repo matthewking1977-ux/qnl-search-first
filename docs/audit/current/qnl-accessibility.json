@@ -1,0 +1,348 @@
+{
+ "kbd-en": {
+  "labels": [
+   {
+    "id": "edit-selected-search-platform",
+    "label": "Select a search platform",
+    "labelRendered": false,
+    "labelClass": "control-label",
+    "placeholder": null
+   },
+   {
+    "id": "edit-keys",
+    "label": "Search Key Words",
+    "labelRendered": false,
+    "labelClass": "control-label js-form-required form-required",
+    "placeholder": "Search"
+   }
+  ],
+  "tabsToReach": {
+   "edit-selected-search-platform": 26,
+   "edit-keys": 27,
+   "search-submit": 28
+  },
+  "focus": {
+   "edit-selected-search-platform": {
+    "outline": "none 0px rgb(85, 85, 85)",
+    "boxShadow": "rgba(0, 0, 0, 0.075) 0px 1px 1px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "rgb(85, 85, 85)",
+    "focusVisible": true
+   },
+   "edit-keys": {
+    "outline": "none 0px rgb(85, 85, 85)",
+    "boxShadow": "rgba(0, 0, 0, 0.075) 0px 1px 1px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "rgb(85, 85, 85)",
+    "focusVisible": true
+   },
+   "search-submit": {
+    "outline": "auto 5px rgb(16, 16, 16)",
+    "boxShadow": "none",
+    "border": "rgb(18, 43, 64)",
+    "focusVisible": true
+   }
+  },
+  "enterSubmits": true,
+  "afterEnter": "https://elibrary.qnl.qa/iii/encore/search/C__SDoha?lang=eng&suite=def&fromMain=yes"
+ },
+ "kbd-ar": {
+  "labels": [
+   {
+    "id": "edit-selected-search-platform",
+    "label": "Select a search platform",
+    "labelRendered": false,
+    "labelClass": "control-label",
+    "placeholder": null
+   },
+   {
+    "id": "edit-keys",
+    "label": "Search Key Words",
+    "labelRendered": false,
+    "labelClass": "control-label js-form-required form-required",
+    "placeholder": "بحث"
+   }
+  ],
+  "tabsToReach": {
+   "edit-selected-search-platform": 26,
+   "edit-keys": 27,
+   "search-submit": 28
+  },
+  "focus": {
+   "edit-selected-search-platform": {
+    "outline": "none 0px rgb(85, 85, 85)",
+    "boxShadow": "rgba(0, 0, 0, 0.075) 0px 1px 1px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "rgb(85, 85, 85)",
+    "focusVisible": true
+   },
+   "edit-keys": {
+    "outline": "none 0px rgb(85, 85, 85)",
+    "boxShadow": "rgba(0, 0, 0, 0.075) 0px 1px 1px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "rgb(85, 85, 85)",
+    "focusVisible": true
+   },
+   "search-submit": {
+    "outline": "auto 5px rgb(16, 16, 16)",
+    "boxShadow": "none",
+    "border": "rgb(18, 43, 64)",
+    "focusVisible": true
+   }
+  },
+  "enterSubmits": true,
+  "afterEnter": "https://elibrary.qnl.qa/iii/encore/search/C__SDoha?lang=ara&suite=def&fromMain=yes"
+ },
+ "axe-home-desktop-en": {
+  "url": "https://www.qnl.qa/en",
+  "violations": [
+   {
+    "id": "aria-roles",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   },
+   {
+    "id": "select-name",
+    "impact": "critical",
+    "nodes": 1,
+    "search": [
+     "#edit-selected-search-platform"
+    ]
+   }
+  ]
+ },
+ "axe-home-desktop-ar": {
+  "url": "https://www.qnl.qa/ar",
+  "violations": [
+   {
+    "id": "aria-roles",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   },
+   {
+    "id": "select-name",
+    "impact": "critical",
+    "nodes": 1,
+    "search": [
+     "#edit-selected-search-platform"
+    ]
+   }
+  ]
+ },
+ "axe-home-mobile-en": {
+  "url": "https://www.qnl.qa/en",
+  "violations": [
+   {
+    "id": "aria-roles",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   },
+   {
+    "id": "select-name",
+    "impact": "critical",
+    "nodes": 1,
+    "search": [
+     "#edit-selected-search-platform"
+    ]
+   }
+  ]
+ },
+ "axe-home-mobile-ar": {
+  "url": "https://www.qnl.qa/ar",
+  "violations": [
+   {
+    "id": "aria-roles",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   },
+   {
+    "id": "select-name",
+    "impact": "critical",
+    "nodes": 1,
+    "search": [
+     "#edit-selected-search-platform"
+    ]
+   }
+  ]
+ },
+ "axe-results-desktop-en": {
+  "url": "https://www.qnl.qa/en/search/node?keys=Doha&selected_search_platform=4",
+  "violations": [
+   {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "aria-roles",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   },
+   {
+    "id": "select-name",
+    "impact": "critical",
+    "nodes": 1,
+    "search": [
+     "#edit-selected-search-platform"
+    ]
+   }
+  ]
+ },
+ "axe-results-desktop-ar": {
+  "url": "https://www.qnl.qa/ar/search/node?keys=%D8%A7%D9%84%D8%AF%D9%88%D8%AD%D8%A9&selected_search_platform=4",
+  "violations": [
+   {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "aria-roles",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   },
+   {
+    "id": "select-name",
+    "impact": "critical",
+    "nodes": 1,
+    "search": [
+     "#edit-selected-search-platform"
+    ]
+   }
+  ]
+ },
+ "axe-results-mobile-en": {
+  "url": "https://www.qnl.qa/en/search/node?keys=Doha&selected_search_platform=4",
+  "violations": [
+   {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "aria-roles",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   }
+  ]
+ },
+ "axe-zero-desktop-ar": {
+  "url": "https://www.qnl.qa/ar/search/node?keys=Al-Mutanabbi&selected_search_platform=4",
+  "violations": [
+   {
+    "id": "aria-roles",
+    "impact": "critical",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   },
+   {
+    "id": "select-name",
+    "impact": "critical",
+    "nodes": 1,
+    "search": [
+     "#edit-selected-search-platform"
+    ]
+   }
+  ]
+ },
+ "axe-eres-login-desktop": {
+  "url": "https://login.eres.qnl.qa/login?qurl=https://search.ebscohost.com%2flogin.aspx%3fauthtype%3dip%26profile%3deds%26direct%",
+  "violations": [
+   {
+    "id": "html-has-lang",
+    "impact": "serious",
+    "nodes": 1,
+    "search": []
+   },
+   {
+    "id": "label",
+    "impact": "critical",
+    "nodes": 2,
+    "search": []
+   },
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 2,
+    "search": []
+   }
+  ]
+ },
+ "axe-libguides-az-desktop-en": {
+  "url": "https://libguides.qnl.qa/az.php",
+  "violations": [
+   {
+    "id": "link-name",
+    "impact": "serious",
+    "nodes": 4,
+    "search": []
+   },
+   {
+    "id": "list",
+    "impact": "serious",
+    "nodes": 3,
+    "search": []
+   },
+   {
+    "id": "target-size",
+    "impact": "serious",
+    "nodes": 5,
+    "search": []
+   }
+  ]
+ }
+}

@@ -1,0 +1,218 @@
+[
+ {
+  "name": "j1-book",
+  "dev": "desktop",
+  "lang": "en",
+  "q": "Gulf maritime history",
+  "actions": 3,
+  "handOffs": 0,
+  "avail": "AvailableMain General Collection · DS326 .S26 2019All copies (2)",
+  "shots": [
+   "j1-book-results-desktop-en.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j2-ebook",
+  "dev": "desktop",
+  "lang": "en",
+  "q": "ebook",
+  "actions": 5,
+  "handOffs": 0,
+  "toggle": "Online",
+  "button": "Read online",
+  "extraAction": 2,
+  "landed": "/item/ct-02#access",
+  "panel": true,
+  "shots": [
+   "j2-ebook-results-desktop-en.png",
+   "j2-ebook-end-desktop-en.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j3-membership",
+  "dev": "desktop",
+  "lang": "en",
+  "q": "membership",
+  "actions": 4,
+  "handOffs": 0,
+  "button": "Register now →",
+  "extraAction": 1,
+  "landed": "/item/sv-membership",
+  "h1": "Become a member",
+  "shots": [
+   "j3-membership-results-desktop-en.png",
+   "j3-membership-end-desktop-en.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j1-book",
+  "dev": "desktop",
+  "lang": "ar",
+  "q": "التاريخ البحري للخليج",
+  "actions": 3,
+  "handOffs": 0,
+  "avail": "متاحالمجموعة العامة الرئيسية · DS326 .S26 2019كل النسخ (2)",
+  "shots": [
+   "j1-book-results-desktop-ar.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j2-ebook",
+  "dev": "desktop",
+  "lang": "ar",
+  "q": "ebook",
+  "actions": 5,
+  "handOffs": 0,
+  "toggle": "Online",
+  "button": "اقرأ إلكترونيًا",
+  "extraAction": 2,
+  "landed": "/ar/item/ct-02#access",
+  "panel": true,
+  "shots": [
+   "j2-ebook-results-desktop-ar.png",
+   "j2-ebook-end-desktop-ar.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j3-membership",
+  "dev": "desktop",
+  "lang": "ar",
+  "q": "العضوية",
+  "actions": 4,
+  "handOffs": 0,
+  "button": "سجّل الآن →",
+  "extraAction": 1,
+  "landed": "/ar/item/sv-membership",
+  "h1": "انضم عضوًا",
+  "shots": [
+   "j3-membership-results-desktop-ar.png",
+   "j3-membership-end-desktop-ar.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j1-book",
+  "dev": "mobile",
+  "lang": "en",
+  "q": "Gulf maritime history",
+  "actions": 3,
+  "handOffs": 0,
+  "avail": "AvailableMain General Collection · DS326 .S26 2019All copies (2)",
+  "shots": [
+   "j1-book-results-mobile-en.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j2-ebook",
+  "dev": "mobile",
+  "lang": "en",
+  "q": "ebook",
+  "actions": 5,
+  "handOffs": 0,
+  "toggle": "Online",
+  "button": "Read online",
+  "extraAction": 2,
+  "landed": "/item/ct-02#access",
+  "panel": true,
+  "shots": [
+   "j2-ebook-results-mobile-en.png",
+   "j2-ebook-end-mobile-en.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j3-membership",
+  "dev": "mobile",
+  "lang": "en",
+  "q": "membership",
+  "actions": 4,
+  "handOffs": 0,
+  "button": "Register now →",
+  "extraAction": 1,
+  "landed": "/item/sv-membership",
+  "h1": "Become a member",
+  "shots": [
+   "j3-membership-results-mobile-en.png",
+   "j3-membership-end-mobile-en.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j1-book",
+  "dev": "mobile",
+  "lang": "ar",
+  "q": "التاريخ البحري للخليج",
+  "actions": 3,
+  "handOffs": 0,
+  "avail": "متاحالمجموعة العامة الرئيسية · DS326 .S26 2019كل النسخ (2)",
+  "shots": [
+   "j1-book-results-mobile-ar.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j2-ebook",
+  "dev": "mobile",
+  "lang": "ar",
+  "q": "ebook",
+  "actions": 5,
+  "handOffs": 0,
+  "toggle": "Online",
+  "button": "اقرأ إلكترونيًا",
+  "extraAction": 2,
+  "landed": "/ar/item/ct-02#access",
+  "panel": true,
+  "shots": [
+   "j2-ebook-results-mobile-ar.png",
+   "j2-ebook-end-mobile-ar.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ },
+ {
+  "name": "j3-membership",
+  "dev": "mobile",
+  "lang": "ar",
+  "q": "العضوية",
+  "actions": 4,
+  "handOffs": 0,
+  "button": "سجّل الآن →",
+  "extraAction": 1,
+  "landed": "/ar/item/sv-membership",
+  "h1": "انضم عضوًا",
+  "shots": [
+   "j3-membership-results-mobile-ar.png",
+   "j3-membership-end-mobile-ar.png"
+  ],
+  "hosts": [
+   "localhost (Concept G)"
+  ]
+ }
+]
