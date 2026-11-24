@@ -117,6 +117,8 @@ export interface SearchResponse {
     language: Record<string, number>;
     date: Record<string, number>;
   };
+  /** present when the query used search syntax (phrases, operators, fields) */
+  parsed?: import('./query').ParsedQuery;
   tookMs: number;
 }
 

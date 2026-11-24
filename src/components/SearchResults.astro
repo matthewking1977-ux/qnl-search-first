@@ -1,5 +1,6 @@
 ---
 import { formatLabel, languageLabel } from '../search/catalogue';
+import { serializeQuery, type Clause } from '../search/query';
 // Server-rendered results page. Works fully without JavaScript:
 // GET form for query, facets and sort; shareable URLs; numbered pages.
 import Header from './Header.astro';
@@ -46,6 +47,23 @@ const qs = (over: Record<string, string | string[] | undefined>) => {
 };
 
 const Hl = (text: string, terms: string[]) => highlight(text, terms);
+
+// Structured query → removable tags ("Title: old maps ×", "not film ×").
+const clauses = res?.parsed?.clauses ?? [];
+const clauseText = (c: Clause) => {
+  const v = c.field === 'year' && (c.from || c.to)
+    ? (c.from && c.from === c.to ? String(c.from) : `${c.from ?? '…'}–${c.to ?? '…'}`)
+    : c.phrase ? (lang === 'ar' ? `«${c.text}»` : `“${c.text}”`) : c.text;
+  const op = c.op === 'NOT' || (c.op === 'OR') ? t(lang, `q.op.${c.op}` as any) + ' ' : '';
+  // Keep years and ISBNs left-to-right inside Arabic text (LRI … PDI).
+  const val = (c.field === 'year' || c.field === 'isbn') && lang === 'ar' ? `\u2066${v}\u2069` : v;
+  return `${op}${c.field === 'any' ? '' : t(lang, `q.field.${c.field}` as any) + ': '}${val}`;
+};
+const without = (i: number) => {
+  const rest = clauses.filter((_, j) => j !== i).map((c, j) => (j === 0 && c.op === 'OR' ? { ...c, op: 'AND' as const } : c));
+  return rest.length ? qs({ q: serializeQuery(rest), page: undefined }) : searchHref(lang, '');
+};
+const tips = (['phrase', 'field', 'or', 'not', 'year', 'isbn'] as const).map((k) => ({ label: t(lang, `q.tip.${k}` as any), ex: t(lang, `q.tip.ex.${k}` as any) }));
 const tagLabel = (k: string) => (engineData.tags[k]?.[lang] ?? k);
 const meta = (r: (typeof engineData.records)[number]) => {
   if (r.type === 'event' && r.start) {
@@ -124,7 +142,19 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
     <section class="list" aria-labelledby="results-h">
       <div class="list-head">
         <div>
-          <h1 id="results-h" class="t-h2">{q ? title : t(lang, 'results.empty')}</h1>
+          <h1 id="results-h" class="t-h2">{q ? (clauses.length ? t(lang, 'results.title') : title) : t(lang, 'results.empty')}</h1>
+          {clauses.length > 0 && (
+            <ul class="qtags" aria-label={t(lang, 'q.yourQuery')}>
+              {clauses.map((c, i) => (
+                <li class={`qtag${c.op === 'NOT' ? ' qtag--not' : ''}`}>
+                  <span>{clauseText(c)}</span>
+                  <a href={without(i)} aria-label={fmt(t(lang, 'q.remove'), { c: clauseText(c) })}>
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" /></svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
           {q && <p class="count" aria-live="polite"><span>{countLabel}</span>{total > PER && <span class="t-mono"> · {fmt(t(lang, 'results.showing'), { n: hits.length, total })}</span>}</p>}
         </div>
         {q && (
@@ -143,6 +173,14 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
           </form>
         )}
       </div>
+
+      <details class="tips">
+        <summary>{t(lang, 'q.tips')}</summary>
+        <dl>
+          {tips.map((tp) => (<><dt>{tp.label}</dt><dd><a class="link" href={searchHref(lang, tp.ex)}><bdi>{tp.ex}</bdi></a></dd></>))}
+        </dl>
+        <p class="tips-fields">{t(lang, 'q.tip.fields')}</p>
+      </details>
 
       {res?.task && page === 1 && (
         <article class="answer" aria-labelledby="answer-h">
@@ -254,6 +292,21 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
   .list-head { display: flex; justify-content: space-between; align-items: end; gap: var(--s-3); flex-wrap: wrap; padding-block-end: var(--s-3); border-block-end: var(--hairline); }
   .list-head h1 { margin: 0; overflow-wrap: anywhere; }
   .count { margin: 0.5rem 0 0; color: var(--color-grey-600); font-size: var(--fs-sm); }
+  .qtags { list-style: none; margin: var(--s-2) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .qtag { display: inline-flex; align-items: center; gap: 0.25rem; padding-inline: 0.75rem 0.25rem; min-block-size: 2.25rem; border: 1px solid var(--color-grey-300); border-radius: var(--radius-2); background: var(--color-paper-2); font-size: var(--fs-sm); }
+  .qtag--not span { text-decoration: line-through; text-decoration-color: var(--color-grey-600); }
+  .qtag a { display: grid; place-items: center; inline-size: 2rem; block-size: 2rem; border-radius: var(--radius-1); color: var(--color-grey-800); }
+  .qtag a:hover { background: var(--color-grey-100); color: var(--color-ink); }
+  .qtag svg { inline-size: 0.9rem; block-size: 0.9rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; }
+  .tips { margin-block: var(--s-2) 0; font-size: var(--fs-sm); }
+  .tips summary { cursor: pointer; color: var(--color-grey-800); inline-size: fit-content; min-block-size: 2.75rem; display: flex; align-items: center; }
+  .tips summary:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.25em; }
+  .tips dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem var(--s-3); margin: var(--s-1) 0 0; padding: var(--s-2) var(--s-3); background: var(--color-paper-2); border-radius: var(--radius-2); }
+  .tips dt { color: var(--color-grey-600); }
+  .tips dd { margin: 0; font-family: var(--font-mono); font-size: 0.92em; }
+  :global([lang='ar']) .tips dd { font-family: var(--font-arabic); font-size: 1em; }
+  .tips-fields { margin: var(--s-1) 0 0; color: var(--color-grey-600); }
+  @media (max-width: 40rem) { .tips dl { grid-template-columns: 1fr; gap: 0.15rem; } .tips dd { margin-block-end: 0.5rem; } }
   .sort { display: flex; align-items: center; gap: var(--s-1); font-size: var(--fs-sm); flex-wrap: wrap; }
   .sort select { min-block-size: 2.75rem; padding-inline: 0.75rem; font: inherit; border: 1px solid var(--color-grey-600); border-radius: var(--radius-1); background: var(--color-paper); color: var(--color-ink); }
   .share { background: none; border: 0; font: inherit; cursor: pointer; min-block-size: 2.75rem; }

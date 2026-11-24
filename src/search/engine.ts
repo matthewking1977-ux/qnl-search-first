@@ -1,5 +1,6 @@
 import MiniSearch, { type SearchResult } from 'minisearch';
 import { normalise, processTerm, processText, tokenize } from './normalise';
+import { parseQuery, type Clause, type Field } from './query';
 import {
   GROUP_ORDER,
   TYPE_TO_GROUP,
@@ -17,7 +18,7 @@ export interface EngineData {
   tags: Record<string, TagDef>;
   synonyms: string[][];
   /** index text for catalogue records (authors, subjects, places, ids, format words) */
-  catalogueText?: (r: LibraryRecord) => { creators: string; subjects: string; places_cat: string; ids: string; typewords: string };
+  catalogueText?: (r: LibraryRecord) => { creators: string; subjects: string; places_cat: string; placeValues: string[]; ids: string; typewords: string };
 }
 
 const TYPE_WORDS: Record<string, string> = {
@@ -102,6 +103,90 @@ export function createEngine(data: EngineData) {
     }),
   );
 
+  // ── Structured queries (see query.ts): per-field processed token runs, for
+  // phrase checks, and the MiniSearch fields each query field maps to.
+  const FIELD_MAP: Record<Exclude<Field, 'isbn' | 'year'>, string[] | undefined> = {
+    any: undefined,
+    title: ['title_en', 'title_ar'],
+    author: ['creators'],
+    subject: ['subjects', 'tags'],
+    place: ['places_cat', 'place'],
+  };
+  const segs = new Map<string, Record<string, string[][]>>();
+  for (const r of records) {
+    const c = r.catalogue;
+    const ct = c && data.catalogueText ? data.catalogueText(r) : null;
+    const toks = (xs: (string | undefined)[]) => xs.filter(Boolean).map((x) => processText(x!));
+    const title = toks([r.title.en, r.title.ar]);
+    const author = toks(c ? c.authors.flatMap((a) => [a.en, a.ar]) : []);
+    const subject = toks([...(c ? c.subjects.flatMap((x) => [x.en, x.ar]) : []), ...r.tags.flatMap((k) => (tags[k] ? [tags[k].en, tags[k].ar] : []))]);
+    const place = toks([...(ct?.placeValues ?? []), r.place?.en, r.place?.ar]);
+    const any = [...title, ...toks([r.summary.en, r.summary.ar]), ...author, ...subject, ...place];
+    segs.set(r.id, { title, author, subject, place, any });
+  }
+  const year = (r: LibraryRecord) => r.year ?? r.catalogue?.publication?.year;
+  const isbnDigits = (s: string) => s.replace(/[^\dXx]/g, '').toUpperCase();
+
+  type Matches = Map<string, { score: number; terms: Set<string> }>;
+  function clauseMatches(c: Clause): Matches {
+    const out: Matches = new Map();
+    const put = (id: string, score: number, terms: Iterable<string> = []) => {
+      const cur = out.get(id) ?? { score: 0, terms: new Set<string>() };
+      cur.score += score; for (const t of terms) cur.terms.add(t); out.set(id, cur);
+    };
+    if (c.field === 'year') {
+      for (const r of records) { const y = year(r); if (y && (c.from == null || y >= c.from) && (c.to == null || y <= c.to)) put(r.id, 1); }
+      return out;
+    }
+    if (c.field === 'isbn') {
+      const d = isbnDigits(c.text);
+      for (const r of records) { const i = r.catalogue?.isbn && isbnDigits(r.catalogue.isbn); if (i && d.length >= 4 && i.startsWith(d)) put(r.id, 10); }
+      return out;
+    }
+    const fields = FIELD_MAP[c.field];
+    const res = ms.search(c.text, { combineWith: 'AND', ...(fields ? { fields } : {}), ...(c.phrase ? { prefix: false, fuzzy: false } : {}) });
+    if (!c.phrase) { for (const r of res) put(r.id as string, r.score, [...r.terms, ...r.queryTerms]); return out; }
+    // Phrase: the processed words must appear in order inside one field value.
+    const want = processText(c.text);
+    if (!want.length) return out;
+    for (const r of res) {
+      const runs = segs.get(r.id as string)?.[c.field] ?? [];
+      const hit = runs.some((run) => run.some((_, i) => want.every((w, j) => run[i + j] === w)));
+      if (hit) put(r.id as string, r.score * 1.5, want);
+    }
+    return out;
+  }
+
+  /** DNF: AND groups separated by OR; NOT clauses exclude from the whole result. */
+  function runStructured(clauses: Clause[]): Matches {
+    const groups: Clause[][] = [[]];
+    const nots: Clause[] = [];
+    for (const c of clauses) {
+      if (c.op === 'NOT') { nots.push(c); continue; }
+      if (c.op === 'OR' && groups[groups.length - 1].length) groups.push([]);
+      groups[groups.length - 1].push(c);
+    }
+    const result: Matches = new Map();
+    for (const g of groups) {
+      let acc: Matches | null = null;
+      for (const c of g) {
+        const m = clauseMatches(c);
+        if (!acc) { acc = m; continue; }
+        const next: Matches = new Map();
+        for (const [id, v] of acc) { const w = m.get(id); if (w) next.set(id, { score: v.score + w.score, terms: new Set([...v.terms, ...w.terms]) }); }
+        acc = next;
+      }
+      // Only NOT clauses: start from everything.
+      if (!acc) { acc = new Map(records.map((r) => [r.id, { score: 0.01, terms: new Set<string>() }])); }
+      for (const [id, v] of acc) {
+        const cur = result.get(id);
+        if (!cur || cur.score < v.score) result.set(id, cur ? { score: v.score, terms: new Set([...cur.terms, ...v.terms]) } : v);
+      }
+    }
+    for (const c of nots) for (const id of clauseMatches(c).keys()) result.delete(id);
+    return result;
+  }
+
   function expand(qTokens: string[]): string[] {
     const out = new Set<string>();
     for (const { tokens, group } of synPhrases) {
@@ -161,8 +246,10 @@ export function createEngine(data: EngineData) {
   function run(req: SearchRequest): SearchResponse & { groups: Record<Group, Hit[]> } {
     const t0 = now();
     const raw = req.q.trim();
-    const qTokens = processText(raw);
-    const expanded = expand(qTokens);
+    const parsed = parseQuery(raw);
+    const structured = parsed.structured;
+    const qTokens = structured ? [] : processText(raw);
+    const expanded = structured ? [] : expand(qTokens);
 
     const scores = new Map<string, { score: number; terms: Set<string> }>();
     const add = (res: SearchResult[], w: number) => {
@@ -175,7 +262,9 @@ export function createEngine(data: EngineData) {
       }
     };
 
-    if (qTokens.length) {
+    if (structured) {
+      for (const [id, v] of runStructured(parsed.clauses)) scores.set(id, v);
+    } else if (qTokens.length) {
       const and = ms.search(raw, { combineWith: 'AND' });
       add(and, 1);
       if (and.length < 6 && qTokens.length > 1) add(ms.search(raw, { combineWith: 'OR' }), 0.45);
@@ -186,9 +275,10 @@ export function createEngine(data: EngineData) {
     let hits: Hit[] = [...scores.entries()]
       .map(([id, v]) => ({ record: byId.get(id)!, score: v.score, terms: [...v.terms] }))
       .filter((h) => h.record);
-    // Drop the long fuzzy tail: keep hits within 12% of the best score.
+    // Drop the long fuzzy tail: keep hits within 12% of the best score
+    // (structured queries are already precise, so keep everything they match).
     const best = hits.reduce((m, h) => Math.max(m, h.score), 0);
-    hits = hits.filter((h) => h.score >= best * 0.12);
+    if (!structured) hits = hits.filter((h) => h.score >= best * 0.12);
     if (task) {
       // Pin the answered task: it always leads Services and the overall list.
       const existing = hits.find((h) => h.record.id === task.record.id);
@@ -232,7 +322,7 @@ export function createEngine(data: EngineData) {
 
     const total = hits.length;
     if (req.limit) hits = hits.slice(0, req.limit);
-    return { q: raw, total, hits, task, expanded, related, facets, groups, tookMs: now() - t0 };
+    return { q: raw, total, hits, task, expanded, related, facets, groups, parsed: structured ? parsed : undefined, tookMs: now() - t0 };
   }
 
   return {

@@ -119,7 +119,15 @@ Source: QNL's Encore catalogue (elibrary.qnl.qa), reviewed in a signed-out brows
    - **Build checks:** `scripts/build-index.mjs` checks every code against the reference data, plus ISBN check digits, due dates and call numbers.
    - **Search:** indexes authors, subjects, places (variants included, so "Dawhah", "Ad Dawhah" and «الدوحة» all find the Doha items), ISBNs, call numbers and format words ("film", "map", "thesis", «فيلم»). Numbers never match fuzzily.
    - **Record pages:** show the catalogue details and a copies table.
-2. **Query parser:** quoted phrases, AND/OR/NOT (plus Arabic و / أو / ليس), and the `title:` `author:` `subject:` `isbn:` `year:` prefixes. The parsed query shows as removable tags.
+2. **Query parser:** ✅ done (24 Nov 2026). `src/search/query.ts`; the engine evaluates it.
+   - **Phrases:** `"…"`, `“…”`, `«…»`.
+   - **Operators:** `AND` / `OR` / `NOT` (upper case), `-word`, and Arabic «أو» / «بدون». AND binds tighter than OR; NOT excludes from the whole result.
+   - **Field shortcuts:** `title:` `author:` `subject:` `place:` `isbn:` `year:`, with Arabic equivalents `عنوان:` `مؤلف:` `موضوع:` `مكان:` `ردمك:` `سنة:`.
+   - **Years:** `year:2015`, `2010-2020`, `>2018` (strict), `>=2018`, `<2000`.
+   - **ISBNs:** a pasted ISBN, hyphenated or not, is recognised automatically.
+   - **Results page:** the parsed query shows as removable tags, and a "Search tips" panel offers one-click examples in EN and AR. Plain queries keep the ranked path (synonyms, quick answers).
+   - **Romanisation:** marks are folded (ḥ ṭ ʿ ʾ ò → plain letters), the romanised article (al/ad/az/ash/el) is ignored, and cross-script synonyms link Doha/Dawhah/الدوحة, Qatar/قطر, Zubarah/الزبارة, Wakrah/الوكرة, map/خريطة, film/فيلم, pearl/لؤلؤ and others.
+   - **Type-ahead with syntax:** 29 ms worst case on desktop, 97 ms on a 4× CPU-throttled phone.
 3. **`/search/advanced` and `/ar/search/advanced`:**
    - rows with a field dropdown and term, an AND/OR/NOT toggle between rows, "+ Add row"
    - Format, Where, Language and Collection as checkbox groups

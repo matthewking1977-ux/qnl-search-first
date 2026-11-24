@@ -1,7 +1,8 @@
 // Text normalisation shared by indexing, querying and highlighting.
 // Arabic: unify alef forms, taa marbuta/haa, alef maqsura/yaa; strip harakat
 // and tatweel; light prefix stemming (ال، وال، بال، كال، فال، لل).
-// Latin: lowercase, strip accents. Digits: Arabic-Indic → Western.
+// Latin: lowercase, strip accents and romanisation marks (Dawḥah → dawhah,
+// ʿArab → arab, Qaṭar → qatar). Digits: Arabic-Indic → Western.
 
 const HARAKAT = /[ؐ-ًؚ-ٰٟۖ-ۭ]/g;
 const TATWEEL = /ـ/g;
@@ -27,7 +28,7 @@ export function normalise(s: string): string {
       .normalize('NFKD')
       .replace(/[̀-ͯ]/g, '') // Latin combining accents (Arabic marks handled above)
       .toLowerCase()
-      .replace(/[’'`]/g, ''),
+      .replace(/[’'`ʿʾʻʼ‘]/g, ''),
   );
 }
 
@@ -63,6 +64,8 @@ export function stemLatin(t: string): string {
 const STOP = new Set([
   'a', 'an', 'the', 'of', 'and', 'or', 'for', 'in', 'on', 'to', 'at', 'by', 'with', 'my', 'your', 'how', 'do', 'does',
   'i', 'is', 'are', 'can', 'what', 'where', 'when', 'which', 'me', 'it', 'this', 'that', 'sample',
+  // romanised Arabic article (Al Wakrah, Ad Dawhah, Az Zubarah, Ash Shamal)
+  'al', 'el', 'ad', 'az', 'ash', 'as', 'ar',
   // Arabic (normalised forms)
   'في', 'من', 'الي', 'علي', 'عن', 'ما', 'هل', 'كيف', 'او', 'و', 'مع', 'هذا', 'هذه', 'نموذج', 'ان', 'لا',
 ]);

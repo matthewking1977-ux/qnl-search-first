@@ -65,13 +65,15 @@ export const isOnline = (c: CatalogueInfo) => c.holdings.some((h) => h.status ==
 export function catalogueIndexText(r: LibraryRecord) {
   const c = r.catalogue!;
   const both = (b?: Bi) => (b ? `${b.en} ${b.ar}` : '');
+  const placeValues = [
+    ...(c.places ?? []).flatMap((k) => [R.places[k]?.en, R.places[k]?.ar, ...(R.places[k]?.variants ?? [])]),
+    ...(c.placesAsCatalogued ?? []),
+  ].filter((x): x is string => !!x);
   return {
     creators: c.authors.map(both).join(' '),
     subjects: c.subjects.map(both).join(' '),
-    places_cat: [
-      ...(c.places ?? []).flatMap((k) => [R.places[k]?.en, R.places[k]?.ar, ...(R.places[k]?.variants ?? [])]),
-      ...(c.placesAsCatalogued ?? []),
-    ].filter(Boolean).join(' '),
+    places_cat: placeValues.join(' '),
+    placeValues,
     ids: [c.isbn, c.isbn?.replace(/-/g, ''), ...c.holdings.map((h) => h.callNo)].filter(Boolean).join(' '),
     typewords: `${R.formats[c.format]?.words ?? ''} ${R.formatGroups[formatGroup(c.format)]?.en ?? ''} catalogue فهرس`,
   };
