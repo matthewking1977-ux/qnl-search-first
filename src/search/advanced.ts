@@ -31,6 +31,10 @@ export function rowsToQuery(p: URLSearchParams): string | null {
     if (field === 'any' && !inner && op === 'AND') clauses.push(...parseQuery(text).clauses);
     else clauses.push({ op: clauses.length || op === 'NOT' ? op : 'AND', field, text: inner ?? text, phrase: !!inner });
   }
+  // No search lines (e.g. the results page's year form): keep the current query,
+  // replacing any year clause it had.
+  const hasRows = clauses.length > 0;
+  if (!hasRows && p.get('q')) clauses.push(...parseQuery(p.get('q')!).clauses.filter((c) => c.field !== 'year'));
   let yf = year(p.get('yf')), yt = year(p.get('yt'));
   if (yf && yt && yf > yt) [yf, yt] = [yt, yf];
   if (yf || yt) clauses.push({ op: 'AND', field: 'year', text: '', phrase: false, from: yf, to: yt });
@@ -56,10 +60,10 @@ export function readCatalogueFilters(p: URLSearchParams): Pick<SearchFilters, 'f
 /** Canonical results URL for a submitted advanced form (rows → q; filters kept). */
 export function canonicalFromAdvanced(base: string, p: URLSearchParams): string {
   const u = new URLSearchParams();
-  const q = rowsToQuery(p) ?? (p.get('q') ?? '');
+  const q = rowsToQuery(p) ?? '';
   if (q) u.set('q', q);
-  const type = p.get('type');
-  if (type) u.set('type', type);
+  for (const k of ['type', 'sort', 'date']) { const v = p.get(k); if (v) u.set(k, v); }
+  p.getAll('aud').forEach((v) => u.append('aud', v));
   for (const param of Object.keys(LIST_PARAMS)) p.getAll(param).forEach((v) => u.append(param, v));
   for (const param of Object.keys(FLAG_PARAMS)) if (p.get(param) === '1') u.set(param, '1');
   return `${base}?${u}`;

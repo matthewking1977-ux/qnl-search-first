@@ -137,12 +137,26 @@ Source: QNL's Encore catalogue (elibrary.qnl.qa), reviewed in a signed-out brows
    - **Query building:** each line becomes query syntax. Multi-word field values use the new bracket form, `title:(old maps)` = all these words in the title.
    - **Results page:** active catalogue filters show as removable tags. "Edit advanced search" re-opens the form pre-filled from the current search. Filters with no words browse everything that matches (`/search?fmt=maps`).
    - **Lighthouse mobile:** 100 in all four categories, EN and AR.
-4. **Results page:**
-   - the three toggles (At QNL · Available now · Online)
-   - the filters from §3 with counts; Year as a range with a small chart
-   - an "Edit advanced search" link
-5. **Result card and record page:**
-   - status first, with a main action that depends on the item (Place hold / Read online / Library use only + Map it)
-   - Save · Cite · Export · Share
-   - holdings table with "only available"
+4. **Results page:** ✅ done (24 Nov 2026).
+   - **"Show only" toggles:** At QNL · Available now · Online, with counts.
+   - **Sidebar filters with counts:** Type, Format, Location (QNL first, partner libraries grouped), Language (one filter for every result type), Collection, Audience, and Events date when relevant. Each filter counts matches with the *other* active filters applied, so options combine without dead ends, and zero-count options are hidden.
+   - **Year published:** a small results-by-decade chart plus a from–to range that merges into the query (`year:`).
+   - **Sort:** relevance, newest, oldest, title A–Z, author A–Z, and date for events.
+   - **Mobile:** filters collapse behind a "Filters (n active)" button. They're hidden from first paint when JS is on, so nothing jumps; without JS they're always shown.
+5. **Result card and record page:** ✅ done (24 Nov 2026).
+   - **Catalogue cards lead with availability:** status, due date, location and call number, plus "All copies (n)".
+   - **One main action, depending on the item:**
+     - *Place hold*
+     - *Read / Watch / Listen / View online*
+     - *Request from a partner library*
+     - *Find it in the library* (library use only)
+   - **Then Save, Cite, Export and Share.**
+   - **Cite:** APA 7, MLA 9, Chicago author-date and Harvard (`src/search/cite.ts`), each with Copy.
+   - **Export:** static RIS and BibTeX files per record (`/item/<id>.ris`, `.bib`, EN and AR), served as downloads.
+   - **Save:** keeps items on this device (localStorage), listed at `/saved` and `/ar/saved` until library accounts exist.
+   - **Share:** uses the system share sheet, or copies the link.
+   - **Without JS:** Cite and Export are plain disclosures.
+   - **Record pages:** the same action bar, plus "Place a hold" / "Online access" panels that the main action links to. Sign-in is marked as not connected (sample).
+   - **Checks:** axe found 0 violations on results (EN desktop, AR phone), the saved list and record pages. Lighthouse mobile: record page 100/100/100/100, homepage 98–99.
+   - **Limitation:** the saved list is `noindex` (a personal list), so Lighthouse SEO reads 63 there, by design.
 6. **Production hookup:** `DiscoveryApiAdapter` connects to the catalogue's API and to the EDS API, and the interface stays the same. QNL IT to confirm which catalogue API is available.

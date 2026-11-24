@@ -1,5 +1,6 @@
 ---
-import { formatLabel, languageLabel, formatGroupLabel, locationLabel, collectionLabel } from '../search/catalogue';
+import { formatLabel, languageLabel, formatGroupLabel, locationLabel, collectionLabel, catalogueRef, bestHolding, statusLabel, authorLine } from '../search/catalogue';
+import RecordActions from './RecordActions.astro';
 import { readCatalogueFilters, LIST_PARAMS, FLAG_PARAMS } from '../search/advanced';
 import { serializeQuery, type Clause } from '../search/query';
 // Server-rendered results page. Works fully without JavaScript:
@@ -7,7 +8,7 @@ import { serializeQuery, type Clause } from '../search/query';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import SearchBar from './SearchBar.astro';
-import { t, fmt, formatDate, type Lang } from '../i18n';
+import { t, fmt, formatDate, localPath, type Lang } from '../i18n';
 import { createEngine } from '../search/engine';
 import { highlight } from '../search/highlight';
 import { engineData } from '../search/data';
@@ -28,13 +29,16 @@ const language = p.getAll('lang').filter((l) => l === 'en' || l === 'ar') as ('e
 const dateP = p.get('date');
 const date = dateP === 'week' || dateP === 'month' || dateP === 'later' ? dateP : undefined;
 const sortP = p.get('sort') as SortKey | null;
-const sort: SortKey = sortP === 'date' || sortP === 'title' ? sortP : 'relevance';
+const SORTS: SortKey[] = ['relevance', 'newest', 'oldest', 'title', 'author', 'date'];
+const sort: SortKey = sortP && SORTS.includes(sortP) ? sortP : 'relevance';
 const PER = 10;
 const page = Math.max(1, parseInt(p.get('page') ?? '1', 10) || 1);
 
 const cat = readCatalogueFilters(p);
+// Older links used lang=en|ar for content language: fold into the Language filter.
+if (language.length) cat.clang = [...new Set([...(cat.clang ?? []), ...language.map((l) => (l === 'en' ? 'eng' : 'ara'))])];
 const browsing = !q && Object.keys(cat).length > 0;
-const res = q || browsing ? engine.search({ q, lang, filters: { group, audience, language, date, ...cat }, sort }) : null;
+const res = q || browsing ? engine.search({ q, lang, filters: { group, audience, date, ...cat }, sort }) : null;
 const total = res?.total ?? 0;
 const pages = Math.max(1, Math.ceil(total / PER));
 const hits = res ? res.hits.slice((page - 1) * PER, page * PER) : [];
@@ -42,7 +46,7 @@ const hits = res ? res.hits.slice((page - 1) * PER, page * PER) : [];
 const qs = (over: Record<string, string | string[] | undefined>) => {
   const u = new URLSearchParams();
   const base: Record<string, string | string[] | undefined> = {
-    q, type: group === 'all' ? undefined : group, aud: audience, lang: language, date, sort: sort === 'relevance' ? undefined : sort,
+    q, type: group === 'all' ? undefined : group, aud: audience, date, sort: sort === 'relevance' ? undefined : sort,
     fmt: cat.format, loc: cat.location, cl: cat.clang, col: cat.collection,
     avail: cat.avail ? '1' : undefined, online: cat.online ? '1' : undefined, atqnl: cat.atQnl ? '1' : undefined,
     ...over,
@@ -53,6 +57,29 @@ const qs = (over: Record<string, string | string[] | undefined>) => {
   }
   return `${searchHref(lang, '').split('?')[0]}?${u}`;
 };
+
+/** Hidden inputs that carry the current state through a GET form, minus the given params. */
+const carry = (except: string[]) => {
+  const u = new URL(qs({}), 'http://x').searchParams;
+  return [...u.entries()].filter(([k]) => !except.includes(k));
+};
+const F = res?.facets;
+const opt = (m: Record<string, number> | undefined, keys: string[], selected: string[] = []) =>
+  keys.filter((k) => (m?.[k] ?? 0) > 0 || selected.includes(k)).map((k) => ({ k, n: m?.[k] ?? 0, on: selected.includes(k) }));
+const fmtOpts = opt(F?.format, Object.entries(catalogueRef.formatGroups).sort((a, b) => a[1].order - b[1].order).map(([k]) => k), cat.format);
+const locOpts = opt(F?.location, [...Object.entries(catalogueRef.locations).filter(([, v]) => v.qnl).map(([k]) => k), 'partner'], cat.location);
+const langOpts = opt(F?.clang, ['ara', 'eng', 'fre', 'mul', 'zxx', 'other'], cat.clang);
+const colOpts = opt(F?.collection, Object.keys(catalogueRef.collections), cat.collection);
+const audOpts = opt(F?.audience, AUD, audience);
+const langName = (k: string) => (k === 'other' ? t(lang, 'meta.lang.other') : languageLabel(k, lang));
+const hasCatalogue = (F && Object.values(F.format).some((n) => n > 0)) || Object.keys(cat).length > 0;
+const flags = [['atqnl', 'atQnl'], ['avail', 'avail'], ['online', 'online']] as const;
+// Year histogram (decades of the current results) and the active year range from the query.
+const decades = Object.entries(F?.years ?? {}).map(([d, n]) => [+d, n] as const).sort((a, b) => a[0] - b[0]);
+const maxDecade = Math.max(1, ...decades.map(([, n]) => n));
+const yearClause = res?.parsed?.clauses.find((c) => c.field === 'year');
+const activeCount = (group !== 'all' ? 1 : 0) + audience.length + (date ? 1 : 0) + (cat.format?.length ?? 0) + (cat.location?.length ?? 0) + (cat.clang?.length ?? 0) + (cat.collection?.length ?? 0) + (yearClause ? 1 : 0);
+const day = (iso: string) => formatDate(lang, new Date(iso + 'T12:00:00'), { day: 'numeric', month: 'short' });
 
 const Hl = (text: string, terms: string[]) => highlight(text, terms);
 
@@ -76,7 +103,7 @@ const catTags: { label: string; href: string }[] = [];
 const listLabel: Record<string, (v: string) => string> = {
   fmt: (v) => formatGroupLabel(v, lang),
   loc: (v) => (v === 'partner' ? collectionLabel('partner', lang) : locationLabel(v, lang)),
-  cl: (v) => languageLabel(v, lang),
+  cl: (v) => langName(v),
   col: (v) => collectionLabel(v, lang),
 };
 for (const [param, key] of Object.entries(LIST_PARAMS)) {
@@ -112,58 +139,107 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
 
   <div class="wrap layout">
     <aside class="facets" aria-labelledby="facets-h">
-      <h2 id="facets-h" class="sr-only">{t(lang, 'search.filters')}</h2>
-      <form method="get" action={searchHref(lang, '').split('?')[0]} class="facet-form" data-autosubmit>
-        <input type="hidden" name="q" value={q} />
-        <fieldset>
-          <legend>{t(lang, 'results.type')}</legend>
-          {(['all', ...GROUP_ORDER] as const).map((g) => (
-            <label class="opt-line">
-              <input type="radio" name="type" value={g === 'all' ? '' : g} checked={group === g} />
-              <span>{g === 'all' ? t(lang, 'filter.all') : t(lang, `group.${g}` as any)}</span>
-              {res && <span class="n">{g === 'all' ? Object.values(res.facets.group).reduce((a, b) => a + b, 0) : res.facets.group[g] ?? 0}</span>}
-            </label>
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>{t(lang, 'results.audience')}</legend>
-          {AUD.map((a) => (
-            <label class="opt-line">
-              <input type="checkbox" name="aud" value={a} checked={audience.includes(a)} />
-              <span>{t(lang, `aud.${a}` as any)}</span>
-              {res && <span class="n">{res.facets.audience[a] ?? 0}</span>}
-            </label>
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>{t(lang, 'results.language')}</legend>
-          {(['ar', 'en'] as const).map((l) => (
-            <label class="opt-line">
-              <input type="checkbox" name="lang" value={l} checked={language.includes(l)} />
-              <span>{t(lang, `meta.lang.${l}` as any)}</span>
-              {res && <span class="n">{res.facets.language[l] ?? 0}</span>}
-            </label>
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>{t(lang, 'results.date')}</legend>
-          <label class="opt-line"><input type="radio" name="date" value="" checked={!date} /><span>{t(lang, 'filter.all')}</span></label>
-          {(['week', 'month', 'later'] as const).map((d) => (
-            <label class="opt-line">
-              <input type="radio" name="date" value={d} checked={date === d} />
-              <span>{t(lang, `results.date.${d}` as any)}</span>
-              {res && <span class="n">{res.facets.date[d] ?? 0}</span>}
-            </label>
-          ))}
-        </fieldset>
-        <input type="hidden" name="sort" value={sort === 'relevance' ? '' : sort} />
-        {Object.entries(LIST_PARAMS).flatMap(([param, key]) => ((cat as any)[key] ?? []).map((v: string) => <input type="hidden" name={param} value={v} />))}
-        {Object.entries(FLAG_PARAMS).map(([param, key]) => (cat as any)[key] && <input type="hidden" name={param} value="1" />)}
-        <div class="facet-actions">
-          <button class="btn btn--secondary" type="submit">{t(lang, 'results.apply')}</button>
-          {(audience.length || language.length || date || group !== 'all' || catTags.length > 0) && <a class="link" href={qs({ type: undefined, aud: [], lang: [], date: undefined, fmt: [], loc: [], cl: [], col: [], avail: undefined, online: undefined, atqnl: undefined })}>{t(lang, 'results.reset')}</a>}
+      <div class="drawer" data-drawer>
+        <h2 id="facets-h" class="drawer-h">{t(lang, 'f.filters')}{activeCount > 0 && <span class="drawer-n"> · {fmt(t(lang, 'f.active'), { n: activeCount })}</span>}</h2>
+        <button type="button" class="drawer-btn" aria-expanded="false" aria-controls="facets-body">
+          <span>{t(lang, 'f.filters')}</span>{activeCount > 0 && <span class="drawer-n">{fmt(t(lang, 'f.active'), { n: activeCount })}</span>}
+        </button>
+        <div class="drawer-body" id="facets-body">
+          <form method="get" action={searchHref(lang, '').split('?')[0]} class="facet-form" data-autosubmit>
+            {carry(['type', 'fmt', 'loc', 'cl', 'col', 'aud', 'date', 'page']).map(([k, v]) => <input type="hidden" name={k} value={v} />)}
+            <fieldset>
+              <legend>{t(lang, 'results.type')}</legend>
+              {(['all', ...GROUP_ORDER] as const).map((g) => (
+                <label class="opt-line">
+                  <input type="radio" name="type" value={g === 'all' ? '' : g} checked={group === g} />
+                  <span>{g === 'all' ? t(lang, 'filter.all') : t(lang, `group.${g}` as any)}</span>
+                  {res && <span class="n">{g === 'all' ? Object.values(res.facets.group).reduce((x, y) => x + y, 0) : res.facets.group[g] ?? 0}</span>}
+                </label>
+              ))}
+            </fieldset>
+            {fmtOpts.length > 0 && (
+              <fieldset>
+                <legend>{t(lang, 'adv.f.format')}</legend>
+                {fmtOpts.map((o) => (
+                  <label class="opt-line"><input type="checkbox" name="fmt" value={o.k} checked={o.on} /><span>{formatGroupLabel(o.k, lang)}</span><span class="n">{o.n}</span></label>
+                ))}
+              </fieldset>
+            )}
+            {locOpts.length > 0 && (
+              <fieldset>
+                <legend>{t(lang, 'adv.f.location')}</legend>
+                {locOpts.map((o) => (
+                  <label class="opt-line"><input type="checkbox" name="loc" value={o.k} checked={o.on} /><span>{o.k === 'partner' ? t(lang, 'adv.partner') : locationLabel(o.k, lang)}</span><span class="n">{o.n}</span></label>
+                ))}
+              </fieldset>
+            )}
+            {langOpts.length > 0 && (
+              <fieldset>
+                <legend>{t(lang, 'adv.f.clang')}</legend>
+                {langOpts.map((o) => (
+                  <label class="opt-line"><input type="checkbox" name="cl" value={o.k} checked={o.on} /><span>{langName(o.k)}</span><span class="n">{o.n}</span></label>
+                ))}
+              </fieldset>
+            )}
+            {colOpts.length > 0 && (
+              <fieldset>
+                <legend>{t(lang, 'adv.f.collection')}</legend>
+                {colOpts.map((o) => (
+                  <label class="opt-line"><input type="checkbox" name="col" value={o.k} checked={o.on} /><span>{collectionLabel(o.k, lang)}</span><span class="n">{o.n}</span></label>
+                ))}
+              </fieldset>
+            )}
+            {audOpts.length > 0 && (
+              <fieldset>
+                <legend>{t(lang, 'results.audience')}</legend>
+                {audOpts.map((o) => (
+                  <label class="opt-line"><input type="checkbox" name="aud" value={o.k} checked={o.on} /><span>{t(lang, `aud.${o.k}` as any)}</span><span class="n">{o.n}</span></label>
+                ))}
+              </fieldset>
+            )}
+            {(date || (F && Object.keys(F.date).length > 0)) && (
+              <fieldset>
+                <legend>{t(lang, 'results.date')}</legend>
+                <label class="opt-line"><input type="radio" name="date" value="" checked={!date} /><span>{t(lang, 'filter.all')}</span></label>
+                {(['week', 'month', 'later'] as const).map((d) => (
+                  <label class="opt-line">
+                    <input type="radio" name="date" value={d} checked={date === d} />
+                    <span>{t(lang, `results.date.${d}` as any)}</span>
+                    <span class="n">{F?.date[d] ?? 0}</span>
+                  </label>
+                ))}
+              </fieldset>
+            )}
+            <div class="facet-actions">
+              <button class="btn btn--secondary" type="submit">{t(lang, 'results.apply')}</button>
+              {(activeCount > 0 || catTags.length > 0) && <a class="link" href={qs({ type: undefined, aud: [], date: undefined, fmt: [], loc: [], cl: [], col: [], avail: undefined, online: undefined, atqnl: undefined, q: yearClause ? serializeQuery(clauses.filter((c) => c.field !== 'year')) : q })}>{t(lang, 'results.reset')}</a>}
+            </div>
+          </form>
+
+          {(decades.length > 0 || yearClause) && (
+            <form method="get" action={searchHref(lang, '').split('?')[0]} class="year-form">
+              {carry(['page']).map(([k, v]) => <input type="hidden" name={k} value={v} />)}
+              <fieldset>
+                <legend>{t(lang, 'f.year')}</legend>
+                {decades.length > 1 && (
+                  <ul class="hist" aria-hidden="true">
+                    {decades.map(([d, n]) => <li style={`--h:${Math.round((n / maxDecade) * 100)}%`} title={`${d}–${d + 9}: ${n}`}><span></span></li>)}
+                  </ul>
+                )}
+                {decades.length > 1 && (
+                  <ul class="sr-only">{decades.map(([d, n]) => <li>{fmt(t(lang, 'f.decade'), { a: d, b: d + 9, n })}</li>)}</ul>
+                )}
+                {decades.length > 1 && <p class="hist-axis" aria-hidden="true" dir="ltr"><span>{decades[0][0]}</span><span>{decades[decades.length - 1][0] + 9}</span></p>}
+                <div class="year-inputs" dir="ltr">
+                  <label><span>{t(lang, 'f.from')}</span><input class="input" name="yf" type="text" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" value={yearClause?.from ?? ''} placeholder={decades[0]?.[0] ? String(decades[0][0]) : ''} /></label>
+                  <label><span>{t(lang, 'f.to')}</span><input class="input" name="yt" type="text" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" value={yearClause?.to ?? ''} placeholder={decades.length ? String(decades[decades.length - 1][0] + 9) : ''} /></label>
+                  <button class="btn btn--ghost btn--sm" type="submit">{t(lang, 'f.apply')}</button>
+                </div>
+              </fieldset>
+            </form>
+          )}
         </div>
-      </form>
+      </div>
     </aside>
 
     <section class="list" aria-labelledby="results-h">
@@ -194,16 +270,10 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
         </div>
         {(q || browsing) && (
           <form method="get" class="sort" data-autosubmit>
-            <input type="hidden" name="q" value={q} />
-            {group !== 'all' && <input type="hidden" name="type" value={group} />}
-            {audience.map((a) => <input type="hidden" name="aud" value={a} />)}
-            {language.map((l) => <input type="hidden" name="lang" value={l} />)}
-            {date && <input type="hidden" name="date" value={date} />}
-            {Object.entries(LIST_PARAMS).flatMap(([param, key]) => ((cat as any)[key] ?? []).map((v: string) => <input type="hidden" name={param} value={v} />))}
-            {Object.entries(FLAG_PARAMS).map(([param, key]) => (cat as any)[key] && <input type="hidden" name={param} value="1" />)}
+            {carry(['sort', 'page']).map(([k, v]) => <input type="hidden" name={k} value={v} />)}
             <label for="sort-sel">{t(lang, 'results.sort')}</label>
             <select id="sort-sel" name="sort">
-              {(['relevance', 'date', 'title'] as const).map((k) => <option value={k} selected={sort === k}>{t(lang, `results.sort.${k}` as any)}</option>)}
+              {SORTS.filter((k) => k !== 'date' || (F && Object.keys(F.date).length > 0) || sort === 'date').map((k) => <option value={k} selected={sort === k}>{t(lang, `results.sort.${k}` as any)}</option>)}
             </select>
             <noscript><button class="btn btn--ghost" type="submit">{t(lang, 'results.apply')}</button></noscript>
             <button type="button" class="share link" data-share data-copied={t(lang, 'results.copied')} hidden>{t(lang, 'results.share')}</button>
@@ -211,7 +281,24 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
         )}
       </div>
 
-      <p class="adv-link"><a class="link" href={advHref}>{q || browsing ? t(lang, 'adv.edit') : t(lang, 'adv.title')}</a></p>
+      {(q || browsing) && hasCatalogue && (
+        <form method="get" class="toggles" data-autosubmit aria-labelledby="tog-h">
+          <span id="tog-h" class="tog-h">{t(lang, 'f.showOnly')}</span>
+          {carry(['avail', 'online', 'atqnl', 'page']).map(([k, v]) => <input type="hidden" name={k} value={v} />)}
+          {flags.filter(([, key]) => (F?.flags[key] ?? 0) > 0 || (cat as any)[key]).map(([param, key]) => (
+            <label class="tog">
+              <input type="checkbox" name={param} value="1" checked={!!(cat as any)[key]} />
+              <span>{t(lang, `adv.flag.${param}` as any)}</span>
+              <span class="n">{F?.flags[key] ?? 0}</span>
+            </label>
+          ))}
+          <noscript><button class="btn btn--ghost btn--sm" type="submit">{t(lang, 'results.apply')}</button></noscript>
+        </form>
+      )}
+
+      <p class="adv-link">
+        <a class="link saved-link" href={localPath(lang, '/saved')} data-saved-link data-template={t(lang, 'act.savedList')} hidden></a>
+        <a class="link" href={advHref}>{q || browsing ? t(lang, 'adv.edit') : t(lang, 'adv.title')}</a></p>
       <details class="tips">
         <summary>{t(lang, 'q.tips')}</summary>
         <dl>
@@ -231,7 +318,26 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
 
       {(q || browsing) && total > 0 && (
         <ol class="hits" start={(page - 1) * PER + 1}>
-          {hits.filter((h) => !(res?.task && page === 1 && h.record.id === res.task.record.id)).map((h, i) => (
+          {hits.filter((h) => !(res?.task && page === 1 && h.record.id === res.task.record.id)).map((h, i) => h.record.catalogue ? (() => {
+              const r = h.record, c = r.catalogue!, best = bestHolding(c);
+              const pos = (page - 1) * PER + i + 1;
+              const where = best.status === 'online' ? '' : locationLabel(best.location, lang);
+              return (
+                <li class="hit hit--cat">
+                  <p class="hit-type">{formatLabel(c.format, lang)}<span class="sample-tag">{t(lang, 'label.sample')}</span></p>
+                  <h2 class="hit-h"><a href={itemHref(lang, r)} data-result={r.id} data-type={r.type} data-pos={pos}>{Hl(r.title[lang], h.terms).map((x) => x.m ? <mark>{x.t}</mark> : x.t)}</a></h2>
+                  <p class="hit-meta">{[authorLine(c, lang), r.year ?? c.publication?.year, c.language !== 'zxx' && languageLabel(c.language, lang)].filter(Boolean).join(' · ')}</p>
+                  <p class="hit-sum">{Hl(r.summary[lang], h.terms).map((x) => x.m ? <mark>{x.t}</mark> : x.t)}</p>
+                  <p class="avail">
+                    <span class={`status status--${best.status}`}>{statusLabel(best.status, lang)}</span>
+                    {best.status === 'on-loan' && best.due && <span class="due">{fmt(t(lang, 'item.c.due'), { date: day(best.due) })}</span>}
+                    {where && <span class="where">{where}{best.callNo && <> · <bdi dir="ltr" class="mono">{best.callNo}</bdi></>}</span>}
+                    {c.holdings.length > 1 && <a class="link copies" href={`${itemHref(lang, r)}#holdings`}>{fmt(t(lang, 'act.allCopies'), { n: c.holdings.length })}</a>}
+                  </p>
+                  <RecordActions lang={lang} record={r} />
+                </li>
+              );
+            })() : (
             <li class="hit">
               <p class="hit-type">{t(lang, `group.${TYPE_TO_GROUP[h.record.type]}` as any)}{h.record.type === 'heritage' || h.record.type === 'event' || h.record.type === 'book' || h.record.type === 'database' ? <span class="sample-tag">{t(lang, 'label.sample')}</span> : null}</p>
               <h2 class="hit-h"><a href={itemHref(lang, h.record)} data-result={h.record.id} data-type={h.record.type} data-pos={(page - 1) * PER + i + 1}>{Hl(h.record.title[lang], h.terms).map((s) => s.m ? <mark>{s.t}</mark> : s.t)}</a></h2>
@@ -241,7 +347,7 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
                 {h.record.tags.slice(0, 3).filter((k) => engineData.tags[k]).map((k) => <li><a class="tag tag--quiet" href={searchHref(lang, tagLabel(k))}>{tagLabel(k)}</a></li>)}
               </ul>
             </li>
-          ))}
+            ))}
         </ol>
       )}
 
@@ -291,6 +397,10 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
   document.querySelectorAll('form[data-autosubmit]').forEach((f) => {
     f.addEventListener('change', () => f.requestSubmit ? f.requestSubmit() : f.submit());
   });
+  // Keep URLs tidy: empty fields (type=, sort=) are left out of GET submissions.
+  document.querySelectorAll('.results form[method="get"]').forEach((f) => {
+    f.addEventListener('submit', () => f.querySelectorAll('input, select').forEach((el) => { if (el.name && el.value === '') el.disabled = true; }));
+  });
   const share = document.querySelector('[data-share]');
   if (share && navigator.clipboard) {
     share.hidden = false;
@@ -310,14 +420,54 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
   }));
 </script>
 
+<script>
+  import { initRecordActions } from '../scripts/record-actions';
+  initRecordActions();
+  // Filters collapse behind a button on small screens (CSS hides them from first
+  // paint when JS is on, so nothing jumps); the button just toggles them.
+  const drawer = document.querySelector<HTMLElement>('[data-drawer]');
+  const btn = drawer?.querySelector<HTMLButtonElement>('.drawer-btn');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open));
+    drawer!.classList.toggle('is-open', open);
+  });
+</script>
+
 <style>
   .results { padding-block-end: var(--s-12); }
   .top { padding-block: var(--s-4) var(--s-3); border-block-end: var(--hairline); }
   .top :global(.sb) { max-inline-size: 64rem; }
   .layout { display: grid; grid-template-columns: 15rem 1fr; gap: var(--s-6); padding-block-start: var(--s-5); }
-  @media (max-width: 56rem) { .layout { grid-template-columns: 1fr; gap: var(--s-3); } .facets { order: 2; } }
+  @media (max-width: 56rem) { .layout { grid-template-columns: 1fr; gap: var(--s-3); } }
 
-  .facet-form { display: grid; gap: var(--s-3); position: sticky; inset-block-start: var(--s-2); }
+  .drawer-h { margin: 0 0 var(--s-2); font-size: var(--fs-base); font-weight: 500; }
+  .drawer-n { font-size: var(--fs-xs); color: var(--color-grey-600); font-weight: 400; }
+  .drawer-btn { display: none; }
+  .drawer-body { display: grid; gap: var(--s-3); }
+  .facet-form { display: grid; gap: var(--s-3); }
+  .year-form .input { inline-size: 4.75rem; min-block-size: 2.5rem; padding-inline: 0.5rem; font-variant-numeric: tabular-nums; }
+  .year-inputs { display: flex; align-items: end; gap: 0.5rem; flex-wrap: wrap; }
+  :global([dir='rtl']) .year-inputs { flex-direction: row-reverse; justify-content: flex-end; }
+  .year-inputs label { display: grid; gap: 0.2rem; font-size: var(--fs-xs); color: var(--color-grey-600); }
+  .hist { list-style: none; margin: 0 0 0.25rem; padding: 0; display: flex; align-items: end; gap: 2px; block-size: 2.5rem; direction: ltr; }
+  .hist li { flex: 1; block-size: 100%; display: flex; align-items: end; }
+  .hist span { display: block; inline-size: 100%; block-size: max(2px, var(--h)); background: var(--color-grey-300); border-radius: 1px 1px 0 0; }
+  .hist-axis { display: flex; justify-content: space-between; margin: 0 0 0.5rem; font-size: var(--fs-xs); color: var(--color-grey-600); font-variant-numeric: tabular-nums; }
+  @media (max-width: 56rem) {
+    .facets { order: 0; }
+    :global(.js) .drawer { border: 1px solid var(--color-grey-300); border-radius: var(--radius-2); }
+    :global(.js) .drawer-h { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    :global(.js) .drawer-btn {
+      display: flex; align-items: center; gap: var(--s-1); inline-size: 100%; min-block-size: 3rem; padding-inline: var(--s-2);
+      font: 500 var(--fs-base)/1 var(--font-sans); color: var(--color-ink); background: none; border: 0; cursor: pointer; text-align: start;
+    }
+    :global([lang='ar']) .drawer-btn { font-family: var(--font-arabic); }
+    :global(.js) .drawer-btn::after { content: ''; margin-inline-start: auto; inline-size: 0.5rem; block-size: 0.5rem; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); transition: transform var(--dur-1); }
+    :global(.js) .drawer-btn[aria-expanded='true']::after { transform: rotate(-135deg); }
+    :global(.js) .drawer:not(.is-open) .drawer-body { display: none; }
+    :global(.js) .drawer-body { padding: 0 var(--s-2) var(--s-2); }
+  }
   fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 0.1rem; }
   legend { font-weight: 700; font-size: var(--fs-xs); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--color-grey-600); margin-block-end: 0.5rem; }
   :global([lang='ar']) legend { font-weight: 500; font-size: var(--fs-sm); }
@@ -367,6 +517,20 @@ const title = q ? fmt(t(lang, 'results.for'), { q }) : t(lang, 'results.title');
   .hit-sum { color: var(--color-grey-800); max-inline-size: 70ch; }
   .hit-meta { font-size: var(--fs-sm); color: var(--color-grey-600); }
   .hits mark { background: none; color: inherit; font-weight: 700; }
+  .avail { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.75rem; font-size: var(--fs-sm); margin-block: 0.25rem !important; }
+  .avail .where, .avail .due { color: var(--color-grey-800); }
+  .mono { font-family: var(--font-mono); font-size: 0.92em; }
+  .hit--cat :global(.ract) { margin-block-start: 0.25rem; }
+  .toggles { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-block-start: var(--s-2); }
+  .tog-h { font-size: var(--fs-sm); color: var(--color-grey-600); margin-inline-end: 0.25rem; }
+  .tog { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; min-block-size: 2.5rem; padding-inline: 0.85rem; border: 1px solid var(--color-grey-300); border-radius: var(--radius-2); font-size: var(--fs-sm); cursor: pointer; }
+  .tog input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .tog:has(input:checked) { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-paper); }
+  .tog:has(input:checked) .n { color: var(--color-grey-300); }
+  .tog:has(input:focus-visible) { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+  .tog:hover { border-color: var(--color-ink); }
+  .tog .n { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--color-grey-600); }
+  .adv-link { display: flex; gap: var(--s-3); }
   .hit-tags { list-style: none; padding: 0; margin: 0.25rem 0 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .hit-tags .tag { text-decoration: none; min-block-size: 1.75rem; }
   .hit-tags .tag:hover { background: var(--color-grey-100); text-decoration: underline; }

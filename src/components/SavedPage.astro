@@ -1,0 +1,69 @@
+---
+// Saved items: kept in this browser (localStorage) until library accounts exist.
+// Rendered client-side from the same lazy data chunk the search box uses.
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { t, localPath, type Lang } from '../i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+---
+<Header lang={lang} tone="light" />
+<main id="main" class="wrap saved" tabindex="-1">
+  <h1 class="t-h2">{t(lang, 'saved.title')}</h1>
+  <p class="prose-measure lead">{t(lang, 'saved.lead')}</p>
+  <div data-saved-root data-lang={lang} data-item-base={localPath(lang, '/item/')}
+    data-empty={t(lang, 'saved.empty')} data-remove={t(lang, 'saved.remove')} data-clear={t(lang, 'saved.clear')}
+    data-search={localPath(lang, '/search')}>
+    <p class="muted">{t(lang, 'saved.loading')}</p>
+  </div>
+  <noscript><p>{t(lang, 'saved.empty')}</p></noscript>
+</main>
+<Footer lang={lang} />
+
+<script>
+  import { readSaved, writeSaved } from '../scripts/record-actions';
+  const root = document.querySelector<HTMLElement>('[data-saved-root]');
+  if (root) {
+    const lang = root.dataset.lang as 'en' | 'ar';
+    const h = (tag: string, attrs: Record<string, string> = {}, ...kids: (Node | string)[]) => {
+      const el = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+      el.append(...kids);
+      return el;
+    };
+    const render = async () => {
+      const ids = readSaved();
+      if (!ids.length) { root.replaceChildren(h('p', { class: 'muted' }, root.dataset.empty!)); return; }
+      const { records } = await import('../search/data');
+      const byId = new Map(records.map((r) => [r.id, r]));
+      const list = h('ol', { class: 'saved-list' });
+      for (const id of ids) {
+        const r = byId.get(id);
+        if (!r) continue;
+        const d = r.catalogue?.display;
+        const meta = [d?.format[lang], r.year ?? r.catalogue?.publication?.year].filter(Boolean).join(' · ');
+        const btn = h('button', { type: 'button', class: 'ract-btn', 'aria-label': root.dataset.remove!.replace('{t}', r.title[lang]) }, '×');
+        btn.addEventListener('click', () => { writeSaved(readSaved().filter((x) => x !== id)); render(); });
+        list.append(h('li', { class: 'saved-item' },
+          h('div', {}, h('a', { class: 'saved-title', href: `${root.dataset.itemBase}${r.id}` }, r.title[lang]), meta ? h('p', { class: 'muted' }, meta) : ''),
+          btn));
+      }
+      const clear = h('button', { type: 'button', class: 'btn btn--ghost btn--sm' }, root.dataset.clear!);
+      clear.addEventListener('click', () => { writeSaved([]); render(); });
+      root.replaceChildren(list, clear);
+    };
+    render();
+  }
+</script>
+
+<style>
+  .saved { padding-block: var(--s-6) var(--s-12); display: grid; gap: var(--s-2); justify-items: start; }
+  .saved h1, .lead { margin: 0; }
+  .lead, .muted { color: var(--color-grey-600); }
+  :global(.saved-list) { list-style: none; margin: var(--s-2) 0; padding: 0; inline-size: 100%; max-inline-size: 48rem; }
+  :global(.saved-item) { display: flex; justify-content: space-between; align-items: center; gap: var(--s-2); padding-block: var(--s-2); border-block-end: var(--hairline); }
+  :global(.saved-item p) { margin: 0.2rem 0 0; font-size: var(--fs-sm); }
+  :global(.saved-title) { font-size: var(--fs-lg); font-weight: 500; text-decoration: none; }
+  :global(.saved-title:hover) { color: var(--color-accent); text-decoration: underline; }
+  :global(.saved-item .ract-btn) { font-size: 1.25rem; }
+</style>

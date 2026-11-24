@@ -125,6 +125,9 @@ export function createEngine(data: EngineData) {
     segs.set(r.id, { title, author, subject, place, any });
   }
   const year = (r: LibraryRecord) => r.year ?? r.catalogue?.publication?.year;
+  /** Language codes for the Language facet: catalogue language, else the record's UI languages. */
+  const recLangs = (r: LibraryRecord): string[] =>
+    r.catalogue ? [r.catalogue.language] : r.lang === 'both' ? ['ara', 'eng'] : r.lang === 'ar' ? ['ara'] : r.lang === 'en' ? ['eng'] : ['other'];
   const isbnDigits = (s: string) => s.replace(/[^\dXx]/g, '').toUpperCase();
 
   type Matches = Map<string, { score: number; terms: Set<string> }>;
@@ -291,46 +294,62 @@ export function createEngine(data: EngineData) {
       else hits.push({ record: task.record, score: best + 1, terms: [] });
     }
 
-    // Catalogue filters (advanced search). "partner" matches any partner-library copy.
-    const cf = f0;
-    if (hasCatFilter) {
-      hits = hits.filter(({ record: r }) => {
-        const c = r.catalogue, d = c?.display;
-        if (!c || !d) return false;
-        if (cf.format?.length && !cf.format.includes(d.group)) return false;
-        if (cf.location?.length && !d.locations.some((l) => cf.location!.includes(l) || (cf.location!.includes('partner') && l.startsWith('partner-')))) return false;
-        if (cf.clang?.length && !cf.clang.includes(c.language)) return false;
-        if (cf.collection?.length && !cf.collection.includes(c.collection)) return false;
-        if (cf.avail && !d.avail) return false;
-        if (cf.online && !d.online) return false;
-        if (cf.atQnl && !d.qnl) return false;
-        return true;
-      });
-    }
-
-    // Facet counts are computed before the facet filters themselves are applied
-    // (except the group filter, which is applied first for audience/lang/date counts).
-    const f = req.filters ?? {};
-    const facets = { group: {} as Record<string, number>, audience: {} as Record<string, number>, language: {} as Record<string, number>, date: {} as Record<string, number> };
+    // ── Filters and facet counts. Each facet counts the results that match all the
+    // *other* active filters, so options can be combined without dead ends.
+    const f = f0;
+    const clang = [...new Set([...(f.clang ?? []), ...(f.language ?? []).map((l) => (l === 'en' ? 'eng' : 'ara'))])];
+    type Key = 'group' | 'format' | 'location' | 'clang' | 'collection' | 'avail' | 'online' | 'atQnl' | 'audience' | 'date';
+    const pass = (r: LibraryRecord, except?: Key): boolean => {
+      if (except !== 'group' && f.group && f.group !== 'all' && TYPE_TO_GROUP[r.type] !== f.group) return false;
+      if (except !== 'audience' && f.audience?.length && !r.audience.some((a) => f.audience!.includes(a))) return false;
+      if (except !== 'date' && f.date && weekBucket(r.start) !== f.date) return false;
+      if (except !== 'clang' && clang.length && !recLangs(r).some((l) => clang.includes(l))) return false;
+      const needCat = (except !== 'format' && f.format?.length) || (except !== 'location' && f.location?.length) || (except !== 'collection' && f.collection?.length)
+        || (except !== 'avail' && f.avail) || (except !== 'online' && f.online) || (except !== 'atQnl' && f.atQnl);
+      if (!needCat) return true;
+      const c = r.catalogue, d = c?.display;
+      if (!c || !d) return false;
+      if (except !== 'format' && f.format?.length && !f.format.includes(d.group)) return false;
+      if (except !== 'location' && f.location?.length && !d.locations.some((l) => f.location!.includes(l) || (f.location!.includes('partner') && l.startsWith('partner-')))) return false;
+      if (except !== 'collection' && f.collection?.length && !f.collection.includes(c.collection)) return false;
+      if (except !== 'avail' && f.avail && !d.avail) return false;
+      if (except !== 'online' && f.online && !d.online) return false;
+      if (except !== 'atQnl' && f.atQnl && !d.qnl) return false;
+      return true;
+    };
+    const inc = (m: Record<string, number>, k: string) => { m[k] = (m[k] ?? 0) + 1; };
+    const facets: SearchResponse['facets'] = { group: {}, audience: {}, language: {}, date: {}, format: {}, location: {}, clang: {}, collection: {}, flags: {}, years: {} };
     for (const h of hits) {
-      const g = TYPE_TO_GROUP[h.record.type];
-      facets.group[g] = (facets.group[g] ?? 0) + 1;
+      const r = h.record;
+      if (pass(r, 'group')) inc(facets.group, TYPE_TO_GROUP[r.type]);
+      if (pass(r, 'audience')) r.audience.forEach((a) => inc(facets.audience, a));
+      if (pass(r, 'date')) { const b = weekBucket(r.start); if (b) inc(facets.date, b); }
+      if (pass(r, 'clang')) recLangs(r).forEach((l) => inc(facets.clang, l));
+      const d = r.catalogue?.display;
+      if (!d) continue;
+      if (pass(r, 'format')) inc(facets.format, d.group);
+      if (pass(r, 'location')) {
+        d.locations.forEach((l) => inc(facets.location, l));
+        if (d.locations.some((l) => l.startsWith('partner-'))) inc(facets.location, 'partner');
+      }
+      if (pass(r, 'collection')) inc(facets.collection, r.catalogue!.collection);
+      if (d.avail && pass(r, 'avail')) inc(facets.flags, 'avail');
+      if (d.online && pass(r, 'online')) inc(facets.flags, 'online');
+      if (d.qnl && pass(r, 'atQnl')) inc(facets.flags, 'atQnl');
     }
-    if (f.group && f.group !== 'all') hits = hits.filter((h) => TYPE_TO_GROUP[h.record.type] === f.group);
-    for (const h of hits) {
-      h.record.audience.forEach((a) => (facets.audience[a] = (facets.audience[a] ?? 0) + 1));
-      const langs = h.record.lang === 'both' ? ['en', 'ar'] : [h.record.lang];
-      langs.forEach((l) => (facets.language[l] = (facets.language[l] ?? 0) + 1));
-      const b = weekBucket(h.record.start);
-      if (b) facets.date[b] = (facets.date[b] ?? 0) + 1;
-    }
-    if (f.audience?.length) hits = hits.filter((h) => h.record.audience.some((a) => f.audience!.includes(a)));
-    if (f.language?.length) hits = hits.filter((h) => h.record.lang === 'both' || f.language!.includes(h.record.lang as 'en' | 'ar'));
-    if (f.date) hits = hits.filter((h) => weekBucket(h.record.start) === f.date);
+    hits = hits.filter((h) => pass(h.record));
+    for (const h of hits) { const y = year(h.record); if (y) inc(facets.years, String(Math.floor(y / 10) * 10)); }
+    facets.language = { en: facets.clang.eng ?? 0, ar: facets.clang.ara ?? 0 };
 
     const L = req.lang;
     if (req.sort === 'title') hits.sort((a, b) => a.record.title[L].localeCompare(b.record.title[L], L));
     else if (req.sort === 'date') hits.sort((a, b) => (a.record.start ?? '9999').localeCompare(b.record.start ?? '9999') || b.score - a.score);
+    else if (req.sort === 'newest') hits.sort((a, b) => (year(b.record) ?? -1) - (year(a.record) ?? -1) || b.score - a.score);
+    else if (req.sort === 'oldest') hits.sort((a, b) => (year(a.record) ?? 9999) - (year(b.record) ?? 9999) || b.score - a.score);
+    else if (req.sort === 'author') {
+      const key = (r: LibraryRecord) => r.catalogue?.authors[0]?.[L] ?? '\uffff';
+      hits.sort((a, b) => key(a.record).localeCompare(key(b.record), L) || a.record.title[L].localeCompare(b.record.title[L], L));
+    }
     else hits.sort((a, b) => b.score - a.score);
 
     const groups = Object.fromEntries(GROUP_ORDER.map((g) => [g, [] as Hit[]])) as Record<Group, Hit[]>;

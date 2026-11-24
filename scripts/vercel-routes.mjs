@@ -30,6 +30,9 @@ const headerRoutes = [
   { src: '^/fonts/(.*)$', headers: { 'cache-control': YEAR }, continue: true },
   { src: '^/(?:images|video|logo)/(.*)$', headers: { 'cache-control': MONTH }, continue: true },
   { src: '^/(?:favicon\\.png|apple-touch-icon\\.png)$', headers: { 'cache-control': MONTH }, continue: true },
+  // Citation exports download as files with the right type.
+  { src: '^/(?:ar/)?item/[^/]+\\.ris$', headers: { 'content-type': 'application/x-research-info-systems; charset=utf-8', 'content-disposition': 'attachment' }, continue: true },
+  { src: '^/(?:ar/)?item/[^/]+\\.bib$', headers: { 'content-type': 'application/x-bibtex; charset=utf-8', 'content-disposition': 'attachment' }, continue: true },
 ];
 const fs = routes.findIndex((r) => r.handle === 'filesystem');
 routes.splice(fs < 0 ? 0 : fs, 0, ...headerRoutes);

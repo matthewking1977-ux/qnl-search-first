@@ -1,0 +1,71 @@
+---
+// Actions for a catalogue record: the main next step (place hold / read online /
+// find it), then Save, Cite, Export and Share. Cite and Export are <details>
+// disclosures, so they work without JavaScript; Save and Share appear with JS.
+import { t, fmt, type Lang } from '../i18n';
+import type { LibraryRecord } from '../search/types';
+import { itemHref } from '../search/links';
+import { CITE_STYLES, citation, citationHtml, primaryAction } from '../search/cite';
+
+interface Props { lang: Lang; record: LibraryRecord; onItemPage?: boolean; }
+const { lang, record: r, onItemPage = false } = Astro.props;
+const act = primaryAction(r);
+const base = onItemPage ? '' : itemHref(lang, r);
+const exportBase = `${lang === 'ar' ? '/ar' : ''}/item/${r.id}`;
+const shareUrl = new URL(itemHref(lang, r), Astro.site).href;
+const uid = `ra-${r.id}`;
+---
+<div class="ract" role="group" aria-label={fmt(t(lang, 'act.actions'), { t: r.title[lang] })}>
+  <a class={`btn btn--sm ${act.kind === 'use' ? 'btn--ghost' : 'btn--primary'}`} href={`${base}#${act.anchor}`}>{t(lang, act.labelKey as any)}</a>
+
+  <button type="button" class="ract-btn" data-save={r.id} aria-pressed="false" hidden
+    data-label-save={t(lang, 'act.save')} data-label-saved={t(lang, 'act.saved')}
+    data-note-saved={t(lang, 'act.savedNote')} data-note-unsaved={t(lang, 'act.unsavedNote')}>
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 3.5h9v13l-4.5-3.2-4.5 3.2z" /></svg>
+    <span>{t(lang, 'act.save')}</span>
+  </button>
+
+  <details class="ract-pop">
+    <summary class="ract-btn">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7.5h4v5H5.5l-1.5 3M12 7.5h4v5h-2.5l-1.5 3" /></svg>
+      <span>{t(lang, 'act.cite')}</span>
+    </summary>
+    <div class="pop">
+      <p class="pop-h">{t(lang, 'cite.title')}</p>
+      {CITE_STYLES.map((st) => {
+        const c = citation(r, st.key, lang);
+        return (
+          <div class="cite">
+            <p class="cite-name">{st.name}</p>
+            <p class="cite-text" id={`${uid}-${st.key}`} set:html={citationHtml(c)} />
+            <button type="button" class="link cite-copy" data-copy={`${uid}-${st.key}`} data-copied={t(lang, 'act.copied')} hidden>{t(lang, 'act.copy')}<span class="sr-only"> {st.name}</span></button>
+          </div>
+        );
+      })}
+      <p class="pop-note">{t(lang, 'cite.note')}</p>
+    </div>
+  </details>
+
+  <details class="ract-pop">
+    <summary class="ract-btn">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.5v9M6.5 9l3.5 3.5L13.5 9M4 15.5h12" /></svg>
+      <span>{t(lang, 'act.export')}</span>
+    </summary>
+    <div class="pop pop--narrow">
+      <ul>
+        <li><a class="link" href={`${exportBase}.ris`} download={`qnl-${r.id}.ris`}>{t(lang, 'act.ris')}</a></li>
+        <li><a class="link" href={`${exportBase}.bib`} download={`qnl-${r.id}.bib`}>{t(lang, 'act.bib')}</a></li>
+      </ul>
+    </div>
+  </details>
+
+  <button type="button" class="ract-btn" data-share-url={shareUrl} data-share-title={r.title[lang]} data-note-copied={t(lang, 'act.linkCopied')} hidden>
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 11.5 12 8M8 8.5 12 12" /><circle cx="6" cy="10" r="2.2" /><circle cx="14" cy="6.5" r="2.2" /><circle cx="14" cy="13.5" r="2.2" /></svg>
+    <span>{t(lang, 'act.share')}</span>
+  </button>
+</div>
+
+<script>
+  import { initRecordActions } from '../scripts/record-actions';
+  initRecordActions();
+</script>

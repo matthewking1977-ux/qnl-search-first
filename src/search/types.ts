@@ -100,7 +100,7 @@ export interface SearchFilters {
   atQnl?: boolean;
 }
 
-export type SortKey = 'relevance' | 'date' | 'title';
+export type SortKey = 'relevance' | 'date' | 'title' | 'newest' | 'oldest' | 'author';
 
 export interface SearchRequest {
   q: string;
@@ -122,8 +122,18 @@ export interface SearchResponse {
   facets: {
     group: Record<string, number>;
     audience: Record<string, number>;
+    /** legacy en/ar counts (derived from clang) */
     language: Record<string, number>;
     date: Record<string, number>;
+    format: Record<string, number>;
+    location: Record<string, number>;
+    /** ISO 639-2: ara, eng, fre, mul, zxx, other */
+    clang: Record<string, number>;
+    collection: Record<string, number>;
+    /** avail / online / atQnl */
+    flags: Record<string, number>;
+    /** decade → count, for the year histogram */
+    years: Record<string, number>;
   };
   /** present when the query used search syntax (phrases, operators, fields) */
   parsed?: import('./query').ParsedQuery;
