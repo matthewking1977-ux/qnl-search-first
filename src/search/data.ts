@@ -10,12 +10,15 @@ import tagsRaw from '../content/tags.json';
 import synonyms from '../content/synonyms.json';
 import type { LibraryRecord } from './types';
 import type { EngineData, TagDef } from './engine';
+import { attachDisplay, catalogueIndexText } from './catalogue';
 
 const { _note, ...tags } = tagsRaw as Record<string, unknown>;
 
 export const records = [...books, ...databases, ...events, ...services, ...heritage, ...pages] as LibraryRecord[];
+records.forEach(attachDisplay);
 export const engineData: EngineData = {
   records,
   tags: tags as Record<string, TagDef>,
   synonyms: synonyms.groups,
+  catalogueText: catalogueIndexText,
 };

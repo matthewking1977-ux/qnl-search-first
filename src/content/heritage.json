@@ -20,6 +20,38 @@
     "summary": {
       "en": "A sample record for an Arabic scientific manuscript with diagrams of the heavens.",
       "ar": "سجل نموذجي لمخطوط علمي عربي يتضمن رسومًا للأجرام السماوية."
+    },
+    "catalogue": {
+      "format": "MANUSCRIPT",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author E",
+          "ar": "مؤلف نموذجي (ج)"
+        }
+      ],
+      "description": {
+        "en": "1 volume (86 leaves) : illuminated ; 22 cm",
+        "ar": "مجلد واحد (86 ورقة) : مذهَّب ؛ 22 سم"
+      },
+      "subjects": [
+        {
+          "en": "Astronomy, Arab — Early works to 1800",
+          "ar": "علم الفلك العربي — أعمال مبكرة حتى 1800"
+        },
+        {
+          "en": "Manuscripts, Arabic",
+          "ar": "المخطوطات العربية"
+        }
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "MS SAMPLE 001",
+          "status": "library-use"
+        }
+      ]
     }
   },
   {
@@ -43,6 +75,43 @@
     "summary": {
       "en": "An engraved sea chart showing soundings, anchorages and settlements.",
       "ar": "خريطة بحرية محفورة تُظهر الأعماق والمراسي والمستوطنات."
+    },
+    "catalogue": {
+      "format": "MS MAP",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author F",
+          "ar": "مؤلف نموذجي (ح)"
+        }
+      ],
+      "description": {
+        "en": "1 map : hand coloured ; 48 x 64 cm",
+        "ar": "خريطة واحدة : ملونة يدويًا ؛ 48 × 64 سم"
+      },
+      "subjects": [
+        {
+          "en": "Persian Gulf — Maps — Early works to 1800",
+          "ar": "الخليج العربي — خرائط — أعمال مبكرة حتى 1800"
+        }
+      ],
+      "places": [
+        "gulf",
+        "qatar",
+        "al-zubarah"
+      ],
+      "placesAsCatalogued": [
+        "Persian Gulf",
+        "Zubārah"
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "MAP SAMPLE 002",
+          "status": "library-use"
+        }
+      ]
     }
   },
   {
@@ -66,6 +135,45 @@
     "summary": {
       "en": "A sample photographic series of boats, traders and the old waterfront.",
       "ar": "سلسلة صور نموذجية للسفن والتجار والواجهة البحرية القديمة."
+    },
+    "catalogue": {
+      "format": "2-D GRAPHIC",
+      "language": "zxx",
+      "authors": [
+        {
+          "en": "Qatar National Library (sample)",
+          "ar": "مكتبة قطر الوطنية (نموذج)"
+        }
+      ],
+      "description": {
+        "en": "24 photographs : gelatin silver prints",
+        "ar": "24 صورة فوتوغرافية : طباعة فضية"
+      },
+      "subjects": [
+        {
+          "en": "Harbors — Qatar — Doha — Photographs",
+          "ar": "الموانئ — قطر — الدوحة — صور"
+        },
+        {
+          "en": "Dhows — Photographs",
+          "ar": "السفن الشراعية — صور"
+        }
+      ],
+      "places": [
+        "doha"
+      ],
+      "placesAsCatalogued": [
+        "Dawòhah",
+        "Ad Dawḩah"
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "PHOTO SAMPLE 003",
+          "status": "library-use"
+        }
+      ]
     }
   },
   {
@@ -88,6 +196,34 @@
     "summary": {
       "en": "A handwritten anthology with marginal notes by later readers.",
       "ar": "مختارات مكتوبة بخط اليد مع حواشٍ لقرّاء لاحقين."
+    },
+    "catalogue": {
+      "format": "MANUSCRIPT",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author G",
+          "ar": "مؤلف نموذجي (خ)"
+        }
+      ],
+      "description": {
+        "en": "1 volume (54 leaves) ; 20 cm",
+        "ar": "مجلد واحد (54 ورقة) ؛ 20 سم"
+      },
+      "subjects": [
+        {
+          "en": "Arabic poetry — Manuscripts",
+          "ar": "الشعر العربي — مخطوطات"
+        }
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "MS SAMPLE 004",
+          "status": "library-use"
+        }
+      ]
     }
   },
   {
@@ -111,6 +247,41 @@
     "summary": {
       "en": "Accounts of purchases, weights and prices across a pearling season.",
       "ar": "حسابات المشتريات والأوزان والأسعار خلال موسم غوص."
+    },
+    "catalogue": {
+      "format": "MIXED MATERIAL",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author H",
+          "ar": "مؤلف نموذجي (د)"
+        }
+      ],
+      "description": {
+        "en": "1 ledger (210 pages) ; 34 cm",
+        "ar": "دفتر حسابات واحد (210 صفحات) ؛ 34 سم"
+      },
+      "subjects": [
+        {
+          "en": "Pearl industry and trade — Persian Gulf — Records and correspondence",
+          "ar": "تجارة اللؤلؤ — الخليج العربي — سجلات ومراسلات"
+        }
+      ],
+      "places": [
+        "gulf",
+        "qatar"
+      ],
+      "placesAsCatalogued": [
+        "Arabian Gulf States"
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "ARCH SAMPLE 005",
+          "status": "library-use"
+        }
+      ]
     }
   },
   {
@@ -134,6 +305,34 @@
     "summary": {
       "en": "A sample record for a decorated leaf showing gold illumination and coloured inks.",
       "ar": "سجل نموذجي لورقة مزخرفة بالتذهيب والأحبار الملونة."
+    },
+    "catalogue": {
+      "format": "MANUSCRIPT",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Qatar National Library (sample)",
+          "ar": "مكتبة قطر الوطنية (نموذج)"
+        }
+      ],
+      "description": {
+        "en": "1 leaf : illuminated ; 30 cm",
+        "ar": "ورقة واحدة : مذهَّبة ؛ 30 سم"
+      },
+      "subjects": [
+        {
+          "en": "Illumination of books and manuscripts, Islamic",
+          "ar": "زخرفة الكتب والمخطوطات الإسلامية"
+        }
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "MS SAMPLE 006",
+          "status": "library-use"
+        }
+      ]
     }
   },
   {
@@ -157,6 +356,43 @@
     "summary": {
       "en": "Early printed travel narratives describing ports, people and routes.",
       "ar": "روايات رحلات مطبوعة قديمة تصف الموانئ والناس والطرق."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author I",
+          "ar": "مؤلف نموذجي (ذ)",
+          "role": "compiler"
+        }
+      ],
+      "description": {
+        "en": "3 volumes : illustrations, maps ; 23 cm",
+        "ar": "3 مجلدات : صور، خرائط ؛ 23 سم"
+      },
+      "subjects": [
+        {
+          "en": "Arabian Peninsula — Description and travel",
+          "ar": "شبه الجزيرة العربية — وصف ورحلات"
+        }
+      ],
+      "places": [
+        "arabian-peninsula",
+        "gulf"
+      ],
+      "placesAsCatalogued": [
+        "Arabien",
+        "Arabia"
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "DS207 .S44",
+          "status": "library-use"
+        }
+      ]
     }
   },
   {
@@ -179,6 +415,38 @@
     "summary": {
       "en": "Examples of early Arabic typography and the presses that produced them.",
       "ar": "نماذج من الطباعة العربية المبكرة والمطابع التي أنتجتها."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Qatar National Library (sample)",
+          "ar": "مكتبة قطر الوطنية (نموذج)"
+        }
+      ],
+      "description": {
+        "en": "12 volumes ; 20 cm",
+        "ar": "12 مجلدًا ؛ 20 سم"
+      },
+      "subjects": [
+        {
+          "en": "Printing — Arab countries — History",
+          "ar": "الطباعة — البلدان العربية — تاريخ"
+        },
+        {
+          "en": "Early printed books",
+          "ar": "الكتب المطبوعة المبكرة"
+        }
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "Z186 .S45",
+          "status": "library-use"
+        }
+      ]
     }
   },
   {
@@ -226,6 +494,38 @@
     "summary": {
       "en": "A sample record for a manuscript on remedies, with painted plants.",
       "ar": "سجل نموذجي لمخطوط في العلاجات مع رسوم ملونة للنباتات."
+    },
+    "catalogue": {
+      "format": "MANUSCRIPT",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author J",
+          "ar": "مؤلف نموذجي (ر)"
+        }
+      ],
+      "description": {
+        "en": "1 volume (120 leaves) : illustrations ; 25 cm",
+        "ar": "مجلد واحد (120 ورقة) : رسوم ؛ 25 سم"
+      },
+      "subjects": [
+        {
+          "en": "Medicine, Arab — Early works to 1800",
+          "ar": "الطب العربي — أعمال مبكرة حتى 1800"
+        },
+        {
+          "en": "Botany, Medical",
+          "ar": "النبات الطبي"
+        }
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "MS SAMPLE 010",
+          "status": "library-use"
+        }
+      ]
     }
   }
 ]

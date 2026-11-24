@@ -3,15 +3,25 @@
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import Picture from './Picture.astro';
-import { t, formatDate, type Lang } from '../i18n';
+import { t, fmt, formatDate, type Lang } from '../i18n';
 import { engineData } from '../search/data';
 import type { LibraryRecord } from '../search/types';
 import { searchHref } from '../search/links';
+import {
+  authorLine, publicationLine, formatLabel, languageLabel, collectionLabel, locationLabel,
+  statusLabel, placeLabel, isQnlLocation, catalogueRef,
+} from '../search/catalogue';
 
 interface Props { lang: Lang; record: LibraryRecord; }
 const { lang, record: r } = Astro.props;
 const tagLabel = (k: string) => engineData.tags[k]?.[lang];
-const typeLabel = t(lang, `item.type.${r.type}` as any);
+const c = r.catalogue;
+const typeLabel = c ? formatLabel(c.format, lang) : t(lang, `item.type.${r.type}` as any);
+const listSep = lang === 'ar' ? '، ' : ', ';
+const day = (iso: string) => formatDate(lang, new Date(iso + 'T12:00:00'), { day: 'numeric', month: 'short', year: 'numeric' });
+// Variant spellings that differ from the preferred place labels (shows the merge at work).
+const preferred = new Set((c?.places ?? []).flatMap((k) => [catalogueRef.places[k]?.en, catalogueRef.places[k]?.ar]));
+const variants = (c?.placesAsCatalogued ?? []).filter((v) => !preferred.has(v));
 ---
 <Header lang={lang} tone="light" />
 <main id="main" class="wrap item" tabindex="-1">
@@ -27,13 +37,55 @@ const typeLabel = t(lang, `item.type.${r.type}` as any);
           <a class="btn btn--primary" href="#main">{r.task.action[lang]} <span class="arrow icon-dir" aria-hidden="true">→</span></a>
         </div>
       )}
+      {c ? (
+        <>
+          <dl class="facts">
+            <dt>{t(lang, 'item.c.author')}</dt><dd>{authorLine(c, lang)}</dd>
+            {c.publication && (<><dt>{t(lang, 'item.c.published')}</dt><dd>{publicationLine(c, lang)}</dd></>)}
+            {c.edition && (<><dt>{t(lang, 'item.c.edition')}</dt><dd>{c.edition[lang]}</dd></>)}
+            <dt>{t(lang, 'item.c.format')}</dt><dd>{formatLabel(c.format, lang)}</dd>
+            <dt>{t(lang, 'item.c.description')}</dt><dd>{c.description[lang]}</dd>
+            <dt>{t(lang, 'item.c.language')}</dt><dd>{languageLabel(c.language, lang)}</dd>
+            <dt>{t(lang, 'item.c.subjects')}</dt>
+            <dd><ul class="subjects">{c.subjects.map((sub) => <li><a class="link" href={searchHref(lang, sub[lang].split(' — ')[0])}>{sub[lang]}</a></li>)}</ul></dd>
+            {c.places?.length ? (<><dt>{t(lang, 'item.c.places')}</dt><dd>
+              {c.places.map((k) => placeLabel(k, lang)).join(listSep)}
+              {variants.length > 0 && <span class="variants"> · {t(lang, 'item.c.asCatalogued')}: <bdi dir="ltr" lang="en">{variants.join(', ')}</bdi></span>}
+            </dd></>) : null}
+            {c.isbn && (<><dt>{t(lang, 'item.c.isbn')}</dt><dd><bdi dir="ltr" class="mono">{c.isbn}</bdi></dd></>)}
+            <dt>{t(lang, 'item.c.collection')}</dt><dd>{collectionLabel(c.collection, lang)}</dd>
+            <dt>{t(lang, 'results.audience')}</dt><dd>{r.audience.map((a) => t(lang, `aud.${a}` as any)).join(listSep)}</dd>
+          </dl>
+          <h2 class="t-h3 holdings-h" id="holdings-h">{t(lang, 'item.c.holdings')}</h2>
+          <div class="table-wrap" role="region" aria-labelledby="holdings-h" tabindex="0">
+            <table class="holdings">
+              <thead><tr><th scope="col">{t(lang, 'item.c.location')}</th><th scope="col">{t(lang, 'item.c.callNo')}</th><th scope="col">{t(lang, 'item.c.status')}</th></tr></thead>
+              <tbody>
+                {c.holdings.map((h) => (
+                  <tr>
+                    <td>{locationLabel(h.location, lang)}{!isQnlLocation(h.location) && <span class="partner">{t(lang, 'item.c.partner')}</span>}</td>
+                    <td>{h.callNo ? <bdi dir="ltr" class="mono">{h.callNo}</bdi> : '—'}</td>
+                    <td>
+                      <span class={`status status--${h.status}`}>{statusLabel(h.status, lang)}</span>
+                      {h.status === 'on-loan' && h.due && <span class="sub">{fmt(t(lang, 'item.c.due'), { date: day(h.due) })}</span>}
+                      {h.status === 'on-order' && h.ordered && <span class="sub">{fmt(t(lang, 'item.c.ordered'), { n: h.copies ?? 1, date: day(h.ordered) })}</span>}
+                      {h.status === 'online' && <span class="sub">{t(lang, 'item.c.onlineNote')}</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      ) : (
       <dl class="facts">
         {r.start && (<><dt>{t(lang, 'results.date')}</dt><dd>{formatDate(lang, new Date(r.start), { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })}</dd></>)}
         {r.place && (<><dt>{lang === 'ar' ? 'المكان' : 'Place'}</dt><dd>{r.place[lang]}</dd></>)}
         {r.year && (<><dt>{lang === 'ar' ? 'سنة النشر' : 'Year'}</dt><dd>{r.year}</dd></>)}
         <dt>{t(lang, 'results.language')}</dt><dd>{t(lang, `meta.lang.${r.lang}` as any)}</dd>
-        <dt>{t(lang, 'results.audience')}</dt><dd>{r.audience.map((a) => t(lang, `aud.${a}` as any)).join(lang === 'ar' ? '، ' : ', ')}</dd>
+        <dt>{t(lang, 'results.audience')}</dt><dd>{r.audience.map((a) => t(lang, `aud.${a}` as any)).join(listSep)}</dd>
       </dl>
+      )}
       <h2 class="t-ui related">{t(lang, 'item.related')}</h2>
       <ul class="tags">
         {r.tags.filter(tagLabel).map((k) => <li><a class="chip" href={searchHref(lang, tagLabel(k)!)}>{tagLabel(k)}</a></li>)}
@@ -59,6 +111,21 @@ const typeLabel = t(lang, `item.type.${r.type}` as any);
   .facts { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem var(--s-3); margin: var(--s-2) 0 0; font-size: var(--fs-sm); }
   .facts dt { color: var(--color-grey-600); }
   .facts dd { margin: 0; }
+  .subjects { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+  .variants { color: var(--color-grey-600); }
+  .mono { font-family: var(--font-mono); font-size: 0.92em; }
+  .holdings-h { margin: var(--s-4) 0 0; }
+  .table-wrap { overflow-x: auto; }
+  .table-wrap:focus-visible { outline-offset: 2px; }
+  .holdings { inline-size: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+  .holdings th { text-align: start; font-weight: 500; color: var(--color-grey-600); padding-block: 0.5rem; padding-inline: 0 0.75rem; border-block-end: 1px solid var(--color-grey-300); }
+  .holdings td { padding-block: 0.75rem; padding-inline: 0 0.75rem; border-block-end: var(--hairline); vertical-align: top; }
+  .partner { display: block; color: var(--color-grey-600); font-size: var(--fs-xs); }
+  .status { font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .status::before { content: ''; inline-size: 0.5rem; block-size: 0.5rem; border-radius: 50%; background: var(--color-grey-600); }
+  .status--available::before, .status--online::before { background: var(--color-status-open); }
+  .status--on-loan::before, .status--on-order::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--color-grey-600); }
+  .sub { display: block; color: var(--color-grey-600); font-size: var(--fs-xs); margin-block-start: 0.15rem; }
   .related { font-weight: 500; margin: var(--s-2) 0 0; }
   .tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .tags .chip { text-decoration: none; }

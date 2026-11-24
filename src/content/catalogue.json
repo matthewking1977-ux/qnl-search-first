@@ -1,0 +1,81 @@
+{
+  "_note": "Reference data for catalogue records. Format codes and location names follow QNL's Encore catalogue as reviewed on 24 Nov 2026 (docs/SEARCH_GAP_ANALYSIS.md). Groups are the plain-language filter labels. All holdings, call numbers and ISBNs in the sample records are invented (ISBNs are synthetic, with valid check digits, for search testing only).",
+  "formatGroups": {
+    "books": { "en": "Books", "ar": "كتب", "order": 1 },
+    "ebooks": { "en": "eBooks", "ar": "كتب إلكترونية", "order": 2 },
+    "journals": { "en": "Journals & magazines", "ar": "دوريات ومجلات", "order": 3 },
+    "theses": { "en": "Theses", "ar": "رسائل جامعية", "order": 4 },
+    "images": { "en": "Images & photographs", "ar": "صور وصور فوتوغرافية", "order": 5 },
+    "film": { "en": "Film & video", "ar": "أفلام وفيديو", "order": 6 },
+    "audio": { "en": "Music & audio", "ar": "موسيقى وتسجيلات صوتية", "order": 7 },
+    "maps": { "en": "Maps", "ar": "خرائط", "order": 8 },
+    "manuscripts": { "en": "Manuscripts & archives", "ar": "مخطوطات ووثائق", "order": 9 },
+    "objects": { "en": "Objects", "ar": "مقتنيات", "order": 10 },
+    "databases": { "en": "Databases & software", "ar": "قواعد بيانات وبرمجيات", "order": 11 }
+  },
+  "formats": {
+    "BOOK": { "group": "books", "en": "Book", "ar": "كتاب", "words": "book printed print كتاب مطبوع" },
+    "E-BOOK": { "group": "ebooks", "en": "eBook", "ar": "كتاب إلكتروني", "words": "ebook e-book electronic online digital كتاب إلكتروني رقمي" },
+    "PERIODICAL": { "group": "journals", "en": "Periodical", "ar": "دورية", "words": "periodical journal magazine serial دورية مجلة" },
+    "E-JOURNAL": { "group": "journals", "en": "eJournal", "ar": "دورية إلكترونية", "words": "ejournal e-journal journal online دورية إلكترونية مجلة" },
+    "THESIS": { "group": "theses", "en": "Thesis", "ar": "رسالة جامعية", "words": "thesis theses dissertation phd masters رسالة أطروحة ماجستير دكتوراه" },
+    "2-D GRAPHIC": { "group": "images", "en": "Photograph / graphic", "ar": "صورة / رسم", "words": "photograph photo picture graphic image صورة فوتوغرافية رسم" },
+    "DIGITAL IMAGE": { "group": "images", "en": "Digital image", "ar": "صورة رقمية", "words": "digital image photo picture صورة رقمية" },
+    "DIGITAL FILMS": { "group": "film", "en": "Digital film", "ar": "فيلم رقمي", "words": "film movie documentary video فيلم وثائقي فيديو" },
+    "VIDEO FILES": { "group": "film", "en": "Video file", "ar": "ملف فيديو", "words": "video film فيديو فيلم" },
+    "DVDROM": { "group": "film", "en": "DVD", "ar": "قرص DVD", "words": "dvd film video disc فيلم قرص" },
+    "BLUE RAY": { "group": "film", "en": "Blu-ray", "ar": "قرص بلو-راي", "words": "bluray blu-ray film video فيلم" },
+    "AUDIO FILE": { "group": "audio", "en": "Audio recording", "ar": "تسجيل صوتي", "words": "audio recording sound music تسجيل صوتي موسيقى" },
+    "MUSIC RECORD": { "group": "audio", "en": "Music recording", "ar": "تسجيل موسيقي", "words": "music recording album cd موسيقى تسجيل" },
+    "NOTATED MUSIC": { "group": "audio", "en": "Printed music / score", "ar": "نوتة موسيقية", "words": "score sheet music notation نوتة موسيقية" },
+    "PRINT MAP": { "group": "maps", "en": "Printed map", "ar": "خريطة مطبوعة", "words": "map chart atlas خريطة أطلس" },
+    "MS MAP": { "group": "maps", "en": "Manuscript map", "ar": "خريطة مخطوطة", "words": "map chart manuscript خريطة مخطوطة" },
+    "MANUSCRIPT": { "group": "manuscripts", "en": "Manuscript", "ar": "مخطوطة", "words": "manuscript handwritten مخطوطة مخطوط" },
+    "MIXED MATERIAL": { "group": "manuscripts", "en": "Archive / mixed material", "ar": "وثائق ومواد مختلطة", "words": "archive papers records documents أرشيف وثائق" },
+    "3-D OBJECT": { "group": "objects", "en": "Object", "ar": "مقتنى", "words": "object model artefact مجسم قطعة" },
+    "DATABASE": { "group": "databases", "en": "Database", "ar": "قاعدة بيانات", "words": "database قاعدة بيانات" },
+    "CDROM": { "group": "databases", "en": "CD-ROM", "ar": "قرص مدمج", "words": "cdrom cd-rom disc قرص" },
+    "PROGRAM": { "group": "databases", "en": "Software", "ar": "برنامج", "words": "software program برنامج" },
+    "RESOURCE": { "group": "databases", "en": "Online resource", "ar": "مصدر إلكتروني", "words": "online resource مصدر إلكتروني" }
+  },
+  "locations": {
+    "main-general": { "en": "Main General Collection", "ar": "المجموعة العامة الرئيسية", "qnl": true },
+    "legal-deposit": { "en": "Main Compact Legal Deposit", "ar": "مجموعة الإيداع القانوني", "qnl": true },
+    "heritage": { "en": "Heritage Library", "ar": "مكتبة التراث", "qnl": true },
+    "children": { "en": "Children's Library", "ar": "مكتبة الأطفال", "qnl": true },
+    "teens": { "en": "Teens Section", "ar": "قسم اليافعين", "qnl": true },
+    "graphic-novels": { "en": "Graphic Novels", "ar": "الروايات المصورة", "qnl": true },
+    "online": { "en": "QNL Online Collection", "ar": "مجموعة المكتبة الإلكترونية", "qnl": true, "online": true },
+    "partner-cmuq": { "en": "Carnegie Mellon University in Qatar", "ar": "جامعة كارنيجي ميلون في قطر", "qnl": false },
+    "partner-dohainst": { "en": "Doha Institute for Graduate Studies", "ar": "معهد الدوحة للدراسات العليا", "qnl": false }
+  },
+  "collections": {
+    "general": { "en": "General Collection", "ar": "المجموعة العامة" },
+    "heritage": { "en": "Heritage Collection", "ar": "مجموعة التراث" },
+    "legal-deposit": { "en": "Qatar Legal Deposit", "ar": "الإيداع القانوني القطري" },
+    "children-teens": { "en": "Children & Teens", "ar": "الأطفال واليافعون" },
+    "partner": { "en": "Partner libraries", "ar": "المكتبات الشريكة" }
+  },
+  "languages": {
+    "ara": { "en": "Arabic", "ar": "العربية" },
+    "eng": { "en": "English", "ar": "الإنجليزية" },
+    "fre": { "en": "French", "ar": "الفرنسية" },
+    "mul": { "en": "Multiple languages", "ar": "متعدد اللغات" },
+    "zxx": { "en": "No linguistic content", "ar": "بدون محتوى لغوي" }
+  },
+  "status": {
+    "available": { "en": "Available", "ar": "متاح" },
+    "on-loan": { "en": "On loan", "ar": "معار" },
+    "library-use": { "en": "Library use only", "ar": "للاطلاع داخل المكتبة فقط" },
+    "on-order": { "en": "On order", "ar": "قيد الطلب" },
+    "online": { "en": "Online", "ar": "متاح إلكترونيًا" }
+  },
+  "places": {
+    "doha": { "en": "Doha", "ar": "الدوحة", "variants": ["Dawḥah", "Ad Dawḥah", "Ad Dawhah", "Dawhah", "Ad Dawḩah", "Dawòhah", "Ad Dawdhah", "Doha (Qatar)"] },
+    "qatar": { "en": "Qatar", "ar": "قطر", "variants": ["Qaṭar", "Katar", "State of Qatar"] },
+    "gulf": { "en": "Arabian Gulf", "ar": "الخليج العربي", "variants": ["Arabian Gulf Region", "Persian Gulf", "Gulf Region", "Golfstaaten"] },
+    "arabian-peninsula": { "en": "Arabian Peninsula", "ar": "شبه الجزيرة العربية", "variants": ["Arabia", "Arabien"] },
+    "al-zubarah": { "en": "Al Zubarah", "ar": "الزبارة", "variants": ["Zubārah", "Az Zubarah", "Al-Zubara"] },
+    "al-wakrah": { "en": "Al Wakrah", "ar": "الوكرة", "variants": ["Wakra", "Al-Wakra", "Al Wakra"] }
+  }
+}

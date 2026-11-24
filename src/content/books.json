@@ -20,6 +20,62 @@
     "summary": {
       "en": "A survey of trade routes, ports and seafaring communities across the Gulf from the 18th century.",
       "ar": "عرض شامل لطرق التجارة والموانئ والمجتمعات البحرية في الخليج منذ القرن الثامن عشر."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author A",
+          "ar": "مؤلف نموذجي (أ)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2019
+      },
+      "description": {
+        "en": "312 pages : illustrations ; 24 cm",
+        "ar": "312 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Navigation — Persian Gulf — History",
+          "ar": "الملاحة — الخليج العربي — تاريخ"
+        },
+        {
+          "en": "Harbors — Persian Gulf",
+          "ar": "الموانئ — الخليج العربي"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "placesAsCatalogued": [
+        "Persian Gulf"
+      ],
+      "isbn": "978-1-0000-0001-6",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "DS326 .S26 2019",
+          "status": "available"
+        },
+        {
+          "location": "main-general",
+          "callNo": "DS326 .S26 2019 c.2",
+          "status": "on-loan",
+          "due": "2026-12-08"
+        }
+      ]
     }
   },
   {
@@ -42,6 +98,63 @@
     "summary": {
       "en": "Oral histories and photographs of pearling seasons, boats and crews.",
       "ar": "روايات شفهية وصور عن مواسم الغوص والسفن وطواقمها."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author B",
+          "ar": "مؤلف نموذجي (ب)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2021
+      },
+      "description": {
+        "en": "204 pages : illustrations ; 24 cm",
+        "ar": "204 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Pearl fisheries — Qatar — History",
+          "ar": "مصائد اللؤلؤ — قطر — تاريخ"
+        },
+        {
+          "en": "Oral history — Qatar",
+          "ar": "التاريخ الشفوي — قطر"
+        }
+      ],
+      "places": [
+        "qatar",
+        "al-wakrah"
+      ],
+      "placesAsCatalogued": [
+        "Qaṭar",
+        "Wakra"
+      ],
+      "isbn": "978-1-0000-0002-3",
+      "collection": "legal-deposit",
+      "holdings": [
+        {
+          "location": "legal-deposit",
+          "callNo": "SH378.Q2 S27 2021",
+          "status": "library-use"
+        },
+        {
+          "location": "main-general",
+          "callNo": "SH378.Q2 S27 2021 c.2",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -65,6 +178,59 @@
     "summary": {
       "en": "Selected poems with notes on metre, dialect and performance.",
       "ar": "قصائد مختارة مع شروح للأوزان واللهجة وطرق الإلقاء."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author C",
+          "ar": "مؤلف نموذجي (ت)",
+          "role": "editor"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Beirut",
+          "ar": "بيروت"
+        },
+        "publisher": {
+          "en": "Sample House",
+          "ar": "دار نموذجية"
+        },
+        "year": 2017
+      },
+      "description": {
+        "en": "288 pages ; 24 cm",
+        "ar": "288 صفحة ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Nabati poetry",
+          "ar": "الشعر النبطي"
+        },
+        {
+          "en": "Arabic poetry — Gulf States",
+          "ar": "الشعر العربي — دول الخليج"
+        }
+      ],
+      "places": [
+        "gulf",
+        "arabian-peninsula"
+      ],
+      "placesAsCatalogued": [
+        "Arabian Gulf Region",
+        "Arabia"
+      ],
+      "isbn": "978-1-0000-0003-0",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "PJ8005 .S28 2017",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -87,6 +253,61 @@
     "summary": {
       "en": "Step-by-step methods for searching, organising and citing sources for a thesis.",
       "ar": "خطوات عملية للبحث عن المصادر وتنظيمها وتوثيقها في الأطروحات."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author D",
+          "ar": "مؤلف نموذجي (ث)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2022
+      },
+      "edition": {
+        "en": "2nd edition",
+        "ar": "الطبعة الثانية"
+      },
+      "description": {
+        "en": "176 pages ; 24 cm",
+        "ar": "176 صفحة ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Academic writing — Handbooks, manuals, etc.",
+          "ar": "الكتابة الأكاديمية — أدلة"
+        },
+        {
+          "en": "Literature reviews",
+          "ar": "مراجعات الأدبيات"
+        }
+      ],
+      "isbn": "978-1-0000-0004-7",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "LB2369 .S29 2022",
+          "status": "on-loan",
+          "due": "2026-12-02"
+        },
+        {
+          "location": "main-general",
+          "callNo": "LB2369 .S29 2022 c.2",
+          "status": "on-loan",
+          "due": "2026-12-15"
+        }
+      ]
     }
   },
   {
@@ -110,6 +331,58 @@
     "summary": {
       "en": "A bilingual picture book about a boat that learns to read the stars.",
       "ar": "كتاب مصوّر ثنائي اللغة عن سفينة صغيرة تتعلم قراءة النجوم."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "mul",
+      "authors": [
+        {
+          "en": "Sample Author E",
+          "ar": "مؤلف نموذجي (ج)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2020
+      },
+      "description": {
+        "en": "32 pages : colour illustrations ; 26 cm",
+        "ar": "32 صفحة : صور ملونة ؛ 26 سم"
+      },
+      "subjects": [
+        {
+          "en": "Dhows — Juvenile fiction",
+          "ar": "السفن الشراعية — قصص للأطفال"
+        },
+        {
+          "en": "Picture books",
+          "ar": "كتب مصورة"
+        }
+      ],
+      "places": [
+        "qatar"
+      ],
+      "isbn": "978-1-0000-0005-4",
+      "collection": "children-teens",
+      "holdings": [
+        {
+          "location": "children",
+          "callNo": "J PZ7 .S30 2020",
+          "status": "available"
+        },
+        {
+          "location": "children",
+          "callNo": "J PZ7 .S30 2020 c.2",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -133,6 +406,62 @@
     "summary": {
       "en": "Buildings, planners and materials that shaped the city's skyline.",
       "ar": "المباني والمخططون والمواد التي شكّلت أفق المدينة."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author F",
+          "ar": "مؤلف نموذجي (ح)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2018
+      },
+      "description": {
+        "en": "256 pages : illustrations ; 24 cm",
+        "ar": "256 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Architecture, Modern — Qatar — Doha",
+          "ar": "العمارة الحديثة — قطر — الدوحة"
+        },
+        {
+          "en": "City planning — Qatar",
+          "ar": "تخطيط المدن — قطر"
+        }
+      ],
+      "places": [
+        "doha",
+        "qatar"
+      ],
+      "placesAsCatalogued": [
+        "Dawḥah (Qatar)"
+      ],
+      "isbn": "978-1-0000-0006-1",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "NA1478.Q2 S31 2018",
+          "status": "available"
+        },
+        {
+          "location": "partner-dohainst",
+          "callNo": "NA1478.Q2 S31 2018",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -156,6 +485,46 @@
     "summary": {
       "en": "A modern reference to Arabic syntax with exercises and answers.",
       "ar": "مرجع حديث في النحو العربي مع تمارين وإجابات."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author G",
+          "ar": "مؤلف نموذجي (خ)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Beirut",
+          "ar": "بيروت"
+        },
+        "publisher": {
+          "en": "Sample House",
+          "ar": "دار نموذجية"
+        },
+        "year": 2016
+      },
+      "description": {
+        "en": "340 pages ; 24 cm",
+        "ar": "340 صفحة ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Arabic language — Grammar",
+          "ar": "اللغة العربية — النحو"
+        }
+      ],
+      "isbn": "978-1-0000-0007-8",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "PJ6303 .S32 2016",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -179,6 +548,60 @@
     "summary": {
       "en": "Core statistical methods with worked examples in common software.",
       "ar": "الأساليب الإحصائية الأساسية مع أمثلة تطبيقية على البرامج الشائعة."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author H",
+          "ar": "مؤلف نموذجي (د)"
+        },
+        {
+          "en": "Sample Author I",
+          "ar": "مؤلف نموذجي (ذ)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2023
+      },
+      "edition": {
+        "en": "3rd edition",
+        "ar": "الطبعة الثالثة"
+      },
+      "description": {
+        "en": "410 pages : illustrations ; 24 cm",
+        "ar": "410 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Social sciences — Statistical methods",
+          "ar": "العلوم الاجتماعية — الأساليب الإحصائية"
+        }
+      ],
+      "isbn": "978-1-0000-0008-5",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "HA29 .S33 2023",
+          "status": "on-loan",
+          "due": "2026-12-11"
+        },
+        {
+          "location": "partner-cmuq",
+          "callNo": "HA29 .S33 2023",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -200,6 +623,56 @@
     "summary": {
       "en": "Heat, hydration and health systems in arid regions.",
       "ar": "الحرارة والإرواء والأنظمة الصحية في المناطق الجافة."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author J",
+          "ar": "مؤلف نموذجي (ر)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2021
+      },
+      "description": {
+        "en": "232 pages : illustrations ; 24 cm",
+        "ar": "232 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Public health — Arid regions",
+          "ar": "الصحة العامة — المناطق الجافة"
+        },
+        {
+          "en": "Heat — Physiological effect",
+          "ar": "الحرارة — التأثير الفسيولوجي"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "placesAsCatalogued": [
+        "Gulf Region"
+      ],
+      "isbn": "978-1-0000-0009-2",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "RA791 .S34 2021",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -223,6 +696,58 @@
     "summary": {
       "en": "Three generations of one family and the changing city around them.",
       "ar": "ثلاثة أجيال من عائلة واحدة والمدينة المتغيرة من حولها."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author K",
+          "ar": "مؤلف نموذجي (ز)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2019
+      },
+      "description": {
+        "en": "198 pages ; 24 cm",
+        "ar": "198 صفحة ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Arabic fiction — Qatar",
+          "ar": "الرواية العربية — قطر"
+        }
+      ],
+      "places": [
+        "doha"
+      ],
+      "placesAsCatalogued": [
+        "Ad Dawhah"
+      ],
+      "isbn": "978-1-0000-0010-8",
+      "collection": "legal-deposit",
+      "holdings": [
+        {
+          "location": "legal-deposit",
+          "callNo": "PJ7862 .S35 2019",
+          "status": "library-use"
+        },
+        {
+          "location": "main-general",
+          "callNo": "PJ7862 .S35 2019 c.2",
+          "status": "on-loan",
+          "due": "2026-12-05"
+        }
+      ]
     }
   },
   {
@@ -245,6 +770,51 @@
     "summary": {
       "en": "Constellations, navigation and the night sky of Arabia.",
       "ar": "الأبراج والملاحة وسماء الجزيرة العربية ليلًا."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author L",
+          "ar": "مؤلف نموذجي (س)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2022
+      },
+      "description": {
+        "en": "160 pages : illustrations ; 24 cm",
+        "ar": "160 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Astronomy — Popular works",
+          "ar": "علم الفلك — أعمال مبسطة"
+        }
+      ],
+      "isbn": "978-1-0000-0011-5",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "QB44.3 .S36 2022",
+          "status": "available"
+        },
+        {
+          "location": "teens",
+          "callNo": "QB44.3 .S36 2022 c.2",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -268,6 +838,56 @@
     "summary": {
       "en": "Engineering foundations of desalination plants and their energy use.",
       "ar": "الأسس الهندسية لمحطات تحلية المياه واستهلاكها للطاقة."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author M",
+          "ar": "مؤلف نموذجي (ش)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2020
+      },
+      "description": {
+        "en": "380 pages : illustrations ; 24 cm",
+        "ar": "380 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Saline water conversion",
+          "ar": "تحلية المياه المالحة"
+        },
+        {
+          "en": "Water-supply engineering",
+          "ar": "هندسة إمدادات المياه"
+        }
+      ],
+      "isbn": "978-1-0000-0012-2",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "TD479 .S37 2020",
+          "status": "available"
+        },
+        {
+          "location": "partner-cmuq",
+          "callNo": "TD479 .S37 2020",
+          "status": "on-loan",
+          "due": "2026-12-20"
+        }
+      ]
     }
   },
   {
@@ -291,6 +911,55 @@
     "summary": {
       "en": "Calligraphy, illumination and binding in manuscript traditions.",
       "ar": "الخط والتذهيب والتجليد في تقاليد المخطوطات."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author N",
+          "ar": "مؤلف نموذجي (ص)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Beirut",
+          "ar": "بيروت"
+        },
+        "publisher": {
+          "en": "Sample House",
+          "ar": "دار نموذجية"
+        },
+        "year": 2018
+      },
+      "description": {
+        "en": "296 pages : illustrations ; 24 cm",
+        "ar": "296 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Illumination of books and manuscripts, Islamic",
+          "ar": "زخرفة الكتب والمخطوطات الإسلامية"
+        },
+        {
+          "en": "Calligraphy, Arabic",
+          "ar": "الخط العربي"
+        }
+      ],
+      "isbn": "978-1-0000-0013-9",
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "ND3237 .S38 2018",
+          "status": "library-use"
+        },
+        {
+          "location": "main-general",
+          "callNo": "ND3237 .S38 2018 c.2",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -313,6 +982,52 @@
     "summary": {
       "en": "Case studies of start-ups, family firms and financing.",
       "ar": "دراسات حالة عن الشركات الناشئة والعائلية والتمويل."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author O",
+          "ar": "مؤلف نموذجي (ض)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2023
+      },
+      "description": {
+        "en": "220 pages ; 24 cm",
+        "ar": "220 صفحة ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Small business — Gulf States",
+          "ar": "المشروعات الصغيرة — دول الخليج"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "placesAsCatalogued": [
+        "Golfstaaten"
+      ],
+      "isbn": "978-1-0000-0014-6",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "HD2346 .S39 2023",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -335,6 +1050,47 @@
     "summary": {
       "en": "Big questions about oceans for curious readers aged 6 to 9.",
       "ar": "أسئلة كبيرة عن البحار للقرّاء الفضوليين من سن 6 إلى 9 سنوات."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "mul",
+      "authors": [
+        {
+          "en": "Sample Author P",
+          "ar": "مؤلف نموذجي (ط)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2021
+      },
+      "description": {
+        "en": "40 pages : colour illustrations ; 24 cm",
+        "ar": "40 صفحة : صور ملونة ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Seawater — Juvenile literature",
+          "ar": "مياه البحر — كتب للأطفال"
+        }
+      ],
+      "isbn": "978-1-0000-0015-3",
+      "collection": "children-teens",
+      "holdings": [
+        {
+          "location": "children",
+          "callNo": "J GC21.5 .S40 2021",
+          "status": "on-loan",
+          "due": "2026-12-01"
+        }
+      ]
     }
   },
   {
@@ -356,6 +1112,58 @@
     "summary": {
       "en": "Contract and company law across Gulf jurisdictions.",
       "ar": "قوانين العقود والشركات في دول الخليج."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author A",
+          "ar": "مؤلف نموذجي (أ)"
+        },
+        {
+          "en": "Sample Author D",
+          "ar": "مؤلف نموذجي (ث)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2017
+      },
+      "description": {
+        "en": "452 pages ; 24 cm",
+        "ar": "452 صفحة ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Commercial law — Gulf Cooperation Council countries",
+          "ar": "القانون التجاري — دول مجلس التعاون الخليجي"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "isbn": "978-1-0000-0016-0",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "KMC120 .S41 2017",
+          "status": "available"
+        },
+        {
+          "location": "partner-dohainst",
+          "callNo": "KMC120 .S41 2017",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -378,6 +1186,46 @@
     "summary": {
       "en": "A hands-on introduction to programming for young makers.",
       "ar": "مدخل عملي إلى البرمجة للمبتكرين الصغار."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author B",
+          "ar": "مؤلف نموذجي (ب)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2024
+      },
+      "description": {
+        "en": "144 pages : illustrations ; 24 cm",
+        "ar": "144 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Video games — Programming — Juvenile literature",
+          "ar": "ألعاب الفيديو — البرمجة — كتب لليافعين"
+        }
+      ],
+      "isbn": "978-1-0000-0017-7",
+      "collection": "children-teens",
+      "holdings": [
+        {
+          "location": "teens",
+          "callNo": "YA QA76.76 .S42 2024",
+          "status": "available"
+        }
+      ]
     }
   },
   {
@@ -401,6 +1249,1274 @@
     "summary": {
       "en": "How cartographers drew the region, with annotated reproductions.",
       "ar": "كيف رسم رسامو الخرائط المنطقة، مع نسخ مشروحة."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author C",
+          "ar": "مؤلف نموذجي (ت)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2015
+      },
+      "description": {
+        "en": "120 pages : maps ; 32 cm",
+        "ar": "120 صفحة : خرائط ؛ 32 سم"
+      },
+      "subjects": [
+        {
+          "en": "Persian Gulf — Maps — History",
+          "ar": "الخليج العربي — خرائط — تاريخ"
+        },
+        {
+          "en": "Cartography — History",
+          "ar": "رسم الخرائط — تاريخ"
+        }
+      ],
+      "places": [
+        "gulf",
+        "qatar"
+      ],
+      "placesAsCatalogued": [
+        "Arabian Gulf",
+        "Qatar"
+      ],
+      "isbn": "978-1-0000-0018-4",
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "G2249 .S43 2015",
+          "status": "library-use"
+        },
+        {
+          "location": "legal-deposit",
+          "callNo": "G2249 .S43 2015 c.2",
+          "status": "library-use"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-01",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2022,
+    "audience": [
+      "adults",
+      "students"
+    ],
+    "tags": [
+      "science"
+    ],
+    "title": {
+      "en": "Climate and the Gulf: An Introduction (sample)",
+      "ar": "المناخ والخليج: مدخل (نموذج)"
+    },
+    "summary": {
+      "en": "Heat, humidity, dust and sea temperature explained, with regional data.",
+      "ar": "شرح للحرارة والرطوبة والغبار ودرجة حرارة البحر مع بيانات إقليمية."
+    },
+    "catalogue": {
+      "format": "E-BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author K",
+          "ar": "مؤلف نموذجي (ز)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2022
+      },
+      "description": {
+        "en": "1 online resource",
+        "ar": "مصدر إلكتروني واحد"
+      },
+      "subjects": [
+        {
+          "en": "Climatology — Persian Gulf Region",
+          "ar": "علم المناخ — منطقة الخليج العربي"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "placesAsCatalogued": [
+        "Persian Gulf Region"
+      ],
+      "isbn": "978-1-0000-0101-3",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "online",
+          "callNo": null,
+          "status": "online"
+        }
+      ],
+      "online": true
+    }
+  },
+  {
+    "id": "ct-02",
+    "type": "book",
+    "sample": true,
+    "lang": "ar",
+    "year": 2020,
+    "audience": [
+      "adults",
+      "teens"
+    ],
+    "tags": [
+      "reading",
+      "qatar"
+    ],
+    "title": {
+      "en": "Stories from the Majlis (sample)",
+      "ar": "حكايات من المجلس (نموذج)"
+    },
+    "summary": {
+      "en": "Short stories set in family gatherings across Qatar.",
+      "ar": "قصص قصيرة تدور في المجالس العائلية في أنحاء قطر."
+    },
+    "catalogue": {
+      "format": "E-BOOK",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author L",
+          "ar": "مؤلف نموذجي (س)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2020
+      },
+      "description": {
+        "en": "1 online resource",
+        "ar": "مصدر إلكتروني واحد"
+      },
+      "subjects": [
+        {
+          "en": "Short stories, Arabic — Qatar",
+          "ar": "القصة القصيرة العربية — قطر"
+        }
+      ],
+      "places": [
+        "qatar"
+      ],
+      "isbn": "978-1-0000-0102-0",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "online",
+          "callNo": null,
+          "status": "online"
+        }
+      ],
+      "online": true
+    }
+  },
+  {
+    "id": "ct-03",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2023,
+    "audience": [
+      "students",
+      "researchers"
+    ],
+    "tags": [
+      "data",
+      "research-skills"
+    ],
+    "title": {
+      "en": "Research Data Management for Beginners (sample)",
+      "ar": "إدارة بيانات البحث للمبتدئين (نموذج)"
+    },
+    "summary": {
+      "en": "Planning, storing, sharing and citing research data, step by step.",
+      "ar": "تخطيط بيانات البحث وحفظها ومشاركتها والاستشهاد بها خطوة بخطوة."
+    },
+    "catalogue": {
+      "format": "E-BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author M",
+          "ar": "مؤلف نموذجي (ش)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2023
+      },
+      "description": {
+        "en": "1 online resource",
+        "ar": "مصدر إلكتروني واحد"
+      },
+      "subjects": [
+        {
+          "en": "Research — Data processing",
+          "ar": "البحث العلمي — معالجة البيانات"
+        },
+        {
+          "en": "Database management",
+          "ar": "إدارة قواعد البيانات"
+        }
+      ],
+      "isbn": "978-1-0000-0103-7",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "online",
+          "callNo": null,
+          "status": "online"
+        }
+      ],
+      "online": true
+    }
+  },
+  {
+    "id": "ct-04",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2019,
+    "audience": [
+      "researchers"
+    ],
+    "tags": [
+      "architecture",
+      "qatar"
+    ],
+    "title": {
+      "en": "Urban Change in Dawḥah, 1950–2010 (sample)",
+      "ar": "التحول العمراني في الدوحة، 1950–2010 (نموذج)"
+    },
+    "summary": {
+      "en": "A doctoral study of how the city grew from the old souq districts to the new towers.",
+      "ar": "دراسة دكتوراه عن نمو المدينة من أحياء السوق القديمة إلى الأبراج الجديدة."
+    },
+    "catalogue": {
+      "format": "THESIS",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author N",
+          "ar": "مؤلف نموذجي (ص)"
+        }
+      ],
+      "publication": {
+        "year": 2019
+      },
+      "description": {
+        "en": "xiv, 286 leaves : illustrations, maps",
+        "ar": "xiv، 286 ورقة : صور، خرائط"
+      },
+      "subjects": [
+        {
+          "en": "Urbanization — Qatar — Doha",
+          "ar": "التحضر — قطر — الدوحة"
+        },
+        {
+          "en": "City planning — Qatar — History",
+          "ar": "تخطيط المدن — قطر — تاريخ"
+        }
+      ],
+      "places": [
+        "doha",
+        "qatar"
+      ],
+      "placesAsCatalogued": [
+        "Dawḥah (Qatar)",
+        "Ad Dawḥah"
+      ],
+      "collection": "partner",
+      "holdings": [
+        {
+          "location": "partner-dohainst",
+          "callNo": "HT147.Q2 S46 2019",
+          "status": "available"
+        },
+        {
+          "location": "legal-deposit",
+          "callNo": "HT147.Q2 S46 2019",
+          "status": "library-use"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-05",
+    "type": "book",
+    "sample": true,
+    "lang": "ar",
+    "year": 2021,
+    "audience": [
+      "researchers",
+      "students"
+    ],
+    "tags": [
+      "pearling",
+      "poetry"
+    ],
+    "title": {
+      "en": "Pearling Songs of the Gulf: A Study (sample)",
+      "ar": "أغاني الغوص في الخليج: دراسة (نموذج)"
+    },
+    "summary": {
+      "en": "A master's thesis on the work songs sung aboard pearling boats.",
+      "ar": "رسالة ماجستير عن أغاني العمل التي كانت تُغنّى على سفن الغوص."
+    },
+    "catalogue": {
+      "format": "THESIS",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author O",
+          "ar": "مؤلف نموذجي (ض)"
+        }
+      ],
+      "publication": {
+        "year": 2021
+      },
+      "description": {
+        "en": "180 leaves",
+        "ar": "180 ورقة"
+      },
+      "subjects": [
+        {
+          "en": "Work songs — Persian Gulf",
+          "ar": "أغاني العمل — الخليج العربي"
+        },
+        {
+          "en": "Pearl fisheries — Songs and music",
+          "ar": "مصائد اللؤلؤ — أغانٍ وموسيقى"
+        }
+      ],
+      "places": [
+        "gulf",
+        "qatar"
+      ],
+      "placesAsCatalogued": [
+        "Arabian Gulf"
+      ],
+      "collection": "legal-deposit",
+      "holdings": [
+        {
+          "location": "legal-deposit",
+          "callNo": "ML3760 .S47 2021",
+          "status": "library-use"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-06",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2022,
+    "audience": [
+      "researchers"
+    ],
+    "tags": [
+      "engineering",
+      "science"
+    ],
+    "title": {
+      "en": "Solar Desalination in Arid Regions (sample)",
+      "ar": "تحلية المياه بالطاقة الشمسية في المناطق الجافة (نموذج)"
+    },
+    "summary": {
+      "en": "An engineering thesis comparing small solar stills for remote communities.",
+      "ar": "رسالة هندسية تقارن بين أجهزة التقطير الشمسي الصغيرة للمجتمعات النائية."
+    },
+    "catalogue": {
+      "format": "THESIS",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author P",
+          "ar": "مؤلف نموذجي (ط)"
+        }
+      ],
+      "publication": {
+        "year": 2022
+      },
+      "description": {
+        "en": "xii, 142 leaves : illustrations",
+        "ar": "xii، 142 ورقة : صور"
+      },
+      "subjects": [
+        {
+          "en": "Saline water conversion — Solar energy",
+          "ar": "تحلية المياه المالحة — الطاقة الشمسية"
+        }
+      ],
+      "collection": "partner",
+      "holdings": [
+        {
+          "location": "partner-cmuq",
+          "callNo": "TD480.4 .S48 2022",
+          "status": "available"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-07",
+    "type": "book",
+    "sample": true,
+    "lang": "ar",
+    "year": 1998,
+    "audience": [
+      "researchers",
+      "adults"
+    ],
+    "tags": [
+      "gulf-history",
+      "qatar"
+    ],
+    "title": {
+      "en": "Gulf Heritage Review (sample)",
+      "ar": "مجلة تراث الخليج (نموذج)"
+    },
+    "summary": {
+      "en": "A quarterly magazine of local history, folklore and archaeology. Library holds 1998–2015.",
+      "ar": "مجلة فصلية في التاريخ المحلي والتراث الشعبي والآثار. تقتني المكتبة أعداد 1998–2015."
+    },
+    "catalogue": {
+      "format": "PERIODICAL",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Qatar National Library (sample)",
+          "ar": "مكتبة قطر الوطنية (نموذج)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 1998
+      },
+      "description": {
+        "en": "volumes : illustrations ; 28 cm",
+        "ar": "مجلدات : صور ؛ 28 سم"
+      },
+      "subjects": [
+        {
+          "en": "Persian Gulf — History — Periodicals",
+          "ar": "الخليج العربي — تاريخ — دوريات"
+        },
+        {
+          "en": "Folklore — Gulf States — Periodicals",
+          "ar": "التراث الشعبي — دول الخليج — دوريات"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "placesAsCatalogued": [
+        "Arabian Gulf Region"
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "DS326 .G85 v.1-18",
+          "status": "library-use"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-08",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2005,
+    "audience": [
+      "adults",
+      "students"
+    ],
+    "tags": [
+      "science"
+    ],
+    "title": {
+      "en": "Desert Science Quarterly (sample)",
+      "ar": "فصلية علوم الصحراء (نموذج)"
+    },
+    "summary": {
+      "en": "Popular science magazine covering ecology, geology and climate in desert regions.",
+      "ar": "مجلة علمية مبسطة تتناول البيئة والجيولوجيا والمناخ في المناطق الصحراوية."
+    },
+    "catalogue": {
+      "format": "PERIODICAL",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Qatar National Library (sample)",
+          "ar": "مكتبة قطر الوطنية (نموذج)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2005
+      },
+      "description": {
+        "en": "volumes : colour illustrations ; 30 cm",
+        "ar": "مجلدات : صور ملونة ؛ 30 سم"
+      },
+      "subjects": [
+        {
+          "en": "Deserts — Periodicals",
+          "ar": "الصحارى — دوريات"
+        },
+        {
+          "en": "Arid regions ecology — Periodicals",
+          "ar": "بيئة المناطق الجافة — دوريات"
+        }
+      ],
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "QH88 .D47 current issues",
+          "status": "library-use"
+        },
+        {
+          "location": "main-general",
+          "callNo": "QH88 .D47 v.1-20",
+          "status": "available"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-09",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2016,
+    "audience": [
+      "researchers",
+      "students"
+    ],
+    "tags": [
+      "gulf-history",
+      "open-access"
+    ],
+    "title": {
+      "en": "Gulf Studies Online (sample)",
+      "ar": "دراسات الخليج الإلكترونية (نموذج)"
+    },
+    "summary": {
+      "en": "An open-access journal of history, politics and society in the Gulf.",
+      "ar": "دورية مفتوحة الوصول في التاريخ والسياسة والمجتمع في الخليج."
+    },
+    "catalogue": {
+      "format": "E-JOURNAL",
+      "language": "mul",
+      "authors": [
+        {
+          "en": "Qatar National Library (sample)",
+          "ar": "مكتبة قطر الوطنية (نموذج)"
+        }
+      ],
+      "publication": {
+        "year": 2016
+      },
+      "description": {
+        "en": "1 online resource",
+        "ar": "مصدر إلكتروني واحد"
+      },
+      "subjects": [
+        {
+          "en": "Persian Gulf Region — Social conditions — Periodicals",
+          "ar": "منطقة الخليج العربي — الأحوال الاجتماعية — دوريات"
+        }
+      ],
+      "places": [
+        "gulf",
+        "arabian-peninsula"
+      ],
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "online",
+          "callNo": null,
+          "status": "online"
+        }
+      ],
+      "online": true
+    }
+  },
+  {
+    "id": "ct-10",
+    "type": "book",
+    "sample": true,
+    "lang": "ar",
+    "year": 2018,
+    "audience": [
+      "adults",
+      "teens"
+    ],
+    "tags": [
+      "pearling",
+      "maritime"
+    ],
+    "title": {
+      "en": "The Last Pearl Season: A Documentary (sample)",
+      "ar": "موسم اللؤلؤ الأخير: فيلم وثائقي (نموذج)"
+    },
+    "summary": {
+      "en": "Former divers return to the old pearl banks and remember the final seasons.",
+      "ar": "غواصون سابقون يعودون إلى مغاصات اللؤلؤ القديمة ويتذكرون المواسم الأخيرة."
+    },
+    "catalogue": {
+      "format": "DIGITAL FILMS",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author A",
+          "ar": "مؤلف نموذجي (أ)",
+          "role": "director"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2018
+      },
+      "description": {
+        "en": "1 video file (52 min) : sound, colour",
+        "ar": "ملف فيديو واحد (52 دقيقة) : صوت، ألوان"
+      },
+      "subjects": [
+        {
+          "en": "Pearl fisheries — Qatar — Documentary films",
+          "ar": "مصائد اللؤلؤ — قطر — أفلام وثائقية"
+        }
+      ],
+      "places": [
+        "qatar",
+        "gulf"
+      ],
+      "collection": "legal-deposit",
+      "holdings": [
+        {
+          "location": "online",
+          "callNo": null,
+          "status": "online"
+        },
+        {
+          "location": "legal-deposit",
+          "callNo": "DVD SH378 .L37 2018",
+          "status": "library-use"
+        }
+      ],
+      "online": true
+    }
+  },
+  {
+    "id": "ct-11",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2016,
+    "audience": [
+      "adults"
+    ],
+    "tags": [
+      "maritime"
+    ],
+    "title": {
+      "en": "Building the Dhow: A Craft Film (sample)",
+      "ar": "صناعة السفينة الشراعية: فيلم عن الحرفة (نموذج)"
+    },
+    "summary": {
+      "en": "Shipwrights build a wooden boat by hand, from keel to launch.",
+      "ar": "صانعو السفن يبنون قاربًا خشبيًا يدويًا من العارضة حتى الإنزال."
+    },
+    "catalogue": {
+      "format": "DVDROM",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author B",
+          "ar": "مؤلف نموذجي (ب)",
+          "role": "director"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2016
+      },
+      "description": {
+        "en": "1 videodisc (38 min) : sound, colour ; 12 cm",
+        "ar": "قرص فيديو واحد (38 دقيقة) : صوت، ألوان ؛ 12 سم"
+      },
+      "subjects": [
+        {
+          "en": "Dhows — Design and construction",
+          "ar": "السفن الشراعية — التصميم والبناء"
+        },
+        {
+          "en": "Boatbuilding — Persian Gulf",
+          "ar": "بناء القوارب — الخليج العربي"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "DVD VM311.D5 B85 2016",
+          "status": "available"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-12",
+    "type": "book",
+    "sample": true,
+    "lang": "ar",
+    "year": 2015,
+    "audience": [
+      "adults"
+    ],
+    "tags": [
+      "pearling",
+      "poetry"
+    ],
+    "title": {
+      "en": "Songs of the Sea: Field Recordings (sample)",
+      "ar": "أغاني البحر: تسجيلات ميدانية (نموذج)"
+    },
+    "summary": {
+      "en": "Recordings of sea songs and rhythms made with retired sailors.",
+      "ar": "تسجيلات لأغاني البحر وإيقاعاته مع بحارة متقاعدين."
+    },
+    "catalogue": {
+      "format": "AUDIO FILE",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author C",
+          "ar": "مؤلف نموذجي (ت)",
+          "role": "compiler"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2015
+      },
+      "description": {
+        "en": "1 audio file (48 min)",
+        "ar": "ملف صوتي واحد (48 دقيقة)"
+      },
+      "subjects": [
+        {
+          "en": "Sea songs — Qatar",
+          "ar": "أغاني البحر — قطر"
+        },
+        {
+          "en": "Folk music — Gulf States",
+          "ar": "الموسيقى الشعبية — دول الخليج"
+        }
+      ],
+      "places": [
+        "qatar"
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "online",
+          "callNo": null,
+          "status": "online"
+        }
+      ],
+      "online": true
+    }
+  },
+  {
+    "id": "ct-13",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2010,
+    "audience": [
+      "adults",
+      "students"
+    ],
+    "tags": [
+      "maps",
+      "qatar"
+    ],
+    "title": {
+      "en": "Doha City Map (sample)",
+      "ar": "خريطة مدينة الدوحة (نموذج)"
+    },
+    "summary": {
+      "en": "A folded street map with districts, landmarks and an index of street names.",
+      "ar": "خريطة شوارع مطوية تبيّن الأحياء والمعالم مع فهرس لأسماء الشوارع."
+    },
+    "catalogue": {
+      "format": "PRINT MAP",
+      "language": "mul",
+      "authors": [
+        {
+          "en": "Qatar National Library (sample)",
+          "ar": "مكتبة قطر الوطنية (نموذج)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Doha",
+          "ar": "الدوحة"
+        },
+        "publisher": {
+          "en": "Sample Press",
+          "ar": "دار نموذجية للنشر"
+        },
+        "year": 2010
+      },
+      "description": {
+        "en": "1 map : colour ; 60 x 90 cm, folded to 23 x 12 cm",
+        "ar": "خريطة واحدة : ملونة ؛ 60 × 90 سم، مطوية إلى 23 × 12 سم"
+      },
+      "subjects": [
+        {
+          "en": "Doha (Qatar) — Maps",
+          "ar": "الدوحة (قطر) — خرائط"
+        }
+      ],
+      "places": [
+        "doha"
+      ],
+      "placesAsCatalogued": [
+        "Ad Dawhah",
+        "Dawhah"
+      ],
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "G7604.D6 2010 .S49",
+          "status": "available"
+        },
+        {
+          "location": "legal-deposit",
+          "callNo": "G7604.D6 2010 .S49 c.2",
+          "status": "library-use"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-14",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "adults"
+    ],
+    "tags": [
+      "photography",
+      "qatar"
+    ],
+    "title": {
+      "en": "Doha Corniche at Dusk, photograph (sample)",
+      "ar": "كورنيش الدوحة عند الغروب، صورة فوتوغرافية (نموذج)"
+    },
+    "summary": {
+      "en": "A digitised photograph of the waterfront and moored dhows.",
+      "ar": "صورة فوتوغرافية مرقمنة للواجهة البحرية والسفن الراسية."
+    },
+    "catalogue": {
+      "format": "DIGITAL IMAGE",
+      "language": "zxx",
+      "authors": [
+        {
+          "en": "Sample Author D",
+          "ar": "مؤلف نموذجي (ث)",
+          "role": "photographer"
+        }
+      ],
+      "description": {
+        "en": "1 digital image : colour",
+        "ar": "صورة رقمية واحدة : ألوان"
+      },
+      "subjects": [
+        {
+          "en": "Waterfronts — Qatar — Doha — Photographs",
+          "ar": "الواجهات البحرية — قطر — الدوحة — صور"
+        }
+      ],
+      "places": [
+        "doha"
+      ],
+      "placesAsCatalogued": [
+        "Doha"
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "online",
+          "callNo": null,
+          "status": "online"
+        }
+      ],
+      "online": true
+    }
+  },
+  {
+    "id": "ct-15",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "audience": [
+      "adults",
+      "children"
+    ],
+    "tags": [
+      "maritime",
+      "pearling"
+    ],
+    "title": {
+      "en": "Model of a Pearling Boat (sample)",
+      "ar": "مجسم لسفينة غوص (نموذج)"
+    },
+    "summary": {
+      "en": "A scale model of a wooden pearling boat, with rigging and diving ropes.",
+      "ar": "مجسم مصغّر لسفينة غوص خشبية مع أشرعتها وحبال الغوص."
+    },
+    "catalogue": {
+      "format": "3-D OBJECT",
+      "language": "zxx",
+      "authors": [
+        {
+          "en": "Qatar National Library (sample)",
+          "ar": "مكتبة قطر الوطنية (نموذج)"
+        }
+      ],
+      "description": {
+        "en": "1 model : wood, rope ; 40 x 60 cm",
+        "ar": "مجسم واحد : خشب، حبال ؛ 40 × 60 سم"
+      },
+      "subjects": [
+        {
+          "en": "Dhows — Models",
+          "ar": "السفن الشراعية — مجسمات"
+        },
+        {
+          "en": "Pearl fisheries — Equipment and supplies",
+          "ar": "مصائد اللؤلؤ — معدات وأدوات"
+        }
+      ],
+      "collection": "heritage",
+      "holdings": [
+        {
+          "location": "heritage",
+          "callNo": "OBJ SAMPLE 015",
+          "status": "library-use"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-16",
+    "type": "book",
+    "sample": true,
+    "lang": "other",
+    "year": 2014,
+    "audience": [
+      "adults",
+      "researchers"
+    ],
+    "tags": [
+      "gulf-history"
+    ],
+    "title": {
+      "en": "Histoire du Golfe : une introduction (sample)",
+      "ar": "تاريخ الخليج: مدخل (نموذج، بالفرنسية)"
+    },
+    "summary": {
+      "en": "A French-language introduction to the history of the Gulf, from antiquity to independence.",
+      "ar": "مدخل باللغة الفرنسية إلى تاريخ الخليج من العصور القديمة حتى الاستقلال."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "fre",
+      "authors": [
+        {
+          "en": "Sample Author E",
+          "ar": "مؤلف نموذجي (ج)"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Paris",
+          "ar": "باريس"
+        },
+        "publisher": {
+          "en": "Éditions Exemple",
+          "ar": "دار نشر نموذجية"
+        },
+        "year": 2014
+      },
+      "description": {
+        "en": "264 pages : illustrations ; 24 cm",
+        "ar": "264 صفحة : صور ؛ 24 سم"
+      },
+      "subjects": [
+        {
+          "en": "Persian Gulf Region — History",
+          "ar": "منطقة الخليج العربي — تاريخ"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "placesAsCatalogued": [
+        "Golfstaaten",
+        "Persian Gulf"
+      ],
+      "isbn": "978-1-0000-0104-4",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "DS326 .S50 2014",
+          "status": "available"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-17",
+    "type": "book",
+    "sample": true,
+    "lang": "en",
+    "year": 2022,
+    "audience": [
+      "teens"
+    ],
+    "tags": [
+      "teens",
+      "reading"
+    ],
+    "title": {
+      "en": "Falcon City: A Graphic Novel (sample)",
+      "ar": "مدينة الصقر: رواية مصورة (نموذج)"
+    },
+    "summary": {
+      "en": "A teenage courier races across a future Doha in this illustrated adventure.",
+      "ar": "مغامرة مصورة عن ساعٍ مراهق يسابق الزمن في دوحة المستقبل."
+    },
+    "catalogue": {
+      "format": "BOOK",
+      "language": "eng",
+      "authors": [
+        {
+          "en": "Sample Author F",
+          "ar": "مؤلف نموذجي (ح)"
+        },
+        {
+          "en": "Sample Author G",
+          "ar": "مؤلف نموذجي (خ)",
+          "role": "illustrator"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "London",
+          "ar": "لندن"
+        },
+        "publisher": {
+          "en": "Sample Academic",
+          "ar": "دار أكاديمية نموذجية"
+        },
+        "year": 2022
+      },
+      "description": {
+        "en": "128 pages : chiefly colour illustrations ; 26 cm",
+        "ar": "128 صفحة : صور ملونة في معظمها ؛ 26 سم"
+      },
+      "subjects": [
+        {
+          "en": "Graphic novels",
+          "ar": "الروايات المصورة"
+        },
+        {
+          "en": "Doha (Qatar) — Comic books, strips, etc.",
+          "ar": "الدوحة (قطر) — قصص مصورة"
+        }
+      ],
+      "places": [
+        "doha"
+      ],
+      "isbn": "978-1-0000-0105-1",
+      "collection": "children-teens",
+      "holdings": [
+        {
+          "location": "graphic-novels",
+          "callNo": "YA PN6727 .S51 2022",
+          "status": "available"
+        },
+        {
+          "location": "teens",
+          "callNo": "YA PN6727 .S51 2022 c.2",
+          "status": "on-loan",
+          "due": "2026-12-09"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-18",
+    "type": "book",
+    "sample": true,
+    "lang": "ar",
+    "year": 2012,
+    "audience": [
+      "adults",
+      "students"
+    ],
+    "tags": [
+      "poetry"
+    ],
+    "title": {
+      "en": "Gulf Folk Tunes: Scores (sample)",
+      "ar": "ألحان شعبية خليجية: نوتات موسيقية (نموذج)"
+    },
+    "summary": {
+      "en": "Transcriptions of traditional songs for voice and oud, with notes on rhythm.",
+      "ar": "تدوين لأغانٍ تقليدية للصوت والعود مع ملاحظات عن الإيقاع."
+    },
+    "catalogue": {
+      "format": "NOTATED MUSIC",
+      "language": "ara",
+      "authors": [
+        {
+          "en": "Sample Author H",
+          "ar": "مؤلف نموذجي (د)",
+          "role": "arranger"
+        }
+      ],
+      "publication": {
+        "place": {
+          "en": "Beirut",
+          "ar": "بيروت"
+        },
+        "publisher": {
+          "en": "Sample House",
+          "ar": "دار نموذجية"
+        },
+        "year": 2012
+      },
+      "description": {
+        "en": "1 score (96 pages) ; 31 cm",
+        "ar": "نوتة واحدة (96 صفحة) ؛ 31 سم"
+      },
+      "subjects": [
+        {
+          "en": "Folk songs, Arabic — Gulf States — Scores",
+          "ar": "الأغاني الشعبية العربية — دول الخليج — نوتات"
+        }
+      ],
+      "places": [
+        "gulf"
+      ],
+      "isbn": "978-1-0000-0106-8",
+      "collection": "general",
+      "holdings": [
+        {
+          "location": "main-general",
+          "callNo": "M1824 .S52 2012",
+          "status": "available"
+        },
+        {
+          "location": "main-general",
+          "callNo": "M1824 .S52 2012",
+          "status": "on-order",
+          "copies": 2,
+          "ordered": "2026-11-10"
+        }
+      ]
     }
   }
 ]

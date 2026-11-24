@@ -67,6 +67,25 @@ for f in ['books', 'databases', 'events', 'services', 'heritage', 'pages']:
             t = r['task']
             rows.append((f'{base}.task.answer', t['answer']['en'], t['answer']['ar'], 'Quick-answer card shown in search. Contains [TBC] placeholders.' if '[TBC]' in t['answer']['en'] else 'Quick-answer card shown in search.'))
             rows.append((f'{base}.task.action', t['action']['en'], t['action']['ar'], 'Button label (imperative).'))
+        c = r.get('catalogue')
+        if c:
+            for i, au in enumerate(c['authors']):
+                rows.append((f'{base}.catalogue.author{i}', au['en'], au['ar'], 'Placeholder author name (sample).'))
+            pub = c.get('publication') or {}
+            for k in ('place', 'publisher'):
+                if pub.get(k):
+                    rows.append((f'{base}.catalogue.{k}', pub[k]['en'], pub[k]['ar'], 'Publication ' + k + (' (placeholder).' if k == 'publisher' else '.')))
+            if c.get('edition'):
+                rows.append((f'{base}.catalogue.edition', c['edition']['en'], c['edition']['ar'], ''))
+            rows.append((f'{base}.catalogue.description', c['description']['en'], c['description']['ar'], 'Physical description in catalogue style (pages : illustrations ; size).'))
+            for i, sub in enumerate(c['subjects']):
+                rows.append((f'{base}.catalogue.subject{i}', sub['en'], sub['ar'], 'Subject heading; the Arabic should follow QNL\'s Arabic subject-heading practice.'))
+
+ref = json.loads((ROOT / 'src/content/catalogue.json').read_text('utf-8'))
+for sect, note in [('formatGroups', 'Format filter group label.'), ('formats', 'Catalogue format label.'), ('locations', 'Location name; confirm official Arabic names.'),
+                   ('collections', 'Collection label.'), ('languages', 'Language name.'), ('status', 'Copy status label.'), ('places', 'Preferred place name (spelling variants merge into this).')]:
+    for k, v in ref[sect].items():
+        rows.append((f'catalogue.{sect}.{k}', v['en'], v['ar'], note))
 
 tags = json.loads((ROOT / 'src/content/tags.json').read_text('utf-8'))
 for k, v in tags.items():

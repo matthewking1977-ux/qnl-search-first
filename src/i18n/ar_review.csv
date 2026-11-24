@@ -24,7 +24,7 @@ search.mode.library,Search the library,ابحث في المكتبة,
 search.mode.ask,Ask a question,اطرح سؤالًا,
 search.phase2,Phase 2,المرحلة الثانية,"Refers to QNL's project Phase 2 (future feature), not a site section."
 filter.all,All,الكل,
-filter.books,Books,الكتب,
+filter.books,Books & media,الكتب والمواد,
 filter.research,Research,البحث العلمي,
 filter.events,Events,الفعاليات,
 filter.services,Services,الخدمات,
@@ -82,7 +82,7 @@ search.zero.catalogueHelp,"Books, articles and media in the Discovery System.",�
 search.suggestions,Suggestions,اقتراحات,
 search.perf,Type-ahead timing,توقيت الاقتراحات الفورية,
 search.filters,Filter results,تصفية النتائج,
-group.books,Books,الكتب,
+group.books,Books & media,الكتب والمواد,
 group.research,Research,البحث العلمي,
 group.events,Events,الفعاليات,
 group.services,Services,الخدمات,
@@ -254,42 +254,302 @@ a11y.status,Last tested: [TBC]. Method: automated checks (axe-core) and manual k
 newsletter.pageTitle,Newsletter,النشرة الإخبارية,
 newsletter.pageBody,This is a sample sign-up form. In this concept nothing is sent or stored.,هذا نموذج اشتراك تجريبي، ولا يُرسَل أي شيء ولا يُخزَّن في هذا التصوّر.,
 footer.nav,Footer,روابط التذييل,
+nf.meta,Page not found,الصفحة غير موجودة,
+nf.title,We couldn’t find that page,لم نعثر على هذه الصفحة,
+nf.lead,"It may have moved, or the address may have a typo. Search for what you need, or start from one of these.",ربما نُقلت الصفحة، أو أن في العنوان خطأً مطبعيًا. ابحث عمّا تحتاج إليه، أو ابدأ من أحد هذه الروابط.,
+nf.links,Popular places,روابط شائعة,
+nf.home,Homepage,الصفحة الرئيسية,
+nf.explore,Explore the collections,استكشف المجموعات,
+nf.visit,Plan your visit,خطّط لزيارتك,
+nf.ask,Ask a librarian,اسأل أمين المكتبة,
+nf.hours,Opening hours,مواعيد العمل,
+search.scope,Search in,البحث في,
+search.try,Try,جرّب,
+search.advanced,Advanced search,بحث متقدم,
+meta.lang.other,Other languages,لغات أخرى,
+item.c.format,Format,الشكل,
+item.c.author,Author,المؤلف,
+item.c.published,Published,النشر,
+item.c.edition,Edition,الطبعة,
+item.c.description,Description,الوصف المادي,
+item.c.subjects,Subjects,الموضوعات,
+item.c.places,Places,الأماكن,
+item.c.asCatalogued,Also catalogued as,وردت أيضًا باسم,
+item.c.isbn,ISBN,ردمك,
+item.c.language,Language,اللغة,
+item.c.collection,Collection,المجموعة,
+item.c.holdings,Copies and availability,النسخ والإتاحة,
+item.c.location,Location,الموقع,
+item.c.callNo,Call number,رقم الاستدعاء,
+item.c.status,Status,الحالة,
+item.c.due,due {date},تاريخ الإرجاع {date},
+item.c.ordered,{n} more copies ordered on {date},طُلبت نسخ إضافية ({n}) في {date},
+item.c.partner,Partner library,مكتبة شريكة,
+item.c.onlineNote,Read or watch online with your library membership.,اقرأ أو شاهد إلكترونيًا من خلال عضويتك في المكتبة.,
 content.books.bk-01.title,Introduction to Gulf Maritime History (sample),مدخل إلى التاريخ البحري للخليج (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-01.summary,"A survey of trade routes, ports and seafaring communities across the Gulf from the 18th century.",عرض شامل لطرق التجارة والموانئ والمجتمعات البحرية في الخليج منذ القرن الثامن عشر.,
+content.books.bk-01.catalogue.author0,Sample Author A,مؤلف نموذجي (أ),Placeholder author name (sample).
+content.books.bk-01.catalogue.place,London,لندن,Publication place.
+content.books.bk-01.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-01.catalogue.description,312 pages : illustrations ; 24 cm,312 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-01.catalogue.subject0,Navigation — Persian Gulf — History,الملاحة — الخليج العربي — تاريخ,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-01.catalogue.subject1,Harbors — Persian Gulf,الموانئ — الخليج العربي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-02.title,Pearl Divers of the Qatari Coast (sample),غواصو اللؤلؤ على الساحل القطري (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-02.summary,"Oral histories and photographs of pearling seasons, boats and crews.",روايات شفهية وصور عن مواسم الغوص والسفن وطواقمها.,
+content.books.bk-02.catalogue.author0,Sample Author B,مؤلف نموذجي (ب),Placeholder author name (sample).
+content.books.bk-02.catalogue.place,Doha,الدوحة,Publication place.
+content.books.bk-02.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.bk-02.catalogue.description,204 pages : illustrations ; 24 cm,204 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-02.catalogue.subject0,Pearl fisheries — Qatar — History,مصائد اللؤلؤ — قطر — تاريخ,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-02.catalogue.subject1,Oral history — Qatar,التاريخ الشفوي — قطر,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-03.title,An Anthology of Nabati Poetry (sample),مختارات من الشعر النبطي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-03.summary,"Selected poems with notes on metre, dialect and performance.",قصائد مختارة مع شروح للأوزان واللهجة وطرق الإلقاء.,
+content.books.bk-03.catalogue.author0,Sample Author C,مؤلف نموذجي (ت),Placeholder author name (sample).
+content.books.bk-03.catalogue.place,Beirut,بيروت,Publication place.
+content.books.bk-03.catalogue.publisher,Sample House,دار نموذجية,Publication publisher (placeholder).
+content.books.bk-03.catalogue.description,288 pages ; 24 cm,288 صفحة ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-03.catalogue.subject0,Nabati poetry,الشعر النبطي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-03.catalogue.subject1,Arabic poetry — Gulf States,الشعر العربي — دول الخليج,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-04.title,Writing Your Literature Review: A Practical Guide (sample),كتابة مراجعة الأدبيات: دليل عملي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-04.summary,"Step-by-step methods for searching, organising and citing sources for a thesis.",خطوات عملية للبحث عن المصادر وتنظيمها وتوثيقها في الأطروحات.,
+content.books.bk-04.catalogue.author0,Sample Author D,مؤلف نموذجي (ث),Placeholder author name (sample).
+content.books.bk-04.catalogue.place,London,لندن,Publication place.
+content.books.bk-04.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-04.catalogue.edition,2nd edition,الطبعة الثانية,
+content.books.bk-04.catalogue.description,176 pages ; 24 cm,176 صفحة ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-04.catalogue.subject0,"Academic writing — Handbooks, manuals, etc.",الكتابة الأكاديمية — أدلة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-04.catalogue.subject1,Literature reviews,مراجعات الأدبيات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-05.title,The Little Dhow (sample),المحمل الصغير (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-05.summary,A bilingual picture book about a boat that learns to read the stars.,كتاب مصوّر ثنائي اللغة عن سفينة صغيرة تتعلم قراءة النجوم.,
+content.books.bk-05.catalogue.author0,Sample Author E,مؤلف نموذجي (ج),Placeholder author name (sample).
+content.books.bk-05.catalogue.place,Doha,الدوحة,Publication place.
+content.books.bk-05.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.bk-05.catalogue.description,32 pages : colour illustrations ; 26 cm,32 صفحة : صور ملونة ؛ 26 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-05.catalogue.subject0,Dhows — Juvenile fiction,السفن الشراعية — قصص للأطفال,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-05.catalogue.subject1,Picture books,كتب مصورة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-06.title,Modern Architecture in Doha (sample),العمارة الحديثة في الدوحة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-06.summary,"Buildings, planners and materials that shaped the city's skyline.",المباني والمخططون والمواد التي شكّلت أفق المدينة.,
+content.books.bk-06.catalogue.author0,Sample Author F,مؤلف نموذجي (ح),Placeholder author name (sample).
+content.books.bk-06.catalogue.place,London,لندن,Publication place.
+content.books.bk-06.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-06.catalogue.description,256 pages : illustrations ; 24 cm,256 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-06.catalogue.subject0,"Architecture, Modern — Qatar — Doha",العمارة الحديثة — قطر — الدوحة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-06.catalogue.subject1,City planning — Qatar,تخطيط المدن — قطر,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-07.title,Arabic Grammar Made Clear (sample),النحو العربي الميسّر (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-07.summary,A modern reference to Arabic syntax with exercises and answers.,مرجع حديث في النحو العربي مع تمارين وإجابات.,
+content.books.bk-07.catalogue.author0,Sample Author G,مؤلف نموذجي (خ),Placeholder author name (sample).
+content.books.bk-07.catalogue.place,Beirut,بيروت,Publication place.
+content.books.bk-07.catalogue.publisher,Sample House,دار نموذجية,Publication publisher (placeholder).
+content.books.bk-07.catalogue.description,340 pages ; 24 cm,340 صفحة ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-07.catalogue.subject0,Arabic language — Grammar,اللغة العربية — النحو,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-08.title,Statistics for Social Scientists (sample),الإحصاء لدارسي العلوم الاجتماعية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-08.summary,Core statistical methods with worked examples in common software.,الأساليب الإحصائية الأساسية مع أمثلة تطبيقية على البرامج الشائعة.,
+content.books.bk-08.catalogue.author0,Sample Author H,مؤلف نموذجي (د),Placeholder author name (sample).
+content.books.bk-08.catalogue.author1,Sample Author I,مؤلف نموذجي (ذ),Placeholder author name (sample).
+content.books.bk-08.catalogue.place,London,لندن,Publication place.
+content.books.bk-08.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-08.catalogue.edition,3rd edition,الطبعة الثالثة,
+content.books.bk-08.catalogue.description,410 pages : illustrations ; 24 cm,410 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-08.catalogue.subject0,Social sciences — Statistical methods,العلوم الاجتماعية — الأساليب الإحصائية,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-09.title,Public Health in Desert Climates (sample),الصحة العامة في المناخات الصحراوية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-09.summary,"Heat, hydration and health systems in arid regions.",الحرارة والإرواء والأنظمة الصحية في المناطق الجافة.,
+content.books.bk-09.catalogue.author0,Sample Author J,مؤلف نموذجي (ر),Placeholder author name (sample).
+content.books.bk-09.catalogue.place,London,لندن,Publication place.
+content.books.bk-09.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-09.catalogue.description,232 pages : illustrations ; 24 cm,232 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-09.catalogue.subject0,Public health — Arid regions,الصحة العامة — المناطق الجافة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-09.catalogue.subject1,Heat — Physiological effect,الحرارة — التأثير الفسيولوجي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-10.title,The House by the Souq: A Novel (sample),البيت المجاور للسوق: رواية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-10.summary,Three generations of one family and the changing city around them.,ثلاثة أجيال من عائلة واحدة والمدينة المتغيرة من حولها.,
+content.books.bk-10.catalogue.author0,Sample Author K,مؤلف نموذجي (ز),Placeholder author name (sample).
+content.books.bk-10.catalogue.place,Doha,الدوحة,Publication place.
+content.books.bk-10.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.bk-10.catalogue.description,198 pages ; 24 cm,198 صفحة ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-10.catalogue.subject0,Arabic fiction — Qatar,الرواية العربية — قطر,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-11.title,Stars Over the Desert: Astronomy for Beginners (sample),نجوم فوق الصحراء: علم الفلك للمبتدئين (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-11.summary,"Constellations, navigation and the night sky of Arabia.",الأبراج والملاحة وسماء الجزيرة العربية ليلًا.,
+content.books.bk-11.catalogue.author0,Sample Author L,مؤلف نموذجي (س),Placeholder author name (sample).
+content.books.bk-11.catalogue.place,London,لندن,Publication place.
+content.books.bk-11.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-11.catalogue.description,160 pages : illustrations ; 24 cm,160 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-11.catalogue.subject0,Astronomy — Popular works,علم الفلك — أعمال مبسطة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-12.title,Water Desalination: Principles and Practice (sample),تحلية المياه: المبادئ والتطبيق (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-12.summary,Engineering foundations of desalination plants and their energy use.,الأسس الهندسية لمحطات تحلية المياه واستهلاكها للطاقة.,
+content.books.bk-12.catalogue.author0,Sample Author M,مؤلف نموذجي (ش),Placeholder author name (sample).
+content.books.bk-12.catalogue.place,London,لندن,Publication place.
+content.books.bk-12.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-12.catalogue.description,380 pages : illustrations ; 24 cm,380 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-12.catalogue.subject0,Saline water conversion,تحلية المياه المالحة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-12.catalogue.subject1,Water-supply engineering,هندسة إمدادات المياه,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-13.title,The Art of the Arabic Book (sample),فن الكتاب العربي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-13.summary,"Calligraphy, illumination and binding in manuscript traditions.",الخط والتذهيب والتجليد في تقاليد المخطوطات.,
+content.books.bk-13.catalogue.author0,Sample Author N,مؤلف نموذجي (ص),Placeholder author name (sample).
+content.books.bk-13.catalogue.place,Beirut,بيروت,Publication place.
+content.books.bk-13.catalogue.publisher,Sample House,دار نموذجية,Publication publisher (placeholder).
+content.books.bk-13.catalogue.description,296 pages : illustrations ; 24 cm,296 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-13.catalogue.subject0,"Illumination of books and manuscripts, Islamic",زخرفة الكتب والمخطوطات الإسلامية,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-13.catalogue.subject1,"Calligraphy, Arabic",الخط العربي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-14.title,Small Business in the Gulf Economy (sample),المشروعات الصغيرة في اقتصاد الخليج (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-14.summary,"Case studies of start-ups, family firms and financing.",دراسات حالة عن الشركات الناشئة والعائلية والتمويل.,
+content.books.bk-14.catalogue.author0,Sample Author O,مؤلف نموذجي (ض),Placeholder author name (sample).
+content.books.bk-14.catalogue.place,London,لندن,Publication place.
+content.books.bk-14.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-14.catalogue.description,220 pages ; 24 cm,220 صفحة ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-14.catalogue.subject0,Small business — Gulf States,المشروعات الصغيرة — دول الخليج,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-15.title,Why Is the Sea Salty? (sample),لماذا ماء البحر مالح؟ (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-15.summary,Big questions about oceans for curious readers aged 6 to 9.,أسئلة كبيرة عن البحار للقرّاء الفضوليين من سن 6 إلى 9 سنوات.,
+content.books.bk-15.catalogue.author0,Sample Author P,مؤلف نموذجي (ط),Placeholder author name (sample).
+content.books.bk-15.catalogue.place,Doha,الدوحة,Publication place.
+content.books.bk-15.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.bk-15.catalogue.description,40 pages : colour illustrations ; 24 cm,40 صفحة : صور ملونة ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-15.catalogue.subject0,Seawater — Juvenile literature,مياه البحر — كتب للأطفال,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-16.title,Comparative Commercial Law in the GCC (sample),القانون التجاري المقارن في دول مجلس التعاون (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-16.summary,Contract and company law across Gulf jurisdictions.,قوانين العقود والشركات في دول الخليج.,
+content.books.bk-16.catalogue.author0,Sample Author A,مؤلف نموذجي (أ),Placeholder author name (sample).
+content.books.bk-16.catalogue.author1,Sample Author D,مؤلف نموذجي (ث),Placeholder author name (sample).
+content.books.bk-16.catalogue.place,London,لندن,Publication place.
+content.books.bk-16.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-16.catalogue.description,452 pages ; 24 cm,452 صفحة ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-16.catalogue.subject0,Commercial law — Gulf Cooperation Council countries,القانون التجاري — دول مجلس التعاون الخليجي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-17.title,Code Your First Game (sample),برمج لعبتك الأولى (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-17.summary,A hands-on introduction to programming for young makers.,مدخل عملي إلى البرمجة للمبتكرين الصغار.,
+content.books.bk-17.catalogue.author0,Sample Author B,مؤلف نموذجي (ب),Placeholder author name (sample).
+content.books.bk-17.catalogue.place,London,لندن,Publication place.
+content.books.bk-17.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.bk-17.catalogue.description,144 pages : illustrations ; 24 cm,144 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-17.catalogue.subject0,Video games — Programming — Juvenile literature,ألعاب الفيديو — البرمجة — كتب لليافعين,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.books.bk-18.title,The Gulf in Old Maps (sample),الخليج في الخرائط القديمة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.books.bk-18.summary,"How cartographers drew the region, with annotated reproductions.",كيف رسم رسامو الخرائط المنطقة، مع نسخ مشروحة.,
+content.books.bk-18.catalogue.author0,Sample Author C,مؤلف نموذجي (ت),Placeholder author name (sample).
+content.books.bk-18.catalogue.place,Doha,الدوحة,Publication place.
+content.books.bk-18.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.bk-18.catalogue.description,120 pages : maps ; 32 cm,120 صفحة : خرائط ؛ 32 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.bk-18.catalogue.subject0,Persian Gulf — Maps — History,الخليج العربي — خرائط — تاريخ,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.bk-18.catalogue.subject1,Cartography — History,رسم الخرائط — تاريخ,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-01.title,Climate and the Gulf: An Introduction (sample),المناخ والخليج: مدخل (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-01.summary,"Heat, humidity, dust and sea temperature explained, with regional data.",شرح للحرارة والرطوبة والغبار ودرجة حرارة البحر مع بيانات إقليمية.,
+content.books.ct-01.catalogue.author0,Sample Author K,مؤلف نموذجي (ز),Placeholder author name (sample).
+content.books.ct-01.catalogue.place,London,لندن,Publication place.
+content.books.ct-01.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.ct-01.catalogue.description,1 online resource,مصدر إلكتروني واحد,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-01.catalogue.subject0,Climatology — Persian Gulf Region,علم المناخ — منطقة الخليج العربي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-02.title,Stories from the Majlis (sample),حكايات من المجلس (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-02.summary,Short stories set in family gatherings across Qatar.,قصص قصيرة تدور في المجالس العائلية في أنحاء قطر.,
+content.books.ct-02.catalogue.author0,Sample Author L,مؤلف نموذجي (س),Placeholder author name (sample).
+content.books.ct-02.catalogue.place,Doha,الدوحة,Publication place.
+content.books.ct-02.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.ct-02.catalogue.description,1 online resource,مصدر إلكتروني واحد,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-02.catalogue.subject0,"Short stories, Arabic — Qatar",القصة القصيرة العربية — قطر,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-03.title,Research Data Management for Beginners (sample),إدارة بيانات البحث للمبتدئين (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-03.summary,"Planning, storing, sharing and citing research data, step by step.",تخطيط بيانات البحث وحفظها ومشاركتها والاستشهاد بها خطوة بخطوة.,
+content.books.ct-03.catalogue.author0,Sample Author M,مؤلف نموذجي (ش),Placeholder author name (sample).
+content.books.ct-03.catalogue.place,London,لندن,Publication place.
+content.books.ct-03.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.ct-03.catalogue.description,1 online resource,مصدر إلكتروني واحد,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-03.catalogue.subject0,Research — Data processing,البحث العلمي — معالجة البيانات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-03.catalogue.subject1,Database management,إدارة قواعد البيانات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-04.title,"Urban Change in Dawḥah, 1950–2010 (sample)",التحول العمراني في الدوحة، 1950–2010 (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-04.summary,A doctoral study of how the city grew from the old souq districts to the new towers.,دراسة دكتوراه عن نمو المدينة من أحياء السوق القديمة إلى الأبراج الجديدة.,
+content.books.ct-04.catalogue.author0,Sample Author N,مؤلف نموذجي (ص),Placeholder author name (sample).
+content.books.ct-04.catalogue.description,"xiv, 286 leaves : illustrations, maps",xiv، 286 ورقة : صور، خرائط,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-04.catalogue.subject0,Urbanization — Qatar — Doha,التحضر — قطر — الدوحة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-04.catalogue.subject1,City planning — Qatar — History,تخطيط المدن — قطر — تاريخ,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-05.title,Pearling Songs of the Gulf: A Study (sample),أغاني الغوص في الخليج: دراسة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-05.summary,A master's thesis on the work songs sung aboard pearling boats.,رسالة ماجستير عن أغاني العمل التي كانت تُغنّى على سفن الغوص.,
+content.books.ct-05.catalogue.author0,Sample Author O,مؤلف نموذجي (ض),Placeholder author name (sample).
+content.books.ct-05.catalogue.description,180 leaves,180 ورقة,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-05.catalogue.subject0,Work songs — Persian Gulf,أغاني العمل — الخليج العربي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-05.catalogue.subject1,Pearl fisheries — Songs and music,مصائد اللؤلؤ — أغانٍ وموسيقى,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-06.title,Solar Desalination in Arid Regions (sample),تحلية المياه بالطاقة الشمسية في المناطق الجافة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-06.summary,An engineering thesis comparing small solar stills for remote communities.,رسالة هندسية تقارن بين أجهزة التقطير الشمسي الصغيرة للمجتمعات النائية.,
+content.books.ct-06.catalogue.author0,Sample Author P,مؤلف نموذجي (ط),Placeholder author name (sample).
+content.books.ct-06.catalogue.description,"xii, 142 leaves : illustrations",xii، 142 ورقة : صور,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-06.catalogue.subject0,Saline water conversion — Solar energy,تحلية المياه المالحة — الطاقة الشمسية,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-07.title,Gulf Heritage Review (sample),مجلة تراث الخليج (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-07.summary,"A quarterly magazine of local history, folklore and archaeology. Library holds 1998–2015.",مجلة فصلية في التاريخ المحلي والتراث الشعبي والآثار. تقتني المكتبة أعداد 1998–2015.,
+content.books.ct-07.catalogue.author0,Qatar National Library (sample),مكتبة قطر الوطنية (نموذج),Placeholder author name (sample).
+content.books.ct-07.catalogue.place,Doha,الدوحة,Publication place.
+content.books.ct-07.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.ct-07.catalogue.description,volumes : illustrations ; 28 cm,مجلدات : صور ؛ 28 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-07.catalogue.subject0,Persian Gulf — History — Periodicals,الخليج العربي — تاريخ — دوريات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-07.catalogue.subject1,Folklore — Gulf States — Periodicals,التراث الشعبي — دول الخليج — دوريات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-08.title,Desert Science Quarterly (sample),فصلية علوم الصحراء (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-08.summary,"Popular science magazine covering ecology, geology and climate in desert regions.",مجلة علمية مبسطة تتناول البيئة والجيولوجيا والمناخ في المناطق الصحراوية.,
+content.books.ct-08.catalogue.author0,Qatar National Library (sample),مكتبة قطر الوطنية (نموذج),Placeholder author name (sample).
+content.books.ct-08.catalogue.place,London,لندن,Publication place.
+content.books.ct-08.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.ct-08.catalogue.description,volumes : colour illustrations ; 30 cm,مجلدات : صور ملونة ؛ 30 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-08.catalogue.subject0,Deserts — Periodicals,الصحارى — دوريات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-08.catalogue.subject1,Arid regions ecology — Periodicals,بيئة المناطق الجافة — دوريات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-09.title,Gulf Studies Online (sample),دراسات الخليج الإلكترونية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-09.summary,"An open-access journal of history, politics and society in the Gulf.",دورية مفتوحة الوصول في التاريخ والسياسة والمجتمع في الخليج.,
+content.books.ct-09.catalogue.author0,Qatar National Library (sample),مكتبة قطر الوطنية (نموذج),Placeholder author name (sample).
+content.books.ct-09.catalogue.description,1 online resource,مصدر إلكتروني واحد,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-09.catalogue.subject0,Persian Gulf Region — Social conditions — Periodicals,منطقة الخليج العربي — الأحوال الاجتماعية — دوريات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-10.title,The Last Pearl Season: A Documentary (sample),موسم اللؤلؤ الأخير: فيلم وثائقي (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-10.summary,Former divers return to the old pearl banks and remember the final seasons.,غواصون سابقون يعودون إلى مغاصات اللؤلؤ القديمة ويتذكرون المواسم الأخيرة.,
+content.books.ct-10.catalogue.author0,Sample Author A,مؤلف نموذجي (أ),Placeholder author name (sample).
+content.books.ct-10.catalogue.place,Doha,الدوحة,Publication place.
+content.books.ct-10.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.ct-10.catalogue.description,"1 video file (52 min) : sound, colour",ملف فيديو واحد (52 دقيقة) : صوت، ألوان,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-10.catalogue.subject0,Pearl fisheries — Qatar — Documentary films,مصائد اللؤلؤ — قطر — أفلام وثائقية,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-11.title,Building the Dhow: A Craft Film (sample),صناعة السفينة الشراعية: فيلم عن الحرفة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-11.summary,"Shipwrights build a wooden boat by hand, from keel to launch.",صانعو السفن يبنون قاربًا خشبيًا يدويًا من العارضة حتى الإنزال.,
+content.books.ct-11.catalogue.author0,Sample Author B,مؤلف نموذجي (ب),Placeholder author name (sample).
+content.books.ct-11.catalogue.place,London,لندن,Publication place.
+content.books.ct-11.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.ct-11.catalogue.description,"1 videodisc (38 min) : sound, colour ; 12 cm",قرص فيديو واحد (38 دقيقة) : صوت، ألوان ؛ 12 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-11.catalogue.subject0,Dhows — Design and construction,السفن الشراعية — التصميم والبناء,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-11.catalogue.subject1,Boatbuilding — Persian Gulf,بناء القوارب — الخليج العربي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-12.title,Songs of the Sea: Field Recordings (sample),أغاني البحر: تسجيلات ميدانية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-12.summary,Recordings of sea songs and rhythms made with retired sailors.,تسجيلات لأغاني البحر وإيقاعاته مع بحارة متقاعدين.,
+content.books.ct-12.catalogue.author0,Sample Author C,مؤلف نموذجي (ت),Placeholder author name (sample).
+content.books.ct-12.catalogue.place,Doha,الدوحة,Publication place.
+content.books.ct-12.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.ct-12.catalogue.description,1 audio file (48 min),ملف صوتي واحد (48 دقيقة),Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-12.catalogue.subject0,Sea songs — Qatar,أغاني البحر — قطر,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-12.catalogue.subject1,Folk music — Gulf States,الموسيقى الشعبية — دول الخليج,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-13.title,Doha City Map (sample),خريطة مدينة الدوحة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-13.summary,"A folded street map with districts, landmarks and an index of street names.",خريطة شوارع مطوية تبيّن الأحياء والمعالم مع فهرس لأسماء الشوارع.,
+content.books.ct-13.catalogue.author0,Qatar National Library (sample),مكتبة قطر الوطنية (نموذج),Placeholder author name (sample).
+content.books.ct-13.catalogue.place,Doha,الدوحة,Publication place.
+content.books.ct-13.catalogue.publisher,Sample Press,دار نموذجية للنشر,Publication publisher (placeholder).
+content.books.ct-13.catalogue.description,"1 map : colour ; 60 x 90 cm, folded to 23 x 12 cm",خريطة واحدة : ملونة ؛ 60 × 90 سم، مطوية إلى 23 × 12 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-13.catalogue.subject0,Doha (Qatar) — Maps,الدوحة (قطر) — خرائط,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-14.title,"Doha Corniche at Dusk, photograph (sample)",كورنيش الدوحة عند الغروب، صورة فوتوغرافية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-14.summary,A digitised photograph of the waterfront and moored dhows.,صورة فوتوغرافية مرقمنة للواجهة البحرية والسفن الراسية.,
+content.books.ct-14.catalogue.author0,Sample Author D,مؤلف نموذجي (ث),Placeholder author name (sample).
+content.books.ct-14.catalogue.description,1 digital image : colour,صورة رقمية واحدة : ألوان,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-14.catalogue.subject0,Waterfronts — Qatar — Doha — Photographs,الواجهات البحرية — قطر — الدوحة — صور,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-15.title,Model of a Pearling Boat (sample),مجسم لسفينة غوص (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-15.summary,"A scale model of a wooden pearling boat, with rigging and diving ropes.",مجسم مصغّر لسفينة غوص خشبية مع أشرعتها وحبال الغوص.,
+content.books.ct-15.catalogue.author0,Qatar National Library (sample),مكتبة قطر الوطنية (نموذج),Placeholder author name (sample).
+content.books.ct-15.catalogue.description,"1 model : wood, rope ; 40 x 60 cm",مجسم واحد : خشب، حبال ؛ 40 × 60 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-15.catalogue.subject0,Dhows — Models,السفن الشراعية — مجسمات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-15.catalogue.subject1,Pearl fisheries — Equipment and supplies,مصائد اللؤلؤ — معدات وأدوات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-16.title,Histoire du Golfe : une introduction (sample),تاريخ الخليج: مدخل (نموذج، بالفرنسية),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-16.summary,"A French-language introduction to the history of the Gulf, from antiquity to independence.",مدخل باللغة الفرنسية إلى تاريخ الخليج من العصور القديمة حتى الاستقلال.,
+content.books.ct-16.catalogue.author0,Sample Author E,مؤلف نموذجي (ج),Placeholder author name (sample).
+content.books.ct-16.catalogue.place,Paris,باريس,Publication place.
+content.books.ct-16.catalogue.publisher,Éditions Exemple,دار نشر نموذجية,Publication publisher (placeholder).
+content.books.ct-16.catalogue.description,264 pages : illustrations ; 24 cm,264 صفحة : صور ؛ 24 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-16.catalogue.subject0,Persian Gulf Region — History,منطقة الخليج العربي — تاريخ,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-17.title,Falcon City: A Graphic Novel (sample),مدينة الصقر: رواية مصورة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-17.summary,A teenage courier races across a future Doha in this illustrated adventure.,مغامرة مصورة عن ساعٍ مراهق يسابق الزمن في دوحة المستقبل.,
+content.books.ct-17.catalogue.author0,Sample Author F,مؤلف نموذجي (ح),Placeholder author name (sample).
+content.books.ct-17.catalogue.author1,Sample Author G,مؤلف نموذجي (خ),Placeholder author name (sample).
+content.books.ct-17.catalogue.place,London,لندن,Publication place.
+content.books.ct-17.catalogue.publisher,Sample Academic,دار أكاديمية نموذجية,Publication publisher (placeholder).
+content.books.ct-17.catalogue.description,128 pages : chiefly colour illustrations ; 26 cm,128 صفحة : صور ملونة في معظمها ؛ 26 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-17.catalogue.subject0,Graphic novels,الروايات المصورة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-17.catalogue.subject1,"Doha (Qatar) — Comic books, strips, etc.",الدوحة (قطر) — قصص مصورة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.books.ct-18.title,Gulf Folk Tunes: Scores (sample),ألحان شعبية خليجية: نوتات موسيقية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
+content.books.ct-18.summary,"Transcriptions of traditional songs for voice and oud, with notes on rhythm.",تدوين لأغانٍ تقليدية للصوت والعود مع ملاحظات عن الإيقاع.,
+content.books.ct-18.catalogue.author0,Sample Author H,مؤلف نموذجي (د),Placeholder author name (sample).
+content.books.ct-18.catalogue.place,Beirut,بيروت,Publication place.
+content.books.ct-18.catalogue.publisher,Sample House,دار نموذجية,Publication publisher (placeholder).
+content.books.ct-18.catalogue.description,1 score (96 pages) ; 31 cm,نوتة واحدة (96 صفحة) ؛ 31 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.books.ct-18.catalogue.subject0,"Folk songs, Arabic — Gulf States — Scores",الأغاني الشعبية العربية — دول الخليج — نوتات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.databases.db-01.title,Science & Engineering Journals Collection (sample),مجموعة دوريات العلوم والهندسة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.databases.db-01.summary,Full-text peer-reviewed journals in the physical sciences and engineering.,دوريات محكّمة بالنص الكامل في العلوم الطبيعية والهندسة.,
 content.databases.db-02.title,Clinical Medicine Database (sample),قاعدة بيانات الطب السريري (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
@@ -422,24 +682,55 @@ content.services.sv-donate.title,Donate books or archives,تبرّع بالكت�
 content.services.sv-donate.summary,"How to offer books, manuscripts or family papers to the collection.",كيفية إهداء الكتب أو المخطوطات أو الأوراق العائلية إلى المجموعة.,
 content.heritage.hr-01.title,"Treatise on Astronomy, illuminated manuscript (sample)",رسالة في علم الفلك، مخطوط مذهّب (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-01.summary,A sample record for an Arabic scientific manuscript with diagrams of the heavens.,سجل نموذجي لمخطوط علمي عربي يتضمن رسومًا للأجرام السماوية.,
+content.heritage.hr-01.catalogue.author0,Sample Author E,مؤلف نموذجي (ج),Placeholder author name (sample).
+content.heritage.hr-01.catalogue.description,1 volume (86 leaves) : illuminated ; 22 cm,مجلد واحد (86 ورقة) : مذهَّب ؛ 22 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-01.catalogue.subject0,"Astronomy, Arab — Early works to 1800",علم الفلك العربي — أعمال مبكرة حتى 1800,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.heritage.hr-01.catalogue.subject1,"Manuscripts, Arabic",المخطوطات العربية,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.heritage.hr-02.title,"Chart of the Gulf coast, 18th century (sample)",خريطة ساحل الخليج، القرن الثامن عشر (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-02.summary,"An engraved sea chart showing soundings, anchorages and settlements.",خريطة بحرية محفورة تُظهر الأعماق والمراسي والمستوطنات.,
+content.heritage.hr-02.catalogue.author0,Sample Author F,مؤلف نموذجي (ح),Placeholder author name (sample).
+content.heritage.hr-02.catalogue.description,1 map : hand coloured ; 48 x 64 cm,خريطة واحدة : ملونة يدويًا ؛ 48 × 64 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-02.catalogue.subject0,Persian Gulf — Maps — Early works to 1800,الخليج العربي — خرائط — أعمال مبكرة حتى 1800,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.heritage.hr-03.title,"Photographs of Doha harbour, mid-20th century (sample)",صور ميناء الدوحة، منتصف القرن العشرين (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-03.summary,"A sample photographic series of boats, traders and the old waterfront.",سلسلة صور نموذجية للسفن والتجار والواجهة البحرية القديمة.,
+content.heritage.hr-03.catalogue.author0,Qatar National Library (sample),مكتبة قطر الوطنية (نموذج),Placeholder author name (sample).
+content.heritage.hr-03.catalogue.description,24 photographs : gelatin silver prints,24 صورة فوتوغرافية : طباعة فضية,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-03.catalogue.subject0,Harbors — Qatar — Doha — Photographs,الموانئ — قطر — الدوحة — صور,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.heritage.hr-03.catalogue.subject1,Dhows — Photographs,السفن الشراعية — صور,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.heritage.hr-04.title,Collected poems in a 19th-century hand (sample),ديوان شعر مخطوط من القرن التاسع عشر (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-04.summary,A handwritten anthology with marginal notes by later readers.,مختارات مكتوبة بخط اليد مع حواشٍ لقرّاء لاحقين.,
+content.heritage.hr-04.catalogue.author0,Sample Author G,مؤلف نموذجي (خ),Placeholder author name (sample).
+content.heritage.hr-04.catalogue.description,1 volume (54 leaves) ; 20 cm,مجلد واحد (54 ورقة) ؛ 20 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-04.catalogue.subject0,Arabic poetry — Manuscripts,الشعر العربي — مخطوطات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.heritage.hr-05.title,Pearl merchant's ledger (sample),دفتر حسابات تاجر لؤلؤ (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-05.summary,"Accounts of purchases, weights and prices across a pearling season.",حسابات المشتريات والأوزان والأسعار خلال موسم غوص.,
+content.heritage.hr-05.catalogue.author0,Sample Author H,مؤلف نموذجي (د),Placeholder author name (sample).
+content.heritage.hr-05.catalogue.description,1 ledger (210 pages) ; 34 cm,دفتر حسابات واحد (210 صفحات) ؛ 34 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-05.catalogue.subject0,Pearl industry and trade — Persian Gulf — Records and correspondence,تجارة اللؤلؤ — الخليج العربي — سجلات ومراسلات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.heritage.hr-06.title,Illuminated Qur'an leaf (sample),ورقة مذهّبة من مصحف (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-06.summary,A sample record for a decorated leaf showing gold illumination and coloured inks.,سجل نموذجي لورقة مزخرفة بالتذهيب والأحبار الملونة.,
+content.heritage.hr-06.catalogue.author0,Qatar National Library (sample),مكتبة قطر الوطنية (نموذج),Placeholder author name (sample).
+content.heritage.hr-06.catalogue.description,1 leaf : illuminated ; 30 cm,ورقة واحدة : مذهَّبة ؛ 30 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-06.catalogue.subject0,"Illumination of books and manuscripts, Islamic",زخرفة الكتب والمخطوطات الإسلامية,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.heritage.hr-07.title,Travellers' accounts of Arabia (sample),روايات الرحالة عن الجزيرة العربية (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-07.summary,"Early printed travel narratives describing ports, people and routes.",روايات رحلات مطبوعة قديمة تصف الموانئ والناس والطرق.,
+content.heritage.hr-07.catalogue.author0,Sample Author I,مؤلف نموذجي (ذ),Placeholder author name (sample).
+content.heritage.hr-07.catalogue.description,"3 volumes : illustrations, maps ; 23 cm",3 مجلدات : صور، خرائط ؛ 23 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-07.catalogue.subject0,Arabian Peninsula — Description and travel,شبه الجزيرة العربية — وصف ورحلات,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.heritage.hr-08.title,Early Arabic printed books (sample),الكتب العربية المطبوعة المبكرة (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-08.summary,Examples of early Arabic typography and the presses that produced them.,نماذج من الطباعة العربية المبكرة والمطابع التي أنتجتها.,
+content.heritage.hr-08.catalogue.author0,Qatar National Library (sample),مكتبة قطر الوطنية (نموذج),Placeholder author name (sample).
+content.heritage.hr-08.catalogue.description,12 volumes ; 20 cm,12 مجلدًا ؛ 20 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-08.catalogue.subject0,Printing — Arab countries — History,الطباعة — البلدان العربية — تاريخ,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.heritage.hr-08.catalogue.subject1,Early printed books,الكتب المطبوعة المبكرة,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.heritage.hr-09.title,Qatar Digital Library,مكتبة قطر الرقمية,Service/page copy (sample).
 content.heritage.hr-09.summary,"Explore digitised archives, maps and manuscripts about the Gulf, free online.",استكشف الوثائق والخرائط والمخطوطات الرقمية عن الخليج، مجانًا عبر الإنترنت.,
 content.heritage.hr-10.title,Medical treatise with herbal illustrations (sample),رسالة طبية برسوم للأعشاب (نموذج),SAMPLE record (fictional). «(نموذج)» suffix marks sample titles.
 content.heritage.hr-10.summary,"A sample record for a manuscript on remedies, with painted plants.",سجل نموذجي لمخطوط في العلاجات مع رسوم ملونة للنباتات.,
+content.heritage.hr-10.catalogue.author0,Sample Author J,مؤلف نموذجي (ر),Placeholder author name (sample).
+content.heritage.hr-10.catalogue.description,1 volume (120 leaves) : illustrations ; 25 cm,مجلد واحد (120 ورقة) : رسوم ؛ 25 سم,Physical description in catalogue style (pages : illustrations ; size).
+content.heritage.hr-10.catalogue.subject0,"Medicine, Arab — Early works to 1800",الطب العربي — أعمال مبكرة حتى 1800,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
+content.heritage.hr-10.catalogue.subject1,"Botany, Medical",النبات الطبي,Subject heading; the Arabic should follow QNL's Arabic subject-heading practice.
 content.pages.pg-about.title,About Qatar National Library,عن مكتبة قطر الوطنية,Service/page copy (sample).
 content.pages.pg-about.summary,"Our role as a national library, a public library and a research library.",دورنا مكتبةً وطنية ومكتبةً عامة ومكتبةً بحثية.,
 content.pages.pg-visit.title,Plan your visit,خطّط لزيارتك,Service/page copy (sample).
@@ -456,6 +747,70 @@ content.pages.pg-contact.title,Contact us,اتصل بنا,Service/page copy (sam
 content.pages.pg-contact.summary,"Phone, email and social channels for every team.",الهاتف والبريد الإلكتروني وقنوات التواصل الاجتماعي لكل فريق.,
 content.pages.pg-policies.title,Library policies,سياسات المكتبة,Service/page copy (sample).
 content.pages.pg-policies.summary,"Conduct, privacy, collections and borrowing policies.",سياسات السلوك والخصوصية والمجموعات والإعارة.,
+catalogue.formatGroups.books,Books,كتب,Format filter group label.
+catalogue.formatGroups.ebooks,eBooks,كتب إلكترونية,Format filter group label.
+catalogue.formatGroups.journals,Journals & magazines,دوريات ومجلات,Format filter group label.
+catalogue.formatGroups.theses,Theses,رسائل جامعية,Format filter group label.
+catalogue.formatGroups.images,Images & photographs,صور وصور فوتوغرافية,Format filter group label.
+catalogue.formatGroups.film,Film & video,أفلام وفيديو,Format filter group label.
+catalogue.formatGroups.audio,Music & audio,موسيقى وتسجيلات صوتية,Format filter group label.
+catalogue.formatGroups.maps,Maps,خرائط,Format filter group label.
+catalogue.formatGroups.manuscripts,Manuscripts & archives,مخطوطات ووثائق,Format filter group label.
+catalogue.formatGroups.objects,Objects,مقتنيات,Format filter group label.
+catalogue.formatGroups.databases,Databases & software,قواعد بيانات وبرمجيات,Format filter group label.
+catalogue.formats.BOOK,Book,كتاب,Catalogue format label.
+catalogue.formats.E-BOOK,eBook,كتاب إلكتروني,Catalogue format label.
+catalogue.formats.PERIODICAL,Periodical,دورية,Catalogue format label.
+catalogue.formats.E-JOURNAL,eJournal,دورية إلكترونية,Catalogue format label.
+catalogue.formats.THESIS,Thesis,رسالة جامعية,Catalogue format label.
+catalogue.formats.2-D GRAPHIC,Photograph / graphic,صورة / رسم,Catalogue format label.
+catalogue.formats.DIGITAL IMAGE,Digital image,صورة رقمية,Catalogue format label.
+catalogue.formats.DIGITAL FILMS,Digital film,فيلم رقمي,Catalogue format label.
+catalogue.formats.VIDEO FILES,Video file,ملف فيديو,Catalogue format label.
+catalogue.formats.DVDROM,DVD,قرص DVD,Catalogue format label.
+catalogue.formats.BLUE RAY,Blu-ray,قرص بلو-راي,Catalogue format label.
+catalogue.formats.AUDIO FILE,Audio recording,تسجيل صوتي,Catalogue format label.
+catalogue.formats.MUSIC RECORD,Music recording,تسجيل موسيقي,Catalogue format label.
+catalogue.formats.NOTATED MUSIC,Printed music / score,نوتة موسيقية,Catalogue format label.
+catalogue.formats.PRINT MAP,Printed map,خريطة مطبوعة,Catalogue format label.
+catalogue.formats.MS MAP,Manuscript map,خريطة مخطوطة,Catalogue format label.
+catalogue.formats.MANUSCRIPT,Manuscript,مخطوطة,Catalogue format label.
+catalogue.formats.MIXED MATERIAL,Archive / mixed material,وثائق ومواد مختلطة,Catalogue format label.
+catalogue.formats.3-D OBJECT,Object,مقتنى,Catalogue format label.
+catalogue.formats.DATABASE,Database,قاعدة بيانات,Catalogue format label.
+catalogue.formats.CDROM,CD-ROM,قرص مدمج,Catalogue format label.
+catalogue.formats.PROGRAM,Software,برنامج,Catalogue format label.
+catalogue.formats.RESOURCE,Online resource,مصدر إلكتروني,Catalogue format label.
+catalogue.locations.main-general,Main General Collection,المجموعة العامة الرئيسية,Location name; confirm official Arabic names.
+catalogue.locations.legal-deposit,Main Compact Legal Deposit,مجموعة الإيداع القانوني,Location name; confirm official Arabic names.
+catalogue.locations.heritage,Heritage Library,مكتبة التراث,Location name; confirm official Arabic names.
+catalogue.locations.children,Children's Library,مكتبة الأطفال,Location name; confirm official Arabic names.
+catalogue.locations.teens,Teens Section,قسم اليافعين,Location name; confirm official Arabic names.
+catalogue.locations.graphic-novels,Graphic Novels,الروايات المصورة,Location name; confirm official Arabic names.
+catalogue.locations.online,QNL Online Collection,مجموعة المكتبة الإلكترونية,Location name; confirm official Arabic names.
+catalogue.locations.partner-cmuq,Carnegie Mellon University in Qatar,جامعة كارنيجي ميلون في قطر,Location name; confirm official Arabic names.
+catalogue.locations.partner-dohainst,Doha Institute for Graduate Studies,معهد الدوحة للدراسات العليا,Location name; confirm official Arabic names.
+catalogue.collections.general,General Collection,المجموعة العامة,Collection label.
+catalogue.collections.heritage,Heritage Collection,مجموعة التراث,Collection label.
+catalogue.collections.legal-deposit,Qatar Legal Deposit,الإيداع القانوني القطري,Collection label.
+catalogue.collections.children-teens,Children & Teens,الأطفال واليافعون,Collection label.
+catalogue.collections.partner,Partner libraries,المكتبات الشريكة,Collection label.
+catalogue.languages.ara,Arabic,العربية,Language name.
+catalogue.languages.eng,English,الإنجليزية,Language name.
+catalogue.languages.fre,French,الفرنسية,Language name.
+catalogue.languages.mul,Multiple languages,متعدد اللغات,Language name.
+catalogue.languages.zxx,No linguistic content,بدون محتوى لغوي,Language name.
+catalogue.status.available,Available,متاح,Copy status label.
+catalogue.status.on-loan,On loan,معار,Copy status label.
+catalogue.status.library-use,Library use only,للاطلاع داخل المكتبة فقط,Copy status label.
+catalogue.status.on-order,On order,قيد الطلب,Copy status label.
+catalogue.status.online,Online,متاح إلكترونيًا,Copy status label.
+catalogue.places.doha,Doha,الدوحة,Preferred place name (spelling variants merge into this).
+catalogue.places.qatar,Qatar,قطر,Preferred place name (spelling variants merge into this).
+catalogue.places.gulf,Arabian Gulf,الخليج العربي,Preferred place name (spelling variants merge into this).
+catalogue.places.arabian-peninsula,Arabian Peninsula,شبه الجزيرة العربية,Preferred place name (spelling variants merge into this).
+catalogue.places.al-zubarah,Al Zubarah,الزبارة,Preferred place name (spelling variants merge into this).
+catalogue.places.al-wakrah,Al Wakrah,الوكرة,Preferred place name (spelling variants merge into this).
 tags.maritime,Maritime history,التاريخ البحري,Related-topic tag; also a search term.
 tags.pearling,Pearling,الغوص على اللؤلؤ,Related-topic tag; also a search term.
 tags.gulf-history,Gulf history,تاريخ الخليج,Related-topic tag; also a search term.

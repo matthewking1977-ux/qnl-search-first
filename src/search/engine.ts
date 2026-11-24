@@ -16,6 +16,8 @@ export interface EngineData {
   records: LibraryRecord[];
   tags: Record<string, TagDef>;
   synonyms: string[][];
+  /** index text for catalogue records (authors, subjects, places, ids, format words) */
+  catalogueText?: (r: LibraryRecord) => { creators: string; subjects: string; places_cat: string; ids: string; typewords: string };
 }
 
 const TYPE_WORDS: Record<string, string> = {
@@ -63,29 +65,41 @@ export function createEngine(data: EngineData) {
 
   const ms = new MiniSearch<any>({
     idField: 'id',
-    fields: ['title_en', 'title_ar', 'summary_en', 'summary_ar', 'tags', 'triggers', 'typewords', 'place'],
+    fields: ['title_en', 'title_ar', 'summary_en', 'summary_ar', 'tags', 'triggers', 'typewords', 'place', 'creators', 'subjects', 'places_cat', 'ids'],
     storeFields: [],
     tokenize: (s) => tokenize(s),
     processTerm: (t) => processTerm(t) ?? null,
     searchOptions: {
-      boost: { title_en: 3, title_ar: 3, triggers: 2.5, tags: 1.4, summary_en: 1, summary_ar: 1, typewords: 0.6, place: 0.8 },
-      prefix: (term) => term.length >= 2,
-      fuzzy: (term) => (term.length >= 7 ? 0.25 : term.length >= 4 ? 0.2 : false),
+      boost: { title_en: 3, title_ar: 3, triggers: 2.5, tags: 1.4, summary_en: 1, summary_ar: 1, typewords: 0.6, place: 0.8, creators: 2, subjects: 1.2, places_cat: 0.8, ids: 1.5 },
+      // Numbers (ISBNs, years, call numbers) match exactly or as a prefix, never fuzzily:
+      // otherwise one ISBN is "two typos" away from every other.
+      prefix: (term) => (/\d/.test(term) ? term.length >= 4 : term.length >= 2),
+      fuzzy: (term) => (/\d/.test(term) ? false : term.length >= 7 ? 0.25 : term.length >= 4 ? 0.2 : false),
       maxFuzzy: 2,
     },
   });
   ms.addAll(
-    records.map((r) => ({
-      id: r.id,
-      title_en: r.title.en,
-      title_ar: r.title.ar,
-      summary_en: r.summary.en,
-      summary_ar: r.summary.ar,
-      tags: tagText(r.tags),
-      triggers: r.task ? r.task.triggers.join(' ') : '',
-      typewords: TYPE_WORDS[r.type] ?? '',
-      place: r.place ? `${r.place.en} ${r.place.ar}` : '',
-    })),
+    records.map((r) => {
+      const ct = r.catalogue && data.catalogueText ? data.catalogueText(r) : null;
+      // Catalogue items use their format's words ("film", "map", "thesis") rather than
+      // the generic "book"; heritage items keep "heritage / rare" as well.
+      const typewords = ct ? (r.type === 'book' ? ct.typewords : `${TYPE_WORDS[r.type] ?? ''} ${ct.typewords}`) : TYPE_WORDS[r.type] ?? '';
+      return {
+        id: r.id,
+        title_en: r.title.en,
+        title_ar: r.title.ar,
+        summary_en: r.summary.en,
+        summary_ar: r.summary.ar,
+        tags: tagText(r.tags),
+        triggers: r.task ? r.task.triggers.join(' ') : '',
+        typewords,
+        place: r.place ? `${r.place.en} ${r.place.ar}` : '',
+        creators: ct?.creators ?? '',
+        subjects: ct?.subjects ?? '',
+        places_cat: ct?.places_cat ?? '',
+        ids: ct?.ids ?? '',
+      };
+    }),
   );
 
   function expand(qTokens: string[]): string[] {

@@ -72,6 +72,8 @@ function metaLine(r: LibraryRecord, lang: Lang, s: S, loc: string): string {
     const time = new Intl.DateTimeFormat(loc, { hour: '2-digit', minute: '2-digit', hour12: false }).format(d);
     return `${date} · ${time} · ${r.place?.[lang] ?? ''}`;
   }
+  const d = r.catalogue?.display;
+  if (d) return [d.format[lang], r.year ?? r.catalogue?.publication?.year, r.catalogue!.language !== 'zxx' && d.language[lang]].filter(Boolean).join(' · ');
   if (r.type === 'book') return [r.year, s[`meta.lang.${r.lang}`]].filter(Boolean).join(' · ');
   if (r.type === 'database') return s[r.access === 'onsite' ? 'meta.onsite' : 'meta.remote'];
   return r.summary[lang];

@@ -1,4 +1,5 @@
 ---
+import { formatLabel, languageLabel } from '../search/catalogue';
 // Server-rendered results page. Works fully without JavaScript:
 // GET form for query, facets and sort; shareable URLs; numbered pages.
 import Header from './Header.astro';
@@ -51,6 +52,7 @@ const meta = (r: (typeof engineData.records)[number]) => {
     const d = new Date(r.start);
     return `${formatDate(lang, d, { weekday: 'long', day: 'numeric', month: 'long' })} · ${formatDate(lang, d, { hour: '2-digit', minute: '2-digit', hour12: false })} · ${r.place?.[lang] ?? ''} · ${t(lang, r.booking === 'register' ? 'meta.register' : 'meta.dropin')}`;
   }
+  if (r.catalogue) return [formatLabel(r.catalogue.format, lang), r.year ?? r.catalogue.publication?.year, r.catalogue.language !== 'zxx' && languageLabel(r.catalogue.language, lang)].filter(Boolean).join(' · ');
   if (r.type === 'book') return [r.year, t(lang, `meta.lang.${r.lang}` as any)].filter(Boolean).join(' · ');
   if (r.type === 'database') return t(lang, r.access === 'onsite' ? 'meta.onsite' : 'meta.remote');
   return '';

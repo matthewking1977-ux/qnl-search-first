@@ -112,7 +112,13 @@ Source: QNL's Encore catalogue (elibrary.qnl.qa), reviewed in a signed-out brows
 - Filters show one preferred label, e.g. "Doha (الدوحة)", with the combined count.
 
 ## 5. Build plan (prototype, using clearly marked sample records)
-1. **Sample catalogue data:** about 40 records with format code, location, collection, language, year, call number, item status and ISBN, all labelled SAMPLE.
+1. **Sample catalogue data:** ✅ done (24 Nov 2026).
+   - **45 catalogue records:** the 18 existing books and 9 heritage items, plus 18 new ones. They cover eBooks, theses, periodicals, an eJournal, films, an audio recording, a score, maps, photographs, an object and a French-language book.
+   - **Each record has:** format code, ISO language, placeholder authors ("Sample Author A" …), publication, physical description, bilingual subject headings, places, collection and copies. Each copy has a location, call number and status: available, on loan with a due date, library use only, on order, or online. Some copies sit in partner libraries.
+   - **Reference data:** `src/content/catalogue.json` holds formats → plain-language groups, locations (QNL vs partner), collections, languages, statuses, and places with spelling variants.
+   - **Build checks:** `scripts/build-index.mjs` checks every code against the reference data, plus ISBN check digits, due dates and call numbers.
+   - **Search:** indexes authors, subjects, places (variants included, so "Dawhah", "Ad Dawhah" and «الدوحة» all find the Doha items), ISBNs, call numbers and format words ("film", "map", "thesis", «فيلم»). Numbers never match fuzzily.
+   - **Record pages:** show the catalogue details and a copies table.
 2. **Query parser:** quoted phrases, AND/OR/NOT (plus Arabic و / أو / ليس), and the `title:` `author:` `subject:` `isbn:` `year:` prefixes. The parsed query shows as removable tags.
 3. **`/search/advanced` and `/ar/search/advanced`:**
    - rows with a field dropdown and term, an AND/OR/NOT toggle between rows, "+ Add row"

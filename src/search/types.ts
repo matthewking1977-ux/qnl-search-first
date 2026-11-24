@@ -19,11 +19,45 @@ export interface TaskInfo {
   action: Bi;
 }
 
+/** Catalogue holdings (books, media, heritage items). Codes follow QNL's
+ *  catalogue; labels live in content/catalogue.json. */
+export type HoldingStatus = 'available' | 'on-loan' | 'library-use' | 'on-order' | 'online';
+export interface Holding {
+  location: string;
+  callNo: string | null;
+  status: HoldingStatus;
+  /** ISO date, when on loan */
+  due?: string;
+  /** when on order */
+  copies?: number;
+  ordered?: string;
+}
+export interface CatalogueInfo {
+  format: string;
+  /** ISO 639-2 (ara, eng, fre, mul, zxx) */
+  language: string;
+  authors: (Bi & { role?: string })[];
+  publication?: { place?: Bi; publisher?: Bi; year?: number };
+  edition?: Bi;
+  description: Bi;
+  subjects: Bi[];
+  /** keys into catalogue.json places (preferred labels + spelling variants) */
+  places?: string[];
+  /** place names exactly as catalogued, variant spellings included */
+  placesAsCatalogued?: string[];
+  isbn?: string;
+  collection: string;
+  holdings: Holding[];
+  online?: boolean;
+  /** derived labels (attached in search/data.ts) */
+  display?: { format: Bi; language: Bi; group: string };
+}
+
 export interface LibraryRecord {
   id: string;
   type: RecordType;
   sample: true;
-  lang: 'en' | 'ar' | 'both';
+  lang: 'en' | 'ar' | 'both' | 'other';
   audience: string[];
   tags: string[];
   title: Bi;
@@ -36,6 +70,7 @@ export interface LibraryRecord {
   booking?: 'drop-in' | 'register';
   image?: string;
   task?: TaskInfo;
+  catalogue?: CatalogueInfo;
 }
 
 export interface Hit {
