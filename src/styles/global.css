@@ -74,6 +74,7 @@
   --section-pad: clamp(4rem, 2.4rem + 7vw, 10rem); /* 64 → 96–160 */
 
   --hairline: 1px solid var(--color-grey-100);
+  --color-status-open: #2e7d4f; /* status dot only (5.3:1 on white) */
   --hairline-dark: 1px solid rgb(255 255 255 / 0.16);
 
   /* One soft elevation level: the search panel only */
@@ -170,7 +171,7 @@ p, li { text-wrap: pretty; }
   outline-offset: 2px;
   border-radius: var(--radius-1);
 }
-.on-dark { --focus-ring: var(--color-accent-on-dark); color: var(--color-paper); }
+.on-dark { --focus-ring: var(--color-paper); color: var(--color-paper); }
 
 /* ── Links ───────────────────────────────────────────────── */
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
@@ -237,7 +238,7 @@ html[data-clean] .sample-tag { display: none; }
   font-weight: 500;
   border-radius: var(--radius-1);
 }
-.skip-link:focus-visible { inset-block-start: var(--s-2); --focus-ring: var(--color-accent-on-dark); }
+.skip-link:focus-visible { inset-block-start: var(--s-2); --focus-ring: var(--color-paper); }
 
 /* ── Motion: reveal once, 14px rise ──────────────────────── */
 @media (prefers-reduced-motion: no-preference) {

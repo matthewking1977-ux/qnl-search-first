@@ -1,15 +1,15 @@
 {
   "hero-poster": {
     "src": "../../video/hero-poster.png",
-    "w": 960,
-    "h": 540,
+    "w": 1280,
+    "h": 720,
     "widths": [
       480,
       640,
       960,
       1280
     ],
-    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAwCdASoYAA4APu1kq04ppaQiMAgBMB2JQBOmUABwWUpzMmkTpHeeAP5bexT22HWRXAQM7dteeZNZrk/K2dWgk00rTpjJWaV698pI/EmWABAA"
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoYAA4APu1kq04ppaQiMAgBMB2JYwAAUzyukZRfBEIJqgAA97CXptkDOqGpV7KqakeL2Cpv8kCiretALGuWJRujEeAxMxr9AAA="
   },
   "hall-columns": {
     "src": "QNL 0024.jpg",

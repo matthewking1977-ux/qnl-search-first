@@ -262,5 +262,8 @@
   "nf.explore": "استكشف المجموعات",
   "nf.visit": "خطّط لزيارتك",
   "nf.ask": "اسأل أمين المكتبة",
-  "nf.hours": "مواعيد العمل"
+  "nf.hours": "مواعيد العمل",
+  "search.scope": "البحث في",
+  "search.try": "جرّب",
+  "search.advanced": "بحث متقدم"
 }

@@ -1,5 +1,5 @@
 ---
-// From Concept C: one compact row of live-status links directly under the search.
+// From Concept C: one slim row of live-status links directly under the hero.
 // Every value is a placeholder ([TBC] / [live] / SAMPLE) until wired to QNL systems.
 import { t, formatDate, type Lang } from '../i18n';
 import { records } from '../search/data';
@@ -17,9 +17,8 @@ const nextWhen = next
 const nextTitle = next ? next.title[lang].replace(/\s*\((sample|نموذج)\)\s*$/, '') : '';
 const sample = t(lang, 'label.sample');
 ---
-<nav class="today on-dark" aria-label={t(lang, 'today.label')}>
-  <div class="wrap row">
-    <span class="label t-mono" aria-hidden="true">{t(lang, 'today.label')}</span>
+<nav class="today" aria-label={t(lang, 'today.label')}>
+  <div class="wrap">
     <ul role="list">
       <li>
         <a href={itemHref(lang, { id: 'sv-hours' })}>
@@ -52,40 +51,28 @@ const sample = t(lang, 'label.sample');
 </nav>
 
 <style>
-  .today {
-    position: relative; z-index: 2;
-    background: rgb(9 9 9 / 0.86);
-    border-block-start: var(--hairline-dark);
-    color: var(--color-paper);
-    font-size: var(--fs-sm);
-  }
-  .row { display: flex; align-items: stretch; gap: var(--s-3); }
-  .label { flex: none; align-self: center; color: var(--color-grey-300); text-transform: uppercase; letter-spacing: 0.08em; }
-  :global([lang='ar']) .label { text-transform: none; letter-spacing: 0; font-family: var(--font-arabic); }
-  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); flex: 1; }
-  li + li { border-inline-start: var(--hairline-dark); }
+  .today { background: var(--color-paper); color: var(--color-ink); border-block-end: var(--hairline); font-size: var(--fs-sm); }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  li + li { border-inline-start: var(--hairline); }
   a {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.5rem;
-    min-block-size: 3.75rem; padding: 0.85rem 1rem; text-decoration: none; block-size: 100%;
+    display: grid; align-content: start; gap: 0.2rem;
+    block-size: 100%; padding: var(--s-2) var(--s-3); text-decoration: none;
     transition: background-color var(--dur-1) var(--ease-out-expo);
   }
-  a:hover { background: rgb(255 255 255 / 0.08); }
-  a:hover .k { color: var(--color-accent-on-dark); }
-  a:focus-visible { outline-offset: -3px; }
-  .k { color: var(--color-grey-300); transition: color var(--dur-1); }
-  .v { color: var(--color-paper); font-weight: 500; overflow-wrap: anywhere; }
+  li:first-child a { padding-inline-start: 0; }
+  a:hover { background: var(--color-paper-2); }
+  a:hover .v { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+  a:focus-visible { outline-offset: -2px; }
+  .k { color: var(--color-grey-600); font-size: var(--fs-xs); display: flex; align-items: center; gap: 0.5rem; }
+  .v { color: var(--color-ink); font-weight: 500; overflow-wrap: anywhere; }
   .when { font-variant-numeric: tabular-nums; }
-  .dot { display: inline-block; inline-size: 0.45rem; block-size: 0.45rem; border-radius: 50%; background: var(--color-accent-on-dark); margin-inline-end: 0.5rem; vertical-align: 0.1em; }
-  .sample-tag { color: var(--color-grey-300); }
+  .dot { inline-size: 0.5rem; block-size: 0.5rem; border-radius: 50%; background: var(--color-status-open); flex: none; }
+  .sample-tag { color: var(--color-grey-600); }
 
-  @media (max-width: 80rem) { .label { display: none; } }
   @media (max-width: 56rem) {
     ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    li:nth-child(3) { border-inline-start: 0; }
-    li:nth-child(n + 3) { border-block-start: var(--hairline-dark); }
-    .row { padding-inline: 0; }
-  }
-  @media (max-width: 30rem) {
-    a { flex-direction: column; gap: 0.1rem; padding: 0.75rem 1rem; }
+    li + li:nth-child(odd) { border-inline-start: 0; }
+    li:nth-child(n + 3) { border-block-start: var(--hairline); }
+    li:nth-child(odd) a { padding-inline-start: 0; }
   }
 </style>

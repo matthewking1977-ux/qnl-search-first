@@ -62,3 +62,21 @@ Type-ahead, keystroke to rendered panel:
   - fonts: 1 year, immutable;
   - images, video and icons: 30 days, revalidated in the background.
 - **Security headers:** `nosniff`, `strict-origin-when-cross-origin`, `SAMEORIGIN` framing, and a Permissions-Policy denying camera, microphone and location. Vercel adds HSTS.
+
+## Hero revision (24 Nov 2026)
+- **Search bar:**
+  - one white bar (64px desktop / 56px phone, at most 46rem wide, 4px corners)
+  - a scope menu inside the bar (a native `<select name="type">`, so it works without JS)
+  - a "Try …" row and an "Advanced search" link underneath
+  - the mode tabs and filter chips were removed from the hero; the mode switch stays on the results page
+- **Focus:** the field no longer focuses itself on load. Focus rings on dark backgrounds are now white (2px, 3px offset) instead of gold, across the site.
+- **Video and poster:** re-graded softer, desaturated and darker (`npm run hero` → `scripts/encode-hero.sh`). Files are about half the size: 960 MP4 2.7→1.15 MB, WebM 2.0→0.58 MB, 640 MP4 1.2→0.58 MB, poster 960 AVIF 31→15 KB.
+- **Layout:**
+  - the hero is about 78% of screen height on desktop and 80% on phones
+  - the pause control is icon-only and labelled
+  - the Today strip moved out of the hero into a light bar beneath it
+- **LCP:** the old 0.8 s measured the *headline*. Chrome ignored the poster because it filled the whole screen. With the shorter hero the poster is the LCP element, as the brief intends. It now measures **1.7–1.8 s**. Getting there took two changes:
+  - phones take the 480/640w poster
+  - the search island hydrates at idle (`client:idle`), and anything typed before that is kept
+- **Lighthouse mobile (local, 2 runs each):** EN 99/100/100/100, AR 98–99/100/100/100, CLS ≤ 0.002, TBT 70–150 ms.
+- **Accessibility and no-JS:** axe found 0 violations on home EN/AR (desktop and phone), search EN/AR and 404. A search with JS off submits `/search?type=…&q=…`.

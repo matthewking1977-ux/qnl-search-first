@@ -1,6 +1,6 @@
 ---
 import SearchBox from './search/SearchBox.tsx';
-import { strings, intlLocale, type Lang } from '../i18n';
+import { strings, intlLocale, localPath, type Lang } from '../i18n';
 import tagsRaw from '../content/tags.json';
 import type { Group } from '../search/types';
 
@@ -10,10 +10,12 @@ interface Props {
   initialQuery?: string;
   initialGroup?: Group | 'all';
   autoFocusDesktop?: boolean;
+  /** Hero: show the Try row and Advanced search link */
+  advanced?: boolean;
 }
-const { lang, variant = 'hero', initialQuery = '', initialGroup = 'all', autoFocusDesktop = false } = Astro.props;
+const { lang, variant = 'hero', initialQuery = '', initialGroup = 'all', autoFocusDesktop = false, advanced = false } = Astro.props;
 const s = strings(lang, ['search.', 'filter.', 'group.', 'meta.lang', 'meta.remote', 'meta.onsite', 'popular.']);
 const { _note, ...tagDefs } = tagsRaw as Record<string, any>;
 const tags = Object.fromEntries(Object.entries(tagDefs).map(([k, v]) => [k, { en: v.en, ar: v.ar }]));
 ---
-<SearchBox client:load lang={lang} locale={intlLocale(lang)} s={s} tags={tags} variant={variant} initialQuery={initialQuery} initialGroup={initialGroup} autoFocusDesktop={autoFocusDesktop} />
+<SearchBox client:idle lang={lang} locale={intlLocale(lang)} s={s} tags={tags} variant={variant} initialQuery={initialQuery} initialGroup={initialGroup} autoFocusDesktop={autoFocusDesktop} advancedHref={advanced ? localPath(lang, '/search') : undefined} />

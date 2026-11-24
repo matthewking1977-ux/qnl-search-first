@@ -6,6 +6,7 @@ import Header from './Header.astro';
 import SearchBar from './SearchBar.astro';
 import TodayStrip from './TodayStrip.astro';
 import Picture from './Picture.astro';
+import { HERO_SIZES } from '../lib/preload';
 import { t, type Lang } from '../i18n';
 
 interface Props { lang: Lang; }
@@ -16,7 +17,7 @@ const { lang } = Astro.props;
     <Picture
       name="hero-poster"
       alt=""
-      sizes="100vw"
+      sizes={HERO_SIZES}
       priority
       class="poster"
       width={1280}
@@ -45,7 +46,7 @@ const { lang } = Astro.props;
 
   <div class="wrap content">
     <h1 id="hero-title" class="t-display line">{t(lang, 'hero.line')}</h1>
-    <SearchBar lang={lang} variant="hero" autoFocusDesktop />
+    <SearchBar lang={lang} variant="hero" advanced />
   </div>
 
   <div class="foot">
@@ -54,13 +55,13 @@ const { lang } = Astro.props;
         data-label-pause={t(lang, 'hero.pause')} data-label-play={t(lang, 'hero.play')}>
         <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.5v11M13 4.5v11" /></svg>
         <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 4.5v11l9-5.5z" /></svg>
-        <span class="pause-label">{t(lang, 'hero.pause')}</span>
+        <span class="pause-label sr-only">{t(lang, 'hero.pause')}</span>
       </button>
       <span id="hero-video-desc" class="sr-only">{t(lang, 'hero.videoLabel')}</span>
     </div>
-    <TodayStrip lang={lang} />
   </div>
 </section>
+<TodayStrip lang={lang} />
 
 <script>
   const hero = document.querySelector<HTMLElement>('[data-hero]');
@@ -79,6 +80,7 @@ const { lang } = Astro.props;
     const setUI = (playing: boolean) => {
       btn.dataset.state = playing ? 'playing' : 'paused';
       label.textContent = playing ? btn.dataset.labelPause! : btn.dataset.labelPlay!;
+      btn.title = label.textContent;
     };
     const attach = () => {
       if (attached) return;
@@ -132,7 +134,7 @@ const { lang } = Astro.props;
   .hero {
     position: relative; isolation: isolate;
     display: grid; grid-template-rows: auto 1fr auto;
-    min-block-size: clamp(38rem, 92svh, 58rem);
+    min-block-size: clamp(34rem, 78svh, 50rem);
     background: var(--color-ink); color: var(--color-paper);
   }
   .hero :global(.site-header) { position: relative; }
@@ -143,42 +145,50 @@ const { lang } = Astro.props;
     opacity: 0; transition: opacity 900ms var(--ease-out-expo);
   }
   .hero:global(.is-playing) .video { opacity: 1; }
-  /* Scrim: ≥ 0.6 ink over the brightest poster pixel keeps white text ≥ 4.5:1;
-     stronger at the top (nav) and bottom (Today strip). */
+  /* Scrim: an even ink wash (≥ 0.62 keeps white text ≥ 4.5:1 over the brightest
+     frame), a little lighter behind the headline so the hall still reads, and
+     darker at the edges and the top bar. The footage itself is pre-softened. */
   .scrim {
     position: absolute; inset: 0;
     background:
-      linear-gradient(to bottom, rgb(9 9 9 / 0.78) 0, rgb(9 9 9 / 0.6) 22%, rgb(9 9 9 / 0.6) 70%, rgb(9 9 9 / 0.82) 100%);
+      radial-gradient(120% 90% at 50% 45%, rgb(9 9 9 / 0) 30%, rgb(9 9 9 / 0.35) 100%),
+      linear-gradient(to bottom, rgb(9 9 9 / 0.8) 0, rgb(9 9 9 / 0.64) 18%, rgb(9 9 9 / 0.62) 60%, rgb(9 9 9 / 0.78) 100%);
   }
+  /* Content sits a little above centre (optical centre), with tight internal rhythm:
+     headline → bar 32px, bar → suggestions 16px. */
   .content {
-    display: grid; justify-items: center; align-content: center; gap: var(--s-5);
-    padding-block: var(--s-8) var(--s-6); text-align: center;
+    display: grid; justify-items: center; align-content: center; gap: var(--s-4);
+    padding-block: var(--s-6) var(--s-10); text-align: center;
   }
-  .line { margin: 0; max-inline-size: 15ch; text-shadow: 0 1px 24px rgb(9 9 9 / 0.35); }
-  :global([lang='ar']) .line { max-inline-size: 18ch; }
+  .content :global(.sb) { gap: var(--s-2); }
+  .line {
+    margin: 0; max-inline-size: 16ch;
+    font-size: clamp(2.25rem, 1.5rem + 3.3vw, 4.5rem);
+    text-wrap: balance;
+  }
+  :global([lang='ar']) .line { max-inline-size: 18ch; font-size: clamp(2rem, 1.4rem + 2.8vw, 3.75rem); }
   .foot { display: grid; }
-  .pause-row { display: flex; justify-content: flex-end; padding-block-end: var(--s-2); }
+  .pause-row { display: flex; justify-content: flex-end; padding-block-end: var(--s-3); }
+  /* Icon-only, quiet; the accessible name lives in .pause-label (and the tooltip). */
   .pause {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    min-block-size: 2.75rem; padding-inline: 0.9rem;
-    font: 500 var(--fs-xs)/1 var(--font-sans); color: var(--color-paper);
-    background: rgb(9 9 9 / 0.7); border: 1px solid rgb(255 255 255 / 0.5); border-radius: 999px;
-    cursor: pointer;
-    transition: background-color var(--dur-1) var(--ease-out-expo), border-color var(--dur-1);
+    display: grid; place-items: center; inline-size: 2.75rem; block-size: 2.75rem; padding: 0;
+    color: var(--color-paper); background: rgb(9 9 9 / 0.45);
+    border: 1px solid rgb(255 255 255 / 0.45); border-radius: 50%;
+    cursor: pointer; opacity: 0.85;
+    transition: opacity var(--dur-1), background-color var(--dur-1) var(--ease-out-expo), border-color var(--dur-1);
   }
-  :global([lang='ar']) .pause { font-family: var(--font-arabic); font-size: var(--fs-sm); }
-  .pause:hover { background: rgb(9 9 9 / 0.8); border-color: var(--color-paper); }
+  .pause:hover { opacity: 1; background: rgb(9 9 9 / 0.75); border-color: var(--color-paper); }
+  .pause:focus-visible { opacity: 1; border-radius: 50%; }
   .pause[data-pending] { visibility: hidden; }
   .pause:active { transform: translateY(1px); }
-  .pause svg { inline-size: 1rem; block-size: 1rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .pause svg { inline-size: 1.125rem; block-size: 1.125rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .pause .i-play { display: none; }
   .pause[data-state='paused'] .i-play { display: block; }
   .pause[data-state='paused'] .i-pause { display: none; }
 
   @media (max-width: 48rem) {
-    /* A stable height pins the Today strip to the bottom, so font swaps in the
-       headline can't move it (CLS). Falls back to content height on short phones. */
-    .hero { min-block-size: min(100svh, 52rem); }
-    .content { padding-block: var(--s-6) var(--s-4); gap: var(--s-4); }
+    /* Stable height (CLS): fills the phone screen, capped on tall ones. */
+    .hero { min-block-size: min(80svh, 40rem); }
+    .content { padding-block: var(--s-4) var(--s-6); gap: var(--s-3); }
   }
 </style>

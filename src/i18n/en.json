@@ -262,5 +262,8 @@
   "nf.explore": "Explore the collections",
   "nf.visit": "Plan your visit",
   "nf.ask": "Ask a librarian",
-  "nf.hours": "Opening hours"
+  "nf.hours": "Opening hours",
+  "search.scope": "Search in",
+  "search.try": "Try",
+  "search.advanced": "Advanced search"
 }

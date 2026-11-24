@@ -20,7 +20,7 @@ const swatches = [
   { token: '--color-paper', hex: '#ffffff', src: 'qnl.qa body background', role: isAr ? 'الخلفية' : 'Background' },
   { token: '--color-accent', hex: '#901235', src: 'qnl.qa maroon (h1, links, buttons)', role: isAr ? 'الروابط، التركيز، الحالة النشطة' : 'Links, focus, active, eyebrows', dark: true },
   { token: '--color-accent-hover', hex: '#bb1437', src: 'qnl.qa promote links', role: isAr ? 'تمرير المؤشر على الروابط' : 'Link hover', dark: true },
-  { token: '--color-accent-on-dark', hex: '#fad164', src: 'qnl.qa nav hover (gold)', role: isAr ? 'التركيز على الخلفيات الداكنة' : 'Focus/active on dark' },
+  { token: '--color-accent-on-dark', hex: '#fad164', src: 'qnl.qa nav hover (gold)', role: isAr ? 'التمرير والتفعيل على الخلفيات الداكنة' : 'Hover/active on dark' },
   { token: '--color-tag', hex: '#f9a44a', src: 'qnl.qa language switcher hover', role: isAr ? 'وسوم الفعاليات والفئات' : 'Event/category tags only' },
 ];
 
@@ -210,7 +210,7 @@ const exampleDate = new Date(Date.UTC(2026, 2, 14));
     <div class="dark-demo on-dark">
       <button type="button" class="btn btn--primary">{t(lang, 'sg.buttonPrimary')}</button>
       <button type="button" class="btn btn--ghost">{t(lang, 'nav.signIn')}</button>
-      <button type="button" class="btn btn--ghost is-focus" tabindex="-1" aria-hidden="true">{isAr ? 'تركيز' : 'Focus (gold ring)'}</button>
+      <button type="button" class="btn btn--ghost is-focus" tabindex="-1" aria-hidden="true">{isAr ? 'تركيز' : 'Focus (white ring)'}</button>
       <div class="chips">
         <button type="button" class="chip" aria-pressed="true">{t(lang, 'filter.all')}</button>
         <button type="button" class="chip" aria-pressed="false">{t(lang, 'filter.books')}</button>

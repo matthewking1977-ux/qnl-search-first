@@ -11,7 +11,8 @@
     "postbuild": "node scripts/vercel-routes.mjs",
     "preview": "astro preview",
     "media": "node scripts/process-media.mjs",
-    "fonts": "bash scripts/subset-fonts.sh"
+    "fonts": "bash scripts/subset-fonts.sh",
+    "hero": "bash scripts/encode-hero.sh"
   },
   "dependencies": {
     "@astrojs/preact": "^6.1.6",

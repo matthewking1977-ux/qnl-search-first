@@ -26,13 +26,18 @@ interface Props {
   initialQuery?: string;
   initialGroup?: Group | 'all';
   autoFocusDesktop?: boolean;
+  /** Show the "Search the library / Ask a question" mode switch (results page only). */
+  modes?: boolean;
+  /** Hero only: "Try" suggestions + Advanced search link under the bar. */
+  advancedHref?: string;
   /** Intl locale incl. numbering system, from LOCALE_SETTINGS (i18n/index.ts) */
   locale?: string;
 }
 
 const provider = new LocalIndexAdapter();
 const fmt = (str: string, v: Record<string, string | number>) => str.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ''));
-const FILTERS: (Group | 'all')[] = ['all', 'books', 'research', 'events', 'services', 'heritage'];
+const SCOPES: (Group | 'all')[] = ['all', 'books', 'research', 'events', 'services', 'heritage'];
+const TRY = [4, 5, 1];
 const RECENT_KEY = 'qnl.recent';
 /** Count label with Arabic plural forms (zero/one/two/few/many). */
 export function countLabel(n: number, s: S, lang: Lang) {
@@ -72,7 +77,7 @@ function metaLine(r: LibraryRecord, lang: Lang, s: S, loc: string): string {
   return r.summary[lang];
 }
 
-export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuery = '', initialGroup = 'all', autoFocusDesktop = false, locale }: Props) {
+export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuery = '', initialGroup = 'all', autoFocusDesktop = false, modes = variant === 'page', advancedHref, locale }: Props) {
   const loc = locale ?? (lang === 'ar' ? 'ar-QA-u-nu-latn' : 'en-GB');
   const uid = `sb${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const [mode, setMode] = useState<'library' | 'ask'>('library');
@@ -116,6 +121,15 @@ export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuer
     const ric = (window as any).requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 2500));
     const h = ric(() => provider.prefetch(), { timeout: 4000 });
     setRecent(readRecent());
+    // Hydration runs at idle: keep anything typed (or a scope picked) before it.
+    const el = inputRef.current;
+    const scope = rootRef.current?.querySelector('select') as HTMLSelectElement | null;
+    const g0 = ((scope?.value || 'all') as Group | 'all');
+    if (scope && g0 !== group) setGroup(g0);
+    if (el && el.value && el.value !== q) {
+      setQ(el.value);
+      if (document.activeElement === el) { setOpen(true); t0.current = performance.now(); run(el.value.trim(), g0); }
+    }
     if (autoFocusDesktop && window.matchMedia('(min-width: 64rem) and (pointer: fine)').matches && !location.hash) {
       inputRef.current?.focus({ preventScroll: true });
     }
@@ -276,8 +290,7 @@ export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuer
 
   const pickGroup = (g: Group | 'all') => {
     setGroup(g);
-    if (query) { t0.current = performance.now(); run(query, g); setOpen(true); }
-    inputRef.current?.focus();
+    if (query) { t0.current = performance.now(); run(query, g); }
   };
 
   const setModeTo = (m: 'library' | 'ask') => {
@@ -346,7 +359,7 @@ export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuer
 
   return (
     <div class={`sb sb--${variant}`} ref={rootRef} onPointerEnter={warm} data-mode={mode}>
-      <div class="sb-modes" role="radiogroup" aria-label={s['search.modes']}>
+      {modes && <div class="sb-modes" role="radiogroup" aria-label={s['search.modes']}>
         {(['library', 'ask'] as const).map((m) => (
           <button
             type="button"
@@ -366,11 +379,19 @@ export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuer
             {m === 'library' ? s['search.mode.library'] : <>{s['search.mode.ask']} <span class="phase" lang={lang}>{s['search.phase2']}</span></>}
           </button>
         ))}
-      </div>
+      </div>}
 
       <form class="sb-form" role="search" action={searchHref(lang, '')} method="get" onSubmit={onSubmit} autocomplete="off">
         <label class="sr-only" for={`${uid}-input`}>{mode === 'ask' ? s['search.mode.ask'] : s['search.label']}</label>
         <div class={`sb-field${expanded ? ' is-open' : ''}`}>
+          <span class="sb-scope">
+            <label class="sr-only" for={`${uid}-scope`}>{s['search.scope']}</label>
+            <select id={`${uid}-scope`} name="type" value={group === 'all' ? '' : group}
+              onChange={(e) => pickGroup(((e.currentTarget as HTMLSelectElement).value || 'all') as Group | 'all')}>
+              {SCOPES.map((g) => <option value={g === 'all' ? '' : g} selected={group === g}>{g === 'all' ? s['filter.all'] : s[`filter.${g}`]}</option>)}
+            </select>
+            <svg class="sb-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" /></svg>
+          </span>
           <svg class="sb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Zm4.7-1.8L20 20" /></svg>
           <input
             ref={inputRef}
@@ -399,9 +420,10 @@ export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuer
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15" /></svg>
             </button>
           )}
-          <kbd class="sb-kbd" aria-hidden="true">/</kbd>
-          {group !== 'all' && <input type="hidden" name="type" value={group} />}
-          <button class="btn btn--primary sb-submit" type="submit">{s['search.submit']}</button>
+          <button class="btn btn--primary sb-submit" type="submit">
+            <svg class="sb-submit-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Zm4.7-1.8L20 20" /></svg>
+            <span class="sb-submit-label">{s['search.submit']}</span>
+          </button>
         </div>
         <span id={`${uid}-hint`} class="sr-only">{s['search.shortcut']}</span>
 
@@ -442,13 +464,15 @@ export default function SearchBox({ lang, s, tags, variant = 'hero', initialQuer
         </div>
       </form>
 
-      <div class="sb-chips" role="group" aria-label={s['search.filters']}>
-        {FILTERS.map((g) => (
-          <button type="button" class="chip" aria-pressed={group === g} onClick={() => pickGroup(g)}>
-            {g === 'all' ? s['filter.all'] : s[`filter.${g}`]}
-          </button>
-        ))}
-      </div>
+      {advancedHref && (
+        <div class="sb-below">
+          <p class="sb-try">
+            <span class="sb-try-label">{s['search.try']}</span>
+            {TRY.map((i) => <a href={searchHref(lang, s[`popular.${i}`])}>{s[`popular.${i}`]}</a>)}
+          </p>
+          <a class="sb-adv" href={advancedHref}>{s['search.advanced']}</a>
+        </div>
+      )}
 
       <div class="sr-only" role="status" aria-live="polite" aria-atomic="true">{live}</div>
 
