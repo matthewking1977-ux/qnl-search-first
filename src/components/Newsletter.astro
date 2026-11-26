@@ -24,8 +24,12 @@ const { lang } = Astro.props;
       <h2 class="t-h3">{t(lang, 'app.title')}</h2>
       <p class="line">{t(lang, 'app.line')}</p>
       <div class="stores">
-        <a class="store" href={localPath(lang, '/item/pg-contact')}><span class="s-name">{t(lang, 'app.ios')}</span><span class="sample-tag">{t(lang, 'app.placeholder')}</span></a>
-        <a class="store" href={localPath(lang, '/item/pg-contact')}><span class="s-name">{t(lang, 'app.android')}</span><span class="sample-tag">{t(lang, 'app.placeholder')}</span></a>
+        <a class="store" href={localPath(lang, '/item/pg-contact')}>
+          <img src="/images/badges/app-store.webp" width="154" height="48" alt="Available on the App Store" lang="en" loading="lazy" decoding="async" />
+        </a>
+        <a class="store" href={localPath(lang, '/item/pg-contact')}>
+          <img src="/images/badges/google-play.webp" width="146" height="48" alt="Android app on Google Play" lang="en" loading="lazy" decoding="async" />
+        </a>
       </div>
     </div>
   </div>
@@ -60,11 +64,7 @@ const { lang } = Astro.props;
   .msg[data-state='error'] { color: var(--color-accent); font-weight: 500; }
   @media (max-width: 30rem) { .form { grid-template-columns: 1fr; } }
   .stores { display: flex; flex-wrap: wrap; gap: var(--s-1); }
-  .store {
-    display: inline-flex; align-items: center; gap: 0.5rem; min-block-size: 3rem; padding-inline: 1rem;
-    background: var(--color-ink); color: var(--color-paper); border-radius: var(--radius-2); text-decoration: none; font-weight: 500;
-    transition: background-color var(--dur-1);
-  }
-  .store:hover { background: var(--color-grey-800); }
-  .store .sample-tag { color: var(--color-grey-300); }
+  .store { display: inline-flex; border-radius: 8px; transition: opacity var(--dur-1); }
+  .store img { display: block; block-size: 48px; inline-size: auto; }
+  .store:hover { opacity: 0.85; }
 </style>

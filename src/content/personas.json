@@ -40,7 +40,7 @@
   ],
   "cards": {
     "study":        { "href": "/item/sv-study",          "en": ["Book a study space", "Reserve a quiet desk or a group room."], "ar": ["احجز مساحة للدراسة", "احجز مكتبًا هادئًا أو غرفة جماعية."] },
-    "group":        { "href": "/item/sv-study",          "en": ["Group study rooms", "Rooms with screens for up to [TBC] people."], "ar": ["غرف الدراسة الجماعية", "غرف مزوّدة بشاشات تتسع لعدد يصل إلى [يُحدَّد لاحقًا] أشخاص."] },
+    "group":        { "href": "/item/sv-study",          "en": ["Group study rooms", "Six rooms for 4–6 people, plus media lounges with screens for up to 6."], "ar": ["غرف الدراسة الجماعية", "ست غرف تتسع من 4 إلى 6 أشخاص، وصالات وسائط مزوّدة بشاشات تتسع لـ6 أشخاص."] },
     "wifi":         { "href": "/item/sv-wifi",           "en": ["Wi-Fi and computers", "Free Wi-Fi and public PCs on every floor."], "ar": ["الإنترنت اللاسلكي والحواسيب", "إنترنت لاسلكي مجاني وحواسيب عامة في كل طابق."] },
     "printing":     { "href": "/item/sv-printing",       "en": ["Print, copy and scan", "Print from your own device or a library PC."], "ar": ["الطباعة والنسخ والمسح", "اطبع من جهازك أو من أحد حواسيب المكتبة."] },
     "catalogue":    { "href": "/search?type=books",      "en": ["Search the catalogue", "Find books and check where they are shelved."], "ar": ["ابحث في الفهرس", "اعثر على الكتب وتعرّف على أماكنها على الرفوف."] },
@@ -57,7 +57,7 @@
     "heritage":     { "href": "/item/pg-heritage",       "en": ["Heritage Library", "Rare books, manuscripts and maps."], "ar": ["مكتبة التراث", "كتب نادرة ومخطوطات وخرائط."] },
     "qdl":          { "href": "/item/hr-09",             "en": ["Qatar Digital Library", "Digitised archives about the Gulf, free online."], "ar": ["مكتبة قطر الرقمية", "وثائق رقمية عن الخليج، مجانًا عبر الإنترنت."] },
     "manuscripts":  { "href": "/search?q=manuscripts&type=heritage", "en": ["Browse manuscripts", "Sample records from the collection."], "ar": ["تصفّح المخطوطات", "سجلات نموذجية من المجموعة."] },
-    "hours":        { "href": "/item/sv-hours",          "en": ["Opening hours", "Today: open until [TBC]."], "ar": ["مواعيد العمل", "اليوم: مفتوحة حتى [يُحدَّد لاحقًا]."] },
+    "hours":        { "href": "/item/sv-hours",          "en": ["Opening hours", "Sat–Thu 08:00–20:00, Fri 16:00–20:00."], "ar": ["مواعيد العمل", "السبت–الخميس من 08:00 حتى 20:00، والجمعة من 16:00 حتى 20:00."] },
     "childrens":    { "href": "/item/pg-children",       "en": ["Children's Library", "Books and spaces for ages 0–12."], "ar": ["مكتبة الأطفال", "كتب ومساحات للأعمار من 0 إلى 12 سنة."] },
     "member":       { "href": "/item/sv-membership",     "en": ["Become a member", "Register online in a few minutes."], "ar": ["انضم عضوًا", "سجّل عبر الإنترنت في دقائق."] },
     "kidsevents":   { "href": "/search?q=children&type=events", "en": ["Events for children", "Storytimes, crafts and science."], "ar": ["فعاليات للأطفال", "حكايات وحِرَف وعلوم."] },

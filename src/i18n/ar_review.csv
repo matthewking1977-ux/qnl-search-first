@@ -142,10 +142,18 @@ hero.pause,Pause video,إيقاف الفيديو مؤقتًا,
 hero.play,Play video,تشغيل الفيديو,
 hero.videoLabel,Background video: people reading and studying across the terraces of the library's main hall,فيديو في الخلفية: أشخاص يقرؤون ويدرسون في مدرجات القاعة الرئيسية للمكتبة,
 today.label,Today at the library,اليوم في المكتبة,
-today.open,Open today until,مفتوحة اليوم حتى,
-today.openValue,[TBC],[يُحدَّد لاحقًا],Placeholder until wired to live opening hours. Contains [TBC] placeholder.
-today.study,Study spaces free,مساحات الدراسة المتاحة,
-today.studyValue,[live],[مباشر],Placeholder until wired to live space availability.
+today.hours,Opening hours,مواعيد العمل,
+today.openNow,Open now,مفتوحة الآن,
+today.closedNow,Closed now,مغلقة الآن,
+today.until,Until {t} today,حتى الساعة {t} اليوم,
+today.opensToday,Opens today at {t},تفتح اليوم الساعة {t},
+today.opensTomorrow,Opens tomorrow at {t},تفتح غدًا الساعة {t},
+today.week,Sat–Thu {wd} · Fri {fr},السبت–الخميس {wd} · الجمعة {fr},
+today.study,Study spaces,مساحات الدراسة,
+today.studyValue,Choose a space,اختر مساحة,Placeholder until wired to live space availability.
+today.studyBook,Book,احجز,
+today.studyAll,All about study spaces,كل ما يخص مساحات الدراسة,
+today.studyNote,Group rooms and media lounges are for members and must be booked ahead. Individual study rooms can be booked by anyone aged 15 or over.,الغرف الجماعية وصالات الوسائط مخصصة للأعضاء وتُحجز مسبقًا. ويمكن لكل من بلغ 15 عامًا فأكثر حجز غرف الدراسة الفردية.,
 today.next,Next event,الفعالية التالية,
 today.metro,Metro,المترو,
 today.metroValue,"Green Line, Qatar National Library station",الخط الأخضر، محطة مكتبة قطر الوطنية,Confirmed by client (23 Nov 2026).
@@ -158,7 +166,7 @@ tasks.eyebrow,Top tasks,المهام الأكثر طلبًا,
 task.member,Become a member,انضم عضوًا,
 task.member.help,"Register online, then borrow, book and log in from anywhere.",سجّل عبر الإنترنت، ثم استعر واحجز وادخل إلى حسابك من أي مكان.,
 task.study,Book a study space,احجز مساحة للدراسة,
-task.study.help,"Quiet desks and group rooms, bookable up to [TBC] days ahead.",مكاتب هادئة وغرف جماعية يمكن حجزها قبل [يُحدَّد لاحقًا] أيام.,Contains [TBC] placeholder.
+task.study.help,"Group rooms, media lounges and 28 quiet individual rooms.",غرف جماعية وصالات وسائط و28 غرفة فردية هادئة.,
 task.find,Find a resource,اعثر على مصدر,
 task.find.help,"Books, articles, databases and archives in one search.",الكتب والمقالات وقواعد البيانات والوثائق في بحث واحد.,
 task.events,Events,الفعاليات,
@@ -204,9 +212,6 @@ news.ok,"Thank you. This is a sample form, so your address was not sent or store
 news.invalid,Enter an email address like name@example.com.,أدخل بريدًا إلكترونيًا صحيحًا، مثل name@example.com.,
 app.title,Get the app,حمّل التطبيق,
 app.line,"Your card, loans and bookings on your phone.",بطاقتك وإعاراتك وحجوزاتك على هاتفك.,
-app.ios,App Store,App Store,Store name kept in Latin script (trademark).
-app.android,Google Play,Google Play,Store name kept in Latin script (trademark).
-app.placeholder,placeholder,رابط مؤقت,
 footer.about,About,عن المكتبة,
 footer.services,Services,الخدمات,
 footer.help,Help,المساعدة,
@@ -734,11 +739,11 @@ content.services.sv-renew.task.answer,Sign in to My Account and choose Renew nex
 content.services.sv-renew.task.action,Go to My Account,انتقل إلى حسابي,Button label (imperative).
 content.services.sv-hours.title,Opening hours,مواعيد العمل,Service/page copy (sample).
 content.services.sv-hours.summary,"When the library, the Children's Library and the Heritage Library are open.",مواعيد فتح المكتبة ومكتبة الأطفال ومكتبة التراث.,
-content.services.sv-hours.task.answer,Open today until [TBC]. Hours differ for the Heritage Library and during public holidays.,مفتوحة اليوم حتى [يُحدَّد لاحقًا]. تختلف المواعيد في مكتبة التراث وخلال العطلات الرسمية.,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-hours.task.answer,"Saturday to Thursday 08:00–20:00. Friday 16:00–20:00. The Children's Library closes at 18:30, except on Friday and Saturday, when it closes at 20:00. Check the homepage for changes on public holidays.",من السبت إلى الخميس من الساعة 08:00 حتى 20:00، والجمعة من الساعة 16:00 حتى 20:00. تُغلق مكتبة الأطفال الساعة 18:30، باستثناء يومي الجمعة والسبت حين تُغلق الساعة 20:00. تابع الصفحة الرئيسية لمعرفة أي تغييرات خلال العطلات الرسمية.,Quick-answer card shown in search.
 content.services.sv-hours.task.action,See all opening hours,جميع مواعيد العمل,Button label (imperative).
 content.services.sv-study.title,Book a study space,احجز مساحة للدراسة,Service/page copy (sample).
-content.services.sv-study.summary,Reserve a quiet desk or a group study room.,احجز مكتبًا هادئًا أو غرفة دراسة جماعية.,
-content.services.sv-study.task.answer,"Members can book group rooms up to [TBC] days ahead. Quiet desks are first come, first served. Spaces free now: [live].",يمكن للأعضاء حجز الغرف الجماعية قبل [يُحدَّد لاحقًا] أيام. المكاتب الهادئة متاحة حسب الأسبقية. المساحات المتاحة الآن: [مباشر].,Quick-answer card shown in search. Contains [TBC] placeholders.
+content.services.sv-study.summary,"Reserve a group study room, a media lounge or a quiet individual room.",احجز غرفة دراسة جماعية أو صالة وسائط أو غرفة فردية هادئة.,
+content.services.sv-study.task.answer,Six group study rooms and three media lounges are for members and must be booked ahead (enquiries: 4454 2152 or qnlresourcebooking@qnl.qa). Anyone aged 15 or over can book one of the 28 individual study rooms in the Quiet Zone. The Night Study Space has 70 places.,ست غرف للدراسة الجماعية وثلاث صالات وسائط مخصصة للأعضاء وتُحجز مسبقًا (للاستفسار: 4454 2152 أو qnlresourcebooking@qnl.qa). ويمكن لكل من بلغ 15 عامًا فأكثر حجز إحدى غرف الدراسة الفردية الـ28 في المنطقة الهادئة. وتتسع مساحة الدراسة الليلية لـ70 شخصًا.,Quick-answer card shown in search.
 content.services.sv-study.task.action,Book a space,احجز مساحة,Button label (imperative).
 content.services.sv-parking.title,Parking,مواقف السيارات,Service/page copy (sample).
 content.services.sv-parking.summary,"Where to park, including accessible spaces.",أماكن الوقوف، بما فيها المواقف المخصصة لذوي الإعاقة.,
@@ -973,7 +978,7 @@ personas.professional.workspace,a place to work,مكان للعمل,Follows «و
 cards.study.label,Book a study space,احجز مساحة للدراسة,Task card label.
 cards.study.help,Reserve a quiet desk or a group room.,احجز مكتبًا هادئًا أو غرفة جماعية.,Task card help line.
 cards.group.label,Group study rooms,غرف الدراسة الجماعية,Task card label.
-cards.group.help,Rooms with screens for up to [TBC] people.,غرف مزوّدة بشاشات تتسع لعدد يصل إلى [يُحدَّد لاحقًا] أشخاص.,Task card help line. Contains [TBC].
+cards.group.help,"Six rooms for 4–6 people, plus media lounges with screens for up to 6.",ست غرف تتسع من 4 إلى 6 أشخاص، وصالات وسائط مزوّدة بشاشات تتسع لـ6 أشخاص.,Task card help line.
 cards.wifi.label,Wi-Fi and computers,الإنترنت اللاسلكي والحواسيب,Task card label.
 cards.wifi.help,Free Wi-Fi and public PCs on every floor.,إنترنت لاسلكي مجاني وحواسيب عامة في كل طابق.,Task card help line.
 cards.printing.label,"Print, copy and scan",الطباعة والنسخ والمسح,Task card label.
@@ -1007,7 +1012,7 @@ cards.qdl.help,"Digitised archives about the Gulf, free online.",وثائق رق
 cards.manuscripts.label,Browse manuscripts,تصفّح المخطوطات,Task card label.
 cards.manuscripts.help,Sample records from the collection.,سجلات نموذجية من المجموعة.,Task card help line.
 cards.hours.label,Opening hours,مواعيد العمل,Task card label.
-cards.hours.help,Today: open until [TBC].,اليوم: مفتوحة حتى [يُحدَّد لاحقًا].,Task card help line. Contains [TBC].
+cards.hours.help,"Sat–Thu 08:00–20:00, Fri 16:00–20:00.",السبت–الخميس من 08:00 حتى 20:00، والجمعة من 16:00 حتى 20:00.,Task card help line.
 cards.childrens.label,Children's Library,مكتبة الأطفال,Task card label.
 cards.childrens.help,Books and spaces for ages 0–12.,كتب ومساحات للأعمار من 0 إلى 12 سنة.,Task card help line.
 cards.member.label,Become a member,انضم عضوًا,Task card label.

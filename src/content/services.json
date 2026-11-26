@@ -18,14 +18,14 @@
     "summary": { "en": "When the library, the Children's Library and the Heritage Library are open.", "ar": "مواعيد فتح المكتبة ومكتبة الأطفال ومكتبة التراث." },
     "task": {
       "triggers": ["hours", "opening hours", "opening times", "open", "opening", "times", "closing", "when", "مواعيد", "ساعات", "أوقات", "متى", "الدوام", "مفتوحة"],
-      "answer": { "en": "Open today until [TBC]. Hours differ for the Heritage Library and during public holidays.", "ar": "مفتوحة اليوم حتى [يُحدَّد لاحقًا]. تختلف المواعيد في مكتبة التراث وخلال العطلات الرسمية." },
+      "answer": { "en": "Saturday to Thursday 08:00–20:00. Friday 16:00–20:00. The Children's Library closes at 18:30, except on Friday and Saturday, when it closes at 20:00. Check the homepage for changes on public holidays.", "ar": "من السبت إلى الخميس من الساعة 08:00 حتى 20:00، والجمعة من الساعة 16:00 حتى 20:00. تُغلق مكتبة الأطفال الساعة 18:30، باستثناء يومي الجمعة والسبت حين تُغلق الساعة 20:00. تابع الصفحة الرئيسية لمعرفة أي تغييرات خلال العطلات الرسمية." },
       "action": { "en": "See all opening hours", "ar": "جميع مواعيد العمل" } } },
   { "id": "sv-study", "type": "service", "sample": true, "lang": "both", "audience": ["students", "researchers", "adults"], "tags": ["visiting"],
     "title": { "en": "Book a study space", "ar": "احجز مساحة للدراسة" },
-    "summary": { "en": "Reserve a quiet desk or a group study room.", "ar": "احجز مكتبًا هادئًا أو غرفة دراسة جماعية." },
+    "summary": { "en": "Reserve a group study room, a media lounge or a quiet individual room.", "ar": "احجز غرفة دراسة جماعية أو صالة وسائط أو غرفة فردية هادئة." },
     "task": {
       "triggers": ["study room", "study space", "group room", "quiet", "desk", "study", "book a room", "room", "قاعة دراسة", "غرفة دراسة", "مساحة", "دراسة", "حجز"],
-      "answer": { "en": "Members can book group rooms up to [TBC] days ahead. Quiet desks are first come, first served. Spaces free now: [live].", "ar": "يمكن للأعضاء حجز الغرف الجماعية قبل [يُحدَّد لاحقًا] أيام. المكاتب الهادئة متاحة حسب الأسبقية. المساحات المتاحة الآن: [مباشر]." },
+      "answer": { "en": "Six group study rooms and three media lounges are for members and must be booked ahead (enquiries: 4454 2152 or qnlresourcebooking@qnl.qa). Anyone aged 15 or over can book one of the 28 individual study rooms in the Quiet Zone. The Night Study Space has 70 places.", "ar": "ست غرف للدراسة الجماعية وثلاث صالات وسائط مخصصة للأعضاء وتُحجز مسبقًا (للاستفسار: 4454 2152 أو qnlresourcebooking@qnl.qa). ويمكن لكل من بلغ 15 عامًا فأكثر حجز إحدى غرف الدراسة الفردية الـ28 في المنطقة الهادئة. وتتسع مساحة الدراسة الليلية لـ70 شخصًا." },
       "action": { "en": "Book a space", "ar": "احجز مساحة" } } },
   { "id": "sv-parking", "type": "service", "sample": true, "lang": "both", "audience": ["adults", "students", "researchers"], "tags": ["visiting"],
     "title": { "en": "Parking", "ar": "مواقف السيارات" },
