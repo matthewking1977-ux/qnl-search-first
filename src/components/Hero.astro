@@ -116,7 +116,7 @@ const { lang } = Astro.props;
     btn.removeAttribute('tabindex');
     btn.removeAttribute('aria-hidden');
     setUI(false);
-    // Phones get the poster and a Play button: no 1.2 MB autoplay on mobile data.
+    // Phones get the poster and a Play button: no ~0.9 MB autoplay on mobile data.
     const phone = window.matchMedia('(max-width: 47.99rem)').matches;
     const autoplay = !reduce.matches && !lowData && !userPaused && !phone;
     if (autoplay) {

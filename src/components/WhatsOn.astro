@@ -5,6 +5,7 @@
 import { t, formatDate, type Lang } from '../i18n';
 import { records } from '../search/data';
 import { itemHref, searchHref } from '../search/links';
+import Picture from './Picture.astro';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -14,6 +15,21 @@ const events = records
   .sort((a, b) => a.start!.localeCompare(b.start!));
 const cats = ['all', 'children', 'adults', 'research', 'heritage'] as const;
 const clean = (s: string) => s.replace(/\s*\((sample|نموذج)\)\s*$/, '');
+// Card photos: supplied images for these events; otherwise a library photo for the category.
+// Decorative (alt=""): the card's title already says what the event is.
+type Pic = { name: 'event-storytime' | 'event-workshop' | 'event-books' | 'children-hall' | 'study-tables' | 'talk-seating' | 'heritage-cases'; focus?: string };
+const EVENT_PIC: Record<string, Pic> = {
+  'ev-01': { name: 'event-storytime', focus: '50% 30%' },
+  'ev-02': { name: 'event-workshop', focus: '50% 40%' },
+  'ev-03': { name: 'event-books', focus: '50% 60%' },
+};
+const CATEGORY_PIC: Record<string, Pic> = {
+  children: { name: 'children-hall' },
+  research: { name: 'study-tables' },
+  adults: { name: 'talk-seating' },
+  heritage: { name: 'heritage-cases' },
+};
+const picFor = (id: string, cat?: string): Pic => EVENT_PIC[id] ?? CATEGORY_PIC[cat ?? ''] ?? { name: 'talk-seating' };
 ---
 <section id="whats-on" class="whatson section" aria-labelledby="wo-h" data-whatson>
   <div class="wrap">
@@ -34,9 +50,11 @@ const clean = (s: string) => s.replace(/\s*\((sample|نموذج)\)\s*$/, '');
     <ul class="cards" role="list" data-cards>
       {events.map((e, i) => {
         const d = new Date(e.start!);
+        const pic = picFor(e.id, e.category);
         return (
           <li class="ev" data-cat={e.category} hidden={i >= 3}>
             <article>
+              <Picture class="photo" name={pic.name} alt="" sizes="(max-width: 64rem) calc(100vw - 2rem), 26rem" focus={{ base: pic.focus }} />
               <p class="date" aria-hidden="true">
                 <span class="day">{formatDate(lang, d, { day: 'numeric' })}</span>
                 <span class="mon">{formatDate(lang, d, { month: 'short' })}</span>
@@ -105,6 +123,17 @@ const clean = (s: string) => s.replace(/\s*\((sample|نموذج)\)\s*$/, '');
     transition: border-color var(--dur-2) var(--ease-out-expo);
   }
   .ev article:hover, .ev article:focus-within { border-color: var(--color-ink); }
+  .ev article { grid-template-rows: auto 1fr; align-content: start; overflow: hidden; padding-block-start: 0; }
+  .ev article :global(.photo) {
+    grid-column: 1 / -1; display: block; margin-inline: calc(var(--s-3) * -1); aspect-ratio: 16 / 9; overflow: hidden;
+    background: var(--color-paper-2);
+  }
+  .ev article :global(.photo img) {
+    display: block; inline-size: 100%; block-size: 100%; object-fit: cover; object-position: var(--fp);
+    transition: transform var(--dur-3, 400ms) var(--ease-out-expo);
+  }
+  .ev article:hover :global(.photo img) { transform: scale(1.03); }
+  @media (prefers-reduced-motion: reduce) { .ev article:hover :global(.photo img) { transform: none; } }
   .date { margin: 0; display: grid; align-content: start; justify-items: center; padding-block: 0.6rem; border-inline-end: var(--hairline); padding-inline-end: var(--s-2); }
   .day { font: 400 2.5rem/1 var(--font-serif); color: var(--color-ink); }
   :global([lang='ar']) .day { font-family: var(--font-sans); font-weight: 500; font-size: 2.25rem; }

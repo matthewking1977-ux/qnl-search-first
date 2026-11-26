@@ -9,7 +9,7 @@
       960,
       1280
     ],
-    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoYAA4APu1kq04ppaQiMAgBMB2JYwAAUzyukZRfBEIJqgAA97CXptkDOqGpV7KqakeL2Cpv8kCiretALGuWJRujEeAxMxr9AAA="
+    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoYAA4APu1krU6ppaSiMAgBMB2JQBOgBDs15GCJiSK2IbeAAP7YuOKccLZuCscKY6rNGaH34HH6uC5/mUruXT0PHvVAna3P0reZX73FenAAAA=="
   },
   "hall-columns": {
     "src": "QNL 0024.jpg",
@@ -255,5 +255,38 @@
       800
     ],
     "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoYABAAPu1iqk2ppaQiMAgBMB2JZwAAV/7pQeIq8ZwI3jgA/uE8oFZcq4duFONieGq00K0zVFxmzEgEeYc8IgJKzqApkiFAAAA="
+  },
+  "event-storytime": {
+    "src": "../events/storytime.jpg",
+    "w": 2000,
+    "h": 1333,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABwAwCdASoYABAAPu1oqk6ppiQiMAgBMB2JQBOgAkfQF87jYOAA/ZHchcRaRTcqC6nHwx+6fbvF6AjF3I64IAmVZtAvMVORTgnui8fB9fU5gAAA"
+  },
+  "event-workshop": {
+    "src": "../events/workshop-clay.jpg",
+    "w": 2000,
+    "h": 1391,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABwBACdASoYABEAPu1kqk2ppaQiMAgBMB2JYwCw7CGf3Ea3e+KWH9S+NHeCAADMoC5S6vy5jR+m64dc05DZXZW8ncqTGKXgjM9vzNA8CN1FNTi4IJZsios15Z8tje3gCiN6l8DQK9GWWuniAAA="
+  },
+  "event-books": {
+    "src": "../events/books-open.jpg",
+    "w": 2000,
+    "h": 1335,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JQBOgAg1otgPNwd+q/AAA/ph1XqHHERIvx+8rkMLfAQXqM2WOu7KtmLFalOm/QtFGNjFjTRJ3glAA"
   }
 }

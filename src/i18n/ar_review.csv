@@ -140,7 +140,7 @@ search.count2,2 results,نتيجتان,Dual form.
 search.countFew,{n} results,{n} نتائج,Arabic plural for 3–10.
 hero.pause,Pause video,إيقاف الفيديو مؤقتًا,
 hero.play,Play video,تشغيل الفيديو,
-hero.videoLabel,Background video: people reading and studying across the terraces of the library's main hall,فيديو في الخلفية: أشخاص يقرؤون ويدرسون في مدرجات القاعة الرئيسية للمكتبة,
+hero.videoLabel,"Background video: Qatar National Library's angled white building from outside at night and by day, ending inside the main hall among the bookshelves",فيديو في الخلفية: مبنى مكتبة قطر الوطنية الأبيض المائل من الخارج ليلًا ونهارًا، وينتهي داخل القاعة الرئيسية بين رفوف الكتب,
 today.label,Today at the library,اليوم في المكتبة,
 today.hours,Opening hours,مواعيد العمل,
 today.openNow,Open now,مفتوحة الآن,

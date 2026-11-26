@@ -35,6 +35,10 @@ export const PHOTOS = {
   'family-hall':    { file: 'QNL 0047.jpg', widths: [480, 800, 1200] },
   'children-hall':  { file: 'QNL 0017.jpg', widths: [480, 800, 1200] },
   'talk-seating':   { file: 'QNL 0020.jpg', widths: [480, 800] },
+  // What's on card photos (supplied 26 Nov 2026), 3:2 crops
+  'event-storytime':{ file: '../events/storytime.jpg', widths: [480, 800, 1200] },
+  'event-workshop': { file: '../events/workshop-clay.jpg', widths: [480, 800, 1200] },
+  'event-books':    { file: '../events/books-open.jpg', widths: [480, 800, 1200] },
 };
 
 const grade = (img) =>
@@ -58,7 +62,10 @@ for (const [key, { file, widths, grade: doGrade = true }] of Object.entries(PHOT
     for (const [fmt, opts] of [['avif', { quality: 52, effort: 5 }], ['webp', { quality: 72 }], ['jpg', { quality: 74, mozjpeg: true }]]) {
       const out = path.join(OUT, `${key}-${w}.${fmt}`);
       if (await exists(out)) continue;
-      await g(sharp(src).rotate().resize({ width: w, kernel: 'lanczos3' }).sharpen(w > meta.width ? { sigma: 0.6 } : undefined)).toFormat(fmt === 'jpg' ? 'jpeg' : fmt, opts).toFile(out);
+      // Resize and sharpen first, then grade the result. Grading in the same pipeline as
+      // sharpen let dark edge pixels overflow into blue/yellow speckles.
+      const sized = await sharp(src).rotate().resize({ width: w, kernel: 'lanczos3' }).sharpen(w > meta.width ? { sigma: 0.6 } : undefined).png().toBuffer();
+      await g(sharp(sized)).toFormat(fmt === 'jpg' ? 'jpeg' : fmt, opts).toFile(out);
     }
   }
   // tiny blurred placeholder (inline base64) for card backgrounds
